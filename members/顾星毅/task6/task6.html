@@ -20,6 +20,7 @@
         height: 40px;
         text-align: left;
         padding-left: 10px;
+        /*左内边距*/
         font-size:16px;
         color: #f00;
         border-bottom: solid 1px #ccc;
@@ -29,9 +30,11 @@
       }
       a{
         text-decoration: none;
+        /*去除 a 链接的默认样式*/
       }
       .content a{
         color: blue;
+        /*a 链接不继承父容器颜色,需单独添加*/
       }
       .content a:hover{
         color: red;
@@ -42,12 +45,14 @@
       .btn{
         border: solid 1px #ccc;
         border-radius: 3px;
+        /*边框圆角*/
         padding: 4px 3px;
         display: inline-block;
         text-align: center;
       }
       table{
         border-collapse: collapse;
+        /*去除表格边框之间的间隙*/
       }
       table th ,table td{
         border: solid 1px #ccc;
