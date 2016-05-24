@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://js.jirengu.com/yagamapita/1/edit -->
+<html id="jsbin" lang="en" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>饥人谷JS Bin</title>
+  <link rel="alternate" type="application/json+oembed" href="http://js.jirengu.com/oembed?url=http://js.jirengu.com/">
+  <link rel="icon" href="http://js.jirengu.com/images/favicon.png">
+  <link rel="stylesheet" href="./饥人谷JS Bin_files/style.css">
+  <link rel="stylesheet" href="./饥人谷JS Bin_files/flat-ui.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  <!--[if lte IE 9 ]><link rel="stylesheet" href="http://js.jirengu.com/css/ie.css?3.25.5"><![endif]-->
+  
+    
+  
+  <meta name="description" content="饥人谷jsbin，让学生写代码更easy">
+  
+  <meta property="og:url" content="http://js.jirengu.com">
+  <meta property="og:title" content="JS Bin">
+  <meta property="og:description" content="A live pastebin for HTML, CSS &amp; JavaScript and a range of processors, including SCSS, CoffeeScript, Jade and more...">
+  
+  <meta property="og:image" content="http://js.jirengu.com/images/logo.png">
+<style type="text/css">#output li, #exec, .fakeInput, .fakeInput:before, #exec:before, #bin .editbox .CodeMirror, .mobile .editbox textarea{ font-size: 14px; }</style><link rel="stylesheet" href="./饥人谷JS Bin_files/font.css" type="text/css"></head>
+<!--[if lt IE 7]>  <body class="source ie ie6"> <![endif]-->
+<!--[if IE 7]>     <body class="source ie ie7"> <![endif]-->
+<!--[if gt IE 7]>  <body class="source ie">     <![endif]-->
+<!--[if !IE]><!--> <body class="source public toppanel panelsVisible ready">    <!--<![endif]-->
+
+<script>
+if(top != self) {
+  window.location = '';
+  document.write('<' + '!--');
+}
+</script>
+<a href="http://js.jirengu.com/yagamapita/1/edit#html" id="skipToEditor" class="visuallyhidden">跳过这段</a>
+
+  <div id="toppanel" class="toppanel-wrapper" style="display:none;">
+  <div class="toppanel-column toppanel-column-first">
+    <a href="http://js.jirengu.com/yagamapita/1/edit#" class="toppanel-hide" title="Close">Close welcome panel</a>
+    <a href="http://js.jirengu.com/yagamapita/1/edit#" class="toppanel-logo">
+      <img src="./饥人谷JS Bin_files/dave.min.svg" alt="Welcome to JS Bin">
+    </a>
+    <div class="toppanel-actions toppanel-actions-alone">
+      <div>
+        <a id="createnew" href="http://js.jirengu.com/" class="toppanel-button">New bin</a>
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="toppanel-column">
+    <div><label id="enableUniversalEditorLabel" for="enableUniversalEditor"><input type="checkbox" id="enableUniversalEditor">Textarea editor mode</label></div>
+    <h2 class="toppanel-title"><a href="http://jsbin.com/help/features" target="_blank" class="toppanel-link">JS Bin features</a></h2>
+      <ul class="toppanel-list">
+      <li><a href="http://jsbin.com/help/getting-started" target="_blank" class="toppanel-link">Getting started</a></li><li><a href="http://jsbin.com/help/keyboard-shortcuts" target="_blank" class="toppanel-link">Keyboard Shortcuts</a></li><li><a href="http://jsbin.com/help/export-gist" target="_blank" class="toppanel-link">Exporting/importing gist</a></li>
+      </ul>
+  </div>
+
+
+
+  <div class="toppanel-column">
+    <h2 class="toppanel-title"><a href="http://js.jirengu.com/upgrade" class="toppanel-link">Pro features</a></h2>
+      <ul class="toppanel-list">
+      <li><a href="http://jsbin.com/help/private-bins" target="_blank" class="toppanel-link">Private bins</a></li><li><a href="http://jsbin.com/help/dropbox" target="_blank" class="toppanel-link">Dropbox backup</a></li><li><a href="http://jsbin.com/help/vanity-urls" target="_blank" class="toppanel-link">Vanity URLs</a></li>
+      </ul>
+  
+  <div class="toppanel-section toppanel-love toppanel-no-pro">
+    <center><a href="http://js.jirengu.com/upgrade">Upgrade to pro now</a></center>
+  </div>
+  
+  </div>
+
+
+  <div class="toppanel-column toppanel-stretch">
+  
+    <div class="toppanel-blog toppanel-section">
+      <h2 class="toppanel-title"><a href="http://jsbin.com/blog" target="_blank" class="toppanel-link">Blog</a></h2>
+        <ul class="toppanel-list">
+        <li><a href="http://jsbin.com/blog/twdtw-10-jshint-highlighting-pro" target="_blank" class="toppanel-link">JSHint, line highlighting and more</a></li>
+        </ul>
+    </div>
+  
+  
+    <div class="toppanel-help toppanel-section">
+      <h2 class="toppanel-title"><a href="http://jsbin.com/help" target="_blank" class="toppanel-link">Help</a></h2>
+        <ul class="toppanel-list">
+        <li><a href="http://jsbin.com/help/versions" target="_blank" class="toppanel-link">Versions: processors &amp; more</a></li><li><a href="http://jsbin.com/help/delete-a-bin" target="_blank" class="toppanel-link">Delete a bin</a></li>
+        </ul>
+    </div>
+  
+  </div>
+
+  <div class="toppanel-column">
+    
+      <div class="toppanel-section">
+        <h2 class="toppanel-title"><a href="http://twitter.com/js_bin" target="_blank" class="toppanel-link">Recently on Twitter</a></h2>
+          <ul class="toppanel-list">
+          
+            
+              <li>“Additional linters for HTML, CSS &amp; CoffeeScript, changing output permission for anon users &amp; SSL for pro users!” — <a href="https://twitter.com/js_bin" target="_blank" class="toppanel-link toppanel-twitter-link">@js_bin</a></li>
+            
+          
+          </ul>
+      </div>
+    
+    
+  </div>
+
+  <div class="toppanel-column">
+  
+    <div class="toppanel-section">
+      <div class="toppanel-quote">“Everyone should learn how to program a computer because it teaches you how to think” — <span class="toppanel-quote-author">Steve Jobs</span></div>
+    </div>
+  
+    
+  </div>
+
+</div>
+
+<script>
+try {
+  if (localStorage.settings === undefined || localStorage.settings.indexOf('"toppanel":false') === -1) {
+    document.body.className += ' toppanel';
+  }
+} catch (e) {
+  // if there is no localStorage
+}
+</script>
+
+
+<div id="control">
+  <div class="control">
+    <div id="menuinfo"><p></p></div>
+    <div class="buttons">
+      
+        <div class="menu">
+          <a href="http://js.jirengu.com/edit#file" target="_blank" class="brand button button-dropdown group button-dropdown-arrow"><img src="./饥人谷JS Bin_files/favicon.svg"> 文件</a>
+          <div class="dropdown" id="file">
+            <div class="dropdownmenu">
+              <a id="createnew" data-desc="Create a brand new bin" class="button group" title="Create fresh bin" href="http://js.jirengu.com/" data-label="new">新建</a>
+ 
+              
+              <a class="deletebin button group" data-desc="Delete bin" title="Delete this bin" href="http://js.jirengu.com/delete" data-shortcut="ctrl+shift+del">删除<span class="keyshortcut">⌘⇧⌫</span></a>
+              <!-- <a class="deleteallbins button group" data-desc="Delete all bin snapshots" title="Delete all bin snapshots" href="http://js.jirengu.com/delete-all">删除所有快照</a> -->
+              
+              <a class="archivebin button group" data-desc="Archive bin" title="Archive this bin" href="http://js.jirengu.com/archive" data-shortcut="ctrl+y">压缩<span class="keyshortcut">⌘Y</span></a>
+              <a class="unarchivebin button group" data-desc="Unrchive bin" title="Restore this bin from the archive" href="http://js.jirengu.com/unarchive" data-shortcut="ctrl+shift+y" style="display: none;">解压<span class="keyshortcut">⌘⇧Y</span></a>
+              
+              <hr data-desc="">
+              <a id="addmeta" data-desc="Insert a description shown in My Bins" title="Add meta data to bin" class="button group" href="http://js.jirengu.com/yagamapita/1/edit#add-description">添加描述</a>
+              <a title="Save snapshot" data-desc="Save current work, and begin new revision on next change" data-shortcut="ctrl+s" class="button save group" data-label="save" href="http://js.jirengu.com/save">保存快照<span class="keyshortcut">⌘S</span></a>
+              <a data-desc="Copy and create a new bin start at revision #1" id="clone" title="Create a new copy" class="button clone group" data-label="clone" href="http://js.jirengu.com/clone">Clone</a>
+              <hr data-desc="">
+              <a data-desc="Export individual panels to Github&#39;s gist as an anonymous user" class="export-as-gist button group" title="创建一个 匿名 GitHub Gist" href="http://js.jirengu.com/yagamapita/1/edit#export-to-gist">导出为 gist</a>
+              <a data-desc="Download a complete html file for this bin" id="download" title="Save to local drive" class="button download group" href="http://js.jirengu.com/download" data-label="download">下载</a>
+              <a data-desc="Use content from this bin when creating new bins" class="startingpoint button group" title="Set as starting code" href="http://js.jirengu.com/save" data-label="save-as-template">保存为模板</a>
+            </div>
+          </div>
+        </div><div class="menu">
+          <span class="button group">库
+          <select id="library"><option value="none">None</option><option value="" data-group="jQuery" class="heading">-------------</option><option value="jquery:0">jQuery WIP (via git)</option><option value="jquery:1">jQuery 2.1.1</option><option value="jquery:2">jQuery Compat WIP (via git)</option><option value="jquery:3">jQuery 1.11.1</option><option value="jquery:4">jQuery 1.9.1</option><option value="" data-group="jQuery UI" class="heading">-------------</option><option value="jqueryui:0">jQuery UI WIP (via git)</option><option value="jqueryui:1">jQuery UI 1.11.2</option><option value="jqueryui:2">jQuery UI 1.10.4</option><option value="jqueryui:3">jQuery UI 1.9.2</option><option value="" data-group="jQuery Mobile" class="heading">-------------</option><option value="jquerymobile:0">jQuery Mobile WIP (via git)</option><option value="jquerymobile:1">jQuery Mobile 1.4.2</option><option value="jquerymobile:2">jQuery Mobile 1.3.2</option><option value="jquerymobile:3">jQuery Mobile 1.2.1</option><option value="jquerymobile:4">jQuery Mobile 1.1.2</option><option value="" data-group="Bootstrap" class="heading">-------------</option><option value="bootstrap:0">Bootstrap Latest</option><option value="bootstrap:1">Bootstrap 2.3.2</option><option value="" data-group="Prototype" class="heading">-------------</option><option value="prototype:0">Prototype latest</option><option value="prototype:1">Prototype 1.7.1</option><option value="prototype:2">Prototype 1.6.1.0</option><option value="prototype:3">script.aculo.us latest</option><option value="prototype:4">script.aculo.us 1.8.3</option><option value="" data-group="YUI" class="heading">-------------</option><option value="yui:0">YUI 3.10.0</option><option value="yui:1">YUI 2.9.0</option><option value="" data-group="MooTools" class="heading">-------------</option><option value="mootools:0">MooTools 1.5.0</option><option value="mootools:1">MooTools 1.5.0 (without 1.2+ compatibility layer)</option><option value="mootools:2">MooTools 1.4.5</option><option value="" data-group="Dojo" class="heading">-------------</option><option value="dojo:0">Dojo latest</option><option value="dojo:1">Dojo 1.8.4</option><option value="dojo:2">Dojo 1.7.4</option><option value="dojo:3">Dijit latest (Claro)</option><option value="dojo:4">Dijit 1.8.4 (Claro)</option><option value="dojo:5">Dijit 1.7.4 (Claro)</option><option value="" data-group="Kendo UI" class="heading">-------------</option><option value="kendoui:0">Kendo UI Core 2014.Q2</option><option value="kendoui:1">Kendo UI 2014.Q2</option><option value="kendoui:2">Kendo UI 2014.Q1</option><option value="" data-group="Testing" class="heading">-------------</option><option value="testing:0">QUnit</option><option value="" data-group="AMD" class="heading">-------------</option><option value="amd:0">RequireJS</option><option value="" data-group="Zepto" class="heading">-------------</option><option value="zepto:0">Zepto latest</option><option value="zepto:1">Zepto 1.0</option><option value="" data-group="Angular" class="heading">-------------</option><option value="angular:0">Angular 1.3.2 Stable</option><option value="angular:1">Angular 1.3.2 Stable Uncompressed</option><option value="angular:2">Angular 1.2.26 Legacy</option><option value="" data-group="React" class="heading">-------------</option><option value="react:0">React 0.12.0</option><option value="react:1">React with Add-Ons 0.12.0</option><option value="" data-group="Other" class="heading">-------------</option><option value="other:0">Vue.js</option><option value="other:1">Autoprefixer</option><option value="other:2">Backbone latest</option><option value="other:3">MarionetteJS latest</option><option value="other:4">Bonsai 0.4.latest</option><option value="other:5">CoffeeScript</option><option value="other:6">Ember.js 1.9.0</option><option value="other:7">ES5 shim 2.0.8</option><option value="other:8">ext-core 3.1.0</option><option value="other:9">Foundation 5.0.3</option><option value="other:10">Handlebars.js 1.0.0</option><option value="other:11">Knockout 3.0.0</option><option value="other:12">Less 1.3.3</option><option value="other:13">Lo-Dash 2.4.1</option><option value="other:14">Modernizr Development latest</option><option value="other:15">Detectizr 1.5.0</option><option value="other:16">Prefixfree 1.0.7</option><option value="other:17">Processing 1.4.1</option><option value="other:18">D3 3.x</option><option value="other:19">Highcharts latest</option><option value="other:20">Raphaël 2.1.0</option><option value="other:21">Chartist.js latest</option><option value="other:22">Sammy 0.7.4</option><option value="other:23">Sencha Touch</option><option value="other:24">Traceur</option><option value="other:25">TwitterLib</option><option value="other:26">underscore</option><option value="other:27">CanJS 2.0.3</option><option value="other:28">Three.js r67</option><option value="other:29">HTML5 shiv</option><option value="other:30">Polymer 0.3.3</option><option value="other:31">Font Awesome 4.0.3</option><option value="other:32">Paper.js 0.9.12</option><option value="other:33">OpenUI5 latest (Mobile BlueCrystal)</option><option value="other:34">GSAP 1.11.7</option><option value="other:35">Phaser 2.0.5</option><option value="other:36">Video.js 4.6.x</option><option value="other:37">AUI (Atlassian UI) 5.7.0</option><option value="other:38">Firebase 2.0.2</option><option value="other:39">Ionic 1.0.0-beta-13</option><option value="other:40">OpenTok 2.2</option><option value="" data-group="Enyo" class="heading">-------------</option><option value="enyo:0">Enyo latest</option><option value="enyo:1">Enyo 2.2.0</option><option value="" data-group="Promises" class="heading">-------------</option><option value="promises:0">Bluebird 1.2.2</option><option value="promises:1">Promise 4.0.0</option><option value="promises:2">Q 1.0.1</option><option value="promises:3">RSVP 3.0.6</option><option value="" data-group="RxJS" class="heading">-------------</option><option value="rxjs:0">rx.all</option><option value="rxjs:1">rx.testing</option><option value="rxjs:2">rx.dom</option></select>
+          </span>
+        </div><div id="sharemenu" class="menu">
+          <a href="http://js.jirengu.com/yagamapita/1/edit#share" class="button button-dropdown group">Share</a>
+          <div class="dropdown" id="share">
+            <div class="dropdowncontent">
+              <form>
+                
+                <div data-desc="This bin&#39;s full output without the JS Bin editor">
+                  <strong><a class="link" data-path="/" target="_blank" href="http://js.jirengu.com/yagamapita/1/">Output only (with live reload)</a></strong><br><input data-path="/" class="link" id="livepreview" value="http://js.jirengu.com/" type="text">
+                </div>
+                <hr>
+                <div id="sharepanels">
+                  <strong>Select panels to show:</strong>
+                  <ul class="inline">
+                    <li><label><input type="checkbox" data-panel="html">HTML</label></li>
+                    <li><label><input type="checkbox" data-panel="css">CSS</label></li>
+                    <li><label><input type="checkbox" data-panel="javascript">JS</label></li>
+                    <li><label><input type="checkbox" data-panel="console">Console</label></li>
+                    <li><label><input type="checkbox" data-panel="live">Output</label></li>
+                  </ul>
+                </div>
+                <div data-desc="The url to this bin with the JS Bin editor">
+                  <a class="link heading" data-path="/edit" target="_blank" href="http://js.jirengu.com/yagamapita/1/edit">Link</a><br><input data-path="/edit" class="link" value="http://js.jirengu.com/edit" type="text">
+                </div>
+                <div data-desc="Embed this bin with the live output on your site">
+                  <span class="heading">Embed</span><br><textarea id="embedfield" data-path="/embed" class="link">&lt;a class="jsbin-embed" href="http://js.jirengu.com/embed?live"&gt;JS Bin demo&lt;/a&gt;&lt;script src="http://js.jirengu.com/js/embed.js"&gt;&lt;/script&gt;</textarea>
+                </div>
+                <div data-desc="Training/Viewer mode: codecast your bin to any viewers" class="">
+                  <a class="link heading" target="_blank" data-path="/watch" href="http://js.jirengu.com/yagamapita/1/watch">Codecast</a><br><input data-path="/watch" class="link" value="http://js.jirengu.com/watch" type="text">
+                </div>
+                <div data-desc="Disallow further changes to this specific revision" data-shortcut="ctrl+s" class="lockoption" id="enablelock"><div title="Locks the bin&#39;s content so no more changes will be made this URL, and typing will create a new bin as if you &#39;created milestone&#39;" class="icon-unlocked lockrevision"><span>Click to lock and prevent further changes</span></div>
+                
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+        <div id="start-saving" class="menu">
+          <a href="http://js.jirengu.com/save" class="save button group">Start saving your work</a>
+        </div>
+      
+      <div id="panels"><a role="button" class="button group hasContent active" href="http://js.jirengu.com/yagamapita/1/edit?html" aria-label="HTML Panel: Active">HTML</a><a role="button" class="button group" href="http://js.jirengu.com/yagamapita/1/edit?css" aria-label="CSS Panel: Inactive">CSS</a><a role="button" class="button group" href="http://js.jirengu.com/yagamapita/1/edit?javascript" aria-label="JavaScript Panel: Inactive">JavaScript</a><a role="button" class="button group" href="http://js.jirengu.com/yagamapita/1/edit?console" aria-label="Console Panel: Inactive">Console</a><a role="button" class="button group active" href="http://js.jirengu.com/yagamapita/1/edit?live" aria-label="Output Panel: Active">Output</a></div>
+      <div class="help">
+        
+          
+            
+              <div class="menu">
+                
+                <a href="http://js.jirengu.com/login" class="button button-dropdown focusbtn" id="loginbtn">Login or Register</a>
+                <div class="dropdown login" id="registerLogin">
+                  <div class="dropdowncontent">
+                    <a class="btn-github" href="http://js.jirengu.com/auth/github">
+                      <img src="./饥人谷JS Bin_files/github-32.png">
+                      Login or Register via GitHub
+                    </a>
+                    <span class="login-group">
+                      Or
+                      <a class="btn-login" href="http://js.jirengu.com/login">use your email address</a>
+                    </span>
+                  </div>
+                </div>
+                
+              </div>
+            
+          
+        
+
+        
+        <div class="menu">
+          <a href="http://js.jirengu.com/yagamapita/1/edit#help" class="button button-dropdown">帮助</a>
+          <div class="dropdown dd-right" id="help">
+            <div class="dropdownmenu">
+              <a data-shortcut="ctrl+shift+?" data-desc="Discover poweruser keyboard shortcuts" id="showhelp" href="http://js.jirengu.com/yagamapita/1/edit#keyboardHelp">Keyboard shortcuts<span class="keyshortcut">⌘⇧?</span></a>
+              <a data-desc="Shortcut &amp; direct access JS Bin URLs" id="showurls" href="http://js.jirengu.com/yagamapita/1/edit#urls">JS Bin URLs</a>
+              <hr data-desc="">
+              
+              <a data-desc="Learn about JS Bin features &amp; tricks" target="_blank" href="http://jsbin.com/help">Help topics</a>
+              
+              <hr data-desc="">
+              
+              <a data-desc="Help make JS Bin better" id="newissue" target="_blank" href="http://github.com/jsbin/jsbin/issues/new">Send feedback &amp; file bugs</a>
+              <a data-desc="Help make JS Bin better" target="_blank" href="http://github.com/jsbin/jsbin/">Fork on Github</a>
+              <a data-desc="Find out the latest news &amp; info" target="_blank" href="http://twitter.com/js_bin">Follow @js_bin</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="bin" class="stretch">
+  <div id="source" class="binview stretch" style="padding-left: 0px;">
+  <div class="stretch panelwrapper" style="display: block; top: 0px; bottom: 0px; left: 0%; right: 50.0488%;"><div class="code stretch html panel focus">
+      <div class="label menu"><span class="name"><strong><a href="http://js.jirengu.com/yagamapita/1/edit#htmlprocessors" class="fake-dropdown button-dropdown">HTML</a></strong><span style="opacity: 0;">Saved</span></span><div class="dropdown" id="htmlprocessors">
+          <div class="dropdownmenu processorSelector" data-type="html">
+            <a href="http://js.jirengu.com/yagamapita/1/edit#html">HTML</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#markdown">Markdown</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#jade">Jade</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#convert">Convert to HTML</a>
+          </div>
+        </div>
+      </div>
+      <div class="editbox">
+        <textarea aria-label="HTML Code Panel" spellcheck="false" autocapitalize="none" autocorrect="off" id="html" style="display: none;"></textarea><div class="CodeMirror cm-s-jsbin CodeMirror-wrap  "><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 247px; left: 64.3438px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1" style="height: 572px;"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 285px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" style="padding-top: 39px;"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 64.3438px; top: 208px; height: 16px;">&nbsp;</div></div><div class="CodeMirror-code"><pre class=""><span style="padding-right: 0.1px;"><span class="cm-meta">&lt;!DOCTYPE html&gt;</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">meta</span> <span class="cm-attribute">charset</span>=<span class="cm-string">"utf-8"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>JS Bin<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-keyword">function</span> <span class="cm-variable">Hello</span>(){</span></pre><div class="" style="position: relative;"><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp;  <span class="cm-variable">document</span>.<span class="cm-property">write</span>(<span class="cm-string">"Hello"</span>)</span></pre></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><div class="" style="position: relative;"><pre><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div class="" style="position: relative;"><pre><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div class="" style="position: relative;"><pre><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">type</span>=<span class="cm-string">"button"</span> <span class="cm-attribute">value</span>=<span class="cm-string">"ClickMe"</span> <span class="cm-attribute">onclick</span>=<span class="cm-string">"Hello()"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><pre><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 285px;"></div><div class="CodeMirror-gutters" style="display: none; height: 572px;"></div></div></div>
+      </div>
+    </div></div><div class="resize" style="display: none;"></div><div class="stretch panelwrapper" style="display: none;"><div class="code stretch css panel">
+      <div class="label menu"><span class="name"><strong><a class="fake-dropdown button-dropdown" href="http://js.jirengu.com/yagamapita/1/edit#cssprocessors">CSS</a></strong><span>Saved</span></span>
+        <div class="dropdown" id="cssprocessors">
+          <div class="dropdownmenu processorSelector" data-type="css">
+            <a href="http://js.jirengu.com/yagamapita/1/edit#css">CSS</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#less">Less</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#myth">Myth</a>
+            
+            <a href="http://js.jirengu.com/yagamapita/1/edit#sass" data-label="Sass">Sass <span class="small">with Compass</span></a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#scss" data-label="SCSS">SCSS <span class="small">with Compass</span></a>
+            
+            <a href="http://js.jirengu.com/yagamapita/1/edit#stylus">Stylus</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#convert">Convert to CSS</a>
+          </div>
+        </div>
+      </div>
+      <div class="editbox">
+        <textarea aria-label="CSS Code Panel" spellcheck="false" autocapitalize="none" autocorrect="off" id="css" style="display: none;"></textarea><div class="CodeMirror cm-s-jsbin CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"><pre><span style="padding-right: 0.1px;"><span style="display: inline-block; width: 1px; margin-right: -1px;">&nbsp;</span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"></div><div class="CodeMirror-code"></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div>
+      </div>
+    </div></div><div class="resize" style="display: none;"></div><div class="stretch panelwrapper" style="display: none;"><div class="code stretch javascript panel">
+      <div class="label menu"><span class="name"><strong><a class="fake-dropdown button-dropdown" href="http://js.jirengu.com/yagamapita/1/edit#javascriptprocessors">JavaScript</a></strong><span>Saved</span></span>
+        <div class="dropdown" id="javascriptprocessors">
+          <div class="dropdownmenu processorSelector" data-type="javascript">
+            <a href="http://js.jirengu.com/yagamapita/1/edit#javascript">JavaScript</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#coffeescript">CoffeeScript</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#jsx">JSX (React)</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#to5">6to5</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#traceur">Traceur</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#typescript">TypeScript</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#processing">Processing</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#livescript">LiveScript</a>
+            <a href="http://js.jirengu.com/yagamapita/1/edit#convert">Convert to JavaScript</a>
+          </div>
+        </div>
+      </div>
+      <div class="editbox">
+        <textarea aria-label="JavaScript Code Panel" spellcheck="false" autocapitalize="none" autocorrect="off" id="javascript" style="display: none;"></textarea><div class="CodeMirror cm-s-jsbin CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"><pre><span style="padding-right: 0.1px;"><span style="display: inline-block; width: 1px; margin-right: -1px;">&nbsp;</span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"></div><div class="CodeMirror-code"></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div>
+      </div>
+    <details class="console-wrapper"><summary class="console-log-head" style="display: none;"></summary><div class="console-log" style="display: none;"></div></details></div></div><div class="resize" style="display: none;"></div><div class="stretch panelwrapper" style="display: none;"><div class="stretch console panel">
+      <div class="label">
+        <span class="name"><strong>Console</strong></span>
+        <span class="options">
+          <button id="runconsole" title="ctrl + enter" style="display: none;">Run</button>
+          <button id="clearconsole" title="ctrl + l">Clear</button>
+        </span>
+      </div>
+      <div id="console" class="stretch"><ul id="output"><li class="echo"><span class="gutter"></span><div>:help</div></li><li class="info"><span class="gutter"></span><div class="response"><span>:reset - destroy state and start afresh
+:history - list current session history
+:load &lt;url&gt; - to inject new DOM
+:load &lt;script_url&gt; - to inject external library
+      load also supports following shortcuts: <br>      jquery, underscore, prototype, mootools, dojo, rightjs, coffeescript, yui.<br>      eg. :load jquery
+:clear - to clear contents of the console
+:about jsconsole</span></div></li><li class="error"><span class="gutter"></span><div><span class="typ">Warning</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Something</span><span class="pln"> went wrong </span><span class="kwd">while</span><span class="pln"> saving</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Your</span><span class="pln"> most recent work </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> saved</span><span class="pun">.</span></div></li><li class="error"><span class="gutter"></span><div><span class="typ">Warning</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Something</span><span class="pln"> went wrong </span><span class="kwd">while</span><span class="pln"> saving</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Your</span><span class="pln"> most recent work </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> saved</span><span class="pun">.</span></div></li><li class="error"><span class="gutter"></span><div><span class="typ">Warning</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Something</span><span class="pln"> went wrong </span><span class="kwd">while</span><span class="pln"> saving</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Your</span><span class="pln"> most recent work </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> saved</span><span class="pun">.</span></div></li></ul><form><div autofocus="" id="exec" autocapitalize="off" spellcheck="false"><span id="cursor" spellcheck="false" autocapitalize="off" autocorrect="off" contenteditable=""></span></div></form></div>
+    </div></div><div class="resize" style="display: block; top: 0px; bottom: 0px; width: 8px; margin-left: -4px; height: 100%; right: auto; opacity: 0; position: absolute; cursor: ew-resize; border-left-width: 1px; border-left-style: solid; border-left-color: rgba(218, 218, 218, 0.498039); z-index: 99999; left: 49.9512%;"></div><div class="stretch panelwrapper" style="display: block; top: 0px; bottom: 0px; right: 0%; border-top-width: 0px; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(204, 204, 204); left: 49.9512%;"><div id="live" class="stretch live panel"><iframe class="stretch" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts" frameborder="0" name="&lt;proxy&gt;" src="./饥人谷JS Bin_files/runner.html"></iframe>
+      <div class="label">
+        <span class="name"><strong>Output</strong></span>
+        <span class="options">
+          <button id="runwithalerts" title="ctrl + enter
+Include alerts, prompts &amp; confirm boxes">Run with JS</button>
+          <label>Auto-run JS<input type="checkbox" id="enablejs" checked="checked"></label>
+          <a target="_blank" title="Live preview" id="jsbinurl" class="" href="http://js.jirengu.com/yagamapita"><img src="./饥人谷JS Bin_files/popout.png"></a>
+        </span>
+        <span class="size" style="display: none;">512px</span>
+      </div>
+    </div></div></div>
+  <div id="panelswaiting">
+    
+    
+    
+    
+    
+  </div>
+  
+  <form id="saveform" method="post" action="http://js.jirengu.com/yagamapita/1/save"><input type="hidden" name="javascript" value=""><input type="hidden" name="html" value="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+《
+&lt;/body&gt;
+&lt;/html&gt;"><input type="hidden" name="css" value=""><input type="hidden" name="method" value="save"><input type="hidden" name="_csrf" value="CXn3yRj8KhGiEzlu1lRqOMqG"><input type="hidden" name="settings" value="{&quot;processors&quot;:{&quot;html&quot;:&quot;html&quot;,&quot;css&quot;:&quot;css&quot;,&quot;javascript&quot;:&quot;javascript&quot;}}"><input type="hidden" name="checksum" value="false"></form>
+  
+</div>
+<div id="tip" class=" notification">
+  <p>
+    
+    You can jump to the latest bin by adding <code>/latest</code> to your URL
+  </p>
+  <a class="dismiss" href="http://js.jirengu.com/yagamapita/1/edit#">Dismiss x</a>
+</div>
+<div id="keyboardHelp" class="modal">
+  <div>
+    <h2>Keyboard Shortcuts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="shortcut">Shortcut</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>cmd + [num]</td>
+          <td>Toggle nth panel</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <small>
+              <input type="checkbox" id="enablealt" class="enablealt">
+              <label for="enablealt">Require alt key, leaving cmd+1, 2 etc for tab switching.</label>
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td>cmd + 0</td>
+          <td>Close focused panel</td>
+        </tr>
+        <tr>
+          <td>cmd + enter</td>
+          <td>Re-render output.<br>If console visible: run JS in console</td>
+        </tr>
+        <tr>
+          <td>ctrl + l</td>
+          <td>Clear the console</td>
+        </tr>
+        <tr>
+          <td>cmd + /</td>
+          <td>Toggle comment on selected lines</td>
+        </tr>
+        <tr>
+          <td>cmd + [</td>
+          <td>Indents selected lines</td>
+        </tr>
+        <tr>
+          <td>cmd + ]</td>
+          <td>Unindents selected lines</td>
+        </tr>
+        <tr>
+          <td>tab</td>
+          <td>Code complete &amp; <a href="http://docs.emmet.io/" target="_blank">Emmet</a> expand</td>
+        </tr>
+        <tr>
+          <td>cmd + shift + L</td>
+          <td>Beautify code in active panel</td>
+        </tr>
+        <tr>
+          <td>cmd + s</td>
+          <td>Save &amp; lock current Bin from further changes</td>
+        </tr>
+        <tr>
+          <td>cmd + shift + s</td>
+          <td>Open the share options</td>
+        </tr>
+        <tr>
+          <td>cmd + y</td>
+          <td>Archive Bin</td>
+        </tr>
+        <tr><td colspan="2"><small><br><a href="http://js.jirengu.com/help/keyboard-shortcuts" target="_blank">Complete list of JS Bin shortcuts</a></small></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="urlHelp" class="modal">
+  <div>
+    <h2>JS Bin URLs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="shortcut">URL</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>/</td>
+          <td>Show the full rendered output.<br><small>This content will update in real time as it's updated from the /edit url.</small></td>
+        </tr>
+        <tr>
+          <td>/edit</td>
+          <td>Edit the current bin</td>
+        </tr>
+        <tr>
+          <td>/watch</td>
+          <td>Follow a Code Casting session</td>
+        </tr>
+        <tr>
+          <td>/embed</td>
+          <td>Create an embeddable version of the bin</td>
+        </tr>
+        <tr>
+          <td>/latest</td>
+          <td>Load the very latest bin (/latest goes in place of the revision)</td>
+        </tr>
+        <tr>
+          <td>/[username]/last</td>
+          <td>View the last edited bin for this user</td>
+        </tr>
+        <tr>
+          <td>/[username]/last/edit</td>
+          <td>Edit the last edited bin for this user</td>
+        </tr>
+        <tr>
+          <td>/[username]/last/watch</td>
+          <td>Follow the Code Casting session for the latest bin for this user</td>
+        </tr>
+        <tr>
+          <td>/quiet</td>
+          <td>Remove analytics and edit button from rendered output</td>
+        </tr>
+        <tr>
+          <td>.js</td>
+          <td>Load only the JavaScript for a bin</td>
+        </tr>
+        <tr>
+          <td>.css</td>
+          <td>Load only the CSS for a bin</td>
+        </tr>
+        <tr><td colspan="2"><br><small>Except for username prefixed urls, the url may start with http://jsbin.com/abc and the url fragments can be added to the url to view it differently.</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div>
+  <div class="card author meta" id="infocard">
+    <div class="body">
+      
+      <ul class="controls">
+        <li><a href="http://js.jirengu.com/clone">Clone</a> </li>
+        <li><a class="startingpoint" href="http://js.jirengu.com/save-as-template">Save as template</a> </li>
+        <li><a class="export-as-gist" href="http://js.jirengu.com/yagamapita/1/edit#export-gist">Export gist</a> </li>
+        <li class="owner"><a href="http://js.jirengu.com/download">Download</a> </li>
+        
+        <li class="owner"><a class="deletebin" href="http://js.jirengu.com/delete">Delete</a></li>
+        
+      </ul>
+    </div>
+    <header><img>
+      <div class="visibility"></div>
+      <div class="meta">
+        <div class="author">Bin info</div>
+        <div class="name"><b></b><span class="pro">pro</span></div><span class="when"><canvas width="11" height="11"></canvas><time>just now</time></span>
+      </div>
+      <div class="viewers"><b>0</b><span>viewers</span></div>
+    </header>
+  </div>
+</div>
+
+
+
+<!--[if lte IE 8]>
+<script src="http://js.jirengu.com/js/vendor/jshint/jshint.old.min.js"></script>
+<script> document.write('<!--'); </script>
+<![endif]-->
+
+<script src="./饥人谷JS Bin_files/jshint.min.js"></script>
+
+--&gt;
+
+<script src="./饥人谷JS Bin_files/jquery-1.11.0.min.js"></script>
+
+
+<script src="./饥人谷JS Bin_files/jsbin-3.25.5.min.js"></script>
+<script>
+  start({"html":"<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>JS Bin</title>\n</head>\n<body>\n\n</body>\n</html>","css":"","javascript":"","url":"http://js.jirengu.com"}, {"root":"http://js.jirengu.com","shareRoot":"http://js.jirengu.com","runner":"http://js.jirengu.com/runner","static":"http://js.jirengu.com","version":"3.25.5","state":{"token":"CXn3yRj8KhGiEzlu1lRqOMqG","stream":false,"streaming":false,"code":null,"revision":null,"processors":{},"checksum":null,"metadata":{},"latest":false},"settings":{"panels":["html","live"]},"user":{"settings":{}}}, this, document);
+</script>
+
+
+
+
+
+</body></html>
