@@ -1,0 +1,18 @@
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #FF7F50;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: "微软雅黑";
+  text-align: center;
+  padding: 4px 5px;
+  border: none;
+}
+.btn:hover{
+  background-color: #c14d21;
+}
+.btn:active{
+  background-color: #e25f31;
+}
