@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sprite</title>
+    <style media="screen">
+    .player{
+      width: 250px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+      font-family: "微软雅黑";
+      text-align: center;
+    }
+      .icon{
+        display: inline-block;
+        width:40px;
+        height: 30px;
+        background: url(abc.png) 0 0 no-repeat;
+        /*设置abc.png为背景图片,不发生偏移(图片位于元素**左上角**),不产生平铺效果。*/
+        padding-left: 32px;
+        /*背景图片会占据内边框*/
+      }
+      .a{background-position: -1px -3px;}
+      .b{background-position: 0px -45px;}
+      .c{background-position: -4px -92px;}
+      .a:hover{background-position: -2px -138px;}
+      .b:hover{background-position: -5px -186px;}
+      .c:hover{background-position: 0px -230px;}
+
+      @font-face {font-family: 'iconfont';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+  .iconfont{
+    font-family:"iconfont" !important;
+    font-size:25px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+    .iconfont:hover{
+      color: purple;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="player">
+      <div class="icon a">前进</div>
+      <div class="icon b">开始</div>
+      <div class="icon c">停止</div>
+    </div>
+    <h4>字体图标</h4>
+    <div class="player">
+      <span><i class="iconfont">&#xe67c;</i>&nbsp;前进</span>
+      <span><i class="iconfont">&#xe60b;</i>&nbsp;开始</span>
+      <span><i class="iconfont">&#xe8c2;</i>&nbsp;停止</span>
+    </div>
+  </body>
+</html>
