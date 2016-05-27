@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/**
+ * @authors Du Xian (286489501@qq.com)
+ * @date    2016-05-27 15:43:16
+ */
+body,div,p,h1,ul,li{font-family:"微软雅黑";margin:0px;padding: 0px;outline:none;list-style:none;}
+header,footer,aside,section{display: block;margin:0;padding: 0;}
+a{text-decoration: none;}
+
+.center{width: 900px; margin: 0 auto;}
+#header{background: #333;width: 100%; height: 50px;}
+#header #logo{float: left; height: 50px;}
+#header #logo img{display: block;height: 50px;}
+#header .nav{float: right; height: 50px;}
+#header .nav li{float: left;font-size: 16px;line-height: 50px; margin: 0 20px;}
+#header .nav li a{color: #fff;}
+#header .nav li a:hover{color: #0ff}
+
+
+
+
+
+
+
