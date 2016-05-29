@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>form</title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+        }
+
+        .form {
+            font-family: cursive;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .comment {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form" action="index.html" method="post">
+
+        <ul class="li_form">
+            <li>
+                <p>姓名：
+                    <input type="text" name="name" placeholder="用户名" />
+                </p>
+            </li>
+            <li>
+                <p>
+                    密码：
+                    <input type="password" name="password" placeholder="*********" />
+                </p>
+            </li>
+            <li>
+                <p>
+                    性别：
+                    <input type="radio" name="sex" value="male" checked>男
+                    <input type="radio" name="sex" value="female">女
+                </p>
+            </li>
+            <li>
+                <p>
+                    取向：
+                    <input type="radio" name="love" value="male">男
+                    <input type="radio" name="love" value="female" checked>女
+                </p>
+            </li>
+            <li>
+                <p>
+                    爱好：
+                    <input type="checkbox" name="interest" value="dota">dota
+                    <input type="checkbox" name="interest" value="treval" checked>旅游
+                    <input type="checkbox" name="interest" value="pet" checked>宠物
+                </p>
+            </li>
+            <li>
+                <p>
+                    评论：
+                    <textarea class="comment" name="tcommet" placeholder="请输入"></textarea>
+                </p>
+            </li>
+            <li>
+                <p>
+                    我的car：
+                    <select class="" name="car">
+                        <option>萨博</option>
+                        <option>奔驰</option>
+                        <option>宝马</option>
+                        <option>奥迪</option>
+                    </select>
+                    <input type="submit" value="提交" />
+                </p>
+            </li>
+
+        </ul>
+
+
+
+
+
+
+
+
+
+
+    </form>
+
+</body>
+
+</html>
