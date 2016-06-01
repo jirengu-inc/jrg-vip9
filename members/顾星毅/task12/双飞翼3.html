@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>圣杯3</title>
+  </head>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #header,#footer{
+      height: 20px;
+      background-color: #ccc;
+    }
+    #content:after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    #main{
+      background-color: green;
+      width: 100%;
+      float: left;
+    }
+    #sidebar-l{
+      background-color: red;
+      width: 200px;
+      height: 300px;
+      float: left;
+      margin-left: -100%;
+    }
+    #sidebar-r{
+      background-color: yellow;
+      width: 200px;
+      height: 300px;
+      float: left;
+      margin-left: -200px;
+    }
+    #son{
+      margin: 0 200px;
+    }
+  </style>
+  <body>
+    <div id="header">头部</div>
+    <div id="content">
+      <div id="main">
+       <div id="son">双飞翼布局原理及实现步骤
+原理:利用浮动,margin
+实现步骤:
+1.在父容器下建立三栏,主体放在首位,三栏全部左浮动
+2.主体宽度为父元素100%,侧边栏宽度自定义
+3.为边栏设置负margin,左边栏margin-left: -100%，右边栏margin-left值等于该边栏宽度的负值。
+4.给主体建立一个子元素,子元素的左右margin应对照侧边栏的宽度(如需留间隙则margin大于侧边栏宽度,不需要则相等)
+5.父元素利用伪类元素after清除浮动。</div>
+      </div>
+      <div id="sidebar-l">左侧边栏,固定宽度</div>
+      <div id="sidebar-r">右侧边栏,固定宽度</div>
+    </div>
+    <div id="footer">尾部</div>
+  </body>
+</html>
