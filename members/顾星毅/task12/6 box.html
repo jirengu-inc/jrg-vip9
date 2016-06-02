@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>demo</title>
+  </head>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .content{
+      width: 660px;
+      height: 150px;
+      background-color: #ccc;
+      margin-left: -20px;
+    }
+   .content:after{
+      content: "";
+      clear: both;
+      display: block;
+   }
+    .box{
+      width: 200px;
+      height: 50px;
+      background-color: green;
+      float: left;
+      margin-left: 20px;
+      margin-top: 15px;
+    }
+  </style>
+  <body>
+    <div class="content">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+    </div>
+  </body>
+</html>
