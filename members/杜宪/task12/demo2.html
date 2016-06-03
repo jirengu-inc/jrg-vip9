@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>圣杯布局</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+	body,div,header,footer{padding: 0;margin:0;}
+	#header,#footer{height: 50px;background: #ccc;}
+	.main{padding: 0 200px;}
+	.main:after{content: " ";display: block;clear: both;}
+	.sidebar_left{width: 200px;float: left;min-height: 300px;background: #FC0000;margin-left:-200px;}
+	.sidebar_right{width: 200px;float: left;min-height: 300px;background: #FFFF00;margin-right:-200px; }
+	.content{float: left;width: 100%;background: #148200;}
+</style>
+</head>
+<body>
+    <header id="header">头部</header>
+    <div class="main">
+    	<div class="sidebar_left">左侧边栏,固定宽度</div>
+    	<div class="content">
+    		圣杯布局原理及实现步骤 原理:利用浮动,负margin以及position:relative使侧边栏占据父元素的左右padding的空间。 实现步骤: 1.在父容器下建立三栏,主体放在首位,三栏全部左浮动 2.主体宽度为父元素100%,侧边栏宽度应对照父容器padding(如需留间隙则宽度小于padding,不需要则相等) 3.为边栏设置负margin,左边栏margin-left: -100%，右边栏margin-left值等于该边栏宽度的负值。 4.设置position: relative,左边栏left值为父容器padding负值；右边栏，left值为父容器padding。 5.父元素利用伪类元素after清除浮动。
+    	</div>
+    	<div class="sidebar_right">右侧边栏,固定宽度</div>
+    </div>
+    <footer id="footer">底部</footer>
+</body>
+</html>
