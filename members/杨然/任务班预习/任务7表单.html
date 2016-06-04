@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>任务7表单</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<style>
+			.rows {
+				display: table-row;
+			}
+			div.rows p {
+				display: table-cell;
+				vertical-align: top;
+				padding: 3px;
+			}
+			form textarea {
+				width: 300px;
+				height: 150px;
+			}
+			div.rows p:first-child {
+				text-align: right;
+			}
+			form {
+				display: table;
+				line-height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="">
+			<div class="rows">
+				<p>
+					姓名:
+				</p>
+				<p>
+					<input type="text" name="name" value="" placeholder="用户名">
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					密码:
+				</p>
+				<p>
+					<input type="password" name="pass" value="">
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					性别:
+				</p>
+				<p>
+					<input type="radio" name="sex" value="man" checked="checked">男
+					<input type="radio" value="women" name="sex">女
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					取向:
+				</p>
+				<p>
+					<input type="radio" name="love" value="man">男
+					<input type="radio" name="love" value="women" checked="checked">女
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					爱好:
+				</p>
+				<p>
+					<input type="checkbox" name="hobby[]" value="dota">dota
+					<input type="checkbox" name="hobby[]" value="tour" checked="checked">旅游
+					<input type="checkbox" name="hobby[]" value="pet" checked="checked">宠物
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					评论:
+				</p>
+				<p>
+					<textarea name="Comments" placeholder="评论" value=""></textarea>
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					我的car:
+				</p>
+				<p>
+					<select name="car">
+						<option value="audi">奥迪</option>
+						<option value="benchi">奔驰</option>
+						<option value="baoma">宝马</option>
+					</select>
+					<input type="submit" value="提交">
+				</p>
+			</div>
+		</form>
+	</body>
+</html>
