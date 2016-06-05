@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task6-1</title>
+    <style type="text/css">
+        #a {
+            border: 1px solid red;
+            width: 200px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            margin:auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a">这里是<a href="">饥人谷</a></div>
+
+</body>
+
+</html>
