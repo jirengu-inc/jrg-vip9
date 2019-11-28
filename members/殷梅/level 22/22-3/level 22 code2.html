@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+	<ul class="ct">
+	    <li data-img="imgs/1.jpeg">鼠标放置查看图片1</li>
+	    <li data-img="imgs/2.jpeg">鼠标放置查看图片2</li>
+	    <li data-img="imgs/3.jpeg">鼠标放置查看图片3</li>
+	</ul>
+
+	<div class="img-preview"></div>
+    <script>
+   	  var ct = document.querySelector('.ct')
+   	  	  childs = ct.querySelectorAll('li'),
+      	 preview = document.querySelector('.img-preview');
+
+  
+
+  for(var i=0; i<childs.length; i++){
+    childs[i].addEventListener('mouseenter', function(){
+       var dataImg = this.getAttribute('data-img');
+       preview.innerHTML = '<img src="' + dataImg + '">'
+    });
+}
+
+  //     ct.addEventListener('mouseenter', function(e){
+  //     if(e.target.tagName.toLowerCase() === 'li'){
+  //     	var newImg = document.createElement('img');
+  //     	newImg.setAttribute(src,'');
+  //       newImg.src = childs.getAttribute('data-img');
+  //       preview.appendChild(e);
+  // //       
+  //     }
+  // });
+
+
+
+    </script>
+</body>
+
+</html>
+
+

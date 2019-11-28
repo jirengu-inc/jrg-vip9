@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务6-HTML3</title>
+    <style>
+        .box1{
+            border: 1px solid #ccc;
+            width: 200px;
+            height: 80px;
+            font-size: 14px;
+            color: #f0f;
+            line-height: 80px;
+            text-align:center;
+        }
+
+        .dialog{
+            border: 1px solid #ccc;
+        }
+        .dialog .header{
+            height: 40px; text-align: left;
+            padding-left: 10px;
+            font-size: 16px;
+            color: #f00;
+            border-bottom: 1px solid #ccc;
+        }
+        .dialog .content{
+            height: 100px;
+        }
+        .dialog .content a{
+            text-decoration: none;
+            color: blue;
+        }
+        .dialog .content:hover a{
+            color: red;
+        }
+
+        .dialog .footer{
+            height: 50px;
+            text-align: center;
+        }
+        .dialog .footer .btn{
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 4px 3px;
+            display: inline-block;
+        }
+
+        table{
+            width: 100%;
+            border-left: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+        }
+        table th,table td{
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        table th{
+            line-height: 30px;
+            background: rgb(34,170,170);
+        }
+
+        table td{
+            line-height: 30px;
+            text-align: center;
+            background: #fff;
+
+        }
+        table tr:hover td{
+            background: #ccc;
+        }
+
+        .wrap{
+            width: 900px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<h3>1. 写个div，边框为1px, #ccc, 宽度为200px, 高度为80px, 内有一行文字这里是饥人谷，文字字体大小14px, 颜色#f0f, 文字在div里垂直水平居中</h3>
+
+<div class="box1">这里是饥人谷</div>
+
+<br /><hr /><br />
+
+<h3>2. 对于如下html代码</h3>
+<ol>
+    <li>给.dialog加个边框 1px, #ccc</li>
+    <li>给header设置高度40px, 左对齐，左内边距10px, 文字16px, 颜色#f00,下边框#ccc 1px。</li>
+    <li>给content 设置高度100px,内部 a链接去掉下划线，颜色 blue, 鼠标放置上去后颜色变为 red</li>
+    <li>给footer设置高度50px，内部 btn设置 边框1px #ccc, 圆角3px, 上下内边距4px,左右内边距3px，显示为inline-block, footer哪居中显示;</li>
+</ol>
+
+<div class="dialog">
+    <div class="header">
+        <h3>我是标题</h3>
+        <a class="close" title="关闭" href="#">X</a>
+    </div>
+    <div class="content">
+        <h3>欢迎来到  <a href="http://jirengu.com">饥人谷</a></h3>
+        <p> 在这个大家庭你能快乐的学到更多前端技能</p>
+    </div>
+    <div class="footer">
+        <a class="btn btn-cancel" href="#">取消</a>
+        <a class="btn btn-confirm" href="#">确认</a>
+    </div>
+</div>
+
+<br /><hr /><br />
+
+<h3>4. 写一个如下表格:表头是蓝色，表行是白色。 当鼠标放置到表行时背景色变为淡灰色</h3>
+
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+    </tr>
+    <tr>
+        <td>小美</td>
+        <td>女</td>
+    </tr>
+
+    <tr>
+        <td>小明</td>
+        <td>男</td>
+    </tr>
+</table>
+
+
+
+<br /><hr /><br />
+<h3>5. 下面代码有什么作用？手抄一遍如下代码，改变浏览器宽度看看效果</h3>
+
+<div id="header">
+    <div class="wrap">这里是标题</div>
+</div>
+<div id="content">
+    <div class="wrap">这里是内容</div>
+</div>
+<div id="footer">
+    <div class="wrap">这里是 footer</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-2</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var prod = {
+        name: '女装',
+        styles: ['短款', '冬季', '春装']
+      };
+
+      function getTpl(data){
+        var tp1 = '<dl class="product">';
+        tp1 += '<dt>' + data.name + '</dt>';
+        for (var i = 0; i < data.styles.length; i++) {
+          tp1 += '<dd>' + data.styles[i] + '</dd>';
+        }
+        tp1 += '</dl>';
+        return tp1;
+      };
+
+      var result = getTpl(prod);
+      console.log (result);
+    </script>
+  </body>
+</html>

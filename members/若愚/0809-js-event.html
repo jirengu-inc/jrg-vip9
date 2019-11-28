@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        .wrap {
+            padding: 20px;
+            background: red;
+        }
+    </style>
+    <script>
+        
+     function clickCancel(){
+        console.log('haha')
+     }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <button id="btn">点我</button>
+        <button id="cancel" onclick="clickCancel()">去掉</button>
+    </div>
+    <ul id="list">
+        <li>111</li>
+        <li>2222</li>
+        <li>3333</li>
+    </ul>
+
+    <script>
+        var cancel = document.querySelector('#cancel')
+        cancel.onclick = function(){
+            console.log('heihei')
+        }
+        cancel.onclick = function(){
+            console.log('haha')
+        }
+        cancel.addEventListener('click', function(){
+            console.log('hello')
+        })
+        cancel.addEventListener('click', function(){
+            console.log('world')
+        })
+        cancel.removeEventListener('click', function(){
+            console.log('hello')
+        })
+    </script>
+
+
+
+
+    <button id="btn-add">添加元素</button>
+    <script>
+        // var body = document.body;
+        // var wrap = $('.wrap');
+        // var btn = $('#btn');
+        // var cancelBtn = $('#btn');
+        // var addBtn = $('#btn-add');
+        /*
+                btn.onclick = function() {
+                    console.log('oncliked ...');
+                }
+                btn.onclick = function() {
+                    console.log('oncliked 2 ...');
+                }
+
+                btn.addEventListener('click', function(event) {
+                    console.log(event);
+                    console.log('clicked 1...')
+                });
+                btn.addEventListener('click', function(event) {
+                    console.log(event);
+                    console.log('clicked 2...')
+                });
+
+                btn.addEventListener('click', sayHello);
+                cancelBtn.addEventListener('click', function() {
+                    btn.removeEventListener('click', sayHello)
+                })
+
+                function sayHello() {
+                    console.log('hello jirengu');
+                }
+
+
+                console.log('start');
+                 
+        var lists = $$('#list li');
+
+        for (var i = 0; i < lists.length; i++) {
+            lists[i].addEventListener('click', function(e) {
+                console.log(e.target.innerText);
+            })
+        }
+        */
+
+
+
+        // addBtn.addEventListener('click', function() {
+        //     var li = document.createElement('li');
+        //     li.innerText = '添加的元素';
+        //     // li.addEventListener('click', function(e) {
+        //     //     console.log(e.target.innerText);
+        //     // })
+        //     list.appendChild(li);
+        // })
+
+
+        // list.addEventListener('click', function(e) {
+        //     console.log(e.target.innerText);
+        // });
+
+        // wrap.addEventListener('click', function() {
+        //     //console.log('hi, i am wrap');
+        // }, true)
+
+        // btn.addEventListener('click', function() {
+        //     // console.log('hi, i am btn');
+        // }, true)
+
+        // body.addEventListener('click', function() {
+        //     //console.log('i am body');
+        // }, true)
+
+
+        // window.addEventListener('click', function() {
+        //     //console.log('i am window')
+        // }, true)
+
+
+        // function $(id) {
+        //     return document.querySelector(id);
+        // }
+
+        // function $$(cls) {
+        //     return document.querySelectorAll(cls);
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>level 15(1)</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="font/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="header">
+        <div class="layout clearfix">
+            <a href="#" class="logo">Mei</a>
+            <ul class="navbar">
+                <li><a href="#">blog</a></li>
+                <li><a href="#">experience</a></li>
+                <li><a href="#">resume</a></li>
+                <li>
+                    <a href="#">contact</a>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    <ul class="drop-list">
+                        <li><a href="#">wechat</a></li>
+                        <li><a href="#">github</a></li>
+                        <li><a href="#">zhihu</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="brief table">
+            <div class="layout">
+                <h1>My name is Yin Mei</h1>
+                <p>I'm a web designer.</p>
+                <p>my name is Yin Mei</p>
+            </div>
+        </div>
+        <div class="breadcrumb layout"> <span>这是</span> / 面包屑 / 导航</div>
+        <div class="main layout">
+            <ul class="clearfix">
+                <li class="main-item">
+                    <a href="#"><img src="img/pic.jpg" alt="" class="main-img"></a>
+                    <h2>作品标题</h2>
+                    <p>作品介绍</p>
+                    <a href="#" class="btn">查看</a>
+                </li>
+                <li class="main-item">
+                    <a href="#"><img src="img/pic.jpg" alt="" class="main-img"></a>
+                    <h2>作品标题</h2>
+                    <p>作品介绍</p>
+                    <a href="#" class="btn">查看</a>
+                </li>
+                <li class="main-item">
+                    <a href="#"><img src="img/pic.jpg" alt="" class="main-img"></a>
+                    <h2>作品标题</h2>
+                    <p>作品介绍</p>
+                    <a href="#" class="btn">查看</a>
+                </li>
+                <li class="main-item">
+                    <a href="#"><img src="img/pic.jpg" alt="" class="main-img"></a>
+                    <h2>作品标题</h2>
+                    <p>作品介绍</p>
+                    <a href="#" class="btn">查看</a>
+                </li>
+                <li class="main-item">
+                    <a href="#"><img src="img/pic.jpg" alt="" class="main-img"></a>
+                    <h2>作品标题</h2>
+                    <p>作品介绍</p>
+                    <a href="#" class="btn">查看</a>
+                </li>
+                <li class="main-item">
+                    <a href="#"><img src="img/pic.jpg" alt="" class="main-img"></a>
+                    <h2>作品标题</h2>
+                    <p>作品介绍</p>
+                    <a href="#" class="btn">查看</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="aboutme">
+        <div class="layout">
+            <h1>Want to know more about me?</h1>
+            <p>download my resume</p>
+            <a href="#" class="btn">download</a>
+        </div>
+    </div>
+    <div id="footer">
+        <p>come from @ yinmei</p>
+    </div>
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script>
+        $(function(){
+            $.fn.stick = function(handler){//在jQ上面的fn新添加一个方法，
+
+            //获取高度宽度值
+                var $cur = this,//this当前选中的元素,这个this本来就是JQ对象，不用加$封装了
+                    curH = $cur.height(),
+                    curW = $cur.width(),
+                    offsetTop = $cur.offset().top,
+                    offsetLeft = $cur.offset().left;
+
+            //clone并且隐藏原先那个，但是现在先不用展示，需要展示的时候展示出来
+                var $div = $cur.clone()//链式调用：任何操作得到的还是当前的结果
+                               .css({'visibility':'hidden',
+                                        'display':'none'
+                               })//只需要站位
+                               .insertBefore($cur)
+                               //.hide();
+
+            //当窗口滚动的时候获取滚动的距离
+                $(window).on('scroll', function(){
+                    var scrollTop = $(this).scrollTop();
+                
+
+            //滚动的距离大于offsetTop，就是该stick·的时候
+                    if (scrollTop >= offsetTop) {
+                        if (!isFixed()) {
+                            setFixed();
+                        }
+                    }else{
+                        if (isFixed()) {
+                            unsetFixed();
+                        }
+                    }
+                });
+
+                function isFixed(){
+                    return !!$cur.attr('data-fixed');//没有设true，默认undefined，两次取反就是false
+                }
+
+                function setFixed(){
+                    $cur.attr('data-fixed', true)//设为固定
+                        .css({
+                            position:'fixed',
+                            top:0,
+                            left: offsetLeft,
+                            'z-index':9999,
+                            width:curW,
+                            margin:0
+                        });
+                    $div.show();
+                }
+
+                function unsetFixed(){
+                    $cur.removeAttr('data-fixed')
+                        .removeAttr('style');
+                    $div.hide();
+                }
+
+
+            }
+
+
+            $('.brief').stick();
+        })
+    </script>
+</body>
+
+</html>

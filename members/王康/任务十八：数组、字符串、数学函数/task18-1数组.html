@@ -1,0 +1,32 @@
+<script type="text/javascript">
+
+  // pop 方法 ---------------------
+  var arr1 = [2, 6, 2, 8, 4, 9];
+  function pop(arr) {
+    var a = arr[arr.length-1]
+    arr.splice (arr.length-1, 1);
+    return a;
+  }
+
+  // push 方法 ---------------------
+  var arr2 = [2, 6, 2, 8, 4, 9];
+  function push(arr, val) {
+    arr.splice (arr.length, 0, val);
+    return arr.length;
+  }
+
+  // shift 方法 ---------------------
+  var arr3 = [2, 6, 2, 8, 4, 9];
+  function shift(arr) {
+    arr.splice (0,1);
+    return arr(0);
+  }
+
+  // unshift 方法 ---------------------
+  var arr4 = [2, 6, 2, 8, 4, 9];
+  function unshift(arr, val) {
+    arr.splice (0,0,val);
+    return arr.length;
+  }
+
+</script>

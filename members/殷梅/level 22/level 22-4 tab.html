@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab</title>
+	<style>
+		ul,li{
+			margin: 0;
+			padding: 0;
+			color: #333;
+		}
+		li{
+			list-style: none;
+		}
+		.clearfix:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.tab{
+			width: 610px;
+			height: 224px;
+			/*border:1px solid #ccc;*/
+			margin:20px auto;
+
+		}
+		.tab-header{
+			/*border: 1px solid #ccc;*/
+		}
+		.tab-header>li{
+			float: left;
+			cursor: pointer;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 13%;
+			padding-right: 13%;
+			border: 1px solid #ccc;
+			margin-left:-1px;
+		}
+		.tab-container{
+			padding: 20px;
+			border-bottom: 1px solid #ccc;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			width: 546px;
+			margin-left:-1px;
+			height: 200px;
+			
+		}
+		.tab-header>.active{
+			background: #eee;
+		}
+		.tab-container>li{
+			display: none;
+		}
+		.tab-container>.active{
+			display: block;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<ul class="tab-header clearfix">
+			<li class="active">tab1</li>
+			<!-- 通过改变class的位置改变样式 -->
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<ul class="tab-container">
+			<li class="active">内容1</li>
+			<li>内容2</li>
+			<li>内容3</li>
+		</ul> 
+	</div>
+
+	<script>
+	// tab-header
+		var tabHeader = document.querySelector('.tab-header');
+		var tabLis = document.querySelectorAll('.tab-header>li');
+		var tabPanels = document.querySelectorAll('.tab-container>li');
+
+		tabHeader.addEventListener('click', function (e) {
+			var clickNode = e.target;
+			if (clickNode.tagName.toLowerCase() === 'li') {
+				for (var i = 0; i < tabLis.length; i++) {
+					tabLis[i].classList.remove('active');
+				}
+				clickNode.classList.add('active');
+
+				var index = [].indexOf.call(tabLis, clickNode);
+				console.log(index);
+				for (var i = 0; i < tabPanels.length; i++) {
+					tabPanels[i].classList.remove('active');
+				}
+				tabPanels[index].classList.add('active');
+			}
+		})
+	//tab-container
+		
+
+
+
+
+	</script>
+</body>
+</html>

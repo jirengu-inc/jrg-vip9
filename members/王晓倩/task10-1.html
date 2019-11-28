@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task10-1</title>
+	<style>
+	   * {
+	   	margin:0;
+	   	padding: 0;
+	   }
+	   h3,p {
+	   	 font-family: '微软雅黑' Arail;
+	   	 color: #656565;
+	   }
+	   h3 {
+	   	 margin: 20px 0;
+	   }
+        .wrapped {
+        	width: 900px;
+        	margin: 0 auto;
+        }
+        #header {
+        	background: rgb(51,51,51);
+        	height: 50px;
+        }
+        img {
+        	float: left;
+        	width: 174px;
+        }
+        ul,li{
+        	list-style: none;
+        	margin: 0;
+        	padding: 0;
+        }
+        a {
+        	text-decoration: none;
+        	font-family: '微软雅黑' Arail;
+        	font-size: 16px;
+        	color:#fff;
+        }
+        #header ul {
+        	float: right;
+        }
+        #header li {
+        	float: left;
+        	margin: 0 10px;
+        	padding: 12px 0;
+        }
+        #header li a {
+        	padding: 18px 10px;
+        }
+        #header li a:hover {
+            background: #fff;
+            color: #333;
+        }
+        #content {
+        	margin-top: 10px;
+        }
+        .aside {
+        	width: 200px;
+        	height: 500px;
+        	background: rgb(238,238,238);
+        	float: left;
+        }
+        .main {
+        	margin-left: 210px;
+        	padding: 20px 10px;
+        	background: rgb(238,238,238);
+        }
+        #footer {
+        	height: 40px;
+        	background: rgb(51,51,51);
+        }
+        #footer li {
+        	float: left;
+        	padding: 8px;
+        }
+
+	    .clearfix:after {
+			  content:'';
+			  display:block;
+			  clear:both;
+		 }
+	</style>
+</head>
+<body>
+	<div id="header">
+	    <div class="wrapped clearfix">
+		<a href="#"><img src="logo-tiny.png" alt="饥人谷"></a>
+		<ul>
+			<li><a href="#">技能</a></li>
+			<li><a href="#">经历</a></li>
+			<li><a href="#">作品</a></li>
+			<li><a href="#">关于</a></li>
+		</ul>
+		</div>
+	</div>
+	<div id="content" class="wrapped clearfix">
+		<div class="aside">
+			
+		</div>
+		<div class="main">
+			<h3>我的作品</h4>
+			<p>生活很美好</p>
+			<p>心情不错</p>
+			<p>代码写的很漂亮</p>
+		</div>
+	</div>
+	<div id="footer">
+		<ul class="wrapped">
+			<li><a href="#">饥人谷</a></li>
+			<li><a href="#">JSCODE</a></li>
+			<li><a href="#">JSBIN</a></li>
+		</ul>
+	</div>
+</body>
+</html>

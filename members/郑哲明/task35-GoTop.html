@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task35</title>
+    <style>
+        .wrap{
+            height:3000px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <script>
+        function GoTop(ct,target) {
+            this.ct = ct
+            this.target = target
+            this.createNode()
+            this.bindEvent()
+        }
+        
+        GoTop.prototype.bindEvent = function () {
+                this.target.addEventListener('click',function() {
+                    window.scroll(0,0)
+                })
+                window.addEventListener('scroll',function() {
+                    console.log(this.target)
+                    if(document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
+                        this.target.style.display = 'block'
+                    } else {
+                        this.target.style.display = 'none'
+                    }
+                })
+            }
+            GoTop.prototype.createNode = function () {
+                this.target.style.cssText = 'position:fixed;right:50px;bottom:50px;cursor:pointer;border:1px solid red;padding:10px;border-radius:5px;display:none;'
+                this.ct.appendChild(this.target)
+            }
+
+        var target = document.createElement('div')
+        var ct = document.querySelector('body')
+        target.innerHTML = '回到顶部'
+
+        var goTop = new GoTop(ct,target)
+
+    </script>
+</body>
+</html>

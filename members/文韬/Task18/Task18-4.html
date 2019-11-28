@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        arr = ["a", "b", 1, 3, 5, "b", 2];
+        function filterNumeric(arr) {
+            var newarr = [];
+            for (var i in arr)
+                if (typeof arr[i] === 'number') {
+                    newarr.push(arr[i]);
+                };
+            return newarr;
+        };
+        newarr = filterNumeric(arr); //   [1,3,5,2]
+    </script>
+</body>
+
+</html>

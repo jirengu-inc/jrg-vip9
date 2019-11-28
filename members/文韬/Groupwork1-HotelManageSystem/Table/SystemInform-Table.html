@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>日志管理</title>
+  <style>
+
+  table,
+  td,
+  th {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      vertical-align: middle;
+      text-align: center;
+  }
+
+  th {
+      background-color: #0fb8ad;
+      font-weight: bold;
+      width: 140px;
+      height:30px;
+      cursor: default;
+  }
+
+  td {
+      background-color: white;
+      width: 200px;//单元格宽度，有些需要修改
+      height:30px;//单元格高度，有些需要修改
+      cursor: default;
+  }
+
+  .content_rightbox_table table{
+      position: relative;
+  }
+  .del{
+    cursor: pointer;
+  }
+  .del:hover{
+    color: red;
+    text-decoration:underline;
+
+  }
+
+</style>
+</head>
+<body>
+  <div class="content_rightbox_table">
+    <form id="form1" runat="sever">
+    <table>
+      <tr>
+          <th>用户名</th>
+          <th>操作</th>
+          <th>时间</th>
+
+          <th>备注</th>
+          <th>操作</th>
+      </tr>
+      <tr>
+          <td>牙刷</td>
+          <td>日用品</td>
+          <td>20</td>
+          <td>特供</td>
+
+          <td>
+            <span class="del">删除</span>
+          </td>
+      </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

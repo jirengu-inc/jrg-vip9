@@ -1,0 +1,43 @@
+input[type=submit] {
+	margin: 0px 30px;
+	background: url(download.png) no-repeat;
+    border-style: none;
+    color: #000;
+    padding: 0px 0px 0px 30px;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+input[type=submit]:hover {
+	color: #a663be;
+	cursor: pointer;
+}
+
+#forward {
+	background-position: -1px -112px;
+	height: 35px;
+}
+
+#start {
+	background-position: 0px -146px;
+	height: 35px;
+}
+#stop {
+	background-position: -4px -39px;
+	height: 35px;
+}
+
+#forward:hover {
+	background-position: -2px -74px;
+	height: 35px;
+}
+
+#start:hover {
+	background-position: -5px -2px;
+	height: 35px;
+}
+
+#stop:hover {
+	background-position: -0px -178px;
+	height: 35px;;
+}

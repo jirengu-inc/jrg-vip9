@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>懒加载</title>
+	
+	<style>
+		ul,li{
+			list-style: none;
+		}
+		.clearfix:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.container{
+			width: 800px;
+			margin: 0 auto;
+		}
+		.container li{
+			float: left;
+			margin: 10px 10px;
+		}
+		.container li img{
+			width: 380px;
+			height: 380px;
+		}
+		p{
+			float: left;
+		}
+	</style>
+	<script src="jquery-3.1.0.min.js"></script>
+</head>
+<body>
+	<ul class="container clearfix">
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg"></a></li>
+		<li><a href="#"><img src="Untitled-1.jpg" alt="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg"></a></li>
+
+	</ul>
+
+
+
+
+
+<script type="text/javascript">
+
+	//前面几个图片不鼠标滑动也出现
+	// $('.container img').not('.load').each(function(){
+	// 	if (isShow($(this))) {
+	// 		showImg($(this))
+	// 	}
+	// })
+
+	check();
+
+
+
+
+	
+	// isShow($('#hello'))
+	//var a = 0;//判断加载次数
+	$(window).on('scroll', check)
+		//检查所有图片
+			//如果某个图片展示了，
+				//那么加载这个图片
+
+		// $('.container img').not('.load').each(function(){
+		// 					//加载‘not show’未出现的图片 
+		// 	//a++;
+		// 	if (isShow($(this))) {
+		// 		showImg($(this))
+		// 	}
+		// })
+
+
+	//封装函数
+	function check(){
+		$('.container img').not('.load').each(function(){
+			if (isShow($(this))) {
+				showImg($(this))
+			}
+	})
+	}
+
+
+
+	//展示图片
+	function showImg($imgs){
+		$imgs.each(function(){
+			var imgUrl = $(this).attr('data-src');//可加载全部的图片
+			$(this).attr('src', imgUrl);
+			$(this).addClass('load');//添加class确认有没有加载过
+		})
+
+
+	}
+
+
+	//判断一个元素是否出现在窗口范围内：
+	function isShow($node){
+		var windowHeight = $(window).height();
+		var scrollTop = $(window).scrollTop();
+		var offsetTop = $node.offset().top;
+		var nodeHeight = $node.height();//包括margin等等
+
+		if (windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
+
+</script>
+	
+</body>
+</html>

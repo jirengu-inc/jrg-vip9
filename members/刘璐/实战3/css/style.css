@@ -1,0 +1,410 @@
+/*======================清除重置样式======================*/
+h1,h2,h3,h4,h5,h6,p,body,html,ol,ul,li{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+img{
+    border:none;
+    overflow:hidden;
+}
+a{
+    text-decoration:none;
+}
+h2{
+    font-size:40px;
+}
+h3{
+    font-size:16px;
+    padding:20px;
+    color:rgb(119,119,119)
+}
+body,html{
+    height:100%
+}
+body{
+    font-size: 14px;
+    line-height: 1.15;
+    font-family:"Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/*======================组件通用样式======================*/
+.layout{
+    width:1000px;
+    margin:0 auto;
+    text-align:center;
+}
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.clearfix {
+    zoom: 1;
+}
+.table{
+    height:100%;
+    display:table;
+}
+.vertical-center{
+    display:table-cell;
+    vertical-align:middle;
+}
+.btn{
+    display:inline-block;
+    padding:20px 40px;
+    font-size:18px;
+    color:#fff;
+    background:rgb(254,209,54);
+    border-radius:6px;
+}
+.btn:hover{
+    background:orange;
+}
+.radius{
+    border-radius:50%;
+}
+/*======================#header样式======================*/
+#header{
+    height:100%;
+    background:url(../img/header-bg.jpg) no-repeat center center;
+    background-size:cover;
+}
+.fix-nav{
+    position:fixed;
+    top:0;
+    left:0;
+    padding:10px 0;
+    width:100%;
+    background:rgba(00,00,00,0.75);
+    z-index:1000;
+}
+.fix-nav .logo{
+    display:inline-block;
+    float:left;
+    color:rgb(254,209,54);
+    font-size:21px;
+    padding:22px 0;
+    margin-left:100px;
+}
+.fix-nav .nav{
+    float:right;
+    padding:10px 0;
+    margin-right:100px;
+}
+.fix-nav .nav>li{
+    float:left;
+}
+.nav li a{
+    display:inline-block;
+    padding:15px 10px;
+    color:#fff;
+    border-radius:6px;
+}
+.nav a:hover {
+    background: rgb(254, 209, 54);
+}
+#header .content{
+    color:#fff;
+}
+#header .content h1{
+    font-size:40px;
+}
+#header .content h2{
+    font-size:60px;
+}
+#header .btn{
+    margin-top:40px;
+}
+/*======================#content.service样式======================*/
+#service{
+    text-align:center;
+    padding:130px 0 145px;
+}
+#service ul{
+    padding-top:65px;
+    margin-left:-50px;
+}
+#service ul>li{
+    float:left;
+    width:300px;
+    margin-left:50px;
+}
+.service-list li>.radius{
+    margin:0 auto;
+    padding:5px;
+    width:125px;
+    height:125px;
+    background:rgb(254, 209, 54);
+}
+#service i {
+    color: #fff;
+    font-size: 66px;
+    line-height: 120px;
+}
+.service-list h4{
+    font-size:18px;
+    padding:25px;
+}
+.service-list p{
+    font-size:14px;
+    color:rgb(119,119,119);
+}
+/*======================#content.portfolio样式======================*/
+#portfolio{
+    padding:120px 0;
+    text-align: center;
+    background:#f7f7f7;
+}
+#portfolio ul{
+    padding-top:40px;
+}
+.portfolio-list>li{
+    float:left;
+    width:303px;
+    margin:15px;
+    position:relative;
+    background:#fff;
+}
+.portfolio-list a{
+    display:block;
+}
+.pic-hover{
+    height:230px;
+    width:303px;
+    display:none;
+    background:rgba(254, 209, 54,0.8);
+    position:absolute;
+    top:0;
+    left:0;
+}
+.portfolio-list a:hover .pic-hover{
+    display: block;
+}
+.portfolio-list i{
+    color: #fff;
+    line-height: 230px;
+    font-size: 60px;
+}
+.portfolio-list li img{
+    height:230px;
+    width:303px;
+}
+.portfolio-list li h4{
+    font-size:18px;
+    padding-top:25px;
+}
+.portfolio-list li p{
+    font-size:16px;
+    padding:5px 0 30px;
+}
+/*======================#content.about样式======================*/
+#about{
+    padding:155px 0 160px;
+}
+#about h3{
+    padding:20px 0 75px;
+    font-size:16px;
+    color:rgb(119,119,119)
+}
+.time-line{
+    position:relative;
+}
+.time-line:before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:50%;
+    margin-left:-1px;
+    display:block;
+    width:2px;
+    background:rgb(241,241,241);
+    z-index:-1;
+}
+.time-line>li{
+    padding:63px 0;
+}
+.time-line li:first-child{
+    padding-top:0;
+}
+.time-line li:last-child{
+    padding-bottom:0;
+}
+.time-line .right{
+    float:right;
+    text-align:left;
+}
+.time-line .left{
+    float:left;
+    text-align:right;
+}
+.time-line .about-text{
+    width:350px;
+    padding:30px 36px;
+}
+.time-line .radius-wrap{
+    width:156px;
+    height:156px;
+    border-radius:50%;
+    background:rgb(241,241,241);
+    position:relative;
+}
+.time-line .radius{
+    width:140px;
+    height:140px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -70px;
+    margin-left: -70px;
+}
+.time-line .center{
+    margin:0 auto;
+}
+.time-line .center h4{
+    background:rgb(254, 209, 54);
+    text-align:center;
+    padding: 36px 31px;
+    width: 78px;
+    height: 68px;
+    line-height: 1.5;
+    color:#fff;
+}
+/*======================#content#team样式======================*/
+#team{
+    background:rgb(241,241,241);
+    padding-top:150px;
+}
+#team h3{
+    font-size:16px;
+    color:rgb(119,119,119);
+    padding:20px 0 65px;
+}
+#team li{
+    float:left;
+    padding:40px;
+    width:253px;
+}
+#team .pic{
+    position:relative;
+    width:253px;
+    height:253px;
+    border-radius:50%;
+    background:#fff;
+}
+.pic img{
+    position:absolute;
+    top:3px;
+    left:3px;
+    width:247px;
+    height:247px;
+    border-radius:50%;
+}
+#team h4{
+    font-size:18px;
+    padding-top:30px;
+}
+#team ul>li{
+    padding-bottom:50px;
+}
+#team ul p{
+    font-size:14px;
+    padding-bottom:6px;
+}
+#team>.layout{
+    padding-bottom:160px;
+}
+#team .layout>p{
+    width:750px;
+    font-size:16px;
+    text-align:center;
+    margin:0 auto;
+}
+#team li a{
+    color:#000;
+    padding:0 3px;
+}
+#team li a:hover{
+    color:rgb(254, 209, 54);
+}
+#team i{
+    font-size: 35px;
+}
+.icon-facebook{
+    position:relative;
+    bottom:3px;
+}
+#team .logo{
+    background:#fff;
+    padding:60px 0;
+}
+/*======================================contact==========================*/
+#contact{
+    height:100%;
+    background:#222 url(../img/map-image.png) no-repeat center center;
+    background-size:cover;
+    padding:10px 0;
+}
+#contact .layout{
+    padding-top:150px;
+}
+#contact h2{
+    color:#fff;
+}
+#contact .aside-left{
+    float:left;
+    width:500px;
+    display:block;
+}
+#contact input{
+    width:440px;
+    height:45px;
+    margin:15px 0;
+    border-radius:5px;
+}
+#contact textarea{
+    float: right;
+    width: 494px;
+    margin-top: 18px;
+    margin-bottom: 17px;
+    height: 202px;
+    border-radius: 5px;
+}
+/*=======================#footer===================================*/
+#footer{
+    padding:45px 0;
+}
+.footer-left{
+    float:left;
+    width:300px;
+}
+.footer-main{
+    float:left;
+    width: 144px;
+    margin: 0 128px;
+}
+.footer-main li .iconfont{
+    font-size:36px;
+    color:#000;
+    margin:0 5px;
+}
+.footer-main li .iconfont:hover{
+    color:rgb(254, 209, 54);
+}
+.footer-right{
+    float:left;
+    width:300px;
+}
+.footer-right a{
+    color:rgb(254, 209, 54);
+    padding-left:10px;
+}
+.footer-right a:hover{
+    text-decoration:underline;
+}
+#footer ul li{
+    float:left;
+}
+

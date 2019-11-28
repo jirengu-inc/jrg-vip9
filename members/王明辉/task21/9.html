@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9</title>
+</head>
+<body>
+
+
+<script>
+    // 9补全如下正则表达式，输出字符串中的注释内容. (可尝试使用贪婪模式和非贪婪模式两种方法)
+    var str = '.. <!-- My -- comment \n test --> ..  <!----> .. '
+    var re = /<\!--[^>]*-->/g;      // 贪婪
+    var re = /<\!--[\w\W]*?-->/g;   // 非贪婪
+
+    console.log(str.match(re)) // '<!-- My -- comment \n test -->', '<!---->'
+</script>
+</body>
+</html>

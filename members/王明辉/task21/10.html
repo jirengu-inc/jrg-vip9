@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10</title>
+</head>
+
+<body>
+<script>
+    // 10.补全如下正则表达式
+    var re = /<[^>]+?>/g;// 1非贪婪模式  2排除 >
+    var str = '<> <a href="/"> <input type="radio" checked> <b>'
+    console.log(str.match(re)) // '<a href="/">', '<input type="radio" checked>', '<b>'
+
+</script>
+</body>
+</html>

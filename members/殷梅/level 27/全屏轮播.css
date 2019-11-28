@@ -1,0 +1,71 @@
+ul,
+li,
+div,
+header {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+html,
+body,
+header,
+.carousel,
+.item,
+.img-ct {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    /*background: green;*/
+}
+
+.img-ct {
+    position: absolute;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.item {
+    float: left;
+    position: relative;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+.bullet {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    opacity: 0.8;
+    margin-left: -58px;
+}
+
+.bullet li {
+    height: 8px;
+    width: 16px;
+    border-radius: 50%;
+    margin: 0 5px;
+    display: inline-block;
+    background:#333 ;
+}
+
+.bullet li.active {
+    background: #ccc;
+}

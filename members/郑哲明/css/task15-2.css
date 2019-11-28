@@ -1,0 +1,176 @@
+/*重置默认样式*/
+body,ul,li,h1,h4,p{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+/*重置默认样式*/
+/*固定宽度居中*/
+.layout{
+	width: 1000px;
+	margin: 0 auto;
+}
+/*固定宽度居中*/
+/*第一部分：导航条*/
+.nav>li{
+	float: left;
+	margin-left: 30px;
+	position: relative;
+	padding: 15px 0;
+}
+
+.nav>li:nth-child(5)>a:after{
+	content: '';
+	border-top: 5px solid;
+	border-right:5px solid transparent;
+	border-left: 5px solid transparent;
+	position: relative;
+	top: 10px;
+	left: 5px;
+}
+.droplist ul{
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: -10px;
+	background: #fff;
+	border: 1px solid silver;
+}
+.droplist:hover ul{
+	display: block;
+}
+.droplist ul a{
+	display: block;
+	padding: 5px 10px;
+	border: 1px dotted silver;
+}
+.droplist ul a:hover{
+	background: silver;
+}
+@font-face {font-family: 'iconfont';
+    src: url('../iconfont/2/iconfont.eot'); /* IE9*/
+    src: url('../iconfont/2/iconfont.eot?#iefix') format('embedded-opentype'), 
+    url('../iconfont/2/iconfont.woff') format('woff'),
+    url('../iconfont/2/iconfont.ttf') format('truetype');
+}
+.logo{
+	float: left;
+	line-height: 50px;
+	font-size: 30px;
+	color: #b84d45;
+}
+.logo:after{
+	content: '\3442';
+	font-family: 'iconfont';
+}
+/*第一部分：导航条*/
+/*第二部分：简介*/
+.desp{
+	padding: 30px 0;
+	color: white;
+}
+.container{
+	background: #b84d45;
+}
+/*第二部分：简介*/
+/*第二部分：路径*/
+.route a{
+	color: #b84d45
+}
+.route p{
+	padding: 10px;
+	color: #666;
+}
+.route{
+	background: #eee;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+/*第二部分：路径*/
+/*第二部分：作品区*/
+.work li{
+	width: 300px;
+	height: 310px;
+	margin-left: 50px;
+	float: left;
+	margin-top: 20px;
+	border: 1px solid silver;
+	box-sizing: border-box;
+}
+.work{
+	margin-left: -50px;
+	text-align: center;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.work  a:nth-of-type(1) img{
+	width: 298px;
+	height: 200px;
+}
+.work  a:nth-of-type(1):hover{
+	opacity: 0.7;
+}
+.work h4{
+	margin: 10px;
+	text-align: left;
+}
+.work p{
+	margin:10px;
+	text-align: left;
+}
+.work a:nth-of-type(2){
+	border: 1px solid silver;
+}
+/*第二部分：作品区*/
+/*第二部分：更多*/
+.more{
+	text-align: center;
+	color: white;
+	background: #b84d45;
+	padding: 20px 0;
+	margin-top:30px;
+}
+.more a{
+	color: white;
+	border: 1px solid white;
+}
+.more p{
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+/*第二部分：更多*/
+/*第三部分*/
+#footer{
+	text-align: center;
+}
+#footer hr{
+	margin:30px 0;
+	color: rgba(0,0,0,0.1);
+}
+#footer p{
+	margin: 30px 0;	
+}
+/*第三部分*/
+/*按钮效果*/
+.btn{
+	padding: 5px 8px;
+	border-radius: 3px;
+}
+.btn:hover{
+	opacity: 0.7;
+}
+
+
+
+
+
+
+
+

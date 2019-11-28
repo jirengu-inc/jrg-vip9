@@ -1,0 +1,156 @@
+html,body,ul,div,p,li {
+	margin: 0;
+	padding: 0;
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+/*  *****     *****     *****  第一题  *****     *****     *****  */
+.ct1 {
+	width: 340px;
+	margin: 0 auto;
+	background: #ccc;
+	overflow:hidden;
+}
+.ct1>div {
+	margin: 10px -20px;
+}
+.ct1 .block1 div,
+.ct1 .block2 div {
+	width: 100px;
+	height: 50px;
+	background: green;
+	margin-left: 20px;
+	float: left;
+}
+
+
+/*  *****     *****     *****  第二题  *****     *****     *****  */
+.ct2 .header,
+.ct2 .footer {
+	width: 100%;
+	height: 50px;
+	background: #ccc;
+}
+.ct2 .contain {
+	padding: 0 200px;
+}
+.ct2 .main {
+	width: 100%;
+	min-width: 200px;
+	height: 300px;
+	background: green;
+	float: left;
+}
+.ct2 .aside {
+	width: 200px;
+	height: 300px;
+	background: red;
+	float: left;
+	margin-left: -100%;
+	position: relative;
+	left: -200px;
+}
+.ct2 .ad {
+	width: 200px;
+	height: 300px;
+	background: yellow;
+	float: left;
+	margin-left: -200px;
+	position: relative;
+	right: -200px;
+}
+
+
+/*  *****     *****     *****  第三题  *****     *****     *****  */
+.ct3 .header,
+.ct3 .footer {
+	width: 100%;
+	height: 50px;
+	background: #ccc;
+}
+.ct3 .contain {
+	padding-left: 200px;
+}
+.ct3 .main {
+	width: 100%;
+	min-width: 200px;
+	height: 300px;
+	background: green;
+	float: left;
+}
+.ct3 .aside {
+	width: 200px;
+	height: 300px;
+	background: red;
+	float: left;
+	margin-left: -100%;
+	position: relative;
+	left: -200px;
+}
+
+
+/*  *****     *****     *****  第四题  *****     *****     *****  */
+.ct4 .header,
+.ct4 .footer {
+	width: 100%;
+	height: 50px;
+	background: #ccc;
+}
+.ct4 .main {
+	width: 100%;
+	min-width: 200px;
+	height: 300px;
+	background: #666;
+	float: left;
+}
+.ct4 .aside {
+	width: 200px;
+	height: 300px;
+	background: red;
+	float: left;
+	margin-left: -100%;
+}
+.ct4 .ad {
+	width: 200px;
+	height: 300px;
+	background: yellow;
+	float: left;
+	margin-left: -200px;
+}
+.ct4 .main-child {
+	height: 300px;
+	margin: 0 200px;
+	background: green;
+}
+
+
+/*  *****     *****     *****  第五题  *****     *****     *****  */
+.ct5 .header,
+.ct5 .footer {
+	width: 100%;
+	height: 50px;
+	background: #ccc;
+}
+.ct5 .main {
+	width: 100%;
+	min-width: 200px;
+	height: 300px;
+	background: #666;
+	float: left;
+}
+.ct5 .aside {
+	width: 200px;
+	height: 300px;
+	background: red;
+	float: left;
+	margin-left: -100%;
+}
+
+.ct5 .main-child {
+	height: 300px;
+	margin-left: 200px;
+	background: green;
+}

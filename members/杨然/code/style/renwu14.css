@@ -1,0 +1,165 @@
+@charset "UTF-8";
+/**
+*
+* @authors Your Name (you@example.org)
+* @date    2016-06-29 16:18:31
+* @version $Id$
+*/
+body, ul, li, p, h1, h2, h3, h4, img, a {margin: 0; padding: 0;}
+html, body {
+height: 100%;
+font: 14px/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+img {
+	width: 465px;	
+}
+hr {
+	width: 100px;
+}
+p, h1, h2, h3, h4{
+	text-align: center;
+}
+ul, li {
+list-style: none;
+}
+a {
+text-decoration: none;
+}
+.container {
+width: 960px;
+margin: 0 auto;
+text-align: center;
+}
+#header {
+line-height: 2.5;
+color: #ccc;
+height: 100%;
+background: url(../img/任务14/首页背景.png) no-repeat center center;
+background-size: cover;
+}
+#header .table {
+height: 100%;
+display: table;
+}
+.vertical-center {
+vertical-align: middle;
+}
+.text-center {
+display: table-cell;
+text-align: center;
+}
+/*大按钮组件*/
+a.btn-bigger {
+width: 140px;
+height: 50px;
+line-height: 50px;
+}
+/*btn1组件*/
+.btn1 {
+display: inline-block;
+width: 140px;
+height: 30px;
+line-height: 30px;
+color: #fff;
+text-align: center;
+background-color: rgba(0, 0, 0, 0.4);
+}
+/* header */
+#content .about {
+	font-size: 18px;
+	line-height: 2;
+	padding: 50px 0;
+}
+#content .skill {
+	background: #337ab7;
+	padding: 30px 0;
+	color: #fff;
+}
+#content .skill a {
+	display: inline-block;
+	width: 140px;
+	color: black;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #fff;
+}
+#content .skill ul.clearfix {
+	margin-left: 160px;
+}
+#content .skill ul.clearfix > li {
+	margin-left: 100px;
+}
+/*skill ul li*/
+.fa {
+	font-family: "font-awesome";
+
+}
+#content ul.clearfix {
+	margin-left: -15px;
+}
+#content .clearfix > li {
+	float: left;
+	margin-left: 15px;
+	margin-top: 20px;
+	text-align: center;
+}
+#content .clearfix > li i {
+	font-size: 114px !important;
+	display: block;
+	text-align: center;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+/*callout*/
+#content .callout {
+	background: url(../img/任务14/插图.png) no-repeat;
+	background-size: cover;
+	padding: 275px 0;
+	color: #fff;
+}
+/*portfolio*/
+#content .portfolio {
+	padding: 50px 0;
+}
+#content .portfolio ul.clearfix {
+	margin-bottom: 20px;
+}
+/*call-to-action*/
+.btn2 {
+display: inline-block;
+width: 140px;
+height: 30px;
+line-height: 30px;
+color: black;
+text-align: center;
+background-color: rgba(255, 255, 255, 0.4);
+}
+#content .call-action {
+	background: #337ab7;
+	padding: 50px;
+}
+/*footer*/
+#footer {
+	padding: 120px;
+	line-height: 2;
+}
+#footer .contact-icon {
+	margin-left: 310px;
+}
+#footer .contact-icon > li{
+float: left;
+margin-left: 50px;
+}
+#footer .contact-icon > li a {
+	font-size: 54px;
+}
+.btn1:hover {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.btn2:hover {
+	background-color: rgba(255, 255, 255, 0.7);
+}

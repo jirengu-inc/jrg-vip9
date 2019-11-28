@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部（原型）</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        body{
+            background-color: #2f3238;
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style:none;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            text-align: center;
+            width: 640px;
+            margin: 50px auto;
+        }
+        .container>h1{
+            color:white;
+            margin-bottom:50px;
+        }
+        .img-list{
+            margin-left: -20px;
+            margin-top: -20px;
+        }
+        .img-list>li{
+            float:left;
+            display: block;
+            margin-left: 20px;
+            margin-top: 20px;
+            box-shadow: 1px 1px 5px;
+        }
+        .img-list>li>img{
+            height:200px;
+            width: 300px;
+        }
+        .back-top{
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: white;
+            color: #2f3238;
+            font-size: 1.2rem;
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>懒加载&回到顶部</h1>
+        <ul class="img-list clearfix">
+            <li><img src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" alt=""></li>
+            <li><img src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/17.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/18.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/19.jpg" alt=""></li>
+            <li><img  src="img/loading.gif" data-src="http://cdn.jirengu.com/book.jirengu.com/img/20.jpg" alt=""></li>
+        </ul>
+    </div>
+    <!--<div class="back-top">回到顶部</div>-->
+<script>
+    var goTop = new GoTop($('body'),$('<div class="back-top">回到顶部</div>'))
+    goTop.bindEvent();
+    goTop.createNode();
+    checkShow();
+    checkOver();
+    $(window).on('scroll',checkShow);
+    $(window).on('scroll',checkOver);
+/*    $('.back-top').on('click',function(){
+        $('body').animate({scrollTop: 0},800);
+    })
+*/
+    function checkShow(){
+        $('.img-list>li>img').not('.load').each(function(){
+            if(isVisible($(this))){
+                $(this).attr('src',$(this).attr('data-src'))
+                $(this).addClass('load');
+            };
+        });
+    }
+    function isVisible($node){
+        var $offset = $node.offset().top;
+        var $height = $node.height();
+        var $scrollTop = $(window).scrollTop();
+        var $winHeight = $(window).height();
+        if($scrollTop + $winHeight > $offset && $scrollTop < $offset + $height){
+            return true;
+        }else{
+            return false;
+        };
+    }
+    function isOver(){
+        var $scrollTop = $(window).scrollTop();
+        var $winHeight = $(window).height();
+        if($scrollTop > $winHeight){
+            return true;
+        }else{
+            return false
+        };
+    }
+    function checkOver(){
+        if(isOver()){
+            $('.back-top').show(300);
+        }else{
+            $('.back-top').hide(300);
+        }
+    }
+    function GoTop($ct,$target){
+        this.$ct = $ct;
+        this.$target = $target;
+        this.bindEvent = function(){
+            $target.on('click',function(){
+                $('body').animate({scrollTop: 0},800);
+            })
+        }
+        this.createNode = function(){
+            $ct.append($target);
+        }
+    }
+</script>
+</body>
+</html>

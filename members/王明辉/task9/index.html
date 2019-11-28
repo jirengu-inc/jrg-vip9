@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .fl{
+            float: left;
+        }
+        .icon{
+            float: left;
+            width:26px;
+            height: 26px;
+            background-image: url("sprite.png");
+            background-repeat:no-repeat;
+            margin: 20px 5px;
+        }
+        
+        .sprite1{ background-position: 0 -26px;}
+        .sprite2{ background-position: 0 -78px;}
+        .sprite3{ background-position: 0 -130px;}
+
+        .sprite1:hover{ background-position: 0 0px;}
+        .sprite2:hover{ background-position: 0 -52px;}
+        .sprite3:hover{ background-position: 0 -104px;}
+
+
+
+        @font-face {font-family: 'iconfont';
+            src: url('iconfont.eot'); /* IE9*/
+            src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('iconfont.woff') format('woff'), /* chrome、firefox */
+            url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:26px;
+            font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+            float: left;
+            cursor:pointer;
+            margin-right: 5px;
+        }
+
+        .iconfont:hover{
+            color: #a668bd;
+        }
+
+        .sanjiao{
+            width: 0;
+            height: 0;
+            border-width:30px;
+            border-style:solid;
+            margin-bottom: 30px;
+        }
+        .san1{
+            border-top-color:blue;
+            border-bottom-color:green;
+            border-left-color:red;
+            border-right-color:yellow;
+        }
+        .san2{
+            border-color:transparent;
+            border-top-color: blue;
+        }
+        .san3{
+            border-color:transparent;
+            border-left-color: red;
+        }
+        .san4{
+            border-color:transparent;
+            border-right-color: yellow;
+        }
+        .san5{
+            border-color:transparent;
+            border-bottom-color: green;
+        }
+        .san6{
+            border-left-width: 0;
+            border-color:transparent;
+            border-bottom-color: red;
+        }
+        .san7{
+            border-right-width: 0;
+            border-color:transparent;
+            border-bottom-color: green;
+        }
+    </style>
+</head>
+<body>
+<h1>图片</h1>
+<div class="icon sprite1"></div>
+<div class="icon sprite2"></div>
+<div class="icon sprite3"></div>
+
+<div style="clear: both"></div>
+
+<h1>字体图标</h1>
+<div class="iconfont">&#xe601;</div>
+<div class="iconfont">&#xe64f;</div>
+<div class="iconfont">&#xe602;</div>
+
+<div style="clear: both"></div>
+
+<h1>三角形(左边是图片,右边border拼的)</h1>
+<img class="fl" src="sanjiaoxing.png" title="这是一个图片" alt="图片">
+
+<div class="fl">
+    <div class="sanjiao san1"></div>
+    <div class="sanjiao san2"></div>
+    <div class="sanjiao san3"></div>
+    <div class="sanjiao san4"></div>
+    <div class="sanjiao san5"></div>
+
+    <div class="sanjiao san6"></div>
+    <div class="sanjiao san7"></div>
+</div>
+
+</body>
+</html>

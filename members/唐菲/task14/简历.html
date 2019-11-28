@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta charset="UTF-8">
+	<title>唐菲个人简历</title>
+	<style type="text/css">
+		body, header, footer, h1 ,h2 ,h3 ,h4, h5, h6 ,p, ul, li, a, img{margin: 0; padding: 0; }
+		html{height: 100%;}
+		body{height: 100%;font: 1rem/1.5rem  "Microsoft YaHei",serif;}
+		a{text-decoration: none;}
+		li{list-style: none;}
+		.container{
+			width: 960px;
+			margin: 0 auto;
+		}
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		header{     /*header标签 ie9+兼容 如果不兼容可以使用id代替*/ 
+			height: 100%;
+			background: url(简历.jpg) center no-repeat ;
+			background-size:cover;
+			text-align: center;
+			color: gray;
+		}
+		h1{
+			font-size: 4rem;
+			padding-top:50vh;
+			position: relative;
+			top: -7rem 
+		}
+		header p{
+			position: relative;
+			top: -5rem;
+			font-size: 1.5rem;
+		}
+		header a{
+			position: relative;
+			top: -4rem;
+			padding: 10px 20px;
+			color: white;
+			border: none;
+			background:rgba(15,15,15,0.5);
+		}
+		header a:hover{
+			background:rgba(15,15,15,0.8);
+		}
+
+		.introduction{
+			text-align: center;
+			font-size: 1.3rem;
+			line-height: 2;
+		}
+
+		.skills{
+			padding-bottom: 50px;
+			text-align: center;
+			color: white;
+			background:#337ab7;
+		}
+
+		.skills>h3{
+			padding-top: 70px;
+			font-size: 3rem;
+			font-style: normal;
+		}
+
+		.skills>h3:after{
+			content: "";
+			display: block;
+			margin: 0 auto;
+			padding-top: 3rem;
+			width: 10rem;
+			border-bottom:1px white solid;
+		}
+
+		.skills ul{ 
+			margin-left: -60px;
+		}
+
+		.skills li{
+			float: left;
+			margin-left: 120px;
+			margin-top: 50px;
+		}
+
+		.skills i{
+			font-size: 7.5rem;
+			line-height: 1;
+		}
+
+		.skills a{
+			display: block;
+			margin-top: 30px;
+			padding: 5px;
+			color: black;
+			background: white;
+		}
+
+		.skills a:hover{
+			background: rgb(210,210,210);
+		}
+
+		.motto {
+			background: url(个性.png) center no-repeat;
+			padding-top: 250px;
+			padding-bottom: 250px;
+			font-size: 5rem;
+			text-align:center;
+		}
+
+		.works{
+			font-size: 3rem;
+			text-align:center;
+		}
+
+		.works h5:after{
+			content: "";
+			display: block;
+			margin: 0 auto;
+			padding-top: 3rem;
+			width: 10rem;
+			border-bottom:1px #a9a solid;
+		}
+
+
+
+		.works ul{
+			margin-top:50px;
+			margin-bottom:30px; 
+			margin-left: -60px;
+		}
+
+		.works li{
+			float: left;
+			margin-left:60px;
+			margin-bottom: 30px;
+		}
+
+		.works li:hover{
+			opacity: 0.7;
+		}
+
+		.works a img{
+			width: 450px;
+		}
+
+		.works .container>a{
+			display: inline-block;
+			margin-left: 0;
+			margin-bottom: 50px; 
+			padding: 10px;
+			font-size: 2rem;
+			line-height: 1.5;
+			color: white;
+			font-family: "Microsoft YaHei";
+			background-color:rgba(15,15,15,0.5);
+		}
+
+		.works .container>a:hover{
+			background-color:rgba(15,15,15,0.8);
+		}
+
+
+		.other{
+			padding-top: 50px;
+			padding-bottom: 50px;
+			text-align:center;
+			background-color: #337ab7;
+		}
+
+
+		.other p{
+			margin-bottom: 20px;
+		}
+
+		.other a{
+			display: inline-block;
+			padding: 20px;
+			color: black;
+			background-color:rgba(255,255,255,10);
+		}
+
+		.other a:first-of-type{
+			color: white;
+			background-color: rgba(0,0,0,10);
+		}
+		.other a:hover{
+			background-color:rgba(255,255,255,.7);
+		}
+
+		.other a:first-of-type:hover{
+			color: white;
+			background-color: rgba(0,0,0,.7);
+		}
+
+		footer {
+			padding-top: 50px;
+			padding-bottom: 50px;
+			line-height: 2;
+			text-align: center;
+
+		}
+
+		footer i{
+			vertical-align: text-top;
+		}
+
+		footer h6{
+			font-size: 3rem;
+		}
+		
+		footer >i a{
+			color: #337ab7;
+			letter-spacing: 1rem;
+			font-size:3rem;
+		}
+
+		footer >i a:hover{
+			color: #162954;
+			letter-spacing: 1rem;
+			font-size:3rem;
+		}
+
+		footer address{
+			font-style: normal;
+			font-size: 1.5rem;
+
+		}
+
+		footer a{
+			color:black;
+			
+		}
+		
+		footer >a{
+			display: inline-block;
+			border: 1px solid;
+		}
+		
+		footer i:nth-of-type(2){
+			position: relative;
+		}
+
+		footer  i:nth-of-type(2) img{
+			display: none;
+			position: absolute;
+			top: -280px;
+			left: -100px
+		}
+
+		footer i:nth-of-type(2):hover img{
+			display: block;
+		}
+
+
+
+
+
+
+
+		@font-face {
+			font-family: 'iconfont';
+			src: url('http://at.alicdn.com/t/font_1467173520_206783.eot'); /* IE9*/
+			src: url('http://at.alicdn.com/t/font_1467173520_206783.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('http://at.alicdn.com/t/font_1467173520_206783.woff') format('woff'), /* chrome、firefox */
+			url('http://at.alicdn.com/t/font_1467173520_206783.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+			url('http://at.alicdn.com/t/font_1467173520_206783.svg#iconfont') format('svg'); /* iOS 4.1- */
+		}
+		
+
+		.iconfont{
+			font-family:"iconfont" !important;
+			font-size:16px;font-style:normal;
+			-webkit-font-smoothing: antialiased;
+			-webkit-text-stroke-width: 0.2px;
+			-moz-osx-font-smoothing: grayscale;}              
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>我是唐菲</h1>
+			<p>是一个有思想的工程师</p>
+			<a href="javascript:">更多</a>
+		</header>
+
+
+		<section class="introduction ">
+			<h2>这里是我的个人简介</h2>
+			<p>本人正在学习Html+Css+JavaScript</p>
+			<p>好 好 学 习，天 天 向 上(ง •̀_•́)ง </p>
+		</section>
+
+		<section class="skills">
+			<h3>我的技能</h3>
+			<div class="container clearfix">
+				<ul >
+					<li><i class="iconfont">&#xe604;</i><p>HTML5&CSS3</p><a href="javascript:">LearnMore</a></li>
+					<li><i class="iconfont">&#xe60c;</i><p>JavaScript</p><a href="javascript:">LearnMore</a></li>
+					<li><i class="iconfont">&#xe602;</i><p>PhotoShop</p><a href="javascript:">LearnMore</a></li>
+					<li><i class="iconfont">&#xe603;</i><p>GitHub</p><a href="javascript:">LearnMore</a></li>
+				</ul>
+			</div>
+		</section>
+
+
+
+		<section class="motto">
+
+			<h4>天道酬勤</h4>
+
+		</section>
+
+		<section class="works">
+
+			<h5>我的作品</h5>
+
+			<div class="container">
+				<ul class="clearfix">
+					<li><a href="javascript:"><img src="1.jpg" alt="作品一" title="作品一"></a></li>
+					<li><a href="javascript:"><img src="2.jpg" alt="作品二" title="作品二"></a></li>
+					<li><a href="javascript:"><img src="3.jpg" alt="作品三" title="作品三"></a></li>
+					<li><a href="javascript:"><img src="4.jpg" alt="作品四" title="作品四"></a></li>
+				</ul>
+
+				<a href="javascript:">参观更多</a>
+
+			</div>
+		</section >
+
+		<section class="other">
+
+
+
+
+			<p>来更多地了解我吧(◕ฺ‿◕ฺ)</p>
+
+
+			<a href="">我的博客</a>
+			<a href="">我的GitHub</a>
+
+		</section>
+
+
+		<footer>
+			
+
+			<h6>我的信息</h6>
+
+			<address>
+				<p>江苏省无锡市</p>
+				<a href="tel:13912354945" class="call"><p><i class="iconfont">&#xe605;</i>13912354945</p></a>
+				<a href=mailto:49704523@qq.com><p><i class="iconfont">&#xe607;</i>E-mail:497045233@qq.com</p></a>
+
+			</address>
+
+			<i class="iconfont"><a href="javascript:">&#xe601;</a></i>
+			<i class="iconfont"><a href="javascript:">&#xe600;<img src="微信.png" alt=""></a></i>
+			<i class="iconfont"><a href="javascript:">&#xe606;</a></i>
+
+			<p>copyright © your website 2008-2020</p>
+			
+
+		</footer>
+
+
+
+
+
+
+	</body>
+	</html>

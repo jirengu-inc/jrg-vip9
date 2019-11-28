@@ -1,0 +1,35 @@
+<script>
+	
+	function Person(name, age){
+		this.nick = name;
+		this.age = age;
+
+		this.printName = function(){
+			console.log(this.nick);
+		}
+	}
+
+	var p1 = new Person('hunger', 30);
+	var p2 = new Person('ruoyu', 30);
+	console.log(p1.nick);
+	console.log(p1.age);
+	p1.printName();
+
+	// 1. 任何函数都 prototype 这个属性，对应的值是一个对象，叫做原型对象
+
+
+
+	function People(name, age){
+		this.name = name;
+		this.age = age;
+	}
+
+	People.prototype.sayName = function(){
+		console.log(this.name)
+	}
+
+	var p3 = new People('aaa', 100);
+	var p4 = new People('bbb', 200)
+
+
+</script>

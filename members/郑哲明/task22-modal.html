@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab-switch</title>
+</head>
+<style>
+    body,h3,p{
+        margin: 0;
+    }    
+    a{
+        text-decoration: none;
+        color: rgba(0,0,0,1);
+    }
+    *{
+        font-family: '微软雅黑';
+    }
+    .wrap{
+        width: 350px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -89px;
+        margin-left: -175px;
+        z-index: 1;
+        background: white;
+        border-radius: 5px;
+        display: none;
+    }
+    .title,.content{
+        padding: 5px 10px;
+    }
+    .title{
+        border-bottom: 1px solid silver
+    }
+    .content{
+        border-bottom: 1px solid #eee;
+        height: 100px;
+    }
+    .wrap-button{
+        padding:5px 10px;
+    }
+    .close{
+        float: right;
+        font-size: 20px;
+    }
+    h3{
+        display: inline;
+    }
+    .button{
+        float: right;
+        display: block;
+        margin-left: 10px;
+    }
+    .clearfix:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .cover{
+        background: rgba(3,3,3,0.3);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        display: none;
+    }
+    .active{
+        display: block;
+    }
+    
+    
+</style>
+<body>
+    <div class="modal">
+        <button class="btn">点我</button>
+        <div class="cover"></div>
+        <div class="wrap">
+            <div class="title">
+                <h3>我是标题</h3>
+                <a href="javascript:void(0)" class="close">×</a>
+            </div>
+            <div class="content">
+                <p>我是内容</p>
+                <p>我是内容</p>
+            </div>
+            <div class="wrap-button clearfix">
+                <a href="javascript:void(0)" class="cancle button">取消</a>
+                <a href="javascript:void(0)" class="button">确定</a>
+            </div>
+        </div>
+    </div>
+    <script>
+         function hasClass(obj , cls) {
+            var match = new RegExp('\\b' +cls + '\\b' , 'g')
+            return match.test(obj.className)
+        }
+        function addClass(obj , cls) {
+            if(!hasClass(obj , cls)) {
+                obj.className += ' ' + cls
+            }
+        }
+        function removeClass(obj , cls) {
+            if(hasClass(obj , cls)) {
+                var match = new RegExp('\\b' + cls +'\\b' , 'g')
+                obj.className = obj.className.replace(match , '')
+            }
+        }
+        var btn = document.getElementsByClassName('btn')[0]
+        var cover = document.getElementsByClassName('cover')[0]
+        var wrap = document.getElementsByClassName('wrap')[0]
+        btn.addEventListener('click' , function(){
+            addClass(cover , 'active')
+            addClass(wrap , 'active')
+        })
+        var close = document.getElementsByClassName('close')[0]
+        var cancle = document.getElementsByClassName('cancle')[0]
+        close.addEventListener('click' , function(){
+            removeClass(cover , 'active')
+            removeClass(wrap , 'active')
+        })
+        cancle.addEventListener('click' , function() {
+            removeClass(cover , 'active')
+            removeClass(wrap , 'active')
+        })
+        cover.addEventListener('click' , function() {
+            removeClass(cover , 'active')
+            removeClass(wrap , 'active')
+        })
+    </script>
+</body>
+</html>
+
+

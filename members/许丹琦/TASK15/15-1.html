@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="iconfont.css" rel="stylesheet">
+<style type="text/css">
+html,body,h1,h3,ul,li,p{
+	padding: 0;
+	margin: 0;
+
+}
+
+
+body{
+  	font: 14px/1.5 normal;
+  	font-family:  "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif
+  color: #333;
+}
+
+li{
+	list-style: none;
+	text-align: center;
+    box-sizing:border-box;
+	
+}	
+a{  
+	text-decoration: none;
+	color: #666;
+}
+a:hover{
+	color: #333;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.layout{
+	width: 1000px;
+	margin: 0 auto
+}
+.btn{
+	display: inline-block;
+	width: 30px;
+	height: 20px;
+	border:1px solid #ccc;
+	border-radius: 3px;
+	padding: 5px 10px;
+	text-align: center;
+	margin:10px;
+}
+
+#header .logo{
+	float: left;
+}
+.logo .iconfont{
+	font-size: 30px;
+	line-height: 50px;
+}
+
+#header .navbar{
+	float: left;
+}
+#header .top-wrap>ul>li{
+	float: left;
+	line-height: 50px;
+	width: 50px;
+	height: 50px;
+	margin-left: 10px;
+}
+
+#header .more{
+	position: relative;
+}
+#header .more-info{
+	border: 1px solid #ccc;
+	width: 50px;
+	background-color: #fff;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display: none;
+}
+
+.more-info li{
+	border-bottom: 1px dashed #ccc;
+}
+#header .more:hover .more-info{
+	display: block;
+	
+}
+.more-info>li:hover{
+    background-color: #eee;
+}
+#main .title a{
+	color: #b84d45;
+}
+
+#main .banner{
+	background-color: #b84d45;
+	padding: 30px 0;
+	color: #fff;
+
+}
+#main .content .title{
+	background: #ccc;
+	margin-top: 20px;
+	padding: 10px 0;
+}
+
+.works-description>li img{
+	width: 300px;
+}
+
+
+.works-description{
+	margin-left: -50px;
+}
+.works-description>li{
+	float: left;
+	width: 300px;
+	border: 1px solid #ccc;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+.works-description>li h3{
+	text-align: left;
+	padding:5px 10px;
+}
+.works-description>li p{
+	text-align: left;
+	padding:5px 10px;
+}
+
+
+#main .more-about{
+	text-align: center;
+	margin-top: 30px;
+	background-color: #b84d45;
+	padding: 30px 0;
+	color: #fff;
+}
+#footer{
+	text-align: center;
+	margin: 30px 0;
+}
+
+
+</style>
+</head>
+<body>
+<div id="header">
+ 	<div class="top-wrap layout clearfix">
+		<a href="#" class="logo"><i class="iconfont">&#xe68a;</i></a>
+		<ul class="navbar clearfix">
+			<li><a href="#">博客</a></li>
+			<li><a href="#">项目</a></li>
+			<li><a href="#">简历</a></li>
+			<li class="more">
+			<a href="#">更多</a>
+			<ul class="more-info">
+			<li><a href="">Github</a></li>
+			<li><a href="">微博</a></li>
+			<li><a href="">知乎</a></li>
+			</ul>
+			</li>
+		</ul>
+    </div>
+</div>
+<div id="main">
+	<div class="banner">
+		<div class="layout">
+		<h1>我的简介</h1>
+		<p>这里是我的简介</p>
+		<p>我的简介简介</p>
+		</div>
+	</div>
+	<div class="content layout">
+		<div class="title">
+			<p><a href="">首页</a>/我的作品</p>
+		</div>
+
+		<ul class="works-description clearfix">
+			<li>
+				<img src="1.jpg">
+				<h3>作品标题</h3>
+				<p>作品介绍</p>
+				<a class="btn" href="">查看</a>
+			</li>
+			<li>
+				<img src="1.jpg">
+				<h3>作品标题</h3>
+				<p>作品介绍</p>
+				<a class="btn" href="">查看</a>
+			</li>
+			<li>
+				<img src="1.jpg">
+				<h3>作品标题</h3>
+				<p>作品介绍</p>
+				<a class="btn" href="">查看</a>
+			</li>
+			<li>
+				<img src="1.jpg">
+				<h3>作品标题</h3>
+				<p>作品介绍</p>
+				<a class="btn" href="">查看</a>
+			</li>
+			<li>
+				<img src="1.jpg">
+				<h3>作品标题</h3>
+				<p>作品介绍</p>
+				<a class="btn" href="">查看</a>
+			</li>
+			<li>
+				<img src="1.jpg">
+				<h3>作品标题</h3>
+				<p>作品介绍</p>
+				<a class="btn" href="">查看</a>
+			</li>
+		</ul>
+	</div>
+	<div class="more-about">
+		<h1>想要更详细了解我？</h1>
+		<p>下载我的简历吧</p>
+		<a class="btn" href="">下载</a>
+	</div>
+</div>
+<div id="footer">
+<p>来自@jirengu</p>
+</div>
+    
+</body>
+</html>

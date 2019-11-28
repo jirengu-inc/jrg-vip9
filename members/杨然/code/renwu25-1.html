@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu25-1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="font/font-awesome-4.6.3/css/font-awesome.min.css">
+<style>
+	ul, li, p, a {
+		padding: 0;
+		margin: 0;
+	}
+	ul, li {
+		list-style: none;
+	}
+	a {
+		text-decoration: none;
+	}
+	.side {
+		width: 120px;
+	}
+	.side span,
+	.side i {
+		font-size: 16px;
+		line-height: 1.5;
+		color: #fff;
+	}
+	.side i {
+		padding-left: 30px;
+	}
+	.panle {
+		padding: 5px;
+		background-color: #f54545;
+		position: relative;
+	}
+	.panle > a {
+		border-bottom: 1px dashed #aaa;
+		padding-bottom: 5px;
+		display: inline-block;
+	}
+	.panle.last > a {
+		border-bottom: none;
+	}
+	
+	.panle-2 {
+		display: none;
+		background-color: #fff;
+		position: absolute;
+		width: 120px;
+		border: 1px solid #ccc;
+		left: 120px;
+		top: 0;
+	}
+	.panle-2 > li {
+		text-align: center;
+		float: left;
+		width: 50px;
+		padding: 5px;
+	}
+	.panle a {
+		font-size: 12px;
+	}
+	.panle.hover .panle-2 {
+		display: block;
+	}
+/*	.panle:hover > .panle-2 {
+		display: block;
+	}*/
+</style>
+</head>
+<body>
+    <div id="ct">
+    	<ul class="side">
+    		<li class="panle">
+	    		<a href="#">
+	    		<span>珠宝玉器</span>
+	    		<i class="fa fa-angle-right"></i>
+    			</a>
+    			<ul class="panle-2">
+    				<li><a href="#">翡翠</a></li>
+    				<li><a href="#">玉石</a></li>
+    				<li><a href="#">宝石</a></li>
+    				<li><a href="#">水晶</a></li>
+    			</ul>
+    		</li>
+    		<li class="panle">
+    			<a href="#">
+	    		<span>珠宝玉器</span>
+	    		<i class="fa fa-angle-right"></i>
+    			</a>
+    			<ul class="panle-2">
+    				<li><a href="#">翡翠</a></li>
+    				<li><a href="#">玉石</a></li>
+    				<li><a href="#">宝石</a></li>
+    				<li><a href="#">水晶</a></li>
+    			</ul>
+    		</li>
+    		<li class="panle">
+    			<a href="#">
+	    		<span>珠宝玉器</span>
+	    		<i class="fa fa-angle-right"></i>
+    			</a>
+    			<ul class="panle-2">
+    				<li><a href="#">翡翠</a></li>
+    				<li><a href="#">玉石</a></li>
+    				<li><a href="#">宝石</a></li>
+    				<li><a href="#">水晶</a></li>
+    			</ul>
+    		</li>
+    		<li class="panle">
+    			<a href="#">
+	    		<span>珠宝玉器</span>
+	    		<i class="fa fa-angle-right"></i>
+    			</a>
+    			<ul class="panle-2">
+    				<li><a href="#">翡翠</a></li>
+    				<li><a href="#">玉石</a></li>
+    				<li><a href="#">宝石</a></li>
+    				<li><a href="#">水晶</a></li>
+    				<li><a href="#">玛瑙</a></li>
+    				<li><a href="#">珍珠</a></li>
+    			</ul>
+    		</li>
+    		<li class="panle last">
+    			<a href="#">
+	    		<span>珠宝玉器</span>
+	    		<i class="fa fa-angle-right"></i>
+    			</a>
+    			<ul class="panle-2">
+    				<li><a href="#">翡翠</a></li>
+    				<li><a href="#">玉石</a></li>
+    				<li><a href="#">宝石</a></li>
+    				<li><a href="#">水晶</a></li>
+    			</ul>
+    		</li>
+    	</ul>
+    </div>
+ <script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js'></script>
+ <script>
+ 		$('.side .panle').on('mouseenter', function(){
+ 			// $(this).addClass('hover');
+ 			// $(this).find('.panle-2').show();
+ 			$(this).find('.panle-2').css('display', 'block');
+
+ 		})
+ 		$('.side .panle').on('mouseleave', function(){
+ 			// $(this).removeClass('hover');
+ 			// $(this).find('.panle-2').hide();
+ 			$(this).find('.panle-2').css('display', 'none');
+ 		})
+ </script>
+</body>
+</html>

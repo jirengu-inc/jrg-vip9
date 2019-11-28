@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    body,li,ul{
+        padding:0;
+        margin:0;
+        background:#ccc;
+    }
+    li{
+        list-style:none;
+    }
+    a{
+        text-decoration:none;
+    }
+    .list{
+        margin:10px;
+        height:30px;
+        line-height:30px;
+        border:1px solid #ccc;
+        padding:10px;
+        background:#fff;
+    }
+    .wrap{
+        text-align:center;
+    }
+    .load-more{
+        width: 130px;
+        height: 55px;
+        font-size: 18px;
+        display: inline-block;
+        line-height: 55px;
+        border-radius:3px;
+        background:#fff;
+    }
+</style>
+</head>
+<body>
+<ul class="list-ct">
+    <li class="list">内容1</li>
+    <li class="list">内容2</li>
+</ul>
+<div class="wrap"><a href="#" class="load-more">加载更多</a></div>
+
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+
+    var $ct = $('.list-ct');
+    var $load = $('.load-more');
+    var cur = 3;
+
+
+
+
+    //事件代理，鼠标放上li变色
+    $ct.on('mouseenter','.list',function(){
+        $(this).css('background','#005588')
+    });
+    $ct.on('mouseleave','.list',function(){
+        $(this).css('background','#fff')
+    });
+
+
+
+
+
+    function isVisible($node){
+        var windowH = $(window).height();
+        var offSet = $node.offset().top;
+        var eleH = $node.outerHeight(true);
+        var scroll = $(window).scrollTop();
+        return(windowH+scroll>offSet && offSet>scroll+eleH);
+    }
+
+
+
+
+    if(isVisible($load)){
+
+        $.ajax({
+            url: '1.php',
+            type: 'get',
+            dataType: 'json',
+            data:{
+                start :cur ,
+                len : 3
+            },
+            success: function(json){
+                onSuccess(json)
+            },
+            error: function(){
+                onError()
+            }
+        })
+    }
+
+
+
+    $load.on('scroll',function(){
+
+        if(isVisible($load)){
+            var $this = $(this);
+            if(!$this.data('open')){
+                return;
+            }
+            $this.data('open','false');
+            $.ajax({
+                url: '1.php',
+                type: 'get',
+                dataType: 'json',
+                data:{
+                    start :cur ,
+                    len : 3
+                },
+                success: function(json){
+                    onSuccess(json)
+                },
+                error: function(){
+                    onError()
+                }
+            })
+        }
+    });
+
+
+
+    function onSuccess(json){
+        if(json.status === 1){
+        onAppend(json.data);
+        }
+        else{
+            alert('信息获取失败')
+        }
+        $load.data('open','true');
+    }
+
+
+
+    function onError(){
+        alert('系统繁忙')
+    }
+
+
+    function onAppend(arr){
+
+        for(var i= 0;i<arr.length;i++){
+            $ct.append('<li class="list">'+arr[i] + '</li>')
+        }
+
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

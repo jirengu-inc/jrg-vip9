@@ -1,0 +1,328 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+
+}
+.head{
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: 微软雅黑;
+    color: white;
+    background-color: #014da2;
+}
+.head_middle{
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto;
+}
+.head_middle p{
+    float: left;
+    width: 1000px;
+    margin: 0;
+    padding: 0;
+    line-height: 30px;
+}
+.head_middle ul{
+    float: left;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    line-height: 30px;
+}
+.head_middle ul li{
+    float: right;
+    margin-left: 10px;
+    list-style: none;
+}
+.head_middle ul li a:link,.head_middle ul li a:visited{
+    text-decoration: none;
+    color: white;
+}
+.head_middle ul li a:hover,.head_middle ul li a:active{
+    text-decoration: none;
+    color: black;
+}
+.logo {
+    height: 80px;
+    margin: 0px;
+    background-color: white;
+    border-bottom: 2px solid #014da2;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+.logo_middle{
+    width: 1200px;
+    margin: 0 auto;
+}
+.logo_middle img{
+    float: left;
+}
+.logo_middle ul{
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+.logo_middle ul li{
+    float: left;
+    margin-left: 30px;
+    padding: 21px 0;
+    font-size: 20px;
+    list-style: none;
+    border: none;
+    cursor: pointer;
+}
+.logo_middle ul li:link ,.logo_middle ul li:visited{
+    border: none;
+}
+.logo_middle ul li:hover ,.logo_middle ul li:active{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 5px solid #014da2;
+}
+.product{
+    height: 580px;
+    margin-top: 31px;
+    padding: 0px;
+    background: url("产品中心_02.png") no-repeat ;
+    background-position: center;
+    background-color: #f3f2f2;
+    border: none;
+}
+.product_middle{
+    display: block;
+    width: 1200px;
+    margin: 0 auto;
+}
+.product button{
+    margin: 470px 0 0 552px;
+    padding: 7px 20px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #d6d7d8;
+    background-color: white;
+    border: 1px solid #d6d7d8 ;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.product button a:link,.product button a:visited{
+    color: #d6d7d8;
+    text-decoration: none;
+}
+.product button a:hover,.product button a:active{
+    color: #7291dc;
+    text-decoration: none;
+}
+.main_case{
+    margin: 0;
+    padding: 0;
+    background: url("case-中心_02.png") no-repeat;
+    background-position: center;
+    background-color: #f3f2f2;
+}
+.main_case .main_case_middle{
+    display: block;
+    width: 1200px;
+    height: 550px;
+    margin: 0px auto;
+}
+.btn1,.btn2{
+    padding: 8px 0px 4px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #abadb7;
+}
+.btn1{
+    margin: 100px 0 0 490px;
+ }
+.btn2{
+    margin: 100px 0 0 15px;
+ }
+.btn3{
+    margin: 340px 0 0 555px;
+    padding: 5px 20px 5px 20px;
+    background-color: #f3f2f2;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn1 a:link,.btn2 a:link,.btn1 a:visited,.btn2 a:visited{
+    padding: 8px 16px 4px 16px;
+    background-color: white;
+    text-decoration: none;
+    color: #626262;
+}
+.btn1 a:hover,.btn2 a:hover,.btn1 a:active,.btn2 a:active{
+    padding: 8px 16px 4px 16px;
+    background-color: #d3504e;
+    text-decoration: none;
+    color: white;
+}
+.btn3 a:link, .btn3 a:visited{
+    text-decoration: none;
+    color: #b8b9bb;
+}
+.btn3 a:hover, .btn3 a:active{
+    text-decoration: none;
+    color: blue;
+}
+.main_about{
+    height: 640px;
+    background: url("about-000_02.png") no-repeat;
+    background-position: center;
+}
+.main_about_middle{
+    width: 1200px;
+    margin: 0 auto;
+}
+.b1,.b2,.b3,.b4,.b5{
+    float: right;
+}
+.b1{
+    padding:8px 25px 4px 25px;
+    margin: 185px 0 0 50px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid  #88cbe9;
+}
+.b2,.b3,.b4{
+    padding:8px 25px 4px 25px;
+    margin: 185px 0 0 50px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+    border:1px solid #88cbe9;
+}
+.b1:link,.b2:link,.b3:link,.b4:link,.b1:visited,.b2:visited,.b3:visited,.b4:visited{
+    background-color: transparent;
+}
+.b1:hover,.b2:hover,.b3:hover,.b4:hover,.b1:active,.b2:active,.b3:active,.b4:active{
+    background-color: #d3504e;
+}
+.b1 a:link,.b2 a:link,.b3 a:link,.b4 a:link,.b1 a:visited,.b2 a:visited,.b3 a:visited,.b4 a:visited{
+    text-decoration: none;
+    color: white;
+}
+.b1 a:hover,.b2 a:hover,.b3 a:hover,.b4 a:hover,.b1 a:active,.b2 a:active,.b3 a:active,.b4 a:active{
+    text-decoration: none;
+    color: white;
+}
+.b5{
+    margin: 250px 0 0 1115px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
+}
+ .b5 a:link,.b5 a:visited{
+    color: white;
+    text-decoration: none;
+}
+ .b5 a:hover,.b5 a:active{
+    color: blue;
+    text-decoration: none;
+}
+.main_news{
+    height: 474px;
+    margin-top: 20px;
+    padding: 0px;
+    font-size: 12px;
+    color: black;
+    background: url("新闻中心——背景_02.png")no-repeat;
+    background-position: center;
+    background-color: white;
+
+}
+.news_center{
+    width: 1200px;
+    height: 474px;
+    margin: 0px auto;
+}
+.news_center .news_left{
+    width: 1000px;
+    float: left;
+    margin: 0;
+    padding: 175px 0 0 0;
+}
+.news_center .news_left_top span{
+    margin: 0 0 0 230px;
+    color: #cf3e3c;
+}
+.news_center .news_left_top p{
+    margin: 0px 0px 0px 230px;
+    color: #4d4e52;
+    text-indent: 20px;
+}
+.news_left_top p a:link,.news_left_top p a:visited{
+    color: #cf3e3c;
+    text-decoration: none;
+}
+.news_left_top p a:hover,.news_left_top p a:active{
+    color: blue;
+    text-decoration: none;
+}
+.news_left .news_left_button ul{
+    margin: 0 0 0 240px;
+    padding: 0 ;
+    list-style: none;
+}
+.news_left .news_left_button ul li{
+    margin: 44px 0px;
+}
+.news_left .news_left_button ul li a:link,.news_left .news_left_button ul li a:visited{
+    color:#4d4e52;
+    text-decoration: none;
+}
+.news_left .news_left_button ul li a:hover,.news_left .news_left_button ul li a:active{
+    color: red;
+    text-decoration: none;
+}
+.news_right {
+    float: left;
+    width: 200px;
+    border: none;
+}
+.news_right video{
+    float: right;
+    margin: 90px 0 0 0;
+}
+.foot{
+    height: 200px;
+    margin: 0px;
+    background: url("dibu_02.png") no-repeat;
+    background-position: center;
+}
+.foot_middle{
+    width: 1200px;
+    margin: 0 auto;
+
+}
+.foot_middle ul{
+    float: right;
+    width: 600px;
+    margin-top: 32px;
+}
+.foot_middle ul li{
+    float: right;
+    margin: 0 0 0 20px;
+    font-size: 12px;
+    font-weight: bold;
+    list-style: none;
+}
+
+li a:link,li a:visited{
+    color: #b4b4b4;
+    text-decoration: none;
+}
+li a:hover,li a:active{
+    color: #537adc;
+    text-decoration: none;
+}

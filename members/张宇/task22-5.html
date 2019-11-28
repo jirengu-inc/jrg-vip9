@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-5</title>
+    <style>
+
+        html,body,ul,li,h1,h2,h3{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html,body{
+            height: 100%;
+        }
+
+        .ct *{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .ct {
+            position: fixed;
+            top:0;
+            bottom:0;
+            background: rgba(0,0,0,0.7);
+            width:100%;
+            height:100%;
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+        .ct .dialog{
+            position: relative;
+            top:50%;
+            left:50%;
+            margin-top: -100px;
+            margin-left: -200px;
+            height: 170px;
+            width: 400px;
+            background-color: #fff;
+            border:transparent 1px solid;
+            border-radius: 4px;
+        }
+        .ct .dialog span{
+            position: absolute;
+            top:0;
+            right:0;
+            padding:10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .ct .dialog h3{
+            padding:10px;
+            border-bottom:#eee solid 1px;
+        }
+        .ct .dialog p{
+            margin-left: 10px;
+        }
+        .ct div.btn{
+            text-align: right;
+            padding: 10px;
+            border-top:#eee solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <button>点我1</button>
+    <div class="ct">
+        <div class="dialog">
+            <span>×</span>
+            <h3>我是标题1</h3>
+            <p>我是内容1</p>
+            <p>我是内容2</p>
+            <div class="btn">
+                <button>确定</button>
+                <button>取消</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function hasClass(el, cls){
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)', 'g' );
+            return reg.test(el.className);
+        }
+        function addClass(el, cls){
+            if(!hasClass(el, cls)){
+                el.className = el.className + ' ' + cls;
+            }
+            return el.className;
+        }
+        function removeClass(el, cls){
+            if(hasClass(el, cls)){
+                var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+                el.className = el.className.replace(reg, '');
+            }
+            return el.className;
+        }
+
+        var btn = document.querySelector('button');
+        var ct = document.querySelector('.ct');
+        var dialog = ct.querySelector('.dialog');
+        var close = dialog.querySelector('span');
+
+        btn.addEventListener('click', function (){
+            addClass(ct, 'active');
+        });
+        close.addEventListener('click',function(){
+            removeClass(ct, 'active');
+        })
+    </script>
+</body>
+</html>

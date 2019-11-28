@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html, body, ul, li {
+        margin: 0px;
+        padding: 0px;
+      }
+      li {
+        list-style: none;
+        border: 1px solid #ddd;
+        margin: 10px;
+      }
+      li>a {
+        display: block;
+        line-height: 40px;
+        padding-left: 20px;
+        text-decoration: none;
+        color: black;
+      }
+      li>a:hover {
+        background: green;
+        color: white;
+      }
+      .more-btn {
+        display: inline-block;
+        color: rgb(224, 115, 116);
+        border: 1px solid rgb(224, 115, 116);
+        text-decoration: none;
+        padding: 10px 5px;
+        border-radius: 5px;
+      }
+      .footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#">内容1</a></li>
+      <li><a href="#">内容2</a></li>
+      <li><a href="#">内容3</a></li>
+      <li><a href="#">内容4</a></li>
+      <li><a href="#">内容5</a></li>
+      <li><a href="#">内容6</a></li>
+      <li><a href="#">内容7</a></li>
+      <li><a href="#">内容8</a></li>
+      <li><a href="#">内容9</a></li>
+      <li><a href="#">内容10</a></li>
+      <li><a href="#">内容11</a></li>
+      <li><a href="#">内容12</a></li>
+      <li><a href="#">内容13</a></li>
+      <li><a href="#">内容14</a></li>
+    </ul>
+    <div class="footer">
+      <a class="more-btn" href="#">加载更多</a>
+    </div>
+    <script src='jquery-3.0.0.min.js'></script>
+    <script>
+      var pageIndex = 4;
+      $('.more-btn').on('click', ajax);
+      var timer;
+      $(window).on('scroll', function() {
+        if (timer)
+          clearInterval(timer);
+        if (isVisible($('.more-btn'))) {
+          timer = setInterval(ajax, 300);
+        }
+      });
+      function ajax() {
+        $.ajax({
+          url: 'task24-2.php',
+          dataType: 'json',
+          data: {
+            pageNo: pageIndex
+          }
+        }).done(function(responseData) {
+          pageIndex++;
+          for (var i = 0; i < responseData.length; i++) {
+            $('ul').append($('<li><a href="#">' + responseData[i] + '</a></li>'));
+          }
+        });
+      }
+      function isVisible($node) {
+			  var windowWidth = $(window).width();
+			  var windowHeight = $(window).height();
+			  var topOffset = $(window).scrollTop();
+			  var leftOffset = $(window).scrollLeft();
+        var nodeTop = $node.offset().top;
+        var nodeLeft = $node.offset().left;
+        var nodeWidth = $node.width();
+        var nodeHeight = $node.height();
+			  if ((nodeTop > topOffset && nodeTop < topOffset + windowHeight) || (nodeTop + nodeHeight > topOffset && nodeTop + nodeHeight < topOffset + windowHeight)) {
+				  if ((nodeLeft > leftOffset && nodeLeft < leftOffset + windowWidth) || (nodeLeft + nodeWidth > leftOffset && nodeLeft + nodeWidth < leftOffset + windowWidth))
+						return true;
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

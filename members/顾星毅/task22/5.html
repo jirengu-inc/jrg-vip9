@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>模态框</title>
+    <style media="screen">
+      .btn{
+        cursor: pointer;
+      }
+      .ct{
+        display: none;
+      }
+      .cover{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        opacity: 0.4;
+        z-index: 99;
+      }
+      .panel{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        margin-left: -200px;
+        margin-top: -100px;
+        border-radius: 3px;
+        background: #fff;
+        z-index: 100;
+      }
+      .header{
+        position: relative;
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px solid #ccc;
+      }
+      .header:after{
+        display: block;
+        content: "";
+        clear: both;
+      }
+      .header>h3{
+        padding-left: 10px;
+        margin: 0;
+      }
+      .header>span{
+        position: absolute;
+        right: 10px;
+        top: -3px;
+        cursor: pointer;
+      }
+      .content{
+        border-bottom:1px solid #ccc;
+        padding-left: 10px;
+      }
+      .footer{
+        float: right;
+        padding: 10px;
+      }
+      .footer>span{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">点我</button>
+    <div class="ct">
+      <div class="cover"></div>
+      <div class="panel">
+        <div class="header">
+          <h3>我是标题</h3>
+          <span class="close">×</span>
+        </div>
+        <div class="content">
+          <p>我是内容1</p>
+          <p>我是内容2</p>
+        </div>
+        <div class="footer">
+          <span class="close">取消</span>
+          <span>确定</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      var ct = document.querySelector(".ct"),
+          btn = document.querySelector(".btn"),
+          cover = document.querySelector(".cover"),
+          panel = document.querySelector(".panel");
+          btn.addEventListener("click", function(){
+              ct.style.display="block";
+          });
+          cover.addEventListener("click", function(){
+              ct.style.display="none";
+          });
+          panel.addEventListener('click', function(e){
+             if( e.target.classList.contains("close") ){
+                 ct.style.display="none";
+             }
+          });
+    </script>
+  </body>
+</html>

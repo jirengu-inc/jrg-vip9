@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="zh">
+        <title>实战任务2</title>
+        <script src="https://use.fontawesome.com/36c88d9e85.js"></script>
+        <style media="screen">
+            .layout{
+                width: 1000px;
+                margin: 0 auto;
+            }
+            body,div,ul,li,dl,dt,dd{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            a:link{
+                color: currentColor;
+                text-decoration: none;
+            }
+            a:hover{
+                color: currentColor;
+            }
+            a:visited{
+                color: currentColor;
+            }
+            .clearfix:after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+                                            /*以上去除默认样式*/
+            #header>ul>li{
+                float: left;
+                color: #555;
+                line-height: 2rem;
+                margin-right: 20px;
+            }
+            #header>ul>.logo{
+                font-size: 2rem;
+                color: #4285f4;
+                margin-right: 60px;
+            }
+            .logo+li{
+                position: relative;
+            }
+            .navbar-creation{
+                display: none;
+            }
+            .logo+li:hover .navbar-creation{
+                display: inline;
+                position: absolute;
+                background-color: white;
+                padding: 0 30px 0 10px;
+                border-radius: 3px;
+            }
+            .banner{
+                background-color: #b84d45;
+                overflow: auto;
+            }
+            .welcome{
+                margin: 50px auto;
+                color: white;
+            }
+                                            /*以上是header*/
+            #main .table{
+                margin-top: 30px;
+                margin-bottom: 15px;
+                background-color: #eee;
+                border-radius: 3px;
+                line-height: 2rem;
+            }
+            #main>.table>li:first-child{
+                float: left;
+                color: #b84d45;
+                margin-left: 20px;
+            }
+            #main>.table>li:nth-child(2){
+                float: left;
+                color: #555;
+            }
+            .list{
+                margin-left: -20px;
+            }
+            .list>li{
+                box-sizing: border-box;
+                width: 320px;
+                height: 360px;
+                padding: 3px;
+                text-align: center;
+                border: 1px solid #eee;
+                border-radius: 3px;
+                float: left;
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+            .creation img{
+                width: 312px;
+                height: 234px;
+            }
+            .creation p{
+                font-size: 0.6rem;
+            }
+            .creation button{
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+                                            /*以上是main*/
+            #footer{
+                text-align: center;
+                color: white;
+                overflow: auto;
+                background-color: #b84d45;
+            }
+            #footer>div{
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header" class="">
+            <ul class="layout navbar clearfix">
+                <li class="logo">
+                    <a href="#"><i class="fa fa-user-secret" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#">我的作品<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="navbar-creation">
+                        <li><a href="#">页面</a></li>
+                        <li><a href="#">框架</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">项目</a></li>
+                <li><a href="#">关于我</a></li>
+            </ul>
+            <div class="banner">
+                <div class="welcome layout">
+                    <h1>赵童的作品库</h1>
+                    <p>欢迎来到我的作品库，这里记载了本人从学习前端开发以来的所有作品。</p>
+                </div>
+            </div>
+        </div>
+        <div id="main" class="">
+            <ul class="table clearfix layout">
+                <li><a href="#">首页&nbsp;</a></li>
+                <li> /<a href="#"> 我的作品</a></li>
+            </ul>
+            <div class="layout">
+                <ul class="list clearfix">
+                    <li class="creation">
+                        <img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2puLzZQYWZoSzZyRnJUWlNDWkNUVnFvai9HOFRzRGhCVjZKdTZDbXpHb2RnPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" />
+                        <h3>作品1</h3>
+                        <p>2016年7月1日</p>
+                        <button type="button" name="button">查看</button>
+                    </li>
+                    <li class="creation">
+                        <img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2puLzZQYWZoSzZyRnJUWlNDWkNUVnFvai9HOFRzRGhCVjZKdTZDbXpHb2RnPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" />
+                        <h3>作品2</h3>
+                        <p>2016年7月8日</p>
+                        <button type="button" name="button">查看</button>
+                    </li>
+                    <li class="creation">
+                        <img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2puLzZQYWZoSzZyRnJUWlNDWkNUVnFvai9HOFRzRGhCVjZKdTZDbXpHb2RnPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" />
+                        <h3>作品3</h3>
+                        <p>2016年7月15日</p>
+                        <button type="button" name="button">查看</button>
+                    </li>
+                    <li class="creation">
+                        <img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2puLzZQYWZoSzZyRnJUWlNDWkNUVnFvai9HOFRzRGhCVjZKdTZDbXpHb2RnPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" />
+                        <h3>作品4</h3>
+                        <p>2016年7月22日</p>
+                        <button type="button" name="button">查看</button>
+                    </li>
+                    <li class="creation">
+                        <img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2puLzZQYWZoSzZyRnJUWlNDWkNUVnFvai9HOFRzRGhCVjZKdTZDbXpHb2RnPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" />
+                        <h3>作品5</h3>
+                        <p>2016年7月29日</p>
+                        <button type="button" name="button">查看</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer" class="">
+            <div class="layout">
+                <h2><a href="#">想要更详细的了解我？</a></h2>
+                <p><a href="#">下载简历，电话联系哈！</a></p>
+            </div>
+        </div>
+    </body>
+</html>

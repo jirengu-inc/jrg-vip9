@@ -1,0 +1,39 @@
+.dialog {
+	border:#ccc solid 1px;
+}
+.header {
+	height:40px;
+	text-align:left;
+	padding-left:10px;
+	font-size:16px;
+	color:#f00;
+	border-bottom:#ccc solid 1px;
+}
+.header a {
+	display:block;
+	margin-top:-55px;
+}
+.content {
+	height:100px;
+}
+.content a {
+	text-decoration:none;
+	color:blue;
+}
+.content a:hover {
+	color:red;
+}
+.footer {
+
+	height:50px;
+	text-align:center;
+	
+}
+.footer .btn {
+	border:#ccc solid 1px;
+	padding:4px 3px;
+	border-radius:3px;
+	display:inline-block;
+	margin:0 auto;
+	text-decoration:none;
+}

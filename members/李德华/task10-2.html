@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        border: 1px solid #ddd;
+        position: relative;
+      }
+      .offset {
+        margin-top: 20px;
+      }
+      .triangle1 {
+        width: 0px;
+        height: 0px;
+        border-bottom: 10px solid gray;
+        border-top: 10px solid white;
+        border-left: 10px solid white;
+        border-right: 10px solid white;
+        position: relative;
+        left: 10px;
+        top: 1px;
+      }
+      .triangle2 {
+        width: 0px;
+        height: 0px;
+        border-bottom: 10px solid white;
+        border-top: 10px solid red;
+        border-left: 10px solid white;
+        border-right: 10px solid red;
+        position: absolute;
+        right: -1px;
+        top: -1px;
+      }
+      .triangle3{
+        width: 10px;
+        height: 10px;
+        border-style: solid solid none none;
+        border-width: 1px;
+        border-color: #ddd;
+        position: absolute;
+        left: 10px;
+        top: -6px;
+        transform: rotate(-45deg);
+      }
+      .triangle4 {
+        width: 10px;
+        height: 10px;
+        background: white;
+        position: absolute;
+        left: 10px;
+        top: -5px;
+        transform: rotate(-45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="triangle1"></div>
+      <div class="box"></div>
+    </div>
+
+      <div class="box offset">
+        <div class="triangle2"></div>
+      </div>
+
+    <div class="offset">
+      <div class="box">
+        <div class="triangle3"></div>
+        <div class="triangle4"></div>
+      </div>
+    </div>
+  </body>
+</html>

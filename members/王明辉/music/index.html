@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>music</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+
+<div class="box">
+    <div class="music-box">
+        <!-- 歌曲图片 -->
+        <div class="music-img">
+            <img id="musicImg" src="" alt="">
+        </div>
+        <!-- 歌曲名字 -->
+        <div id="musicName" class="music-name">&nbsp;</div>
+        <!-- 艺术家 -->
+        <div id="artist" class="artist">&nbsp;</div>
+        <!-- 进度条 -->
+        <div id="progressBar" class="progress-bar"><span></span></div>
+        <!-- 按钮 -->
+        <div class="btn-box">
+            <ul>
+                <li><a href="javascript:;" class="icon-btn play" id="play"></a></li>
+                <li><a href="javascript:;" class="icon-btn next" id="next"></a></li>
+                <li><a href="javascript:;" class="icon-btn love" id="love"></a></li>
+                <li><a href="javascript:;" class="icon-btn list-btn" id="listBtn"></a></li>
+            </ul>
+        </div>
+        <!-- 底部 -->
+        <div class="bottom">
+            <!-- 时间 -->
+            <div class="time">
+                <span id="curTime" class="cur-time">00 : 00</span>
+                <span>/</span>
+                <span id="totalTime" class="total-time">00 : 00</span>
+            </div>
+            <!-- 音量 -->
+            <div class="sound-box">
+                <a href="javascript:;" class="trumpet" id="trumpet"></a>
+                <div id="soundBar" class="sound-bar">
+                    <span></span>
+                    <em></em>
+                </div>
+            </div>
+        </div>
+        <!-- 专辑分类 -->
+        <div id="special" class="special">
+            <h3 class="title">专辑分类</h3>
+            <ul class="list">
+            </ul>
+        </div>
+    </div>
+    <!-- 歌词 -->
+    <div id="lyric" class="lyric">
+        <ul>
+        </ul>
+    </div>
+    <div id="specialName" data-channel_id=""></div>
+    <div id="loading"><img src="img/load.gif" alt=""></div>
+</div>
+
+<audio id="myPlayer" src="" autoplay="autoplay">not support the audio tag</audio>
+
+<script src="js/jquery.js"></script>
+<script src="js/music.js"></script>
+
+</body>
+</html>
+

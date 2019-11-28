@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>导航栏</title>
+    <style type="text/css">
+      /*清除固有样式*/
+      body{
+        font-size: 14px;
+      }
+
+      ul,li{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      a{
+        text-decoration: none;
+        color: #000;
+      }
+      /*添加样式*/
+      #navbar{
+        background-color: #ccc;
+        padding: 5px 0px;
+        position: relative;
+      }
+
+      #navbar:after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+
+      #navbar > li{
+        float: left;
+      }
+
+      #navbar .child{
+        display: none;
+        position: absolute;
+        top: 100%;
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+
+      #navbar .child a{
+        padding: 5px 0;
+        display: block;
+      }
+
+      #navbar li:hover .child{
+        display: block;
+      }
+
+      #navbar > li > a{
+        padding: 6px 10px;
+      }
+
+      #navbar > li > a:hover{
+        background-color: #aaa;
+      }
+
+      #navbar .child li:hover{
+        background-color: #ccc;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <ul id="navbar">
+      <li>
+        <a href="#">前端</a>
+        <ul class="child">
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">HTML</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">服务端</a>
+        <ul class="child">
+          <li><a href="#">Node</a></li>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">Java</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">前端工具</a>
+        <ul class="child">
+          <li><a href="#">Sublime</a></li>
+          <li><a href="#">WebStorm</a></li>
+          <li><a href="#">Git</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">HTML</a>
+      </li>
+      <li>
+        <a href="#">NODE</a>
+      </li>
+    </ul>
+  </body>
+</html>

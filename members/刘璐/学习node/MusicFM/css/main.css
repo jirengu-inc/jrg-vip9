@@ -1,0 +1,234 @@
+body,html,h2,p{
+    margin:0;
+    padding:0;
+}
+#music-fm{
+    color:#fff;
+    font-size:16px;
+    line-height:1.5;
+}
+#fm{
+    background:rgba(0,0,0,.8) url(../img/musiclogo.png) 1px 3px no-repeat;
+    background-size: 100%;
+    border-radius:20%;
+    width:40px;
+    height:40px;
+}
+.icon-fm{
+    line-height: 40px;
+    font-size:34px;
+    color:pink;
+}
+#music-bg{
+    border-radius: 5px;
+    position:relative;
+    margin-top: 25px;
+    display:none;
+    transition: all 1s;
+}
+#fliter-bg{
+    position:absolute;
+    top:2px;
+    left:2px;
+    width: 256px;
+    height: 356px;
+    background: url(../img/4.jpeg) no-repeat;
+    background-size: cover;
+}
+
+#music-fm .music-main{
+    width: 260px;
+    height: 360px;
+    background:linear-gradient(to right bottom,rgba(184,219,253,0),rgba(0,0,0,.8));
+    position:absolute;
+    top:0;
+    border-radius: 5px;
+}
+#music-fm .music-main .music-list{
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    background:rgba(0,0,0,.6);
+    z-index:99;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+#music-fm .music-main .music-list::-webkit-scrollbar {
+    /* 设置滚动条的样式 */
+
+    width: 5px;
+    height: 5px;
+}
+#music-fm .music-main .music-list::-webkit-scrollbar-track {
+    /* 滚动槽 */
+
+    border-radius: 30px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+#music-fm .music-main .music-list::-webkit-scrollbar-thumb {
+    /* 滚动条滑块 */
+    height:20px;
+    border-radius: 10px;
+    background: rgba(255,192,203,.8);
+}
+#music-fm .music-main .music-list h2{
+    font-weight: normal;
+    padding:8px;
+    font-size:14px;
+    color:pink;
+}
+#music-fm .music-main .music-list h2.selected{
+    background:rgba(0,0,0,.7);
+}
+#music-fm .music-main .music-list h2:first-child{
+   padding-top:16px;
+}
+#music-fm .music-main .music-list h2.active{
+    background:rgba(0,0,0,.4);
+}
+#music-fm .music-main .icon-yinle,.icon-tanhao,.music-name,.singer-name,.wrap{
+    position:absolute;
+}
+#music-fm .music-main .icon-yinle{
+    margin:14px;
+    left:0;
+    font-size:20px;
+}
+#music-fm .music-main .icon-tanhao{
+    margin: 14px;
+    right: 0;
+    font-size: 25px;
+}
+#music-fm .music-main .author{
+    top: 44px;
+    right: 2px;
+    font-size: 12px;
+    position:absolute;
+    color:#000000;
+    display:none;
+}
+#music-fm .music-main .music-author.hover .author{
+    display:block;
+}
+
+#music-fm .music-main .music-name{
+    width:100%;
+    font-size:24px;
+    line-height:1.5;
+    text-align:center;
+    top:20%;
+}
+#music-fm .music-main .singer-name{
+    width:100%;
+    font-size:16px;
+    line-height:1.2;
+    text-align:center;
+    top:calc(20% + 70px);
+}
+#music-fm .music-main .wrap{
+    width:100%;
+    height:80px;
+    line-height:80px;
+    top:calc(20% + 90px);
+    text-align: center;
+}
+
+#music-fm .music-main .wrap .iconfont{
+    vertical-align: middle;
+    font-size:36px;
+}
+#music-fm .music-main .wrap .icon-bofang{
+    font-size:72px;
+    margin:0 7px 0 7px;
+    color:pink;
+}
+#music-fm .music-main .wrap .icon-pause{
+    font-size:66px;
+    margin:0 10px 0 10px;
+    color:rgba(255,255,255,.8);
+}
+#music-fm .music-main .word{
+    position: absolute;
+    width: 100%;
+    bottom: 11%;
+    text-align: center;
+    color: pink;
+}
+#music-fm .music-main #Progress-bar .icon-shengyin{
+    position: absolute;
+    top: -6%;
+    left:14px;
+}
+#volume{
+    width:6px;
+    height:80px;
+    position:absolute;
+    bottom:37px;
+    left: 21px;
+}
+#music-fm .music-main .volume{
+    width:6px;
+    height:80px;
+    position:absolute;
+    bottom: 0;
+    background:rgba(255,255,255,.6);
+    border-radius:3px;
+    display:none;
+}
+#music-fm .music-main .volume-new{
+    width:6px;
+    height:60px;
+    position:absolute;
+    bottom: 0;
+    background:pink;
+    border-radius:3px;
+    display:none;
+}
+#music-fm .music-main .volume.active{
+    display: inline-block;
+}
+#music-fm .music-main .volume-new.active{
+    display: inline-block;
+}
+
+#Progress-bar{
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    text-align:center;
+}
+#Progress-bar .bar{
+    display: block;
+    height: 6px;
+    width: 70%;
+    background: rgba(255,255,255,.9);
+    border-radius: 5px;
+    position:absolute;
+    right:10%;
+}
+#Progress-bar .bar-new{
+    display: block;
+    height: 6px;
+    width: 70%;
+    background: pink;
+    border-radius: 5px;
+    margin:0 auto;
+    position:absolute;
+    top:0;
+    left:20%;
+}
+#Progress-bar .f-left{
+    float:left;
+    margin-left:40px;
+    margin-top:5px;
+}
+#Progress-bar .f-right{
+    float:right;
+    margin-right:10px;
+    margin-top:5px;
+}
+#frame{
+    display:none;
+}

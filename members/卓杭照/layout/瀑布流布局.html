@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流布局</title>
+	<style>
+		.content{
+			position: relative;
+			margin: 0 40px;
+		}
+
+		.item{
+			position: absolute;
+			width: 200px;
+			margin-right: 10px;
+			margin-top: 10px;
+			transition: all 1s;
+		}
+		.h1{
+			height: 200px;
+			background-color: #5d5d9e;
+		}
+		.h2{
+			height: 300px;
+			background-color: #a9a944;
+		}
+		.h3{
+			height: 400px;
+			background-color:  #428642;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="item h1">1</div>
+		<div class="item h3">2</div>
+		<div class="item h2">3</div>
+		<div class="item h1">4</div>
+		<div class="item h2">5</div>
+		<div class="item h1">6</div>
+		<div class="item h1">7</div>
+		<div class="item h2">8</div>
+		<div class="item h1">9</div>
+		<div class="item h2">10</div>
+		<div class="item h2">11</div>
+		<div class="item h3">12</div>
+		<div class="item h1">13</div>
+		<div class="item h3">14</div>
+		<div class="item h2">15</div>
+		<div class="item h3">16</div>
+		<div class="item h1">17</div>
+		<div class="item h2">18</div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+/*	
+		function waterFall(){
+			var nodeWidth = $('.item').outerWidth(true),
+				colNum = Math.floor($(window).width()/nodeWidth),
+				colSumHeight = [];
+
+			for(var i=0;i<colNum;i++){
+				colSumHeight.push(0)		// 先推入项数
+			}
+
+			$('.item').each(function(){	// 遍历数组，比较出最小值
+				var $cur = $(this)      //colSumHeight = [200,250,80,300]
+				var idx = 0,			
+					minSumHeight = colSumHeight[0];		// 先定义数组第一项为最小的高度，然后遍历和它作比较
+				for(var i=0;i<colSumHeight.length;i++){
+						if(colSumHeight[i]<minSumHeight){
+							idx = i
+							minSumHeight = colSumHeight[i]
+						}
+				}
+
+				$cur.css({
+					left:nodeWidth*idx,
+					top:minSumHeight
+				})
+				colSumHeight[idx]= $cur.outerHeight(true)+colSumHeight[idx]
+			})
+	}
+
+		waterFall()
+		$(window).on('resize',function(){
+			waterFall()
+		})
+
+*/
+// 方法二，封装对象
+
+	var waterFall = {
+		colSumHeight: [],
+
+		init: function($ct){
+			this.$ct = $ct;
+			this.$items = $ct.find('.item');
+			this.itemWidth = this.$items.outerWidth(true);
+
+			this.bind();
+			this.start();
+		},
+
+		bind: function(){
+			var me = this;
+			$(window).on('resize', function(){
+				me.start();
+			});
+		},
+
+		start: function(){
+			var me = this;
+			this.colNum = Math.floor( this.$ct.width() / this.itemWidth );
+			//this.colSumHeight = [];
+			for(var i=0; i<this.colNum; i++){
+				this.colSumHeight[i] = 0;
+			}
+			this.$items.each(function(){
+				me.placeItem( $(this) );
+			});
+		},
+
+		placeItem: function( $el ) {
+			var obj = this.getIndexOfMin(this.colSumHeight),
+				idx = obj.idx,
+				min = obj.min;
+			$el.css({
+				left: idx * this.itemWidth,
+				top: min
+			});
+			this.colSumHeight[idx] += $el.outerHeight(true);
+		},
+
+		getIndexOfMin: function( arr ){
+			var min = arr[0],
+				idx = 0;
+			for(var i = 1; i< arr.length; i++){
+				if(min > arr[i]){
+					min = arr[i];
+					idx = i;
+				}
+			}
+			return {min: min, idx: idx};
+		}
+	}
+
+	waterFall.init($('.content'))
+	</script>
+</body>
+</html>

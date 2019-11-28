@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>news</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+  .content{
+    list-style: none;
+    height: 50px;
+    border:1px solid #ccc;
+    text-align: center;
+  }
+  .content:hover{
+    background-color: pink;
+  }
+  button{
+    display: block;
+    margin:0 auto;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <ul class="news">
+      <li class="content">内容1</li>
+      <li class="content">内容2</li> 
+    </ul>
+    <button class="change">加载更多</button>
+  </div>
+  
+<script>
+
+function $(id){
+    return document.querySelector(id);
+  }
+function $$(str){
+      return document.querySelectorAll(str);
+    } 
+  
+  
+  $('.change').addEventListener('click',function(){
+    var startnum = $$('.news li').length;
+    ajax({
+      url:'/getNews',
+      type:'get',
+      dataType:'json',
+      data:{start:startnum},
+      success: appengLi,
+      error:function(){
+       console.log('error');  }
+    })
+})
+
+ function appengLi(news){
+        for(var i =0;i<news.length;i++){
+          var anew = document.createElement('li');
+          $('.news').appendChild(anew);
+          // var num = $$('.news li').length;
+          anew.innerText = news[i];
+          anew.className='content';
+        }
+      }
+
+ 
+ function ajax(opts){
+  var xhr =new XMLHttpRequest;
+  xhr.onreadystatechange=function(){
+    if(xhr.readyState == 4&& xhr.status == 200){
+      // var json = JSON.parse(xhr.responseText);
+      // opts.success(xhr.responseText);
+          if (opts.dataType === 'text') {
+            opts.success(xhr.responseText);
+          }
+          if (opts.dataType === 'json') {
+            var json = JSON.parse(xhr.responseText);
+            opts.success(json);
+          }
+    }
+
+    if(xhr.status==404){
+      opts.error();
+    }
+  }
+
+  var dataStr = '';
+  for(var key in opts.data){
+    dataStr += key +'='+opts.data[key]+'&';
+    dataStr = dataStr.substr(0,dataStr.length-1);
+  }
+
+
+  if(opts.type.toLowerCase() === 'post'){
+    xhr.open(opts.type,opts.url,true);
+    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    xhr.send(dataStr);
+  }
+  if(
+    opts.type.toLowerCase()==='get'){xhr.open(opts.type,opts.url+'?'+dataStr,true);
+    xhr.send();
+  }
+}
+</script>
+</body>
+
+
+</html>

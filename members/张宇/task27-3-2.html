@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限滚动轮播</title>
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+    <style>
+        html, body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .slider-ct {
+            width: 730px;
+            height: 454px;
+            position: relative;
+            /*left:500px;*/
+            overflow: hidden;
+        }
+
+        .slider-ct .img-ul {
+            position: absolute;
+        }
+
+        .slider-ct .img-ul > li {
+            float: left;
+
+        }
+
+        .slider-ct .img-ul > li img {
+            width: 730px;
+            height: 454px;
+        }
+
+        .slider-ct .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .slider-ct .arrow:hover {
+            opacity: 1;
+        }
+
+        .slider-ct .arrow-left {
+            left: 10px;
+        }
+
+        .slider-ct .arrow-right {
+            right: 10px;
+        }
+
+        .slider-ct .slider-btn {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            transform: translateX(-50%);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .slider-ct .slider-btn > li {
+            float: left;
+            margin:0 5px;
+            height: 5px;
+            width: 20px;
+            border-radius: 5px;
+            background: #fff;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .slider-ct .slider-btn > .active {
+            background: #000;
+        }
+
+        .slider-ct .slider-btn > li:hover {
+            background: #000;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="slider1" class="slider-ct clearfix">
+    <ul class="img-ul clearfix"></ul>
+
+    <div class="arrow arrow-left">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-angle-left fa-stack-1x fa-inverse"></i>
+            </span>
+    </div>
+    <div class="arrow arrow-right">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-angle-right fa-stack-1x fa-inverse"></i>
+            </span>
+    </div>
+    <ul class="slider-btn"><li class="active"></li></ul>
+
+</div>
+
+<h3>实现功能：点击下方按钮，只滑动一页，跳转指定页</h3>
+
+
+<script>
+
+    var imgList = ["http://img30.360buyimg.com/da/jfs/t3217/290/588991402/184441/b1427ccf/57baa991Nd3bf7d33.jpg",
+        "http://img14.360buyimg.com/da/jfs/t2809/247/4349241977/194300/4244a466/57b58892Nb1be7187.jpg",
+        "http://img30.360buyimg.com/da/jfs/t3229/303/561545036/176510/775c2e/57bac6bfN8e738f84.jpg",
+        "http://img13.360buyimg.com/da/jfs/t2842/359/4172933742/73742/3b442cb4/57ad6bf4Nc0e930c0.jpg"];
+
+    var $sliderCt = $('#slider1');
+    var $imgCt = $sliderCt.find('.img-ul'),
+            $arrowPre = $sliderCt.find('.arrow-left'),
+            $arrowNext = $sliderCt.find('.arrow-right'),
+            $sliderBtn = $sliderCt.find('.slider-btn'),
+            imgNum = imgList.length,
+            imgWidth = 730;
+    var cur = 0;
+    var isAnimate = false;
+
+    for(var i=0;i<imgNum-1;i++){
+        $sliderBtn.append($('<li>'));
+    }
+    $imgCt.css('width',imgWidth*3);
+
+    refrash();
+
+
+    function refrash() {
+        $imgCt.empty();
+        $imgCt.append('<li><a href="#"><img src="'+imgList[(imgNum+cur-1)%imgNum]+'"></a></li>');
+        $imgCt.append('<li><a href="#"><img src="'+imgList[cur]+'"></a></li>');
+        $imgCt.append('<li><a href="#"><img src="'+imgList[(cur+1)%imgNum]+'"></a></li>');
+
+        $imgCt.css('left',-imgWidth);
+
+        $sliderBtn.children().removeClass('active');
+        $sliderBtn.children().eq(cur).addClass('active');
+    }
+
+    $arrowNext.on('click', function () {
+        if(!isAnimate){
+            isAnimate = true;
+            $imgCt.animate({'left':'-='+imgWidth},500,function () {
+                cur = (cur+1)%imgNum;
+                refrash();
+                isAnimate = false;
+            });
+        }
+
+        return false;
+    });
+
+    $arrowPre.on('click', function () {
+        if(!isAnimate){
+            isAnimate = true;
+            $imgCt.animate({'left':'+='+imgWidth},500,function () {
+                cur = (imgNum+cur-1)%imgNum;
+                refrash();
+                isAnimate = false;
+            });
+        }
+        return false;
+    });
+
+    $sliderBtn.find('li').on('click', function () {
+        var idx = $(this).index();
+        if(idx > cur){
+            $imgCt.children().remove(':last');
+            $imgCt.append('<li><a href="#"><img src="'+imgList[idx]+'"></a></li>');
+            $imgCt.animate({'left':'-='+imgWidth},500,function () {
+                cur = idx;
+                refrash()
+            });
+        }else if(idx < cur){
+            $imgCt.children().remove(':first');
+            $imgCt.prepend('<li><a href="#"><img src="'+imgList[idx]+'"></a></li>');
+            $imgCt.animate({'left':'+='+imgWidth},500,function () {
+                cur = idx;
+                refrash()
+            });
+        }
+        return false;
+    });
+
+    var clock;
+    function autoPlay() {
+        clock = setInterval(function(){
+            $arrowNext.click();
+        },2000)
+    }
+    function stopPlay() {
+        clearInterval(clock);
+    }
+    autoPlay();
+
+
+</script>
+
+
+</body>
+</html>

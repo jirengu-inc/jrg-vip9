@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dialog</title>
+    <style>
+      html,body,a,p,h3,h2,h1,button {
+        margin: 0;
+        padding: 0;
+      }
+      .dialog {
+        width: 400px;
+        border-radius: 5px;
+        border: 1px solid black;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding-bottom: 10px;
+        cursor: move;
+        /* display: none; */
+      }
+      .dialog-ct {
+        font-size: 14px;
+      }
+      .dialog-header {
+        background: #666;
+        padding: 4px 20px;
+        color: #fff;
+      }
+      .dialog-header .close {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        cursor: pointer;
+      }
+      .dialog-content {
+        padding: 20px;
+      }
+      .dialog-footer {
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        width: 50px;
+        color: #fff;
+        background: red;
+        padding: 4px;
+        margin: 2px;
+        text-decoration: none;
+        border-radius: 3px;
+        text-align: center;
+      }
+      .btn:hover {
+        background:#e02929;
+      }
+    </style>
+</head>
+
+<body>
+    <button id="open1">打开1</button>
+    <button id="open2">打开2</button>
+    <button id="open3">打开3</button>
+    <button id="open4">打开4</button>
+    <button id="open5">打开5</button>
+    <p>左键可拖动</p>
+    <p>可创建多个</p>
+  <!--   <div class="dialog">
+    <div class="dialog-ct">
+      <div class="dialog-header">
+        <h3>欢迎</h3>
+        <span class="close">x</span>
+      </div>
+      <div class="dialog-content">
+        hello
+      </div>
+      <div class="dialog-footer">
+        <a href="javascript:;" class="btn btn-confirm">确定</a>
+        <a href="javascript:;" class="btn btn-close">取消</a>
+      </div>
+    </div>
+  </div> -->
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+    function Dialog(){
+      this.$dialog = null;
+      this.opts = null;
+      this.defaultOpts = null;
+      this.init();
+      this.createDialog();
+      this.bindEvent();
+    }
+    Dialog.prototype.createDialog = function(){
+      var tpl = '';
+          tpl += '<div class="dialog" style="display:none">';
+          tpl += '<div class="dialog-ct">';
+          tpl += '<div class="dialog-header">';
+          tpl += '<h3></h3>';
+          tpl += '<span class="close">x</span>';
+          tpl += '</div>';
+          tpl += '<div class="dialog-content">';
+          tpl += '</div>';
+          tpl += '<div class="dialog-footer">';
+          tpl += '<a href="#" class="btn btn-close">取消</a>';
+          tpl += '<a href="#" class="btn btn-confirm">确定</a>';
+          tpl += '</div></div></div>';
+          this.$dialog = $(tpl);
+          $('body').append(this.$dialog);
+    }
+    Dialog.prototype.init = function(){
+        this.defaultOpts = {
+          title: '',
+          message: '',
+          isShowCloseBtn: true,
+          isShowConfirmBtn: false,
+          onClose: function(){},
+          onConfirm: function(){}
+        }
+    }
+    Dialog.prototype.open = function(opts){
+      this.setOpts(opts);
+      this.setDialog();
+      this.showDialog();
+    }
+    Dialog.prototype.setOpts = function(opts){
+      if (typeof opts === 'string') {
+        this.opts = $.extend({}, this.defaultOpts, {
+          message: opts
+        });
+      } else if (typeof opts === 'object') {
+        this.opts = $.extend({}, this.defaultOpts, opts);
+      }
+    }
+    Dialog.prototype.setDialog = function(){
+      var $dialog = this.$dialog;
+      if(!this.opts.title) {
+        $dialog.find('.dialog-header').hide();
+      } else {
+        $dialog.find('.dialog-header').show();
+      }
+      if(!this.opts.isShowCloseBtn) {
+        $dialog.find('.dialog-footer .btn-close').hide();
+      } else {
+        $dialog.find('.dialog-footer .btn-close').show();
+      }
+      if(!this.opts.isShowConfirmBtn) {
+        $dialog.find('.dialog-footer .btn-confirm').hide();
+      } else {
+        $dialog.find('.dialog-footer .btn-confirm').show();
+      }
+      $dialog.find('.dialog-header h3').text(this.opts.title);
+      $dialog.find('.dialog-content').html(this.opts.message);
+    }
+    Dialog.prototype.bindEvent = function(){
+      var _this = this;
+      _this.$dialog.find('.btn-close').on('click', function(e){
+        e.preventDefault();
+        _this.opts.onClose();
+        _this.hideDialog();
+      });
+      _this.$dialog.find('.btn-confirm').on('click', function(e){
+        e.preventDefault();
+        _this.opts.onConfirm();
+        _this.hideDialog();
+      });
+      $(document).on('click', function(e){
+        var target = e.target;
+        if($(target).parents('.dialog').length > 0) return;
+        _this.hideDialog();
+      });
+      _this.$dialog.find('.close').on('click', function(e){
+        e.preventDefault();
+        _this.hideDialog();
+      });
+      _this.$dialog.on('mousedown', function(e){
+        var $dialog = $(this),
+            evtX = e.pageX - $dialog.offset().left,
+            evtY = e.pageY - $dialog.offset().top;//点击位置到边框距离
+        $dialog.addClass('draggable').data('evtPos', {
+          x: evtX,
+          y: evtY
+        });
+        console.log($('.draggable').data('evtPos'));
+      });
+      $('body').on('mousemove', function(e){
+        if ($('.draggable').length > 0) {
+          console.log($('.draggable').data('evtPos'));
+          $('.draggable').offset({
+            top: e.pageY - $('.draggable').data('evtPos').y,
+            left: e.pageX - $('.draggable').data('evtPos').x
+          });
+        }
+      });
+      $('body').on('mouseup', function(){
+        if ($('.draggable').length > 0) {
+          $('.draggable').removeClass('draggable').removeData('evtPos');
+        }
+      });
+    }
+    Dialog.prototype.hideDialog = function(){
+      this.$dialog.hide();
+    }
+    Dialog.prototype.showDialog = function(){
+      this.$dialog.show();
+    }
+
+    $('#open1').on('click', function(e){
+      e.stopPropagation();
+      var dialog1 = new Dialog();
+      dialog1.open('hello');
+    })
+    $('#open2').on('click', function(e){
+      e.stopPropagation();
+      var dialog2 = new Dialog();
+      dialog2.open({
+        message: '<a href="javascript:;">链接</a>'
+      });
+    })
+    $('#open3').on('click', function(e){
+      e.stopPropagation();
+      var dialog3 = new Dialog();
+      dialog3.open({
+        title: '欢迎',
+        message: 'hello',
+        isShowCloseBtn: true,
+        isShowConfirmBtn: true,
+        onClose: function(){
+          alert('关闭');
+        },
+        onConfirm: function(){
+          alert('确定');
+        }
+      });
+    })
+    var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+    $('#open4').on('click',function(e){
+      e.stopPropagation();
+      var dialog4 = new Dialog();
+      dialog4.open({
+        title: '欢迎来到饥人谷',
+        message: tpl,
+        isShowCloseBtn: true,
+        isShowConfirmBtn: true,
+        onClose: function(){
+          alert('close');
+        },
+        onConfirm: function(){
+          alert('确定');
+        }
+      });
+    });
+    $('#open5').on('click', function(e){
+      e.stopPropagation();
+      var dialog5 = new Dialog();
+      dialog5.open({
+        title: '欢迎五',
+        message: '这次没有按钮',
+        isShowCloseBtn: false,
+        isShowConfirmBtn: false
+      })
+    })
+    // this.defaultOpts = {
+    //   title: '',
+    //   message: '',
+    //   isShowCloseBtn: true,
+    //   isShowConfirmBtn: false,
+    //   onClose: function(){},
+    //   onConfirm: function(){}
+    // }
+    </script>
+
+
+</body>
+
+</html>

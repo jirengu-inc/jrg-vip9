@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>level 15(2)</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="font/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+    html,
+    body,
+    div,
+    h1,
+    p,
+    ul,
+    li,
+    a {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        color: #333;
+        font-size: 14px;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        /*如果一个header的height是100%，那么body和html也要100%，必须继承*/
+    }
+    
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .layout {
+        width: 1160px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    @font-face {
+        font-family: mylogo;
+        src: url(./font/kaushan-script/KaushanScript-Regular.otf);
+    }
+    
+    @font-face {
+        font-family: myfont;
+        src: url(font//montserrat/Montserrat-Regular.otf);
+    }
+    
+    @font-face {
+        font-family: myhitalic;
+        src: url(font/droid-serif/DroidSerif-Italic.ttf);
+    }
+    
+    @font-face {
+        font-family: myhregular;
+        src: url(font/droid-serif/DroidSerif-Regular.ttf);
+    }
+    /*header*/
+    
+    header {
+        position: fixed;
+        height: 70px;
+        background-color: #222;
+        width: 100%;
+        z-index: 100;
+    }
+    
+    .logo {
+        font-family: mylogo;
+        color: #fed136;
+        font-size: 24px;
+        line-height: 70px;
+        float: left;
+    }
+    
+    .menu>li {
+        float: right;
+        color: white;
+        text-transform: uppercase;
+    }
+    
+    .menu>li>a {
+        color: white;
+        padding: 18px 18px;
+        line-height: 70px;
+        letter-spacing: 1px;
+        font-family: myfont;
+    }
+    
+    .menu>li>a:hover {
+        background-color: #fed136;
+        border-radius: 4px;
+    }
+    /*header end*/
+    /*jumbtotron*/
+    
+    .ju {
+        background: url(img/header-bg.jpg) center center;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        /*     margin-top: -20px;*/
+        /*display: table;*/
+    }
+    
+    .table {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    .ju>.layout>h2 {
+        color: white;
+        font-size: 40px;
+        font-family: myhitalic;
+        letter-spacing: 1px;
+        line-height: 40px;
+    }
+    
+    .ju>.layout>h1 {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 75px;
+        line-height: 75px;
+        margin-bottom: 30px;
+        font-family: myfont;
+        /*padding-bottom: 300px;*/
+    }
+    
+    .ju a {
+        padding: 20px 30px;
+        font-size: 20px;
+        background-color: #fed136;
+        line-height: 100px;
+        color: white;
+        text-transform: uppercase;
+        font-family: myfont;
+        border-radius: 4px;
+    }
+    
+    .ju a:hover {
+        background-color: #fec503;
+        border-color: #f6bf01;
+    }
+    
+    .ju>.layout {
+        padding-bottom: 200px;
+        padding-top: 200px;
+    }
+    /*jumbtotron end*/
+    /*services*/
+    
+    .title {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-family: myfont;
+        text-transform: uppercase;
+    }
+    
+    .comment {
+        font-size: 16px;
+        font-family: myhitalic;
+        font-weight: 400;
+        margin-bottom: 75px;
+        color: grey;
+    }
+    
+    #service {
+        padding-top: 150px;
+        padding-bottom: 150px;
+        text-align: center;
+    }
+    
+    .service-list {
+        margin-left: -10px;
+        margin-right: -10px
+    }
+    
+    .service-list>li {
+        float: left;
+        width: 33.333333%;
+        text-align: center;
+        padding-right: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+    
+    .service-list>li>i {
+        font-size: 60px;
+        color: white;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        background-color: #fed136;
+        border-radius: 50%;
+    }
+    
+    .subtitle {
+        font-family: myfont;
+        font-size: 18px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .service-list>li>p {
+        font-size: 14px;
+        line-height: 1.75;
+        font-family: myhregular;
+        font-weight: 400;
+        margin-bottom: 10px;
+        color: #777;
+    }
+    /*services end*/
+    /*protfolio*/
+    
+    #profolio {
+        background-color: #f7f7f7;
+        padding: 150px 0;
+        text-align: center;
+    }
+    
+    .pro-list {
+        text-align: center;
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    
+    .pro-list>li {
+        float: left;
+        width: 360px;
+        margin-right: 15px;
+        margin-left: 15px;
+        margin-bottom: 30px;
+        background-color: white;
+    }
+    
+    .pro-list>li>h2 {
+        background-color: white;
+        margin-bottom: 5px;
+    }
+    
+    .piclink>a>img {
+        width: 360px;
+        height: 240px;
+        /*transition: 1s;*/
+    }
+    
+    .pro-list>li>p {
+        margin-bottom: 30px;
+    }
+    
+    .pro-list>li>a {
+        color: white;
+        font-size: 20px;
+    }
+    
+    .piclink>i {
+        color: rgba(255, 255, 255, 0);
+        font-size: 60px;
+        position: absolute;
+        left: 51%;
+        margin-left: -25px;
+        margin-top: -25px;
+        top: 50%;
+        transition: 1s;
+    }
+    
+    .piclink:hover.piclink>i{
+        color: rgba(255, 255, 255, 1);
+        transition: 1s;
+    }
+    
+    .piclink {
+        width: 360px;
+        height: 240px;
+        background-color: #fed136;
+        position: relative;
+        text-align: center;
+    }
+    
+    .piclink:hover.piclink>a>img {
+        opacity: 0;
+        transition: 1s;
+    }
+    /*protofolio end*/
+    /*about*/
+    
+    #about {
+        background-color: #f7f7f7;
+        padding: 150px 0;
+        text-align: center;
+        background-color: white;
+        position: relative;
+    }
+    
+    .about-list>li {
+        margin-bottom: 100px;
+        z-index: 5;
+        position: relative;
+    }
+    
+    .timeline:after {
+        margin-top: 400px;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        content: "";
+        width: 2px;
+        height: 1200px;
+        background-color: #f1f1f1;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        z-index: 4;
+    }
+    
+    .roundpic {
+        border-radius: 50%;
+        height: 170px;
+        border: 7px solid #f1f1f1;
+    }
+    
+    .timeline-right {
+        text-align: right;
+        width: 35%;
+        float: left;
+        margin-right: -500px;
+        padding-left: 30px;
+        line-height: 1.45;
+    }
+    
+    .timeline-left {
+        text-align: left;
+        width: 35%;
+        float: right;
+        margin-left: -500px;
+        padding-right: 30px;
+        line-height: 1.45;
+    }
+    
+    .about-item-end {
+        height: 170px;
+        width: 170px;
+        background-color: #fed136;
+        border: 7px solid #f1f1f1;
+        border-radius: 50%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: uppercase;
+        display: table;
+        z-index: 1;
+    }
+    
+    .about-item-end>p {
+        color: white;
+    }
+    /*about end*/
+    /*team*/
+    
+    #team {
+        background-color: #f7f7f7;
+        padding: 150px 0;
+        text-align: center;
+    }
+    
+    .team-list>li {
+        float: left;
+        width: 33.33333333333%;
+    }
+    
+    .team-list>li>img {
+        border: 7px solid white;
+        border-radius: 50%;
+    }
+    
+    .member-contact {
+        margin-left: 115px;
+        margin-top: -65px;
+    }
+    
+    .member-contact>li {
+        float: left;
+        text-align: center;
+        height: 40px;
+        width: 40px;
+        overflow: auto;
+        margin-right: 10px;
+    }
+    
+    .member-contact>li>a {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        font-size: 20px;
+        line-height: 40px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+    
+    .team-end {
+        margin-top: 60px;
+    }
+    /*team end*/
+    /*logo*/
+    
+    #logo {
+        background-color: white;
+    }
+    
+    .logo-list {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .logo-list>li {
+        float: left;
+        width: 262px;
+        height: 150px;
+        text-align: center;
+    }
+    
+    .logo-list>li>img {
+        display: inline-block;
+        margin-top: 50px;
+    }
+    /*logo end*/
+    /*contact*/
+    
+    #contactus {
+        padding: 150px 0;
+        text-align: center;
+        background: #222 url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/map-image.png) center no-repeat;
+        color: white;
+    }
+    
+    #contactus>.layout>h1 {
+        color: white;
+    }
+    
+    .contactform {
+        overflow: hidden;
+    }
+    
+    .form-left {
+        float: left;
+    }
+    
+    .form-yourname,
+    .form-youremail,
+    .form-yourphone {
+        width: 513px;
+        height: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    
+    textarea {
+        float: right;
+        width: 513px;
+        height: 204px;
+        padding: 20px;
+        margin-left: -20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    
+    .form-button {
+        color: #fff;
+        background-color: #fed136;
+        font-family: myfont;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 20px 40px;
+        border: 1px solid #f6bf01;
+        margin-top: 20px;
+    }
+    
+    .form-button:hover {
+        background-color: #fec503;
+    }
+    /*contact end*/
+    /*footer*/
+    
+    footer {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+    }
+    
+    footer>p {
+        float: left;
+        font-family: myfont;
+        width: 33.33333333333333%;
+        line-height: 40px;
+    }
+    
+    footer>ul>li .fa {
+        background-color: #333;
+        color: white;
+        font-size: 20px;
+        line-height: 40px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        text-align: center;
+    }
+    
+    footer>ul>li {
+        float: left;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    footer>ul {
+        float: left;
+        text-align: center;
+        margin-left: 100px;
+    }
+    
+    footer>.term a {
+        padding-left: 10px;
+        color: #fed136;
+        font-size: 16px;
+        font-family: myfont;
+    }
+    
+    .term {
+        float: right;
+        width: 33.33333333333333%;
+    }
+    
+    .term a:hover {
+        text-decoration: underline;
+    }
+    /*footer end*/
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="layout">
+            <div class="navbar clearfix">
+                <a href="#" class="logo">Start Bootstrap</a>
+                <ul class="clearfix menu">
+                    <li><a href="#contactus">contact</a></li>
+                    <li><a href="#team">team</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#profolio">profolio</a></li>
+                    <li><a href="#service">services</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="ju">
+        <div class="layout">
+            <h2>Welcome To Our Studio</h2>
+            <h1>It's nice to meet you</h1>
+            <a href="#" class="btn">tell me more</a>
+        </div>
+        <div class="kong"></div>
+    </section>
+    <section id="service" class="layout">
+        <h1 class="title">services</h1>
+        <p class="comment">Lorem ipsum dolor sit amet consectetur.
+        </p>
+        <ul class="service-list clearfix">
+            <li>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <h3 class="subtitle">E-Commerce</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </li>
+            <li>
+                <i class="fa fa-laptop" aria-hidden="true"></i>
+                <h3 class="subtitle">Responsibe Design</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </li>
+            <li>
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <h3 class="subtitle">Web Security</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </li>
+        </ul>
+    </section>
+    <section id="profolio">
+        <div class="layout">
+            <h1 class="title">profolio</h1>
+            <p class="comment">Lorem ipsum dolor sit amet consectetur.
+            </p>
+            <ul class="pro-list clearfix">
+                <li>
+                    <div class="piclink">
+                        <a href="#"><img src="img/roundicons.png" alt=""></a>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="subtitle">Round Icons</h2>
+                    <p class="comment">Graphic Design</p>
+                </li>
+                <li>
+                    <div class="piclink">
+                        <a href="#"><img src="img/startup-framework.png" alt=""></a>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="subtitle">Round Icons</h2>
+                    <p class="comment">Website Design</p>
+                </li>
+                <li>
+                    <div class="piclink">
+                        <a href="#"><img src="img/treehouse.png" alt=""></a>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="subtitle">Round Icons</h2>
+                    <p class="comment">Website Design</p>
+                </li>
+                <li>
+                    <div class="piclink">
+                        <a href="#"><img src="img/golden.png" alt=""></a>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="subtitle">Round Icons</h2>
+                    <p class="comment">Website Design</p>
+                </li>
+                <li>
+                    <div class="piclink">
+                        <a href="#"> <img src="img/escape.png" alt=""></a>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="subtitle">Round Icons</h2>
+                    <p class="comment">Website Design</p>
+                </li>
+                <li>
+                    <div class="piclink">
+                        <a href="#"> <img src="img/dreams.png" alt=""></a>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="subtitle">Round Icons</h2>
+                    <p class="comment">Website Design</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="about" class="layout">
+        <h1 class="title">about</h1>
+        <p class="comment">Lorem ipsum dolor sit amet consectetur.</p>
+        <ul class="about-list timeline">
+            <li>
+                <div class="timeline-right">
+                    <h2 class="subtitle">2009-2011<br>Our Humble Beginnings.</h2>
+                    <p class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        <br>elit. Sunt ut voluptatum eius sapiente, totam
+                        <br>reiciendis temporibus qui quibusdam, recusandae
+                        <br>sit vero unde, sed, incidunt et ea quo dolore
+                        <br>laudantium consectetur!</p>
+                </div>
+                <img class="roundpic" src="img/1.jpg" alt="">
+            </li>
+            <li>
+                <img class="roundpic" src="img/2.jpg" alt="">
+                <div class="timeline-left">
+                    <h2 class="subtitle">MARCH 2011<br>An Agency is Born.</h2>
+                    <p class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        <br>elit. Sunt ut voluptatum eius sapiente, totam
+                        <br>reiciendis temporibus qui quibusdam, recusandae
+                        <br>sit vero unde, sed, incidunt et ea quo dolore
+                        <br>laudantium consectetur!</p>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-right">
+                    <h2 class="subtitle">DECEMBER 2012<br>Transition to Full Service</h2>
+                    <p class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        <br>elit. Sunt ut voluptatum eius sapiente, totam
+                        <br>reiciendis temporibus qui quibusdam, recusandae
+                        <br>sit vero unde, sed, incidunt et ea quo dolore
+                        <br>laudantium consectetur!</p>
+                </div>
+                <img class="roundpic" src="img/3.jpg" alt="">
+            </li>
+            <li>
+                <img class="roundpic" src="img/4.jpg" alt="">
+                <div class="timeline-left">
+                    <h2 class="subtitle">July 2014<br>Face Two Expansion</h2>
+                    <p class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        <br>elit. Sunt ut voluptatum eius sapiente, totam
+                        <br>reiciendis temporibus qui quibusdam, recusandae
+                        <br>sit vero unde, sed, incidunt et ea quo dolore
+                        <br>laudantium consectetur!</p>
+                </div>
+            </li>
+            <li>
+                <div class="about-item-end">
+                    <p class="table subtitle">be part
+                        <br>of our
+                        <br>story!</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="team">
+        <div class="layout">
+            <h1 class="title">Our Amazing team</h1>
+            <p class="comment">Lorem ipsum dolor sit amet consectetur.</p>
+            <ul class="team-list clearfix">
+                <li>
+                    <img src="img/5.jpg" alt="">
+                    <h2 class="subtitle">Kay Garland</h2>
+                    <p class="comment">Lead Designer</p>
+                    <ul class="member-contact">
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <img src="img/6.jpg" alt="">
+                    <h2 class="subtitle">Larry Parker</h2>
+                    <p class="comment">Lead Marketer</p>
+                    <ul class="member-contact">
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </li>
+                </li>
+                <li>
+                    <img src="img/7.jpg" alt="">
+                    <h2 class="subtitle">Diana Pertersen</h2>
+                    <p class="comment">Lead Developer</p>
+                    <ul class="member-contact">
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </li>
+                </li>
+            </ul>
+            <p class="comment team-end">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non
+                <br>quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+    </section>
+    <section id="logo" class="layout">
+        <ul class="logo-list clearfix">
+            <li><img src="img/envato.jpg" alt=""></li>
+            <li><img src="img/designmodo.jpg" alt=""></li>
+            <li><img src="img/themeforest.jpg" alt=""></li>
+            <li><img src="img/creative-market.jpg" alt=""></li>
+        </ul>
+    </section>
+    <section id="contactus">
+        <div class="layout">
+            <h1 class="title">Contact us</h1>
+            <p class="comment">Lorem ipsum dolor sit amet consectetur.</p>
+            <form action="" class="contactform clearfix" name="sentMessage">
+                <div class="form-left">
+                    <input type="text" class="form-yourname" placeholder="YOUR NAME *" id="name">
+                    <input type="text" class="form-youremail" placeholder="YOUR EMAIL *" id="email">
+                    <input type="text" class="form-yourphone" placeholder="YOUR PHONE *" id="phone">
+                </div>
+                <textarea name="message" cols="40" row="50" class="form-yourmessage" placeholder="YOUR MESSAGE *" id="meaage"></textarea>
+                <input type="submit" value="SEND MASSAGE" class="form-button">
+            </form>
+        </div>
+    </section>
+    <footer class="layout clearfix">
+        <p>copyright @ Your Website 2016</p>
+        <ul class="clearfix">
+            <li><a href="#"><i class="fa fa-twitter contact-item" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook contact-item" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin contact-item" aria-hidden="true"></i></a></li>
+        </ul>
+        <div class="term">
+            <a href="">Term of Use</a>
+            <a href="">Privacy Policy</a></div>
+    </footer>
+</body>
+
+</html>

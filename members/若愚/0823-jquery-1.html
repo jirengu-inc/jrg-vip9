@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+	.aaa{
+		color: red;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<div class="box1">
+			box1
+			<div class="child">box1-1</div>
+		</div>
+		
+		<p class="box">box3</p>
+		<div class="box">box2</div>
+	</div>
+	<button id="btn">点我</button>	
+	<div class="box1">bbb box1</div>
+
+	<ul class="panel">
+		<li>a-1</li>
+		<li>a-2</li>
+		<li>a-3</li>
+		<li>a-2</li>
+		<li>a-3</li>
+		<li>b-1</li>
+	</ul>
+
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+	document.getElementById('btn').addEventListener('click', function(){
+		console.log(123);
+	})
+
+	document.getElementById('btn').innerHTML = 'hello'
+
+	// $btn = $('#btn')
+	// $('#btn').on();
+	// $('#btn').css();
+	// $('#btn').html();
+	// $('#btn').html('good');
+
+var $list = $('.panel li').filter(function(index, node){
+	var str = $(this).html();
+	if(str.indexOf('a-')>-1){
+		return true;
+	}
+})
+$list.addClass('aaa')
+
+
+	</script>
+</body>
+</html>

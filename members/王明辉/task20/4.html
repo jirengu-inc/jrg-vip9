@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+</head>
+<body>
+<script>
+    // 4.写一个函数，计算setTimeout平均[备注：新加]最小时间粒度
+
+    function getMini(){
+
+        var i = 0;
+        var start = Date.now();
+        var clock = setTimeout(function(){
+
+            i++;
+            if(i===1000){
+                clearTimeout(clock);
+                var end = Date.now();
+                console.log((end-start)/i);
+            }
+            clock = setTimeout(arguments.callee,0);
+            // callee 是 arguments 对象的属性。在该函数的函数体内，它可以指向当前正在执行的函数。当函数是匿名函数时，这是很有用的， 比如没有名字的函数表达式 (也被叫做"匿名函数")。
+            // 注意：在给函数表达式一个名称或者使用函数声明而该函数必须调用自己时，禁止使用 arguments.callee()。
+            // 警告：在 ECMAScript 第五版 (ES5) 的 严格模式 中禁止使用 arguments.callee()。
+        },0)
+
+    }
+    getMini();
+</script>
+</body>
+</html>

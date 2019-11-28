@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>点击添加</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html,body,ul,li,p{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .tabs{
+            width:800px;;
+            border:1px solid #fff;
+        }
+        .tabs li{
+            position: relative;
+            float: left;
+            width: 220px;
+            margin: 5px;
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+
+        img{
+            width:150px;
+            margin:0 auto;
+        }
+        .tabs .cover{
+            /*width: 200px;*/
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            background: rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            opacity: 0;
+        }
+        .tabs .cover .btn{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            border:1px solid red;
+            padding:5px;
+            color: #333333;
+            text-align: center;
+        }
+        .tabs .lis.hover .cover{
+            opacity: 1;
+        }
+        .btn1{
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid red;
+            outline: none;
+            background: none;
+            color: red;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h2>珠宝首饰</h2>
+    <ul class="tabs clearfix">
+        <li class="lis">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg">
+                <p>藏进相遇路路通吊坠</p>
+                <p>￥1099.00</p>
+            </a>
+        </li>
+
+        <li class="lis">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg">
+                <p>藏进相遇路路通吊坠</p>
+                <p>￥1099.00</p>
+            </a>
+        </li>
+
+        <li class="lis">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg">
+                <p>藏进相遇路路通吊坠</p>
+                <p>￥1099.00</p>
+            </a>
+        </li>
+
+        <li class="lis">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg">
+                <p>藏进相遇路路通吊坠</p>
+                <p>￥1099.00</p>
+            </a>
+        </li>
+
+        <li class="lis">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg">
+                <p>藏进相遇路路通吊坠</p>
+                <p>￥1099.00</p>
+            </a>
+        </li>
+
+        <li class="lis">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg">
+                <p>藏进相遇路路通吊坠</p>
+                <p>￥1099.00</p>
+            </a>
+        </li>
+    </ul>
+    <button class="btn1">添加</button>
+</div>
+<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+    $('.tabs>li').on('mouseenter',function (e) {
+        $(this).addClass('hover')
+    });
+    $('.tabs>li').on('mouseleave',function () {
+        $(this).removeClass('hover')
+    });
+
+    var pageIndex =0;
+    $('.btn1').on('click',function () {
+        $.get('/getMore',{page:pageIndex}).done(function (ret) {
+            if(ret.status===0){
+                pageIndex++;
+                appendNews(ret.data)
+            }
+            else {
+                alert('获取新闻出错')
+            }
+        }).fail(function () {
+            alert('系统异常')
+        })
+    });
+
+    function appendNews(news) {
+        var addLis='';
+        $.each(news,function () {
+            addLis+='<li class="lis">';
+            addLis+='<div class="cover"><a class="btn">立即抢购</a></div>';
+            addLis+='<a href="">';
+            addLis+='<img src="'+this.img+'">';
+            addLis+='<p>'+this.name+'</p>';
+            addLis+='<p>'+this.price+'</p>';
+            addLis+='</a></li>'
+        });
+        $('.tabs').append(addLis);
+    }
+
+</script>
+</body>
+</html>

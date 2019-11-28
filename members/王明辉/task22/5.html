@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="modal模态框 原生" />
+    <meta charset="utf-8">
+    <title>5</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<div class="btn-group">
+    <button id="btn-modal">点我1</button>
+</div>
+
+
+<div id="modal-1" class="modal-dialog">
+    <div class="cover"></div>
+    <div class="modal-ct">
+        <div class="header">
+            <h3>我是标题1</h3>
+            <a class="close" href="#">×</a>
+        </div>
+        <div class="content">
+            <p>我是内容1</p>
+            <p>我是内容1</p>
+        </div>
+        <div class="footer">
+            <a class="btn btn-confirm" href="#">确定</a>
+            <a class="btn btn-cancel" href="#">取消</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var oBtn = document.getElementById('btn-modal');
+    var oBox = document.getElementById('modal-1');
+
+    var modalCt = document.querySelector('.modal-ct');
+
+    oBtn.addEventListener('click',function(ev){
+        ev.stopPropagation();
+        oBox.style.display = 'block';
+    },false);
+
+    modalCt.addEventListener('click',function(ev){
+
+        ev.stopPropagation();
+        if( ev.target.classList.contains('btn-cancel') || ev.target.classList.contains('close') ){
+            oBox.style.display = 'none';
+        }
+    },false);
+
+    document.addEventListener('click',function(ev){
+        oBox.style.display = 'none';
+    },false);
+
+
+</script>
+
+</body>
+</html>

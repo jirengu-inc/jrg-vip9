@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限滚动轮播</title>
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+    <style>
+        html, body, ul, li {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        html, body, .slider-ct, .img-ul,.img-ul>li{
+            height: 100%;
+            width:100%;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .slider-ct {
+            /*width: 730px;*/
+            /*height: 454px;*/
+            position: relative;
+            /*left:-500px;*/
+            overflow: hidden;
+        }
+
+        .slider-ct .img-ul {
+            position: absolute;
+        }
+
+        .slider-ct .img-ul > li{
+            float: left;
+            color: #fff;
+            position: relative;
+        }
+        .slider-ct .img-ul > li>.content{
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+        }
+
+        .slider-ct .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .slider-ct .arrow:hover {
+            opacity: 1;
+        }
+
+        .slider-ct .arrow-left {
+            left: 10px;
+        }
+
+        .slider-ct .arrow-right {
+            right: 10px;
+        }
+
+        .slider-ct .slider-btn {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            transform: translateX(-50%);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .slider-ct .slider-btn > li {
+            float: left;
+            margin: 0 5px;
+            height: 5px;
+            width: 20px;
+            border-radius: 5px;
+            background: #fff;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .slider-ct .slider-btn > .active {
+            background: #000;
+        }
+
+        .slider-ct .slider-btn > li:hover {
+            background: #000;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="slider1" class="slider-ct">
+    <ul class="img-ul clearfix">
+        <li style="background: #337ab7">
+            <div class="content">
+                <!--<h1>Hello!</h1>-->
+                <!--<p>So... Can we be a kind of friend? </p>-->
+                <p>When you try your best but don't succeed</p>
+                <p>When you get what you want but not what you need</p>
+                <p>When you feel so tired but you can't sleep</p>
+                <h1>Stuck in reverse</h1>
+            </div>
+        </li>
+        <li style="background: #6667aa">
+            <div class="content">
+               <!-- <h1>Hey! Friend!</h1>
+                <p>Can I ask your name? </p>-->
+                <p>When the tears come streaming down your face</p>
+                <p>When you lose something you can't replace</p>
+                <p>When you love someone but it goes to waste</p>
+                <h1>Could it be worse?</h1>
+            </div>
+        </li>
+        <li style="background: #c1943e">
+            <div class="content">
+                <!--<h1>Hi~ Athena?</h1>
+                <p>You might don't believe... </p>
+                <p>That's so beautiful...</p>-->
+                <p>Lights will guide you home</p>
+                <p>And ignite your bones</p>
+                <h1>And I will try to fix you</h1>
+            </div>
+        </li>
+        <li style="background: url(http://oawio13k4.bkt.clouddn.com/task2704-coldplay.jpg) no-repeat center ;background-size:cover;">
+            <div class="content">
+                <!--<h1>So...</h1>
+                <p>Can I save it...</p>
+                <p>in family book? * *</p-->
+                <h1>Fix You</h1>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;-- Coldplay</p>
+</div>
+        </li>
+    </ul>
+
+    <div class="arrow arrow-left">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-angle-left fa-stack-1x fa-inverse"></i>
+            </span>
+    </div>
+    <div class="arrow arrow-right">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-angle-right fa-stack-1x fa-inverse"></i>
+            </span>
+    </div>
+    <ul class="slider-btn">
+        <li class="active"></li>
+    </ul>
+
+</div>
+
+<h3>Here is something for scroll.</h3>
+
+
+
+<script>
+
+    var $sliderCt = $('#slider1');
+    var $imgCt = $sliderCt.find('.img-ul'),
+            $items = $imgCt.children(),
+            $arrowPre = $sliderCt.find('.arrow-left'),
+            $arrowNext = $sliderCt.find('.arrow-right'),
+            $sliderBtn = $sliderCt.find('.slider-btn'),
+            imgList = $imgCt.children().length;
+            imgNum = $imgCt.children().length + 2,
+            imgWidth = $imgCt.children().width();
+
+
+    $imgCt.prepend($items.last().clone());
+    $imgCt.append($items.first().clone());
+
+
+    var cur = 0;
+    var isAnimate = false;
+    $imgCt.children().css('width',imgWidth);
+    $imgCt.css({'width': imgWidth*imgNum,'left': 0 - imgWidth});
+
+    for (var i = 0; i < imgList - 1; i++) {
+        $sliderBtn.append($('<li>'));
+    }
+
+
+
+    $arrowNext.on('click',function () {
+        playNext();
+        return false;
+    });
+    $arrowPre.on('click',function () {
+        playPre();
+        return false;
+    });
+    $sliderBtn.find('li').on('click',function(){
+        var idx = $(this).index();
+        if(idx > cur){
+            playNext(idx-cur);
+        } else if(idx<cur){
+            playPre(cur-idx);
+        }
+        return false;
+    });
+
+    window.onresize = function () {//当页面改变时 刷新
+        location.reload();
+    };
+
+    autoPlay();
+
+    function autoPlay() {
+        clock = setInterval(playNext,5000);
+    }
+    function stopPlay() {
+        clearInterval(clock);
+    }
+
+    function playNext(idx) {
+        var idx = idx || 1;
+        if (!isAnimate) {
+            isAnimate = true;
+            $imgCt.animate({left: '-=' + (imgWidth * idx)}, function () {
+                cur = (cur + idx) % imgList;
+                if (cur === 0) {
+                    $imgCt.css({left: 0 - imgWidth});
+                }
+                isAnimate = false;
+                setBullet();
+            });
+        }
+    }
+
+    function playPre(idx) {
+        var idx = idx || 1;
+        if (!isAnimate) {
+            isAnimate = true;
+            $imgCt.animate({left: '+=' + (imgWidth * idx)}, function () {
+                cur = (cur - idx + imgList) % imgList;
+                if (cur === imgList - 1) {
+                    $imgCt.css({left: 0 - imgWidth * imgList});
+                }
+                isAnimate = false;
+                setBullet();
+            });
+        }
+    }
+
+
+    function setBullet() {
+        $sliderBtn.children().removeClass('active');
+        $sliderBtn.children().eq(cur).addClass('active');
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype>
+<html>
+	<head>
+	<style>
+
+	.ct,.ct1{
+		width: 100px;
+		height: 100px;
+		border: 1px solid red;
+		background-color: yellow;
+		margin: 20px;
+	}
+	.box,.box1{
+		width: 50px;
+		height: 50px;
+		background-color: blue;
+	}
+	.ct.hover, .ct1.hover{
+		border-color: blue;
+		background-color: pink;
+	}
+
+	.box3{
+		list-style: none;
+		background: yellow;
+		margin: 0;
+		padding: 0;
+	}
+	.box3>li{
+		background: pink;
+		margin: 5px;
+		padding: 10px;
+	}
+	.box3>li.hover{
+		background-color: blue;
+	}
+
+	</style>
+	</head>
+	<body>
+		<button id="btn">点我</button>
+		<button id="btn1">点我1</button>
+		<div class="ct">
+			<div class="box"></div>
+		</div>		
+
+		<div class="ct1">
+			<div class="box1"></div>
+		</div>	
+		<input id="input-name" type="text">
+		<ul class="box3">
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>	
+
+
+
+		<form id="form" action="/upload">
+			<input  id="username" name="username" type="text">
+			<input id="btn-submit" type="submit" value="上传">
+		</form>
+
+
+
+	<script>
+
+	$('#btn').addEventListener('click', function(){
+		console.log(this);
+	})
+	$('#btn1').addEventListener('dblclick', function(){
+		console.log(this);
+	})
+
+	$('.ct').addEventListener('mouseover', function(){
+		console.log(1);
+		// window.node = this;
+		//this.style.borderColor = 'blue';
+		this.classList.add('hover');
+	})
+	$('.ct').addEventListener('mouseout', function(){
+		console.log(2);
+		// window.node = this;
+		// this.style.borderColor = 'red';
+		this.classList.remove('hover');
+	})
+
+	$('.ct1').addEventListener('mouseenter', function(){
+		console.log(3);
+		// window.node = this;
+		//this.style.borderColor = 'blue';
+		this.classList.add('hover');
+	})
+	$('.ct1').addEventListener('mouseleave', function(){
+		console.log(4);
+		// window.node = this;
+		//this.style.borderColor = 'blue';
+		this.classList.remove('hover');
+	})
+
+	$('.box3').addEventListener('mouseover', function(e){
+		//console.log(e.target);
+		// console.log(this);
+		if(e.target.tagName.toLowerCase() === 'li'){
+			[].forEach.call(this.children, function(node){
+				node.classList.remove('hover');
+			})
+			// for(var i=0;i<$('.box3').children.length; i++){
+			// 	$('.box3').children[i].classList.remove('hover');
+			// }
+			e.target.classList.add('hover');
+
+		}
+	})
+
+	$('#input-name').addEventListener('blur', function(){
+		console.log(this.value)
+	})
+
+
+	$('#form').addEventListener('submit', function(e){
+		e.preventDefault();
+		if(/^\w{6,12}$/.test($('#username').value)){
+			$('#form').submit();
+		}else{
+			console.log(' no submit...');
+		}	
+	})
+
+
+	function $(id){
+		return document.querySelector(id);
+	}
+	function $$(cls){
+		return document.querySelectorAll(cls);
+	}
+
+	</script>
+	</body>
+</html>

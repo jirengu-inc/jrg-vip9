@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>d3demo</title>
+	<!-- <script src="node_modules/d3/d3.min.js"></script> -->
+</head>
+<body>
+	<div class="box"></div>
+	<ul class="list">
+		<li index='1'></li>
+		<li index=''></li>
+		<li index=''></li>
+		<li index=''></li>
+		<li index=''></li>
+		<li index=''></li>
+	</ul>
+	<script>
+	var d3 = require('d3');
+		var box = d3.select('.box');//选择器
+		console.log(box);
+		var lis = d3.selectAll('.list > li');//选择多个选择器
+		console.log(lis[0].length);//[[obj,obj,obj]]
+
+		//属性操作 obj.attr(name, [value])
+		console.log(lis.attr('index'))
+		lis.attr('index', 'active')
+
+		//样式操作 obj.style(name, [value])
+		console.log(lis.style('background'));
+		lis.style('background', 'red');
+		lis.style({
+			'width': '100px',
+			'height': '100px'
+		});
+	</script>
+</body>
+</html>

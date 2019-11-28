@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+	ul,li{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+
+
+
+</style>	
+<script src="js/jquery-3.1.0.min.js"></script>
+
+<script>
+	window.onload = function(){
+		console.log(1);
+		var box = document.querySelector('.box');
+		console.log(box)
+	}
+
+	$(document).ready(function(){
+
+		console.log(2);
+		console.log($('.box'))
+
+
+
+	})
+
+	$(function(){
+
+		var a = 100
+
+
+
+	})
+</script>
+
+</head>
+<body>
+
+
+<div class="container">
+  <div class="box">
+    <div class="item div1">div1</div>
+    <div class="item div2">div2</div>
+  </div>
+</div>
+
+
+
+
+	<script>
+
+	var obj = {};
+	var obj1 = {
+		name: 'hunger',
+		sex: 'man',
+		friends: [1,2,3]
+	};
+
+	var obj2 = {
+		name: 'valley',
+		age: 30
+	}
+
+	//$.extend(obj, obj1)
+	$.extend(true, obj, obj1)
+	//$.extend(obj, obj1, obj2)
+	//var opts = $.extend({}, obj1, obj2)
+	//$.extend($.fn, obj2)
+	//$.fn.extend(obj2)
+
+
+
+	function getPeople (obj) {
+		var defalut = {
+			name: 'hunger',
+			age: 20,
+			sex: 'male'
+		}
+		//var opts = {};
+		var opts = $.extend({}, defalut, obj)
+		console.log(opts);
+		//use opts
+	}
+
+
+
+	</script>
+</body>
+</html>

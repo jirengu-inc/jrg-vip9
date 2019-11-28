@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>注册</title>
+    <style>
+        .test{
+            opacity: 0.3;
+            font-size: 10px;
+        }
+        dl{
+            margin: 30px;
+        }
+        dd{
+            position: relative;
+            left: 50px;
+            top: -22px;
+            padding: 3px;
+        }
+        .btn{
+            margin-left: 94px;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dt><h3>注册</h3></dt>
+    <dt>用户名</dt>
+    <dd><input class="username" type="text" placeholder="用户名(hunger被注册过)"></dd>
+    <dd class="test">只能是字母、数字、下划线，3-10个字符</dd>
+    <dt>密码：</dt>
+    <dd><input class="password" type="password"></dd>
+    <dd class="test">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+    <dt>再输一次：</dt>
+    <dd><input class="password2" type="password"></dd>
+    <dd class="test"></dd>
+    <dt><button class="btn">注册</button></dt>
+</dl>
+<script>
+    var username = document.querySelector('.username'),
+            password = document.querySelector('.password'),
+            password2 = document.querySelector('.password2'),
+            tests   = document.querySelectorAll('.test'),
+            btn =document.querySelector('.btn');
+
+    username.addEventListener('change',function () {
+        user = username.value;
+        if(user.legth==0){
+            return
+        }
+        isUser(user);
+        ajax({
+            type:'get',
+            url:'/getUser',
+            data:{
+                username:user
+            },
+            success:function (Info) {
+                success(Info)
+            },
+            error:function () {
+                error()
+            }
+        })
+
+    });
+    function isUser(str) {
+        var pat = /^\w{3,10}$/g;
+        if(pat.exec(str)){
+            return true;
+            Info='OK';
+        }else{
+            return false;
+            Info='NO';
+        }
+    }
+    password.addEventListener('change',function () {
+        if(password.value.length==0){
+            return
+        }
+        if(!isPwd(password)){
+            tests[1].innerText='密码格式不正确';
+            password.style.borderColor='red';
+        }
+        if(isPwd(password)){
+            tests[1].innerText='';
+            password.style.borderColor='#ccc';
+        }
+    });
+    function isPwd(str) {
+        if(str.value.length>15||str.value.length<6){
+            return false;
+        }if(/[^A-Za-z0-9_]/.test(str.value)){
+            return false
+        }
+        if(/(^[a-z]+$)|(^[A-Z]+$)|(^_+$)|(^[0-9]+$)/g.test(str.value)){
+            return false;
+        }
+        return true;
+    }
+
+    password2.addEventListener('change',function () {
+        if(password2.value.length==0){
+            return;
+        }
+        if(!isPwd2(password2)){
+            tests[2].innerText='密码格式不正确';
+            password2.style.borderColor='red';
+        }
+        if(isPwd2(password2)){
+            tests[2].innerText='';
+            password2.style.borderColor='#ccc';
+        }
+        if(password.value!==password2.value){
+            tests[2].innerText='两次输入的密码不一致，请重新输入';
+            password2.style.borderColor='red';
+        }
+    });
+
+    btn.addEventListener('click',function () {
+        if(username.value==''|password.value==''|password2.value==''){
+            alert('请填写信息');
+        }
+        else {
+            alert('正在注册');
+        }
+    });
+
+    function success(Info) {
+        if(isUser(user)){
+            tests[0].innerText='该用户不可用，请重新输入';
+            username.style.borderColor='red';
+        }
+        if(Info==0){
+            tests[0].innerText='该用户名已存在';
+            username.style.borderColor='red';
+        }
+        if(Info==1&&isUser(user)){
+            tests[0].innerText='该用户名可以使用';
+            username.style.borderColor='ccc';
+        }
+    }
+    function error() {
+        alert('出错了...')
+    }
+    function ajax(opts) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange=function () {
+            if(xhr.readyState===4&&xhr.status===200){
+                var Info = JSON.parse(xhr.responseText);
+                console.log(xhr.responseText);
+                opts.success(Info)
+            }
+        };
+        var dataStr='';
+        for(var key in opts.data){
+            dataStr += key+ '='+opts.data[key]+'&'
+        }
+        dataStr=dataStr.substr(0,dataStr.length-1);
+        if(opts.type.toLowerCase()==='post'){
+            xhr.open(opts.type,opts.url.true);
+            xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+            xhr.send(dataStr);
+        }
+        if(opts.type.toLowerCase()==='get'){
+            xhr.open(opts.type,opts.url+'?'+dataStr,true);
+            xhr.send();
+        }
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+app.get('/getUser',function (req,res) {
+var user = req.query.username;
+if(user==='hunger'){
+res.send({username:'用户名已存在'})
+}else {
+res.send({
+username:user
+})
+}
+})

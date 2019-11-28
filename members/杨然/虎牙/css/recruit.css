@@ -1,0 +1,288 @@
+    body {
+        overflow-x: hidden;
+    }
+    
+    .active {
+        border-bottom: 2px solid #777;
+    }
+    
+    #logo {
+        background: url(../images/网页/首页/logo@2x.png) no-repeat;
+        background-size: contain;
+        width: 196px;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+        padding: 0;
+    }
+    
+    @media (min-width: 768px) {
+        .navbar {
+            border-radius: 4px;
+        }
+    }
+    
+    #header .navbar {
+        position: relative;
+        min-height: 50px;
+        margin-bottom: 0;
+        border: 1px solid transparent;
+        height: 80px;
+        padding: 12px 50px;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    #header .collapse {
+        display: block;
+    }
+    
+    #header .navbar-nav>li {
+        float: left;
+    }
+    
+    #header .navbar-nav {
+        float: right;
+        margin: 0;
+    }
+    
+    #header .clearfix:after,
+    .dl-horizontal dd:after,
+    .container:after,
+    .container-fluid:after,
+    .row:after,
+    .form-horizontal .form-group:after,
+    .btn-toolbar:after,
+    .btn-group-vertical>.btn-group:after,
+    .nav:after,
+    .navbar:after,
+    .navbar-header:after,
+    .navbar-collapse:after,
+    .pager:after,
+    .panel-body:after,
+    .modal-header:after,
+    .modal-footer:after {
+        clear: none;
+    }
+    
+    #header .navbar-nav {
+        margin: 7.5px -15px;
+    }
+    
+    #header .navbar-nav>li>a {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 36px;
+        color: #777;
+        font-size: 16px;
+    }
+    
+    #header .nav>li>a:hover,
+    .nav>li>a:focus {
+        text-decoration: none;
+        background-color: transparent;
+        border-bottom: 2px solid #777;
+    }
+    
+    #header .nav>li>a {
+        position: relative;
+        display: block;
+        margin: 0 35px;
+        padding: 0 0;
+    }
+    
+    #header {
+        background: url(../images/网页/首页/大图@2x.png) no-repeat center center;
+        height: 1074px;
+        background-size: cover;
+    }
+    
+    @media (min-width: 992px) {
+        #header {
+            background: url(../images/网页/首页/招聘.png) no-repeat center center;
+            height: 532px;
+            background-size: cover;
+        }
+    }
+    
+    @media (max-width:992px) {
+        #header {
+            height: 494px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        #header .nav>li>a {
+            margin: 0 10px;
+        }
+    }
+    
+    @media (max-width: 420px) {
+        #header .navbar {
+            padding: 0px 20px;
+            height: 60px;
+        }
+        #logo {
+            width: 100px;
+            background-size: contain;
+            background-position: center bottom;
+        }
+        #header .nav>li>a {
+            margin: 0 15px;
+            font-size: 16px;
+        }
+    }
+    
+    @media (max-width:320px) {
+        #header .nav>li>a {
+            margin: 0 10px;
+        }
+    }
+    
+    #footer {
+        padding-top: 75px
+    }
+    
+    #footer .logo-bottom {
+        width: 245px;
+        height: 113px;
+        background: url(../images/网页/首页/底部logo@2x.png) no-repeat center center;
+    }
+    
+    #footer .code {
+        padding: 18px 0px 18px 80px;
+    }
+    
+    #footer .code p {
+        padding-top: 10px;
+    }
+    
+    #footer .two-code {
+        width: 65px;
+        height: 65px;
+        background: url(../images/网页/首页/二维码@2x.png) no-repeat center center;
+    }
+    
+    @media (min-width:768px) and (max-width:992px) {
+        #footer {
+            padding-top: 20px;
+        }
+    }
+    
+    @media (max-width: 420px) {
+        #footer {
+            padding-top: 0;
+        }
+        #footer .two-code {
+            height: 55px;
+            width: 40px;
+            background-size: contain;
+        }
+        #footer .code {
+            padding: 18px 0px 18px 50px;
+        }
+        #footer .logo-bottom {
+            width: 124px;
+            background-size: contain;
+        }
+        #footer .code p {
+            padding-top: 0;
+            font-size: 12px;
+        }
+    }
+    
+    @media (max-width: 320px) {
+        #footer .code {
+            padding: 18px 0px 18px 20px;
+        }
+    }
+    
+    #main {
+        line-height: 1.7;
+    }
+    
+    #main .demand-list {
+        padding: 0 80px;
+    }
+    
+    #main .demand-list h3 {
+        margin-bottom: 30px;
+    }
+    
+    #main .work,
+    #main .job {
+        padding-left: 18px;
+    }
+    
+    #main .work>li,
+    #main .job>li {
+        color: #777;
+    }
+    
+    #main .demand-list>li h3 i {
+        content: '';
+        display: inline-block;
+        width: 42px;
+        height: 42px;
+    }
+    
+    #main .demand-list>li:nth-of-type(1) h3 i {
+        background: url(../images/网页/招聘/java@2x.png) no-repeat center center;
+    }
+    
+    #main .demand-list>li:nth-of-type(1) h3 span {
+        color: #fb4c4c;
+    }
+    
+    #main .demand-list>li:nth-of-type(2) h3 i {
+        background: url(../images/网页/招聘/html5@2x.png) no-repeat center center;
+    }
+    
+    #main .demand-list>li:nth-of-type(2) h3 span {
+        color: #599cff;
+    }
+    
+    #main .demand-list>li:nth-of-type(3) h3 i {
+        background: url(../images/网页/招聘/安卓@2x.png) no-repeat center center;
+    }
+    
+    #main .demand-list>li:nth-of-type(3) h3 span {
+        color: #00bacf;
+    }
+    
+    #main .demand-list>li:nth-of-type(4) h3 i {
+        background: url(../images/网页/招聘/项目助理@2x.png) no-repeat center center;
+    }
+    
+    #main .demand-list>li:nth-of-type(4) h3 span {
+        color: #f89e77;
+    }
+    
+    #main .demand-list>li:nth-of-type(5) h3 i {
+        background: url(../images/网页/招聘/行政助理@2x.png) no-repeat center center;
+    }
+    
+    #main .demand-list>li:nth-of-type(5) h3 span {
+        color: #8678f6;
+    }
+    
+    #main .demand-list>li h3 span {
+        vertical-align: super;
+    }
+    
+    #main .ps {
+        line-height: 1;
+        padding-top: 20px;
+    }
+    
+    #main .demand-list>li {
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 35px;
+    }
+    
+    @media (max-width:992px) {
+        #main .demand-list {
+            padding: 0;
+        }
+    }

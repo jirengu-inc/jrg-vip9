@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu35-3</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* { padding: 0; margin: 0; }
+	li {
+		list-style: none;
+	}
+	.mod-tab {
+		border: 1px solid #ccc;
+		width: 600px;
+	}
+	.mod-tab .tabs li {
+		text-align: center;
+		float: left;
+		width: 33.3%;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+	.mod-tab .tabs:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.panel {
+		width: 100%;
+		display: none;
+		height: 300px;
+	}
+	.active {
+		display: block;
+		background: #ccc;
+	}
+</style>
+</head>
+<body>
+    <!-- 实现如下图Tab切换的功能 -->
+    <div class='mod-tab'>
+    	<ul class="tabs">
+    		<li class='active'>tab1</li>
+    		<li>tab2</li>
+    		<li>tab3</li>
+    	</ul>
+    	<div class="panel active">内容11111111111111111111111</div>
+    	<div class="panel">内容2222222222222222222222</div>
+    	<div class="panel">内容3333333333333333333333</div>
+    </div>
+    <div class='mod-tab'>
+    	<ul class="tabs">
+    		<li class='active'>tab1</li>
+    		<li>tab2</li>
+    		<li>tab3</li>
+    	</ul>
+    	<div class="panel active">内容11111111111111111111111</div>
+    	<div class="panel">内容2222222222222222222222</div>
+    	<div class="panel">内容3333333333333333333333</div>
+    </div>
+    <script>
+    	var Tab = function(ct){
+    		this.ct = ct;
+    		this.init();
+    		this.bind();
+    		// this.hasClass();
+    		// this.addClass();
+    		// this.removeClass();
+    	}
+    	Tab.prototype = {
+    		init:function(){
+				this.aLi = this.ct.querySelectorAll('li');
+    			this.aPanel = this.ct.parentNode.querySelectorAll('.panel');
+    		},
+    		bind:function(){
+    			var _this = this;
+		    	this.ct.addEventListener('mouseover', function(e){
+		    		for (var i = 0; i < _this.aLi.length; i++) {
+		    			_this.removeClass(_this.aLi[i], 'active');
+		    			_this.removeClass(_this.aPanel[i], 'active');
+		    			if (_this.aLi[i] == e.target) {
+		    				var index = i;
+		    			}
+		    		}
+		    		_this.addClass(e.target, 'active');
+		    		_this.addClass(_this.aPanel[index], 'active');
+		    		console.log(index + '---' + i);
+		    	})    			
+    		},
+    		hasClass:function(el,cls){
+				var reg = new RegExp("\\b" + cls + "\\b");
+				if (el.className.search(reg) === -1) {
+					return false;
+				}
+				else {
+					return true;
+				}
+    		},
+    		addClass:function(el,cls){
+				if (!this.hasClass(el, cls)) {
+					el.className += " " + cls;
+					// console.log(cls);
+					
+				}
+				else {
+					return;
+					// console.log(cls + "已经存在");
+				}
+    		},
+    		removeClass:function(el,cls){
+    			var _this = this;
+				var reg = new RegExp("\\b" + cls + "\\b");
+				if (_this.hasClass(el,cls)) {
+					el.className = el.className.replace(reg, "");
+					// console.log(cls + "已删除");
+				}
+				else {
+					return;
+					// console.log(cls + "未找到");
+				}
+    		}
+    	}
+    	var oTab1 = document.querySelectorAll('.tabs')[0];
+    	var oTab2 = document.querySelectorAll('.tabs')[1];
+
+    	var tab1 = new Tab(oTab1);
+    	var tab2 = new Tab(oTab2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task2703</title>
+    <style>
+        *{
+            font-family:'微软雅黑'
+        }
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            color: white;
+            text-decoration:none;
+        }
+        .slideshow{
+            width: 600px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide,.slide li,.slide img{
+            width: 600px;;
+            height: 300px;
+        }
+        .slide li{
+            float: left;
+        }
+        .slide{
+            position:absolute;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .slideshow .pre,.slideshow .next{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            background: #555;
+            border-radius:100%;
+            line-height: 30px;
+            text-align: center;
+            box-shadow: 0 0 5px #000;
+        }
+        .slideshow .pre{
+            left:10px;
+        }
+        .slideshow .pre:hover{
+            opacity: 0.8;
+        }
+        .slideshow .next{
+            right:10px;
+        }
+        .slideshow .next:hover{
+            opacity: 0.8;
+        }
+        .slideshow > .slide-nav > li{
+            width: 20px;
+            height: 5px;
+            border-radius:5px;
+            display: inline-block;
+            background: white;
+            cursor: pointer;
+        }
+        .slide-nav li:nth-child(2){
+            margin: 0 5px;
+        }
+        .slideshow .slide-nav{
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center
+        }
+        .slide-nav li.active{
+            background: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow slideshow-1 ct">
+        <ul class="slide clearfix">
+            <li class="active"><img src="http://cdn.jirengu.com/book.jirengu.com/img/30.jpg" alt=""></li>
+            <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></li>
+            <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></li>
+        </ul>
+        <a href="javascript:void 0" class="pre">&lt</a>
+        <a href="javascript:void 0" class="next">&gt</a>
+        <ul class="slide-nav">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="slideshow slideshow-1 ct">
+        <ul class="slide clearfix">
+            <li class="active"><img src="http://cdn.jirengu.com/book.jirengu.com/img/30.jpg" alt=""></li>
+            <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></li>
+            <li><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></li>
+        </ul>
+        <a href="javascript:void 0" class="pre">&lt</a>
+        <a href="javascript:void 0" class="next">&gt</a>
+        <ul class="slide-nav">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+    
+        function Carousel($node){
+            var $pre = $node.find('.pre')
+            var $next = $node.find('.next')
+            var $nav = $node.find('.slide-nav')
+            var _this = this
+            
+            this.$node = $node.find('.slide')
+            this.$navLi = $node.find('.slide-nav li')
+            this.$imageWidth = $node.find('.slide li').first().width()
+            this.$pointer = 0
+            this.$navIdx = 0
+            this.isAnimate = false
+            this.$imageCount = this.$node.children().length
+            
+            var $firstLi = this.$node.children().first().clone()
+            var $LastLi = this.$node.children().last().clone()
+            $firstLi.appendTo(this.$node)
+            $LastLi.prependTo(this.$node)
+            this.$imageRealCount = this.$node.children().length
+            
+            this.$node.css({
+                width:this.$imageRealCount*this.$imageWidth,
+                left:-this.$imageWidth
+            })
+            
+            $pre.on('click',function(){
+                if (_this.isAnimate) return
+                _this.isAnimate = true
+                _this.resetClock()
+                _this.playPre()
+            })
+            $next.on('click',function(){
+                if (_this.isAnimate) return
+                _this.isAnimate = true
+                _this.resetClock()
+                _this.playNext()
+            })
+            $nav.on('click',function(e){
+                if (e.target.tagName === 'UL') return 
+                _this.resetClock()
+                _this.$navIdx = $(e.target).index()
+                _this.play()
+            })
+            
+            this.autoPlay()
+        }
+        
+        Carousel.prototype = {
+            playPre:function () {
+                var $node = this.$node,
+                    _this = this
+                this.$pointer--
+                $node.animate({"left":"+=" + _this.$imageWidth},function(){
+                    if(_this.$pointer === -1) {
+                        $node.css({"left":-_this.$imageWidth*_this.$imageCount})
+                        _this.$pointer = _this.$imageRealCount - 3
+                    }
+                    _this.isAnimate = false
+                    _this.setNav(_this.$pointer)
+                })
+            },
+            playNext:function () {
+                var $node = this.$node,
+                    _this = this
+                this.$pointer++
+                $node.animate({left:'-=' + _this.$imageWidth},function(){
+                    if(_this.$pointer === (_this.$imageRealCount-2)) {
+                        $node.css({left : - _this.$imageWidth})
+                        _this.$pointer = 0
+                    }
+                    _this.isAnimate = false
+                    _this.setNav(_this.$pointer)
+                })
+            },
+            play:function () {
+                if(this.$pointer < this.$navIdx) {
+                    var i = this.$navIdx - this.$pointer
+                    while(i--) {
+                        this.playNext()
+                    }
+                } else {
+                    var j = this.$pointer - this.$navIdx
+                    while(j--) {
+                        this.playPre()
+                    }
+                }
+            },
+            setNav:function (idx) {
+                this.$navLi.removeClass('active')
+                            .eq(idx).addClass('active')
+            },
+            autoPlay:function () {
+                var _this = this
+                _this.clock = setInterval(function(){
+                    _this.playNext()
+                },3000)
+            },
+            resetClock:function () {
+                var _this = this
+                clearInterval(_this.clock)
+                this.autoPlay()
+            }
+        }
+        
+        $('.ct').each(function() {
+            new Carousel($(this))
+        })
+    </script>
+</body>
+</html>

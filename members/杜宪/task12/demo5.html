@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>双飞燕布局(2)</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+	body,div,header,footer{padding: 0;margin:0;}
+	#header,#footer{height: 50px;background: #ccc;}
+	.main{}
+	.main:after{content: " ";display: block;clear: both;}
+	.sidebar_left{width: 200px;float: left;min-height: 300px;background: #FC0000;margin-left:-100%;}
+	.sidebar_right{width: 200px;float: left;min-height: 300px;background: #FFFF00;margin-left:-200px; }
+	.content{float: left;width: 100%;}
+    .content_text{background: #148200; margin:0 200px 0 0;min-height:300px; }
+</style>
+</head>
+<body>
+    <header id="header">头部</header>
+    <div class="main">
+    	
+    	<div class="content">
+    		<div class="content_text">
+    			双飞翼布局的原理也是为了使中间内容不被遮挡，直接在中间div中创建div放置内容，在子元素div中利用左右margin为两边侧留出位置。
+    		</div>
+    	</div>
+        <div class="sidebar_right">右侧边栏,固定宽度</div>
+    </div>
+    <footer id="footer">底部</footer>
+</body>
+</html>

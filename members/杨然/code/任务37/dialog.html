@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dialog</title>
+    <style>
+      html,body,a,p,h3,h2,h1,button {
+        margin: 0;
+        padding: 0;
+      }
+      .dialog {
+        width: 400px;
+        border-radius: 5px;
+        border: 1px solid black;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding-bottom: 10px;
+        /* display: none; */
+      }
+      .dialog-ct {
+        font-size: 14px;
+      }
+      .dialog-header {
+        background: #666;
+        padding: 4px 20px;
+        color: #fff;
+      }
+      .dialog-header .close {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        cursor: pointer;
+      }
+      .dialog-content {
+        padding: 20px;
+      }
+      .dialog-footer {
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        width: 50px;
+        color: #fff;
+        background: red;
+        padding: 4px;
+        margin: 2px;
+        text-decoration: none;
+        border-radius: 3px;
+        text-align: center;
+      }
+      .btn:hover {
+        background:#e02929;
+      }
+    </style>
+</head>
+
+<body>
+    <button id="open1">打开1</button>
+    <button id="open2">打开2</button>
+    <button id="open3">打开3</button>
+    <button id="open4">打开4</button>
+    <button id="open5">打开5</button>
+    <p>左键可拖动</p>
+    <p>可创建多个</p>
+  <!--   <div class="dialog">
+    <div class="dialog-ct">
+      <div class="dialog-header">
+        <h3>欢迎</h3>
+        <span class="close">x</span>
+      </div>
+      <div class="dialog-content">
+        hello
+      </div>
+      <div class="dialog-footer">
+        <a href="javascript:;" class="btn btn-confirm">确定</a>
+        <a href="javascript:;" class="btn btn-close">取消</a>
+      </div>
+    </div>
+  </div> -->
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      function Dialog(id, title, content){
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.ref = null;
+        this.init();
+        this.bind();
+      }
+      Dialog.prototype.init = function(){
+        //创建Dialog DOM结构
+        var tpl = '';
+            tpl += '<div id="' + this.id + '"class="dialog" style="display: none;">';
+            tpl += '<div class="dialog-ct">';
+            tpl += '<div class="dialog-header"><h3>' + this.title + '</h3><span class="close">x</span></div>';
+            tpl += '<div class="dialog-content">' + this.content + '</div>';
+            tpl += '<div class="dialog-footer"><a href="javascript:;" class="btn btn-confirm">确定</a><a href="javascript:;" class="btn btn-close">取消</a>';
+            tpl += '</div></div></div>';
+        var $tpl = this.ref = $(tpl);
+        console.log(this.title.length);
+
+        $('body').append($tpl);
+        if(this.title.length === 0){
+          $('.dialog-header').css('padding', '0px');
+        }
+
+        //把Dialog插入body中
+      }
+      Dialog.prototype.bind = function(){
+        var _this = this;
+        $('.close').on('click', function(e){
+          _this.ref.hide();
+        })
+        $(document).on('click', function(e){
+          var target = e.target;
+          console.log($(target));
+          if($(target).parents('.dialog').length > 0) return;
+          _this.ref.hide();
+        })
+      }
+      Dialog.prototype.show = function(){
+        this.ref.show();
+      }
+      Dialog.prototype.hide = function(){
+        this.ref.hide();
+      }
+      Dialog.prototype.setCloseBtn = function(){
+
+      }
+      Dialog.prototype.setConfirmBtn = function(){
+
+      }
+
+      $('#open1').on('click', function(e){
+        e.stopPropagation();
+        var dialog1 = new Dialog('dialog1', '111', 'neirong');
+        dialog1.show();
+      })
+
+      $('#open2').on('click', function(e){
+        e.stopPropagation();
+        var dialog2 = new Dialog('dialog2', '', '<a href="javascript:;">lianjie</a>');
+        dialog2.show();
+      })
+    </script>
+    <script>
+      // function Dialog(){
+      //   this.createDialog();
+      //   this.bindEvent();
+      // }
+      //
+      // Dialog.prototype = {
+      //   defaultOpts: {
+      //     title: '',
+      //     message:'',
+      //     isShowCloseBtn: true,
+      //     isShowConfirmBtn: true,
+      //     onClose:function(){},
+      //     onConfirm: function(){}
+      //   },
+      //
+      //   open:function(opts){
+      //     this.setOpts(opts);
+      //     console.log(this.opts);
+      //     this.setDialog();
+      //     this.showDialog();
+      //   },
+      //
+      //   close:function(){
+      //     this.hideDialog();
+      //   },
+      //
+      //   setOpts:function(opts){
+      //     if(typeof opts === 'string'){
+      //       this.opts = $.extend({},this.defaultOpts,{ message: opts });
+      //     } else if (typeof opts === 'object') {
+      //       this.opts = $.extend({},this.defaultOpts,opts);
+      //     }
+      //   },
+      //
+      //   bindEvent:function(){
+      //     var _this = this;
+      //     _this.$dialog.find('.btn-close').on('click', function(e){
+      //       e.preventDefaule();
+      //       _this.opts.onClose();
+      //       _this.hideDialog();
+      //     });
+      //     _this.$dialog.find('.btn-confirm').on('click', function(e){
+      //       e.preventDefaule();
+      //       _this.opts.onConfirm();
+      //       _this.hideDialog();
+      //     });
+      //
+      //     _this.$dialog.on('mousedown', function(e){
+      //       var $dialog = $(this),
+      //       evtX = e.pageX - $dialog.offset().left,
+      //       evtY = e.pageY - $dialog.offset().top;
+      //
+      //       $dialog.addClass('draggable').data('evtPos', {
+      //         x: evtX,
+      //         y: evtY
+      //       });
+      //     });
+      //     $('body').on('mousemove', function(e){
+      //       $('.draggable').length && $('.draggable').offset({
+      //         top: e.pageY - $('.draggable').data('evtPos').y,
+      //         left: e.pageX - $('.draggable').data('evtPos').x
+      //       });
+      //     })
+      //     $('body').on('mouseup',function(){
+      //       $('.draggable').removeClass('draggable').removeData('pos');
+      //     });
+      //   },
+      //
+      //   createDialog: function(){
+      //     var tpl += '<div class="dialog" style="display:none">';
+      //         tpl += '<div class="dialog-box">';
+      //         tpl += '<div class="dialog-header">';
+      //         tpl += '<h3></h3>';
+      //         tpl += '<span class="btn-close">x</span>';
+      //         tpl += '</div>';
+      //         tpl += '<div class="dialog-content">'；
+      //         tpl += '</div>';
+      //         tpl += '<div class="dialog-footer">';
+      //         tpl += '<a href="#" class="btn btn-close">取消</a>';
+      //         tpl += '<a href="#" class="btn btn-confirm">确定</a>';
+      //         tpl += '</div></div></div>';
+      //         this.$dialog = $(tpl);
+      //         $('body').append(this.$dialog);
+      //   },
+      //
+      //   setDialog: function(){
+      //     var $dialog = this.$dialog;
+      //     if(!this.opts.title){
+      //       $dialog.find('.dialog-header').hide();
+      //     } else {
+      //       $dialog.find('.dialog-header').show();
+      //     }
+      //     if(!this.opts.isShowCloseBtn){
+      //       $dialog.find('.btn-confirm').hide();
+      //     } else {
+      //       $dialog.find('.btn-confirm').show();
+      //     }
+      //     $dialog.find('.dialog-header h3').text(this.opts.title);
+      //     $dialog.find('.dialog-content').html(this.opts.message);
+      //   },
+      //
+      //   showDialog: function(){
+      //     this.$dialog.show();
+      //   },
+      //   hideDialog: function(){
+      //     this.$dialog.hide();
+      //   },
+      //   destoryDialog: function(){
+      //     this.$dialog.remove();
+      //   }
+      // };
+      //
+      // $('#open1').on('click', function(){
+      //   var dialog1 = new Dialog();
+      //   dialog1.open('hello');
+      // });
+      // $('#open2').on('click', function(){
+      //   var dialog2 = new Dialog();
+      //   dialog2.open('<a href="#">链接</a>');
+      // });
+      // $('#open3').on('click', function(){
+      //   var dialog3 = new Dialog();
+      //   dialog3.open({
+      //     title: '欢迎',
+      //     message: 'hello',
+      //     isShowCloseBtn: true,
+      //     isShowConfirmBtn: true,
+      //     onClose: function(){
+      //       alert('close');
+      //     },
+      //     onConfirm: function(){
+      //       alert('confirm');
+      //     }
+      //   });
+      // });
+      //
+      // var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+      // $('#open4').on('click', function(){
+      //   var dialog4 = new Dialog();
+      //   dialog4.open({
+      //     title: '欢迎',
+      //     message: tpl,
+      //     isShowCloseBtn: true,
+      //     isShowConfirmBtn: true,
+      //     onClose: function(){
+      //       alert('close');
+      //     },
+      //     onConfirm: function(){
+      //       alert('ok');
+      //     }
+      //   });
+      // });
+      //
+      // $('#open5').on('click', function(){
+      //   var dialog5 = new Dialog();
+      //   dialog5.open({
+      //     title: '欢迎',
+      //     message: 'hello',
+      //     isShowCloseBtn: false,
+      //     isShowConfirmBtn: false
+      //   });
+      // });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>renwu15-2</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="font/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<style>
+			html, body, p, ul, li, h1, h2, h3, h4, a, i, img, input, textarea, button {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font: 14px/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			a {
+				text-decoration: none;
+			}
+			li {
+				list-style: none;
+			}
+			html, body {
+				height: 100%;
+			}
+			/*组件*/
+			.container {
+				width: 1170px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			.clearfix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.btn {
+				cursor: pointer;
+				color: #FFF;
+				font-size: 18px;
+				font-weight: 700;
+				display: inline-block;
+				padding: 20px 40px;
+				border-radius: 4px;
+				background-color: #fed136;
+				border: none;
+				outline: none;
+			}
+			.btn:hover {
+				background-color: #fec503;
+			}
+			.fa-yellow {
+				color: #fec503;
+			}
+			/*matte-icon*/
+			.matte-icon > li {
+				display: inline-block;
+				padding: 5px 7px;
+			}
+			.matte-icon > li a {
+				background-color: black;
+				color: #fff;
+				display: inline-block;
+				vertical-align: middle;
+				width: 32px;
+				height: 32px;
+				border-radius: 100%;
+				font-size: 22px;
+			}
+			.matte-icon > li a:hover {
+				background-color: rgba(254,209,54,1);
+				transition-property: background-color;
+    			transition-duration: 0.3s;
+			}
+			/*matte-icon*/
+			input::-webkit-input-placeholder,
+			textarea::-webkit-input-placeholder {  /* WebKit browsers */
+			    font-weight: bold;
+			    font-size: 1.2em;
+			}
+			input:-moz-placeholder,
+			textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			    font-weight: bold;
+			    font-size: 1.2em;
+			}
+			input::-moz-placeholder,
+			textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+			    font-weight: bold;
+			    font-size: 1.2em;
+			}
+			input:-ms-input-placeholder,
+			textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+			    font-weight: bold;
+			    font-size: 1.2em;
+			}
+			/*header*/
+			#header {
+				height: 100%;
+				background: url(img/实战3/header-bg.jpg) no-repeat center center;
+				background-size: cover;
+			}
+			/*header head*/
+			#header .head {
+				padding: 10px 0;
+			}
+			#header .head .logo {
+				float: left;
+			}
+			#header .head .logo a {
+				color: #fec503;
+				height: 64px;
+				line-height: 64px;
+			}
+			#header .head .nav-order {
+				float: right;
+			}
+			#header .head .nav-order > li {
+				float: left;
+				padding: 0 0 0 15px;
+			}
+			#header .head .nav-order > li a {
+				height: 64px;
+				line-height: 64px;
+				color: #fff;
+				font-size: 1.2em;
+			}
+			#header .head .nav-order > li a:hover {
+				color: #fec503;
+			}
+			/*header title*/
+			#header .title {
+				height: 100%;
+				line-height: 2;
+				color: #fff;
+				/*padding: 160px 0;*/ /* 不要用padding，用table-cell垂直*/
+			}
+			#header .title h2 {
+				font-style: italic;
+				font-size: 2.6em;
+			}
+			#header .title h1 {
+				font-size: 5.5em;
+			}
+			/*content*/
+			/*content services*/
+			#header .table {
+				display: table;
+				height: 100%;
+			}
+			#header .centered {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+			#content .services {
+				padding: 75px 0 25px 0;
+			}
+			#content .services h1 {
+				font-size: 3em;
+			}
+			#content .services h1, h3 {
+				line-height: 2;
+			}
+			#content .services-order > li {
+				width: 300px;
+				float: left;
+				margin-left: 135px;
+			}
+			#content .services-order {
+				margin-left: -135px;
+				padding: 50px 0;
+			}
+			/*content portfolio*/
+			#content .portfolio {
+				background-color: #f7f7f7;
+				padding: 75px 0 25px 0;
+			}
+			#content .portfolio h1 {
+				font-size: 38px;
+			}
+			#content .portfolio h1 + p {
+				word-spacing: 4px;
+			}
+			#content .portfolio-order {
+				padding: 12px 0 50px 0;
+				margin-left: -45px;
+			}
+			#content .portfolio-order img {
+				width: 360px;
+				height: 260px;
+			}
+			#content .portfolio-order > li {
+				width: 360px;
+				float: left;
+				margin-left: 45px;
+				padding: 25px 0;
+			}
+			#content .design {
+				/*margin-top: -4px;*/
+				background-color: #fff;
+				padding: 0 0 20px 0;
+			}
+			#content .design p {
+				color: #aaa;
+			}
+			#content .design h3 {
+				font-size: 22px;
+			}
+			#content .portfolio-order > li a {
+				position: relative;
+				display: block;
+			}
+			#content .portfolio-order > li a img {
+				display: block;
+				width: 100%;
+			}
+			#content .portfolio-hover:hover {
+			    background: rgba(254,209,54,0.8);
+				transition-property: background-color;
+   				transition-duration: 0.3s;
+   				opacity: 1;
+			}
+			#content .portfolio-hover {
+    			position: absolute;
+   				width: 100%;
+    			height: 100%;
+   				opacity: 0;
+   			}
+   			#content .portfolio-content {
+   				text-align: center;
+   				width: 100%;
+				position: absolute;
+				top: 50%;
+				margin-top: -1.5em;
+				color: #fff;
+   			}
+   			/*#content .portfolio-order a:hover {
+				background-color: rgba(254,209,54,0.8);
+				transition-property: background-color;
+   				transition-duration: 0.3s;
+   				opacity: 1;
+			}*/
+			/*#content .matte {
+				background-color: transparent;
+				position: absolute;
+				width: 360px;
+				height: 260px;
+				opacity: 0;
+			}
+			#content .matte i {
+				color: #fff;
+				line-height: 260px;
+			}*/    /*这是之前做的，没加hover的div用line-height做的居中*/
+			/*content about*/
+			#content .about {
+				padding: 100px 0;
+			}
+			#content .about .container > h1 {
+				font-size: 36px;
+			}
+			#content .about .container > p {
+				font-style: italic;
+				word-spacing: 4px;
+				color: #aaa;
+			}
+			#content .about-order {
+				margin-top: 50px;
+				position: relative;
+			}
+			#content .about-order:before {
+				content: "";
+				width: 2px;
+				display: block;
+				background-color: #f1f1f1;
+				position: absolute;
+				left: 50%;
+				margin-left: -1px;
+				top: 0;
+				bottom: 0;
+			}
+			#content .about-order > li {
+				position: relative;
+				margin-bottom: 100px;
+				min-height: 170px;
+			}
+			#content .about-order > li:nth-child(5) {
+				margin-bottom: 0;
+			}
+			#content .about-order > li:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			#content .about-order > li:nth-child(1),
+			#content .about-order > li:nth-child(3) {
+				padding-right: 275px;
+   				padding-left: 100px;
+			}
+			#content .about-order > li:nth-child(2),
+			#content .about-order > li:nth-child(4) {
+				padding-left: 275px;
+   				padding-right: 100px;
+			}
+			#content .description {
+				width: 41%;
+			}
+			#content .image {
+				width: 170px;
+				height: 170px;
+				border: 7px solid #f1f1f1;
+				border-radius: 100%;
+				position: absolute;
+				left: 50%;
+				margin-left: -85px;
+				box-sizing: border-box;
+			}
+			#content .image img {
+				width: 100%;
+				height: 100%;
+				border-radius: 100%;
+			}
+			#content .last {
+				width: 170px;
+				height: 170px;
+				border: 7px solid #f1f1f1;
+				border-radius: 100%;
+				position: absolute;
+				left: 50%;
+				margin-left: -85px;
+				background-color: #fed136;
+				text-align: center;
+				box-sizing: border-box;
+			}
+			#content .last h4 {
+				color: #fff;
+				line-height: 1.5;
+				font-size: 24px;
+				margin-top: 25px;
+			}
+			.left {
+				float: left;
+				text-align: right;
+			}
+			.right {
+				float: right;
+				text-align: left;
+			}
+			/*content team*/
+			#content .team {
+				background-color: #f7f7f7;
+				padding: 100px 0;
+			}
+			#content .container > h1 {
+				font-size: 32px;
+			}
+			#content .container > p:first-of-type {
+				font-style: italic;
+				word-spacing: 4px;
+				padding: 0 0 50px 0;
+			}
+			#content .container > p {
+				color: #aaa;
+				padding: 50px 0 0 0;
+			}
+			#content .team-order {
+			}
+			#content .team-order > li {
+				float: left;
+				box-sizing: border-box;
+				width: 240px;
+				margin-left: 112px;
+			}
+			#content .team-order > li img {
+				border: 7px solid #fff;
+				border-radius: 100%;
+			}
+			/*#content .team-order > li a {
+				background-color: black;
+				color: #fff;
+				display: inline-block;
+				vertical-align: middle;
+				width: 32px;
+				height: 32px;
+				border-radius: 100%;
+				font-size: 22px;
+			}
+			#content .team-order > li a:hover {
+				background-color: rgba(254,209,54,1);
+				transition-property: background-color;
+    			transition-duration: 0.6s;
+			}*/
+			
+			/*content clients*/
+			#content .clients {
+				padding: 50px 0;
+			}
+			#content .clients-order {
+				padding: 0 50px;
+			}
+			#content .clients-order > li {
+				float: left;
+				margin-left: 67px;
+			}
+			/*content contact*/
+			#content .contact {
+				padding: 50px 0 100px 0;
+				background-color: black;
+				background-image: url(img/实战3/map-image.png);
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			#content .contact h1 {
+				color: #fff;
+			}
+			#content .from .information-order,
+			#content .from .message {
+				float: left;
+				border-radius: 4px;
+				width: 50%;
+				padding: 5px 10px;
+				box-sizing: border-box;
+			}
+			#content .from .information-order >li {
+				width: 100%;
+				padding: 0 0 27px 0;
+			}
+			#content .from .information-order >li:last-child {
+				padding-bottom: 0;
+			}
+			#content .from .information-order >li input {
+				width: 100%;
+				padding: 10px 0px 10px 10px;
+				box-sizing: border-box;
+				border-radius: 4px;
+				outline: none;
+				height: 60px;
+			}
+			#content .from .message textarea {
+				width: 100%;
+				padding: 10px 0px 10px 10px;
+				box-sizing: border-box;
+				border-radius: 4px;
+				outline: none;
+				height: 240px;
+			}
+			#content .from button {
+				margin-top: 25px;
+			}
+			/*footer*/
+			#footer {
+				padding: 25px 0;
+			}
+			#footer .foot > li:nth-of-type(1) {
+				float: left;
+				margin-left: 25px;
+				width: 300px;
+				padding: 10px 0;
+			}
+			#footer .foot > li:nth-of-type(3) {
+				width: 
+			}
+			#footer .foot > li:nth-of-type(2) {
+				float: right;
+				margin-right: 25px;
+				width: 300px;
+				padding: 10px 0;
+			}
+			#footer .foot > li:nth-of-type(2) a {
+				padding: 0 10px;
+				color: #fed136;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="head">
+				<div class="container clearfix">
+					<div class="logo"><a href="#"><h1>Start Bootstrap</h1></a></div>
+					<ul class="nav-order">
+						<li><a href="#">SERVICES</a></li>
+						<li><a href="#">PORTFOLIO</a></li>
+						<li><a href="#">ABOUT</a></li>
+						<li><a href="#">TEAM</a></li>
+						<li><a href="#">CONTACT</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="title">
+				<div class="container table">
+					<div class="centered">
+						<h2>Welcome To Our Studio!</h2>
+						<h1>IT'S NICE TO MEET YOU</h1>
+						<a href="#" class="btn">TELL ME MORE</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="services">
+				<div class="container">
+					<h1>SERVICES</h1>
+					<p>Lorem ipsum dolor sit amet consectetur.</p>
+					<ul class="services-order clearfix">
+						<li>
+							<i class="fa fa-money fa-5x fa-yellow"></i>
+							<h3>E-Commerce</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+						</li>
+						<li>
+							<i class="fa fa-thumbs-o-up fa-5x fa-yellow"></i>
+							<h3>Responsive Design</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+						</li>
+						<li>
+							<i class="fa fa-lock fa-5x fa-yellow"></i>
+							<h3>Web Security</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="portfolio">
+				<div class="container">
+					<h1>PORTFOLIO</h1>
+					<p>Lorem ipsum dolor sit amet consectetur.</p>
+					<ul class="portfolio-order clearfix">
+						<li>
+							<a href="#">
+							<div class="portfolio-hover">
+								<div class="portfolio-content"><i class="fa fa-plus fa-3x"></i></div>
+							</div>
+								<img src="img/实战3/zuopin1.png" alt="">
+							</a>
+							<div class="design">
+								<h3>Round Icons</h3>
+								<p>Graphic Design</p>
+							</div>
+						</li>
+						<li>
+							<a href="#">
+							<div class="portfolio-hover">
+								<div class="portfolio-content"><i class="fa fa-plus fa-3x"></i></div>
+							</div>
+								<img src="img/实战3/zuopin2.png" alt="">
+							</a>
+							<div class="design">
+								<h3>Startup Framework</h3>
+								<p>Website Design</p>
+							</div>
+						</li>
+						<li>
+							<a href="#">
+							<div class="portfolio-hover">
+								<div class="portfolio-content"><i class="fa fa-plus fa-3x"></i></div>
+							</div>
+								<img src="img/实战3/zuopin3.png" alt="">
+							</a>
+							<div class="design">
+								<h3>Treehouse</h3>
+								<p>Website Design</p>
+							</div>
+						</li>
+						<li>
+							<a href="#">
+							<div class="portfolio-hover">
+								<div class="portfolio-content"><i class="fa fa-plus fa-3x"></i></div>
+							</div>
+								<img src="img/实战3/zuopin4.png" alt="">
+							</a>
+							<div class="design">
+								<h3>Golden</h3>
+								<p>Website Design</p>
+							</div>
+						</li>
+						<li>
+							<a href="#">
+							<div class="portfolio-hover">
+								<div class="portfolio-content"><i class="fa fa-plus fa-3x"></i></div>
+							</div>
+								<img src="img/实战3/zuopin5.png" alt="">
+							</a>
+							<div class="design">
+								<h3>Escape</h3>
+								<p>Website Design</p>
+							</div>
+						</li>
+						<li>
+							<a href="#">
+							<div class="portfolio-hover">
+								<div class="portfolio-content"><i class="fa fa-plus fa-3x"></i></div>
+							</div>
+								<img src="img/实战3/zuopin6.png" alt="">
+							</a>
+							<div class="design">
+								<h3>Dreams</h3>
+								<p>Website Design</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="about">
+				<div class="container">
+					<h1>ABOUT</h1>
+					<p>Lorem ipsum dolor sit amet consectetur.</p>
+					<ul class="about-order">
+						<li>
+							<div class="image"><img src="img/实战3/about1.jpg" alt=""></div>
+							<div class="description left">
+								<h3>2009-2011</h3>
+								<h3>Our Humble Beginnings</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+							</div>
+						</li>
+						<li>
+							<div class="image"><img src="img/实战3/about2.jpg" alt=""></div>
+							<div class="description right">
+								<h3>MARCH 2011</h3>
+								<h3>An Agency is Born</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+							</div>
+						</li>
+						<li>
+							<div class="image"><img src="img/实战3/about3.jpg" alt=""></div>
+							<div class="description left">
+								<h3>DECEMBER 2012</h3>
+								<h3>Transition to Full Service</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+							</div>
+						</li>
+						<li>
+							<div class="image"><img src="img/实战3/about4.jpg" alt=""></div>
+							<div class="description right">
+								<h3>JULY 2014</h3>
+								<h3>Phase Two Expansion</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+							</div>
+						</li>
+						<li>
+							<div class="last">
+								<h4>
+									BE PART
+									<br>
+									OF OUR
+									<br>
+									STORY!
+								</h4>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="team">
+				<div class="container">
+					<h1>OUR AMAZING TEAM</h1>
+					<p>Lorem ipsum dolor sit amet consectetur.</p>
+					<ul class="team-order clearfix">
+						<li>
+							<img src="img/实战3/team1.jpg" alt="">
+							<h3>Kay Garland</h3>
+							<p>Lead Designer</p>
+							<ul class="matte-icon">
+								<li><a href="#"><i class="fa fa-twitter fa-1x"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin fa-1x"></i></a></li>
+							</ul>
+						</li>
+						<li>
+							<img src="img/实战3/team2.jpg" alt="">
+							<h3>Larry Parker</h3>
+							<p>Lead Designer</p>
+							<ul class="matte-icon">
+								<li><a href="#"><i class="fa fa-twitter fa-1x"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin fa-1x"></i></a></li>
+							</ul>
+						</li>
+						<li>
+							<img src="img/实战3/team3.jpg" alt="">
+							<h3>Diana Pertersen</h3>
+							<p>Lead Designer</p>
+							<ul class="matte-icon">
+								<li><a href="#"><i class="fa fa-twitter fa-1x"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin fa-1x"></i></a></li>
+							</ul>
+						</li>
+					</ul>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Auteaque, laboriosam veritatis, quos non <br>
+					quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+				</div>
+			</div>
+			<div class="clients">
+				<div class="container">
+					<ul class="clients-order clearfix">
+						<li><a href="#"><img src="img/实战3/envato.jpg" alt=""></a></li>
+						<li><a href="#"><img src="img/实战3/designmodo.jpg" alt=""></a></li>
+						<li><a href="#"><img src="img/实战3/themeforest.jpg" alt=""></a></li>
+						<li><a href="#"><img src="img/实战3/creative-market.jpg" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="contact">
+				<div class="container">
+					<h1>CONTACT US</h1>
+					<p>Lorem ipsum dolor sit amet consectetur.</p>
+					<div class="from clearfix">
+						<ul class="information-order">
+							<li>
+								<input type="text" name="name" placeholder="YOUR NAME *">
+							</li>
+							<li>
+								<input type="text" name="email" placeholder="YOUR EMAIL *">
+							</li>
+							<li>
+								<input type="text" name="phone" placeholder="YOUR PHONE *">
+							</li>
+						</ul>
+						<div class="message">
+							<textarea name="message" id="" cols="30" rows="10" placeholder="YOUR MESSAGE *"></textarea>
+						</div>
+						<button type="submit" class="btn">TELL ME MORE</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="container">
+				<ul class="foot clearfix">
+					<li>
+						<p>Copyright © Your Website 2014</p>
+					</li>
+					<li>
+						<a href="#">Privacy Policy</a>
+						<a href="#">Terms of Use</a>
+					</li>
+					<li>
+						<ul class="matte-icon">
+							<li><a href="#"><i class="fa fa-twitter fa-1x"></i></a></li>
+							<li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin fa-1x"></i></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

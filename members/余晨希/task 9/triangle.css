@@ -1,0 +1,64 @@
+#css-triangle div {
+    margin: 30px 30px;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+
+  border-top: 30px solid blue;
+}
+
+
+.square {
+  width: 0;
+  height: 0;
+  border-left: 30px solid red;
+  border-right: 30px solid yellow;
+  border-top: 30px solid blue;
+  border-bottom: 30px solid green;
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-left: 30px solid red;
+  border-right: 30px solid transparent;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid yellow;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid green;
+}
+
+.arrow-bottom-left {
+  width: 0;
+  height: 0;
+  border-left: 30px solid red;
+  border-right: 30px solid transparent;
+  border-top: 30px solid transparent;
+}
+
+.arrow-bottom-right {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-bottom: 30px solid green;
+}

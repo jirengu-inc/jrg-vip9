@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>task23-4</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+	.mod-tab{
+		border: 1px solid #ccc;
+	}
+	.mod-tab * {
+		box-sizing: border-box;
+	}
+	.mod-tab ul,
+	.mod-tab li{
+		margin:0;
+		padding: 0;
+		list-style-type: none;
+	}
+	.tabs li{
+		float: left;
+		width: 33.3%;
+		height: 30px;
+		border-bottom: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		text-align: center;
+		cursor: pointer;
+	}
+	.mod-tab .tabs:after{
+		content:'';
+		display: block;
+		clear: both;
+	}
+	.mod-tab .tabs .active{
+		background: #eef;
+	}
+	.mod-tab .panel{
+		display: none;
+		height: 180px;
+		padding: 20px;
+	}
+	.mod-tab .active{
+		display: block;
+	}
+</style>
+<body>
+    <div class="mod-tab">
+     	<ul class="tabs">
+     		<li class="active">tab1</li>
+     		<li>tab2</li>
+     		<li>tab3</li>
+     	</ul>
+    	<div class="panel active">内容1</div>
+   		<div class="panel">内容2</div>
+    	<div class="panel">内容3</div>
+    </div>
+    <script>
+    var Utils = {
+
+    hasClass: function(ele, cls){
+        return !!ele.className.match(new RegExp('\\b'+cls+'\\b'));
+    },
+    
+    addClass:function(ele, cls){
+      if(ele.length && ele.length > 0){
+          for(var i=0; i<ele.length; i++){
+              Utils.singleAddClass(ele[i], cls); 
+          }
+      }else{
+          Utils.singleAddClass(ele, cls);
+      }  
+    },
+     
+    removeClass:function(ele, cls){
+       if(ele.length && ele.length > 0){
+          for(var i=0; i<ele.length; i++){
+              Utils.singleRemoveClass(ele[i], cls); 
+          }
+      }else{
+          Utils.singleRemoveClass(ele, cls);
+      }   
+    },
+    
+    singleAddClass: function(ele, cls){
+        if(Utils.hasClass(ele,cls)) return;
+        ele.className += ' ' + cls;
+    },
+    
+    singleRemoveClass: function(ele, cls){
+        ele.className = ele.className.replace(new RegExp('\\b'+cls+'\\b', 'g'), '');
+    },
+    
+    indexOf: function(ele){
+        var parent = ele.parentElement,
+            siblings = parent.children;
+        for(var i=0; i<siblings.length; i++){
+            if(ele === siblings[i]) return i;
+        }
+        return -1;
+    }
+};
+
+
+
+var tabCt = document.querySelector('.tabs');
+
+tabCt.addEventListener('click', function(e){
+   var target = e.target,
+       tabs = tabCt.children,
+       index = Utils.indexOf(target),
+       panels = document.querySelectorAll('.panel');
+
+   if(index > -1){
+       Utils.removeClass(tabs, 'active');
+       Utils.addClass(target, 'active');
+       Utils.removeClass(panels, 'active');
+       Utils.addClass(panels[index], 'active');
+   } 
+});
+	</script>
+</body>
+</html>

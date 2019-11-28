@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" ></canvas>
+
+
+    <script>
+
+        var canvas = document.querySelector('#canvas');
+
+        var context = canvas.getContext('2d');
+
+        var arr =[
+            {p:[{x:400,y:0},{x:200,y:200},{x:0,y:0}],color:'#ccc'},
+            {p:[{x:0,y:400},{x:200,y:200},{x:0,y:0}],color:'pink'},
+            {p:[{x:400,y:0},{x:400,y:200},{x:300,y:300},{x:300,y:100}],color:'yellow'},
+            {p:[{x:300,y:100},{x:300,y:300},{x:200,y:200}],color:'blue'},
+            {p:[{x:200,y:200},{x:300,y:300},{x:200,y:400},{x:100,y:300}],color:'#000'},
+            {p:[{x:100,y:300},{x:200,y:400},{x:0,y:400}],color:'rgb(100,180,230)'},
+            {p:[{x:400,y:200},{x:200,y:400},{x:400,y:400}],color:'rgb(200,120,200)'}
+        ];
+
+        for(var i = 0;i<arr.length;i++){
+            paint(arr[i]);
+        }
+        function paint(obj){
+            context.beginPath();
+            context.moveTo(obj.p[0].x,obj.p[0].y);
+            for(var i = 1;i<obj.p.length;i++){
+                context.lineTo(obj.p[i].x,obj.p[i].y);
+            }
+            context.closePath();
+            context.fillStyle = obj.color;
+            context.fill()
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>

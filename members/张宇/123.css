@@ -1,0 +1,106 @@
+body, ul, li {
+    margin: 0;
+    padding: 0
+}
+
+li {
+    list-style: none
+}
+
+img {
+    vertical-align: top
+}
+
+a {
+    text-decoration: none
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font/iconfont.eot');
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), url('../font/iconfont.woff') format('woff'), url('../font/iconfont.ttf') format('truetype'), url('../font/iconfont.svg#iconfont') format('svg')
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale
+}
+
+body {
+    background: #000
+}
+
+.box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 480px;
+    height: 260px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.box li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: perspective(800px) translateX(0) rotateY(0);
+    transition: 1s all ease;
+    opacity: 0
+}
+
+.box li.l2 {
+    z-index: 0;
+    opacity: 0;
+    transform: perspective(800px) translateX(-300px) rotateY(45deg)
+}
+
+.box li.l1 {
+    z-index: 1;
+    opacity: 1;
+    transform: perspective(800px) translateX(-200px) rotateY(45deg)
+}
+
+.box li.cur {
+    z-index: 2;
+    opacity: 1;
+    transform: perspective(800px) translateX(0) rotateY(0deg)
+}
+
+.box li.r1 {
+    z-index: 1;
+    opacity: 1;
+    transform: perspective(800px) translateX(200px) rotateY(-45deg)
+}
+
+.box li.r2 {
+    z-index: 0;
+    opacity: 0;
+    transform: perspective(800px) translateX(300px) rotateY(-45deg)
+}
+
+.box .btn {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-size: 100px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.box .btn.btn-left {
+    left: -30%
+}
+
+.box .btn.btn-right {
+    right: -30%
+}

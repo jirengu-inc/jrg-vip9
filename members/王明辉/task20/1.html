@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+<script>
+    // 1. 下面的代码输出多少？修改代码让fnArr[i]() 输出 i。使用两种以上的方法
+//    var fnArr = [];
+//    for (var i = 0; i < 10; i ++) {
+//        (function(index){
+//            fnArr[index] = function(){
+//                return index;
+//            };
+//        })(i);
+//    }
+//    console.log(fnArr[3]());
+
+    var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+        fnArr[i] = (function(index){
+            return function (){
+                return index;
+            }
+        })(i);
+    }
+    console.log(fnArr[3]());
+
+</script>
+</body>
+</html>

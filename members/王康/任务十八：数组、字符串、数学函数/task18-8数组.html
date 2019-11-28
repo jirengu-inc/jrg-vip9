@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-8</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      arr = ["a", "b", 1, 3, 4, 5, "b", 2];
+      //对原数组进行操作，不需要返回值
+      function filterNumericInPlace(arr) {
+        for (var i = arr.length-1; i>=0; i--) {   // 因为是在原数组上操作，所以如果递增，会出现改变未经判断的元素的索引号，导致漏删，倒数递减则会避免这种情况
+          if (typeof(arr[i]) != 'number') {
+            arr.splice (i,1);
+          }
+        }
+      }
+      filterNumericInPlace(arr);
+      console.log(arr)  // [1,3,4,5,2]
+    </script>
+  </body>
+</html>

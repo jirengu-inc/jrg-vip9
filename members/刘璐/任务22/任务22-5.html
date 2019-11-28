@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .btn{
+            width:60px;
+            height:30px;
+            border:1px solid;
+            border-radius:5px;
+            background:#ccc;
+        }
+        .popup{
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background:rgba(0,0,0,0.5);
+            display:none;
+        }
+        button{
+            width:60px;
+            height:30px;
+            border:1px solid;
+            border-radius:5px;
+            background:#ccc;
+        }
+        .wrap{
+            position:relative;
+            height:100%;
+        }
+        .center{
+            width:300px;
+            height:280px;
+            background:#fff;
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin-left:-150px;
+            margin-top:-140px;
+            padding:20px;
+        }
+        .cancel{
+            margin-top:30px;
+            margin-left:55%;
+        }
+        img{
+            height: 16px;
+            width: 16px;
+            margin-left: 286px;
+        }
+    </style>
+</head>
+<body>
+<button class="btn">点我</button>
+<div class="popup">
+    <div class="wrap">
+        <div class="center">
+            <img src="4.png">
+            <h1>我是大标题</h1>
+            <hr>
+            <p>我是内容1</p>
+            <p>我是内容2</p>
+            <hr>
+            <button class="cancel">取消</button>
+            <button>确定</button>
+        </div>
+    </div>
+</div>
+<script>
+    function $(str){
+        return document.querySelector(str);
+    }
+    function $$(str){
+        return document.querySelectorAll(str);
+    }
+    $(".btn").addEventListener("click",function(){
+        $(".popup").style.display = "block";
+    });
+    $(".popup").addEventListener("click",function(){
+        $(".popup").style.display = "none";
+    });
+    $(".center").addEventListener("click",function(){
+        event.stopPropagation();
+    });
+    $("img").addEventListener("click",function(){
+        $(".popup").style.display = "none";
+    });
+</script>
+</body>
+</html>

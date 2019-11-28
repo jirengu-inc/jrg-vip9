@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	html,body,ul,li,div{
+		padding: 0;
+		margin: 0;
+	}
+	li{
+		list-style: none;
+	}
+	.clearfix:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#zhubao{
+		width: 630px;
+		margin: 30px auto;
+		text-align: center;
+	}
+
+	.product-list>li{
+		float: left;
+		width: 200px;
+		height: 200px;
+		margin-left: 10px;
+		position: relative;
+	}
+	.product-list>li a{
+		text-decoration: none;
+		line-height: 200px;
+	}
+	.product-list .cover{
+		background-color: #ccc;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: 0;
+	}
+	.product-list .over .cover{
+		opacity: 0.7;
+	}
+	.btn{
+		margin-top: 30px;
+	}
+
+</style>
+</head>
+<body>
+<div id="zhubao">
+<ul class="product-list clearfix">
+	<li class="prod">
+		<div class="cover"><a href="#">立即购买</a></div>
+		<img src="xl.jpg">
+		<p>千足金千足金千足千足金千足金</p>
+		<p>￥1699</p>
+	</li>
+	<li class="prod"> 
+		<div class="cover"><a href="#">立即购买</a></div>
+		<img src="xl.jpg">
+		<p>千足金千足金千足千足金千足金</p>
+		<p>￥1699</p>
+	</li>
+	<li class="prod">
+		<div class="cover"><a href="#">立即购买</a></div>
+		<img src="xl.jpg">
+		<p>千足金千足金千足千足金千足金</p>
+		<p>￥1699</p>
+	</li>
+	<li class="prod">
+		<div class="cover"><a href="#">立即购买</a></div>
+		<img src="xl.jpg">
+		<p>千足金千足金千足千足金千足金</p>
+		<p>￥1699</p>
+	</li>
+	<li class="prod">
+		<div class="cover"><a href="#">立即购买</a></div>
+		<img src="xl.jpg">
+		<p>千足金千足金千足千足金千足金</p>
+		<p>￥1699</p>
+	</li>
+	<li class="prod">
+		<div class="cover"><a href="#">立即购买</a></div>
+		<img src="xl.jpg">
+		<p>千足金千足金千足千足金千足金</p>
+		<p>￥1699</p>
+	</li>
+</ul>
+<button class="btn">添加</button>
+</div> 
+<script type="text/javascript" src="JS/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+var products = [
+    {
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金手 猴哥款',
+        price: '￥405.00'
+    },{
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金转运珠 猴哥款',
+        price: '￥100.00'
+    },{
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金手链 3D猴哥款',
+        price: '￥45.00'
+    }
+];
+
+
+	function addProd(opts){
+		var html = '';
+		html+='<li class="prod">';
+		html+='<div class="cover">'+'<a href="#">立即购买</a>'+'</div>';
+		html+='<img src="'+opts.img+'">';
+		html+='<p>'+opts.name+'</p>';
+		html+='<p>'+opts.price+'</p>';
+		html+='</li>'
+
+		return html;
+	}
+
+
+
+	$('.btn').on('click', function(e){
+	e.preventDefault();
+	$.each(products, function(idx,prods){
+		var html = addProd(prods);
+		$('.product-list').append(html);
+	});
+});
+
+
+
+
+	$('.product-list').on('mouseenter','.prod',function(e){
+		$(this).addClass('over');
+		// console,log(this);
+	})
+	$('.product-list').on('mouseleave','.prod',function(e){
+		$(this).removeClass('over');
+	})
+</script>  
+</body>
+</html>

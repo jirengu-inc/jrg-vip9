@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stickup2</title>
+</head>
+<style>
+	.layout{
+		margin: 0 auto;
+		width: 900px;
+	}
+	#header .layout{
+		background-color: red;
+		height: 50px;
+	}
+	.nav{
+		height: 30px;
+		background-color: yellow;
+		margin-top: 20px;
+		border: 1px solid #ccc;
+		line-height: 1;
+	}
+	.ct:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.aside{
+		height: 300px;
+		width: 200px;
+		background-color: pink;
+		float: left;
+	}
+	.main{
+		height: 300px;
+		width: 680px;
+		background-color: blue;
+		float: right;
+	}
+	#footer .layout{
+		background-color: #ccc;
+		height: 50px;
+		margin-top: 10px;
+	}
+</style>
+<body>
+	<div id="header">
+		<div class="layout">header</div>
+	</div>
+	<div id="container">
+		<div class="layout">
+			<div class="ct">
+				<div class="nav nav1">nav1</div>
+				<div class="aside">aside1</div>
+				<div class="main">main1</div>
+			</div>
+			<div class="ct">
+				<div class="nav nav2">nav2</div>
+				<div class="aside">aside2</div>
+				<div class="main">main2</div>
+			</div>
+			<div class="ct">
+				<div class="nav nav3">nav3</div>
+				<div class="aside">aside3</div>
+				<div class="main">main3</div>
+			</div>
+			<div class="ct">
+				<div class="nav nav4">nav4</div>
+				<div class="aside">aside4</div>
+				<div class="main">main4</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="layout">footer</div>
+	</div>
+
+	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+ 	<script>
+
+ 	$.fn.stickup = function(){
+		var $cur = $(this),
+			isFixed = false,
+			$height = $cur.height(),
+			$width = $cur.width(),
+			$offsetTop = $cur.offset().top,
+			$offsetLeft = $cur.offset().left;
+ 	
+		var $curClone = $cur.clone()
+						.css({
+							opacity:0,
+							display:'none'
+							})
+						.insertBefore($cur)
+
+		$(window).on('scroll',function(){
+			var $scrollTop = $(window).scrollTop()
+
+			if($scrollTop >= $offsetTop){
+				if(!isFixed)setFixed()
+			}else{
+				if(isFixed)unsetFixed()
+			
+			}
+		})
+		function setFixed(){
+				$cur.css({
+					position:'fixed',
+					top:0,
+					left:$offsetLeft,
+					width:$width,
+					margin:0,
+					'z-index':999
+				})
+				isFixed = true
+			$curClone.show()
+		}
+		function unsetFixed(){
+			$cur.removeAttr('style')
+			$curClone.hide()
+			isFixed = false
+		}
+	}
+
+$('.nav1').stickup()
+$('.nav2').stickup()
+$('.nav3').stickup()
+</script>
+</body>	
+</html>

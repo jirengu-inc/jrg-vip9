@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>圣杯三栏布局</title>
+    <style type="text/css">
+      body{
+        margin: 0;
+      }
+      #header{
+        height: 30px;
+        background-color: #ccc;
+      }
+      #footer{
+        height: 30px;
+        background-color: #ccc;
+      }
+      #content:after{
+        content:'';
+        display: block;
+        clear: both;
+      }
+      #content{
+        padding: 0 200px;
+      }
+      .left{
+        width: 200px;
+        height: 300px;
+        float: left;
+        background-color: red;
+        margin-left: -100%;
+        position: relative;
+        left: -200px;
+
+      }
+      .main{
+        float: left;
+        background-color: green;
+
+      }
+      .right{
+        height: 300px;
+        width: 200px;
+        float: left;
+        background-color: yellow;
+        margin-left: -200px;
+        position: relative;
+        left: 200px;
+
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="header">
+      头部
+    </div>
+    <div id="content">
+      <div class="main">
+        <p>
+          圣杯布局值两边顶宽，中间自适应的三栏布局，中间栏要放在文档流前面以优先渲染。参
+          考：<a href="#">圣杯布局原理。</a>其流程为：1）设置container的左右padding，用于预留
+          左右边栏的空间。2）给所有元素设置浮动和定位，用于设置左右两栏偏移；3）给左边栏设置right，
+          让其移动位置，设置负边距100%（#centent的宽度）让其跑到上面，4）给右边栏设置负边距让其
+          跑到上边。
+        </p>
+      </div>
+      <div class="left">
+        <p>左侧边栏，宽度固定。</p>
+      </div>
+      <div class="right">
+        <p>右侧边栏，宽度固定。</p>
+      </div>
+    </div>
+    <div id="footer">
+      尾部
+    </div>
+
+  </body>
+</html>

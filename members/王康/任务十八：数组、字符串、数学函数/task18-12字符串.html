@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-12</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function truncate(str,num) {
+        var arr = str.split('');
+        if (arr.length > num) {
+          arr.length = num;
+          arr[arr.length-1] = arr[arr.length-1] + '...';
+          return arr.join('');
+        } else {
+          return str;
+        }
+      }
+      // truncate("hello, this is hunger valley,", 10) == "hello, thi...";
+      // truncate("hello world", 20)) == "hello world"
+    </script>
+  </body>
+</html>

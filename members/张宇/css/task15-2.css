@@ -1,0 +1,340 @@
+html, body, ul, li, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+html{
+    height:100%;
+}
+body {
+    font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    height:100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+h2 {
+    margin-bottom: 15px;
+    font-size: 40px;
+    color: #333;
+}
+h3 {
+    font-size: 16px;
+    margin-bottom: 40px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #333;
+}
+h4 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+p {
+    color: #777;
+    font-size: 14px;
+}
+ul, li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.clearfix::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+.container {
+    max-width: 1000px;
+    min-width: 800px;
+    margin: 0 auto;
+}
+.btn {
+    border: none;
+    border-radius: 3px;
+    display: inline-block;
+    outline: 0;
+    padding: 20px 36px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: #fff;
+    background-color: #fed136;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: bold;
+}
+.btn:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #fec503;
+}
+.text-primary {
+    color: #fed136;
+}
+.navbar {
+    background: rgba(34,34,34,0.8);
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+.navbar .logo {
+    float: left;
+    font: 30px/70px Arial;
+}
+.navbar .logo a {
+    color: #fed136;
+    padding: 15px;
+}
+.navbar .logo a:hover {
+    background: #333;
+    color: #fec503;
+}
+.navbar .navbar-list {
+    float: right;
+}
+.navbar .navbar-list>li {
+    float: left;
+    font: 14px/70px Arial;
+    margin-left: 10px;
+}
+.navbar .navbar-list>li>a {
+    color: white;
+    padding: 20px;
+}
+.navbar .navbar-list>li>a:hover {
+    background: #333;
+    color: #fec503;
+}
+.header {
+    height:100%;
+    width:100%;
+    background: url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/header-bg.jpg) center no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    display: table;
+}
+.header .container{
+    display: table-cell;
+    vertical-align: middle;
+}
+.header h2 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 40px;
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+}
+.header h1 {
+    font-size: 70px;
+    margin-bottom: 40px;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.header .btn {
+    background-color: #fed136;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+.header .btn:hover {
+    background-color: #fec503;
+}
+.services {
+    text-align: center;
+    padding: 100px 0;
+}
+.services .services-list> li {
+    float: left;
+    width: 310px;
+    margin: 11px;
+}
+.portfolio {
+    text-align: center;
+    padding: 100px 0;
+    background: #f7f7f7;
+}
+.portfolio .portfolio-list> li {
+    float: left;
+    width: 310px;
+    margin: 11px;
+    background: #fff;
+    padding-bottom: 20px;
+}
+.portfolio .portfolio-list> li img {
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+.portfolio .portfolio-list> li a {
+    position: relative;
+    display: block;
+}
+.portfolio p {
+    font-style: italic;
+}
+.portfolio .portfolio-hover {
+    opacity: 0;
+    background: rgba(254, 209, 54, 0.9);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+}
+.portfolio .portfolio-hover-content {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    text-align: center;
+    top: 50%;
+    margin-top: -30px;
+    color: #fff;
+}
+.portfolio .portfolio-list> li a:hover .portfolio-hover {
+    opacity: 1;
+}
+.about {
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 200px;
+}
+.about .about-list {
+    position: relative;
+}
+.about .about-list> li {
+    position: relative;
+    margin-bottom: 100px;
+}
+.about .about-list .div-float-left {
+    float: left;
+    box-sizing: border-box;
+    text-align: right;
+    width: 400px;
+    padding-left: 50px;
+}
+.about .about-list .div-float-right {
+    float: right;
+    box-sizing: border-box;
+    text-align: left;
+    width: 400px;
+    padding-right: 50px;
+}
+.about .about-list .about-img {
+    width: 150px;
+    height: 150px;
+    border: solid #eee 5px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    margin-left: -80px;
+    background: rgba(254, 209, 54, 0.9);
+}
+.about .about-list .line {
+    height: 1200px;
+    width: 0;
+    border-left: solid #eee 2px;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+}
+.about .about-list .about-img h4 {
+    line-height: 1.15;
+    font-weight: bolder;
+    color: white;
+    font-size: 1.5em;
+    position: relative;
+    top: 25px;
+}
+.team {
+    padding: 100px 0;
+    background: #f7f7f7;
+}
+.team .team-list {
+    margin: 50px 0;
+}
+.team .team-list> li {
+    display: inline-block;
+    margin: 0 40px;
+}
+.team .team-list> li img {
+    border: solid #eee 5px;
+    border-radius: 50%;
+}
+.team .team-list .team-link-list> li,
+.footer .link-list >li {
+    display: inline-block;
+}
+.team .team-list .team-link-list> li a,
+.footer .link-list >li a{
+    color: #333;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+}
+.team .team-list .team-link-list> li a:hover,
+.footer .link-list >li a:hover {
+    color: #fec503;
+}
+.clients img {
+    margin: 30px 20px;
+}
+.contact {
+    background: #222 url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/map-image.png) center no-repeat;
+    padding: 100px 0;
+}
+.contact h2,.contact h3{
+    color: white;
+}
+.contact .contact-input{
+    float:left;
+    width:50%;
+}
+.contact .contact-input input,
+.contact .contact-input textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 95%;
+    border-radius: 4px;
+    line-height: 1.5;
+    padding: 10px 5px;
+    outline: none;
+    font-size: 1.2em;
+    margin-bottom: 3px;
+}
+.contact .contact-form .btn{
+    font-size: 1.2em;
+}
+.footer{
+    padding: 20px 0;
+    line-height: 20px;
+}
+.footer .copyright{
+    float: left;
+    margin-top: 10px;
+    color: #777;
+}
+.footer .links{
+    float: right;
+    margin-top: 10px;
+}
+.footer .links > li{
+    float: left;
+    margin-left: 20px;
+}
+.footer .links > li a{
+    color: #fed136;
+}
+.footer .links > li a:hover{
+    color: #fec503;
+    text-decoration: underline;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>懒加载-简单</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+
+    <style>
+        html, body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .layout {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .img-ct {
+            float: left;
+        }
+
+        .img-ct img {
+            height: 500px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="layout">
+    <ul class="img-ct">
+        <li><a href="#"><img
+                data-src="http://i1.hdslb.com/bfs/archive/03a7a734fd775eafbe98ebb1e0a5ed2fbfcc52af.jpg@320w_200h.webp"
+                alt=""></a></li>
+        <li><a href="#"><img
+                data-src="http://i1.hdslb.com/bfs/archive/7832912006c4213725b819f7eb1cb199b696bc9a.jpg@320w_200h.webp"
+                alt=""></a></li>
+        <li><a href="#"><img
+                data-src="http://i0.hdslb.com/bfs/archive/f5fa8b6d2c65004d4ef21c7acaa28a8a49280a2f.jpg@160w_100h.webp"
+                alt=""></a></li>
+        <li><a href="#"><img
+                data-src="http://i1.hdslb.com/bfs/archive/03a7a734fd775eafbe98ebb1e0a5ed2fbfcc52af.jpg@320w_200h.webp"
+                alt=""></a></li>
+        <li><a href="#"><img
+                data-src="http://i1.hdslb.com/bfs/archive/7832912006c4213725b819f7eb1cb199b696bc9a.jpg@320w_200h.webp"
+                alt=""></a></li>
+        <li><a href="#"><img
+                data-src="http://i0.hdslb.com/bfs/archive/f5fa8b6d2c65004d4ef21c7acaa28a8a49280a2f.jpg@160w_100h.webp"
+                alt=""></a></li>
+    </ul>
+</div>
+
+<script>
+    var clock;
+    var $img = $('img');
+
+    $(window).on('scroll', function () {
+        clearTimeout(clock);
+        clock = setTimeout(function () {
+            checkShow();
+        }, 300)
+    });
+
+    function checkShow() {
+        $img.each(function () {
+            var $that = $(this);
+            if (!$that.attr('isLoad')) {
+                if (isshowed($that)) {
+                    showImg($that);
+                }
+            }
+        })
+    }
+
+    checkShow();
+
+    function isshowed($ele) {
+        var scrollTop = $(window).scrollTop();
+        var winH = $(window).height();
+        var eleT = $ele.offset().top;
+
+        return eleT < scrollTop + winH;
+    }
+
+    function showImg($img) {
+        $img.attr('src', $img.attr('data-src'));
+        $img.attr('isLoad', true);
+    }
+
+</script>
+</body>
+</html>

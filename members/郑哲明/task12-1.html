@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task12-1</title>
+    <style>
+    /*重置默认样式*/
+    
+    body,
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    .container {
+        width: 960px;
+        background: silver;
+        margin: 0 auto;
+    }
+    
+    .container ul {
+        /*width: 1000px;*/
+        padding: 10px 0;
+        margin-left: -30px;
+    }
+    /*清除浮动，防止高度塌陷*/
+    
+    .container ul:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+    /*清除浮动，防止高度塌陷*/
+
+    .container > ul > li {
+        width: 300px;
+        height: 150px;
+        margin-left: 30px;
+        background: #040;
+        float: left;
+        margin-top: 20px;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</body>
+
+</html>

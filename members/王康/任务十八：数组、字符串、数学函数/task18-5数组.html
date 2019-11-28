@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-5</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      var obj = {
+        className: 'open menu'
+      }
+
+      // 定义函数 addClass(obj,str) ------------------------------------------
+      function addClass(obj,str) {
+        var a = true;
+        var b, c;
+        var arr = (obj.className).split(' ');   // 将字符串转化为数组
+
+        for (var i=0; i<arr.length;i++) {       // 遍历数组arr，判断数组中是否有与str相同的元素
+          if (arr[i] === str) {
+            a = false;                          // 若存在，a改为false
+          };
+        };
+        arr.push(str);                          // 将str添加到数组arr最后
+
+        b = str + '不存在，所以' + 'obj.className变为' + '\'' + arr.join(' ') + '\'';
+        c = '因为'+ str + '已经存在，所以不会再次添加' + str;
+
+        if (a) {
+          obj.className = arr.join(' ');
+          return b;
+        } else {
+          return c;
+        }
+      }
+
+      addClass(obj, 'new') // obj.className='open menu new'
+      addClass(obj, 'open')  // 因为open已经存在，所以不会再次添加open
+      addClass(obj, 'me') // me不存在，所以 obj.className变为'open menu new me'
+      console.log(obj.className)  // "open menu new me"
+
+      // 定义函数 removeClass(obj,str) ---------------------------------------
+      function removeClass(obj,str) {
+        var a = false;
+        var b, c, d;
+        var arr = (obj.className).split(' ');   // 将字符串转化为数组
+        for (var i=0; i<arr.length;i++) {       // 遍历数组，判断arr中是否存在与str相同的元素
+          if (arr[i] === str) {
+            a = true;                           // 如果存在相同元素，a变为true
+            arr.splice (i, 1)                   // 在arr中将相同的元素删除
+          };
+        };
+
+        b = arr.join(' ');
+        c = '去掉obj.className里面的' + str + '，变成' + '\'' + b + '\'';
+        d = '因为' + str + '不存在，所以此操作无任何影响';
+
+        if (a) {
+          obj.className = b;
+          return c;
+        } else {
+          return d
+        }
+      }
+      removeClass(obj, 'open') // 去掉obj.className里面的 open，变成'menu new me'
+      removeClass(obj, 'blabla')  // 因为blabla不存在，所以此操作无任何影响
+    </script>
+  </body>
+</html>

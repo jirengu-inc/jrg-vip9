@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body,
+        div,
+        ul,
+        li,
+        a {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 16px "microsoft yahei", sans-serif;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrap {
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        #nav {
+            width: 400px;
+            background-color: #eee;
+        }
+
+        #nav::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .nav {
+            float: left;
+            position: relative;
+            padding: 0 10px;
+            line-height: 25px;
+            height: 25px;
+        }
+        
+        .subnav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        .subnav li {
+            display: none;
+            padding: 5px 10px;
+        }
+
+        .nav:hover {
+            background-color: #ccc;
+        }
+
+        .nav:hover>.subnav>li {
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .subnav li:hover {
+            background-color: #ccc;
+        }
+    </style>
+    <title>task11</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul id="nav">
+            <li class="nav"><a href="">前端</a>
+                <ul class="subnav">
+                    <li><a href="">Javascript</a></li>
+                    <li><a href="">CSS</a></li>
+                    <li><a href="">HTML</a></li>
+                </ul>
+            </li>
+            <li class="nav"><a href="">服务端</a>
+                <ul class="subnav">
+                    <li><a href="">NODE</a></li>
+                    <li><a href="">PHP</a></li>
+                    <li><a href="">JAVA</a></li>
+                </ul>
+            </li>
+            <li class="nav"><a href="">前端工具</a>
+                <ul class="subnav">
+                    <li><a href="">SUBLIME</a></li>
+                    <li><a href="">WEBSTORM</a></li>
+                    <li><a href="">GIT</a></li>
+                </ul>
+            </li>
+            <li class="nav">
+                <a href="">中文</a></li>
+            <li class="nav">
+                <a href="">NODE</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu35-1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.ct {
+		height: 5000px;
+		border: 1px solid blue;
+	}
+</style>
+</head>
+<body>
+<div class="ct">
+	
+</div>
+ <script>
+var GoTop = function(ct, target){
+	this.ct = ct;
+	this.target = target;
+	this.createNode();
+	this.bindEvent();
+}
+GoTop.prototype.bindEvent = function(){
+	this.target.addEventListener('click', function(){
+		window.scrollTo(0,0);
+	});
+	window.addEventListener('scroll', function(){
+		if (document.documentElement.scrollTop > 500 || document.body.scrollTop > 500) {
+			this.target.style.display = 'block';
+		} else {
+			this.target.style.display = 'none';
+		}
+	})//document.documentElement 为根节点
+}
+GoTop.prototype.createNode = function(){
+	this.target.style.cssText = 'position:fixed; right:30px; bottom:20px; border:1px solid red;  padding: 10px;border-radius: 3px;cursor: pointer;'
+	this.target.innerHTML = '回到顶部';
+	this.ct.appendChild(this.target);
+}
+var target = document.createElement('div');
+var ct = document.querySelector('.ct');
+var GoTop = new GoTop(ct, target);
+</script>
+</body>
+</html>

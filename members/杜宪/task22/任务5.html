@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	body,h1,p{padding: 0;margin: 0;}
+	body,html{width: 100%;height: 100%}
+	a{text-decoration:none;}
+	.clear:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.btn{
+		background: #2196f3;
+		border: none;
+		border-radius: 4px;
+		padding: 10px 20px;
+		color: #fff;
+		font-size: 14px;
+		margin: 20px;
+	}
+	.btn:hover{background: #2188f3}
+	.shade{
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+	}
+	.shade.show{display: block;}
+	.box{
+		background: #fff;
+		border-radius: 6px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 400px;
+		height: 200px;
+		margin:-100px 0 0 -200px;
+	}
+	.box-tit{
+		border-bottom: 1px solid #dedede;
+		height: 40px;
+		line-height: 40px;
+		padding: 0 10px;
+	}
+	.box-tit h1{font-size: 14px;float: left;}
+	.box-tit a{float: right;color: #333;font-size: 14px;font-weight: bold;}
+	.box-con{
+		padding: 20px 10px;
+		font-size: 14px;
+		line-height: 24px;
+	}
+	.box-bottom{
+		height: 40px;
+		line-height: 40px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		border-top: 1px solid #dedede;
+		width: 100%;
+	}
+	.box-bottom a{
+		float: right;
+		color: #333;
+		margin-right: 10px;
+	}
+</style>
+</head>
+<body>
+    <button class="btn">点我</button>
+    <div class="shade">
+    	<div class="box">
+    		<div class="box-tit clear">
+    			<h1>我是标题</h2>
+    			<a href="javascript:;" onclick="closeBox()">×</a>
+    		</div>
+    		<div class="box-con">
+    			<p>我是内容1</p>
+    			<p>我是内容1</p>
+    		</div>
+    		<div class="box-bottom clear">
+    			<a href="javascript:;">确定</a>
+    			<a href="javascript:;" onclick="closeBox()">取消</a>
+    		</div>
+    	</div>
+    </div>
+    <script type="text/javascript">
+    var btn = document.querySelector('.btn');
+    var shade = document.querySelector('.shade'); 
+    btn.addEventListener('click',function(){
+    	shade.classList.add('show')
+    })
+    shade.addEventListener('click',function(e){
+    	if(e.target.className === 'shade show'){
+    		shade.classList.remove('show')
+    	}
+    })
+    function closeBox(){
+    	shade.classList.remove('show')
+    }
+    </script>
+</body>
+</html>

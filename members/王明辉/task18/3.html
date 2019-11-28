@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+<script>
+    // 3. 写一个find函数，实现下面的功能 （***）
+    var arr = [ "test", 2, 1.5, false ]
+
+    console.log(find(arr, "test")) // 0
+    console.log(find(arr, 2))// 1
+    console.log(find(arr, 0))// -1
+
+    function find(arr,data){
+        var index = -1;
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] === data){
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JS Bin</title>
+
+</head>
+<body>
+<button>click me</button>
+
+<script type="text/javascript">
+	var oBut=document.getElementsByTagName("button")[0];
+
+	butEvent(oBut,"click",function(e){
+		var target=e.target||e.srcElement
+		alert(e.target.innerText);
+	});
+
+
+	function butEvent(node,type,handler){
+		if(!node) return false;
+		if(node.addEventListener){node.addEventListener(type,handler);}
+		else if(node.attachEvent){node.attachEvent("on"+type,handler);}
+		else{return flase;}	
+	}
+</script>
+	</body>
+	</html>

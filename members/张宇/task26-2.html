@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>task26实现以下操作</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+    <style media="screen">
+        #input{
+            border-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>点击btn，使btn背景变为红色再变为蓝色</legend>
+
+        <button>这是 $btn</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>获取滚动的距离</legend>
+        <p id="scroll-length">Scroll top length: 0</p>
+    </fieldset>
+
+    <fieldset id="background-color">
+        <legend>改变背景色</legend>
+        <p>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</p>
+    </fieldset>
+    
+    <fieldset>
+        <legend>input 激活、失去焦点</legend>
+        <p>输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</p>
+        <input id="input" type="text" placeholder="输入内容">
+    </fieldset>
+
+    <fieldset id="select">
+        <legend>当选择 select 后，获取用户选择的内容</legend>
+        <select name="place" id="place">
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="shenzhen">广东</option>
+        </select>
+        <p>所选的value是：beijing</p>
+
+    </fieldset>
+
+
+    <script>
+        $btn = $('button');
+        $btn.on('mousedown',function(){
+            $(this).css('background','rgba(255,0,0,0.5)');
+        });
+
+        $btn.on('mouseup',function(){
+            $btn.css('background','rgba(0,0,255,0.5');
+        });
+
+
+        $btn.mouseup();
+        $(window).on('scroll',function(){
+            $('#scroll-length').text('Scroll top length: '+$(this).scrollTop());
+        });
+
+        $('#background-color').on('mouseenter',function(){
+            $('#background-color').css('background','rgba(255,0,0,0.5)');
+        });
+
+        $('#background-color').on('mouseleave',function(){
+            $('#background-color').css('background','rgba(0,0,255,0.5)');
+        });
+
+        var borderColor;
+
+        $('#input').on('focus',function(){
+            borderColor = $(this).css('border-color');
+            $(this).css('border-color','blue');
+        });
+
+        $('#input').on('change',function(){
+            $(this).val($(this).val().toUpperCase());
+        });
+
+        $('#input').on('blur',function(){
+            $(this).css('border-color',borderColor);
+            console.log($(this).val());
+        });
+
+
+        $('#select select').on('change',function () {
+            $('#select p').text('所选的value是：'+$(this).val());
+        });
+
+
+    </script>
+</body>
+
+</html>

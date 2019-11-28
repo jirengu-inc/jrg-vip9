@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task37-dialog</title>
+    <style>
+        ul,li,h3{
+            margin:0;
+            padding:0;
+        }
+        *{
+            font-family: '微软雅黑'
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .dialog{
+            background: white;
+            width: 400px;
+            border-radius: 5px;
+            border:1px solid silver;
+            box-shadow: 0px 0px 10px #dfdfdf;
+            position:fixed;
+            left: 50%;
+            top:30%;
+            margin-left: -200px;
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+        }
+        .title{
+            background: rgb(227,49,0);
+            padding: 10px 20px;
+            color: white;
+        }
+        .message{
+            padding:30px;
+        }
+        .btn-ct{
+            text-align: center;
+            padding-bottom:10px;
+        }
+        .btn{
+            background: rgb(227,49,0);
+            padding: 8px 10px;
+            display: inline-block;
+            border-radius: 5px;
+            color:white;
+        }
+        .confirm-btn{
+            margin-left:20px;
+        }
+        .btn:hover{
+            opacity:0.8
+        }
+        .close-btn{
+            float: right;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height:23px;
+        }
+        .close-btn:hover{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+   <button id="open1">打开dialog</button>
+   <button id="open2">打开dialog-2</button>
+   <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        //功能描述： 
+        // 1. 可使用 dialog.open() 去打开弹窗
+        // 2. 当点击确定、取消时可使用用户自定义事件
+        // 3. dialog 可拖动
+        // 4. 允许页面展示多个 dialog
+
+
+        function Dialog(){
+            var _this = this
+            this.init()
+            this.titleFunc()
+            this.messageFunc()
+            this.btnFunc.init(_this)
+            this.bindEvent()
+        }
+
+        Dialog.prototype = {
+            init:function(){
+                this.dialog = $('<div></div>').addClass('dialog').prependTo('body')
+            },
+            open: function (obj) {
+                var _this = this,
+                    zIndex = Dialog.prototype.zIndex++
+                if(obj.title){
+                    this.title.html(obj.title)
+                }
+                if(obj.message){
+                    this.message.html(obj.message)
+                }
+                if(obj.isShowCloseBtn) {
+                    this.btnFunc.closeBtn(_this)
+                    this.closeBtn.on('click',function(){
+                        obj.onClose ? obj.onClose() : this
+                        _this.dialog.css({display:'none'})
+                    })
+                }
+                if(obj.isShowCancelBtn) {
+                    this.btnFunc.cancleBtn(_this)
+                    this.cancleBtn.on('click',function(){
+                        obj.onCancle ? obj.onCancle() : this
+                        _this.dialog.css({display:'none'})
+                    })
+                }
+                if(obj.isShowConfirmBtn) {
+                    this.btnFunc.confirmBtn(_this)
+                    this.confirmBtn.on('click',function(){
+                        obj.onConfirm ? obj.onConfirm() : this
+                        _this.dialog.css({display:'none'})
+                    })
+                }
+                this.dialog.css({"z-index":zIndex})
+            },
+            titleFunc:function () {
+                this.title = $('<h3></h3>').appendTo(this.dialog).addClass('title')
+            },
+            messageFunc:function () {
+                this.message = $('<div></div>').appendTo(this.dialog).addClass('message')
+            },
+            btnFunc:{
+                init:function(_this){
+                    _this.btnCt = $('<div></div>').appendTo(_this.dialog).addClass('btn-ct')
+                },
+                closeBtn:function(_this) {
+                    _this.closeBtn = $('<a href="#">×</a>').appendTo(_this.title).addClass('close-btn')
+                },
+                cancleBtn:function(_this) {
+                    _this.cancleBtn = $('<a href="#">取消</a>').appendTo(_this.btnCt).addClass('cancle-btn btn')
+                },
+                confirmBtn:function(_this) {
+                    _this.confirmBtn = $('<a href="#">确定</a>').appendTo(_this.btnCt).addClass('confirm-btn btn')
+                }
+            },
+            bindEvent:function () {
+                var draging = false,
+                    _this = this
+                this.dialog.on('mousedown',function(e){
+                    draging = true
+                    _this.originX = e.pageX
+                    _this.originY = e.pageY
+                    _this.offset = _this.dialog.offset()
+                    _this.dialog.css({cursor:'move'})
+                })
+                $(window).on('mousemove',function(e){
+                    if(draging){
+                        _this.drag(e)
+                    }
+                })
+                this.dialog.on('mouseup',function(){
+                    draging = false
+                    _this.dialog.css({cursor:'default'})
+                })
+            },
+            drag:function (e) {
+                this.endX = e.pageX
+                this.endY = e.pageY
+                var distanceX = this.endX - this.originX,
+                    distanceY = this.endY - this.originY,
+                    top = this.offset.top + distanceY,
+                    left = this.offset.left + distanceX
+                this.dialog.offset({top:top,left:left})
+                
+            },
+            zIndex:0
+        }
+            
+            
+            
+
+
+        var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>'
+
+        $('#open1').on('click',function(){
+          var dialog4 = new Dialog()
+          dialog4.open({
+            title: '欢迎来到饥人谷',
+            message: tpl,
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true,
+            isShowCancelBtn: true,
+            onClose: function(){
+              alert('close')
+            },
+            onCancle:function() {
+                alert('cancle')
+            },
+            onConfirm: function(){
+              alert('确定')
+            }
+          })
+        })
+        
+        var desp = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur velit debitis, sunt tenetur animi mollitia reiciendis ad natus fuga sequi, iusto ut? Quisquam quae sed pariatur illum perspiciatis, distinctio veniam?<p>'
+        
+        $('#open2').on('click',function(){
+          var dialog4 = new Dialog()
+          dialog4.open({
+            title: '对话框演示',
+            message: desp,
+            isShowConfirmBtn: true,
+            onConfirm: function(){
+              alert('确定')
+            }
+          })
+        })
+    </script>
+</body>
+</html>

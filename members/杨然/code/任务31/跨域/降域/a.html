@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>a</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.main {
+		border: 1px solid black;
+		height: 100px;
+		width: 600px;
+	}
+	iframe {
+		border: 1px solid black;
+		height: 100px;
+		width: 600px;
+	}
+	input {
+		width: 300px;
+	}
+</style>
+</head>
+<body>
+    <div class="ct">
+    	<h1>降域</h1>
+    	<div class="main">
+    		<input type="text" placeholder="http://a.yangran.com:8080/a.html">
+    	</div>
+    	<iframe src="http://b.yangran.com:8080/b.html" frameborder="0"></iframe>
+    </div>
+    <script>
+    	document.querySelector('.main input').addEventListener('input', function(){
+    		console.log(this.value);
+    		window.frames[0].document.querySelector('input').value = this.value;
+    	})
+    	document.domain = 'yangran.com';//可以用window.frams[0]来访问b.yangran.com的文件
+    </script>
+</body>
+</html>

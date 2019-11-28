@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var say = 0;
+
+    (function say(n){
+        // var n = 10;
+        console.log(n); // 10,9,8,7,6,5,4,3,2
+
+        if(n<3) return;
+
+        say(n-1);
+
+    }( 10 ));
+
+    console.log(say); // 0
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+
+	.box{
+		padding: 20px;
+		border: 1px solid red;
+		height: 30px;
+	}
+	</style>
+</head>
+<body>
+<div class="box">
+	hello jirengu
+</div>
+<button id="btn">打开</button>
+<button id="btn2">打开2</button>
+
+<script>
+	var btn = document.querySelector('#btn');
+	btn.addEventListener('click', function(){
+		window.open('http://jirengu.com')
+	})
+
+	var btn2 = document.querySelector('#btn2');
+	btn2.addEventListener('click', function(){
+		var node = document.createElement('a');
+		node.setAttribute('href', 'http://jirengu.com');
+		node.setAttribute('target', '_blank');
+		node.setAttribute('style', 'display:none');
+		document.body.appendChild(node)
+		node.click();
+		document.body.removeChild(node);
+	})
+
+
+
+</script>
+</body>
+</html>

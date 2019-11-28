@@ -1,0 +1,120 @@
+html,body,h1,h2,p,ul,li {
+	margin:0;
+	padding: 0;
+	font-family: '微软雅黑',Arilal;
+}
+a {
+	text-decoration: none;
+}
+ul,li {
+	list-style: none;
+}
+html,body {
+	height: 100%;
+}
+.clearfix {
+	content:'';
+	display: block;
+	clear: both;
+}
+#header {
+	height: 100%;
+	width: 100%;
+	background-image: url(bg.jpg);
+	color:#fff;
+	text-align: center;
+	display: table;
+}
+#header .wrap {
+	display: table-cell;
+	vertical-align: middle;
+}
+#header p {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+#header a {
+	width: 100px;
+	color: #fff;
+	padding: 8px 14px;
+	background-color: rgb(24,144,255);
+}
+#main .wrap {
+	width: 960px;
+	margin:0 auto;
+	text-align: center;
+}
+#main .intro {
+	margin: 80px auto;
+}
+#main .skills {
+	background-color: rgb(51,122,183);
+	color: #fff;
+	margin-top: 40px;
+	padding-top: 30px;
+}
+#main .skills hr {
+	width: 40px;
+	color: #fff;
+}
+#main a {
+	color: #fff;
+}
+#main .skills .wrap ul li {
+	display: inline-block;
+}
+#main .vertical-text {
+	background-image: url(callout.jpg);
+}
+#main .vertical-text p {
+	padding: 200px;
+}
+#main .our-work h2 {
+    margin-top: 40px;
+}
+#main .our-work hr {
+	width: 40px;
+	color: #ddd;
+	margin-bottom: 20px;
+}
+#main .our-work ul li {
+	float: left;
+	margin: 4px 6px;
+}
+#main .our-work ul li a img{
+    width: 460px;
+} 
+#main .our-work .btn {
+	width: 100px;
+	color: #fff;
+	font-size: 12px;
+	padding: 8px 14px;
+	background-color: #aaa;
+}
+#main .clickme {
+	background-color: rgb(51,122,183);
+	color: #fff;
+	margin-top: 40px;
+	padding: 60px;
+}
+#main .clickme p {
+	margin-bottom: 20px;
+}
+#main .clickme .click-btn {
+	font-size: 14px;
+	color: #000;
+	padding: 8px 14px;
+	background-color: #fff;
+}
+#main .clickme .click-btn:hover {
+	color: #fff;
+	background-color: rgb(29,74,107);
+}
+#footer {
+	padding: 40px;
+	margin-bottom: 40px;
+}
+#footer .contact-way {
+	float: left;
+	margin-left: 10px;
+}

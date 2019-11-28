@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8</title>
+</head>
+<body>
+<script>
+    // 8下面代码输出什么? 为什么? 改写代码，让其输出hunger, world.
+    var str = 'hello  "hunger" , hello "world"';
+    var pat =  /".*"/g;
+    console.log(str.match(pat));
+    //[""hunger" , hello "world""]
+    //因为默认是贪婪模式，所以一次匹配会尽可能匹配多的字符，知道无法继续匹配为止因此
+
+    console.log(str.match(/".*?"/g));
+
+</script>
+</body>
+</html>

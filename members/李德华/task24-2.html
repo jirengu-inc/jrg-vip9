@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html, body, ul, li {
+        margin: 0px;
+        padding: 0px;
+      }
+      li {
+        list-style: none;
+        border: 1px solid #ddd;
+        margin: 10px;
+      }
+      li>a {
+        display: block;
+        line-height: 40px;
+        padding-left: 20px;
+        text-decoration: none;
+        color: black;
+      }
+      li>a:hover {
+        background: green;
+        color: white;
+      }
+      .more-btn {
+        display: inline-block;
+        color: rgb(224, 115, 116);
+        border: 1px solid rgb(224, 115, 116);
+        text-decoration: none;
+        padding: 10px 5px;
+        border-radius: 5px;
+      }
+      .footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#">内容1</a></li>
+      <li><a href="#">内容2</a></li>
+    </ul>
+    <div class="footer">
+      <a class="more-btn" href="#">加载更多</a>
+    </div>
+    <script src='task24-1.js'></script>
+    <script>
+      var pageIndex = 2;
+      document.getElementsByClassName('more-btn')[0].addEventListener('click', function(){
+        console.log('start');
+        ajax({
+          url: 'task24-2.php',
+          type: 'get',
+          data: {
+            pageNo: pageIndex
+          },
+          success: function() {
+            pageIndex++;
+          },
+          error: function() {
+
+          }
+        });
+      }, false);
+    </script>
+  </body>
+</html>

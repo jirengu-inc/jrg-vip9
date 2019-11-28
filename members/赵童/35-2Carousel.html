@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播（原型方法）</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        ul,li,a{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        body{
+            background-color: #2f3238;
+        }
+        .carousel{
+            width: 720px;
+            height: 306px;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-list>li>a>img{
+            width: 100%;
+        }
+        .img-list{
+            position: absolute;
+            width: 3600px;
+        }
+        .img-list>li{
+            float: left;
+            width: 720px;
+        }
+        .btn{
+            position: absolute;
+            display: block;
+            font-size: 18px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px black;
+            color: #31aade;
+            top: 50%;
+            margin-top: -18px;
+        }
+        .btn.previous{
+            left: 20px;
+        }
+        .btn.next{
+            right: 20px;
+        }
+        .indicator-ct{
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0;
+            height: 28px;
+            width: 100%;
+            text-align: center;
+        }
+        .indicator{
+            display: inline-block;
+        }
+        .indicator>li{
+            width: 60px;
+            height: 4px;
+            background-color: white;
+            float: left;
+            margin: 12px 4px;
+            cursor: pointer;
+        }
+        .indicator .active{
+            background-color: #31aade;
+        }
+    </style>
+</head>
+<body>
+    <div id="ct1" class="carousel">
+        <ul class="img-list clearfix">
+            <li data-index="0"><a href="JavaScript:"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwZzBtU25lbkYxWmJtMlIrd3hrY1JjL29aNHRqWWZCRHJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="1"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwbEw1Z2EwdjNHVFBQVkFTNnhPOE91V3l6UU9uZGVWbTlnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="2"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcGhPd1lSaHNGaitUcTMxOExmYlJKZlVEVG1tWjc3UzNBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="3"><a href="JavaScript:"><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwc3dyMzVIQW5nd3JzaEFNSFZhMXFDaGNVMXVYbThvWG5RPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="4"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaWFlRlJvMkdyOU0vbjBrTGRBYXcxL1FweHlieUpBQ1ZRPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+        </ul>
+        <a class="btn previous" href="JavaScript:">&lt;</a>
+        <a class="btn next" href="JavaScript:">&gt;</a>
+        <div class="indicator-ct">
+            <ul class="indicator clearfix">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div id="ct2" class="carousel">
+        <ul class="img-list clearfix">
+            <li data-index="0"><a href="JavaScript:"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwZzBtU25lbkYxWmJtMlIrd3hrY1JjL29aNHRqWWZCRHJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="1"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwbEw1Z2EwdjNHVFBQVkFTNnhPOE91V3l6UU9uZGVWbTlnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="2"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcGhPd1lSaHNGaitUcTMxOExmYlJKZlVEVG1tWjc3UzNBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="3"><a href="JavaScript:"><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwc3dyMzVIQW5nd3JzaEFNSFZhMXFDaGNVMXVYbThvWG5RPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="4"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaWFlRlJvMkdyOU0vbjBrTGRBYXcxL1FweHlieUpBQ1ZRPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+        </ul>
+        <a class="btn previous" href="JavaScript:">&lt;</a>
+        <a class="btn next" href="JavaScript:">&gt;</a>
+        <div class="indicator-ct">
+            <ul class="indicator clearfix">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    
+<script>
+/*
+    var $imgList = $('.img-list'),
+        $btnPre = $('.btn.previous'),
+        $btnNext = $('.btn.next'),
+        $indicator = $('.indicator');
+
+    var $imgLength = $imgList.children('li').length,
+        $width = parseInt($('.img-list>li').eq(0).css('width')),
+        lock = false,
+        pageIndex = 0;
+
+    $imgList.append($imgList.children('li').eq(0).clone());
+    $imgList.prepend($imgList.children('li').eq($imgLength - 1).clone());
+    $imgList.css('width',($imgLength+2)*$width);
+    $imgList.css('left',-$width);
+
+    $btnPre.on('click',playPre);
+    $btnNext.on('click',playNext);
+    $indicator.on('click','li',function(){
+        jumpPage($(this).index()+1);
+    })
+
+    function jumpPage(i){
+        if(lock == false){
+            lock = true;
+            $imgList.animate({
+                left: -($width*i)
+            },function(){
+                pageIndex = i-1;
+                $indicator.children('li').removeClass('active');
+                $indicator.children('li').eq(pageIndex).addClass('active');
+                lock = false;
+            });
+        }
+    }
+
+    function playNext(){
+        if(lock == false){
+            lock = true;
+            $imgList.animate({
+                left: '-='+$width
+            },function(){
+                pageIndex++;
+                if(pageIndex === $imgLength){
+                    $imgList.css('left',-$width);
+                    pageIndex = 0;
+                };
+                $indicator.children('li').removeClass('active');
+                $indicator.children('li').eq(pageIndex).addClass('active');
+                lock = false;
+            });
+        }
+        
+    }
+
+    function playPre(){
+        if(lock == false){
+            lock = true;
+            $imgList.animate({
+                left: '+='+$width
+            },function(){
+                pageIndex--;
+                if(pageIndex === -1){
+                    $imgList.css('left',-($imgLength*$width));
+                    pageIndex = $imgLength-1;
+                };
+                $indicator.children('li').removeClass('active');
+                $indicator.children('li').eq(pageIndex).addClass('active');
+                lock = false;
+            });
+        }
+    }
+*/
+    function Carousel($ct){
+        var _this = this;
+        this.$ct = $ct;
+        this.$imgList = this.$ct.find('.img-list');
+        this.$btnPre = this.$ct.find('.btn.previous');
+        this.$btnNext = this.$ct.find('.btn.next');
+        this.$indicator = this.$ct.find('.indicator');
+        console.log([
+            this.$imgList,this.$btnPre,this.$btnNext,this.$indicator
+        ]);
+        this.$imgLength = this.$imgList.children('li').length;
+        this.$width = parseInt(this.$imgList.children('li').eq(0).css('width'));
+        this.lock = false;
+        this.pageIndex = 0;
+        this.$imgList.append(this.$imgList.children('li').eq(0).clone());
+        this.$imgList.prepend(this.$imgList.children('li').eq(this.$imgLength - 1).clone());
+        this.$imgList.css('width',(this.$imgLength+2)*this.$width);
+        this.$imgList.css('left',-this.$width);
+        this.bind = function(){
+            this.$btnPre.on('click',function(){
+                _this.playPre();
+            });
+            this.$btnNext.on('click',function(){
+                _this.playNext();
+            });
+            this.$indicator.on('click','li',function(){
+                _this.jumpPage($(this).index()+1);
+            });
+        }
+        this.bind();
+    }
+
+    Carousel.prototype.jumpPage = function(i){
+        var _this = this;
+        if(this.lock == false){
+            this.lock = true;
+            this.$imgList.animate({
+                left: -(_this.$width*i)
+            },function(){
+                _this.pageIndex = i-1;
+                _this.$indicator.children('li').removeClass('active');
+                _this.$indicator.children('li').eq(_this.pageIndex).addClass('active');
+                _this.lock = false;
+            });
+        }
+    }
+    Carousel.prototype.playNext = function(){
+        var _this = this;
+        if(this.lock == false){
+            this.lock = true;
+            this.$imgList.animate({
+                left: '-=' + _this.$width
+            },function(){
+                _this.pageIndex++;
+                if(_this.pageIndex === _this.$imgLength){
+                    _this.$imgList.css('left',-_this.$width);
+                    _this.pageIndex = 0;
+                };
+                _this.$indicator.children('li').removeClass('active');
+                _this.$indicator.children('li').eq(_this.pageIndex).addClass('active');
+                _this.lock = false;
+            });
+        }
+        
+    }
+    Carousel.prototype.playPre = function(){
+        var _this = this;
+        if(this.lock == false){
+            this.lock = true;
+            this.$imgList.animate({
+                left: '+='+_this.$width
+            },function(){
+                _this.pageIndex--;
+                if(_this.pageIndex === -1){
+                    _this.$imgList.css('left',-(_this.$imgLength*_this.$width));
+                    _this.pageIndex = _this.$imgLength-1;
+                };
+                _this.$indicator.children('li').removeClass('active');
+                _this.$indicator.children('li').eq(_this.pageIndex).addClass('active');
+                _this.lock = false;
+            });
+        }
+    }
+/*
+    Carousel.prototype.bind = function(){
+        this.$btnPre.on('click',function(){
+            _this.playPre();
+        });
+        this.$btnNext.on('click',function(){
+            _this.playNext();
+        });
+        this.$indicator.on('click','li',function(){
+            _this.jumpPage($(this).index()+1);
+        });
+    }
+*/
+    var ct1 = new Carousel($('#ct1'));
+  
+var ct2 = new Carousel($('#ct2'));
+
+</script>
+</body>
+</html>

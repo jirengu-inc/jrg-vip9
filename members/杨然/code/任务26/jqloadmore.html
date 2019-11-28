@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu26-6</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		list-style: none;
+		border: 1px solid black;
+		padding: 4px;
+		margin: 5px 0px;
+		height: 30px;
+		line-height: 30px;
+	}
+	li:hover {
+		background-color: green;
+	}
+	#btn {
+		text-decoration: none;
+		color: red;
+		border: 1px solid red;
+		display: block;
+		padding: 6px;
+        height: 16px;
+		width: 65px;
+		margin: 5px auto;
+	}
+</style>
+</head>
+<body>
+	<ul id="ct">
+		<li>内容1</li>
+		<li>内容2</li>
+	</ul>
+	<a href="#" id="btn">加载更多</a>
+	<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js
+'></script>
+<script>
+/*定义接口
+入参: { start: 2, len: 4 }
+回参: {
+	status: 1正常，0错误
+	data: [2,3,4,5,6,7]
+}
+ */
+	var cur = 2;
+	$('#ct').on('mouseenter', 'li', function(){
+		$(this).addClass('hover');
+	});
+	$('#ct').on('mouseleave', 'li', function(){
+		$(this).removeClass('hover');
+	});
+	$('#btn').on('click', function(e){
+		e.preventDefault();
+		if($(this).data('key')){ return }//状态锁data-key为true时返回
+		$(this).data('key', true)//给状态锁data-key上锁为true
+				.html('<img src="img/loading.gif">');
+		// $(this).css({'border': 'none'});
+		
+		$.ajax({
+			url: 'jqloadmore.php',
+			dataType: 'json',
+			type: 'get',
+			data: {
+				start: cur,
+				len: 4
+			},
+			success: function(json){
+				onSuccess(json);
+			},
+			error: function(){
+				onError();
+			}
+		});
+	});
+	function onSuccess(json){
+		$('#btn').data('key', false)//状态锁解锁
+					.text('加载更多');
+		console.log(json);
+		if (json.status == 1) {
+			append(json.data);//传递一个数组
+			cur += 4;
+		}else{
+			alert('获取回参失败');
+		}
+	}
+	function onError(){
+		$('#btn').data('key', false)//状态锁解锁
+					.text('加载更多');
+		alert('发送失败');
+	}
+	function append(arr){
+		for (var i = 0; i < arr.length; i++) {
+			$('#ct').append('<li>' + arr[i] + '</li>');
+		}
+	}
+</script>
+</body>
+</html>

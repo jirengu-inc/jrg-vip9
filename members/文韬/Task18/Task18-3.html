@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var arr = ["test", 2, 1.5, false]
+
+        function find(arr, value) {
+            for (var i in arr) {
+                if (arr[i] === value) {
+                    return i;
+                };
+            };
+            return -1;
+
+        }
+        document.write(find(arr, "test") + "<br>") // 0
+        document.write(find(arr, 2) + "<br>") // 1
+        document.write(find(arr, 0) + "<br>") // -1
+    </script>
+</body>
+
+</html>

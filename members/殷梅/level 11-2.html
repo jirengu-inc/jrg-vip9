@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 11-2</title>
+    <style>
+    #header {
+        height: 40px;
+        background: red;
+    }
+    
+    #footer {
+        height: 40px;
+        background: red;
+    }
+    
+    .content:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .aside {
+        background: blue;
+        /* min-height:500px; */
+        float: left;
+        width: 200px;
+        opacity: 0.1;
+    }
+    
+    .main {
+        min-height: 400px;
+        background: pink;
+        /* float:left; */
+        overflow: auto;
+        /*让main自己成为一个BFC*/
+    }
+    </style>
+</head>
+
+<body>
+    <div id="header">我是header</div>
+    <div class="content">
+        <div class="aside">woshiaside</div>
+        <div class="main">我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main</div>
+    </div>
+    <div id="footer">woshifooter</div>
+</body>
+
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>level27</title>
+	<style>
+		ul,li{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.carousel{
+			position: relative;
+			height: 400px;
+			width: 310px;
+			overflow: hidden;/* 这是一个窗口，其他img需隐藏 */
+		}
+		.carousel .img-ct{
+			position: absolute;
+			width: 1240px;
+
+			
+			/*position: relative;*/
+		}
+		.carousel .img-ct>li{
+			float: left;
+		}
+		.carousel .img-ct img{
+			width: 310px;
+			height: 400px;
+		}
+
+		.carousel .btn{
+			position: absolute;
+			top: 50%;
+			margin-top:-15px; 
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background: #fff;
+			opacity: 0.6;
+			text-decoration: none;
+			color: #333;
+			display: block;
+			/* a链接是行内元素 */
+			text-align: center;
+			line-height: 33px;
+			padding-left: 
+			font-size: 20px;
+
+		}
+		.btn-pre{
+			left: 10px;
+			padding-right: 1px;
+		}
+		.btn-next{
+			right: 10px;
+			padding-left: 1px;
+		}
+		.bullet{
+			position: absolute;
+			bottom: 10px;
+			/*border: 1px solid #333;*/
+		/* 加边框是调试css很重要的手段*/
+			/*margin: 0 auto;*/
+		/* 没有，因为是绝对定位 */
+			left: 50%;
+			width: 100px;
+			margin-left: -50px;
+		}
+		.bullet li{
+			width: 16px;
+			height: 4px;
+			border-radius: 2px;
+			background: #fff;
+			float: left;
+			margin: 10px 4px;
+
+
+		}
+		.clearfix:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.bullet li.active{
+			background:#666;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+	<!-- 内容都是绝对定位，不能撑开高度 -->
+		<!-- 图片 -->
+		<ul class="img-ct clearfix">
+			<li data-index=0><a href=""><img src="images/1.jpeg" alt="1.jpeg"></a></li>
+			<li data-index=1><a href=""><img src="images/2.jpeg" alt="2.jpeg"></a></li>
+			<li data-index=2><a href=""><img src="images/3.jpeg" alt="3.jpeg"></a></li>
+			<li data-index=3><a href=""><img src="images/4.jpeg" alt="4,jpeg"></a></li>
+		</ul>
+		<!-- 左右切换 -->
+		<a class="btn btn-pre" href="#">&lt;</a>
+		<a class="btn btn-next" href="#">&gt;</a>
+		<!-- 位置显示 -->
+		<ul class="bullet clearfix">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="carousel">
+	<!-- 内容都是绝对定位，不能撑开高度 -->
+		<!-- 图片 -->
+		<ul class="img-ct clearfix">
+			<li data-index=0><a href=""><img src="images/1.jpeg" alt="1.jpeg"></a></li>
+			<li data-index=1><a href=""><img src="images/2.jpeg" alt="2.jpeg"></a></li>
+			<li data-index=2><a href=""><img src="images/3.jpeg" alt="3.jpeg"></a></li>
+			<li data-index=3><a href=""><img src="images/4.jpeg" alt="4,jpeg"></a></li>
+		</ul>
+		<!-- 左右切换 -->
+		<a class="btn btn-pre" href="#">&lt;</a>
+		<a class="btn btn-next" href="#">&gt;</a>
+		<!-- 位置显示 -->
+		<ul class="bullet clearfix">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+	
+// 	var $imgCt = $('.img-ct'),
+// 		$preBtn = $('.btn-pre'),
+// 		$nextBtn = $('.btn-next'),
+// 		$bullet = $('.bullet');
+
+// 	var $firstImg = $imgCt.find('li').first(),
+// 		$lastImg = $imgCt.find('li').last();
+
+// 	var curPageIndex = 0;
+// 	var imgLength = $imgCt.children().length;
+// 	var isAnimate = false;
+// //必须在上面写，因为后面增加了两个元素.现在是4个img
+// //
+
+
+// // 把最后一个img克隆复制到第一个
+// 	$imgCt.prepend($lastImg.clone())
+// 	$imgCt.append($firstImg.clone())
+
+// //增加图片同时ct也要相应更改
+// 	$imgCt.width($firstImg.width() * $imgCt.children().length)
+// 	$imgCt.css('left','-310px')
+
+// 	$preBtn.on('click', function(e){
+// 		e.preventDefault;
+
+// 		playPre();
+// 	})
+
+// 	$nextBtn.on('click', function(e){
+// 		e.preventDefault;
+// 		playNext();
+// 	})
+
+// //滚动到下一页
+// 	function playNext(n){//添加参数n代表下面n页
+// 		if (isAnimate)  return//重复点击问题：状态锁
+// 			isAnimate = true;
+		
+// 		$imgCt.animate({
+// 			left:'-=310px'
+// 		}, function(){
+// 			curPageIndex ++;
+// 			if (curPageIndex === imgLength) {
+// 				$imgCt.css({'left':'-310px'})
+// 				curPageIndex = 0
+// 			}
+// 			//console.log curPageIndex
+
+// 		})
+// 					isAnimate = false;
+// 			//动画完成之后 isAnimate是false
+// 			setBullet()//必须执行函数，否则没有效果
+// 	}
+
+// //滚动到上一页
+// 	function playPre(){
+// 		if (isAnimate) return//重复点击问题：状态锁
+
+// 			isAnimate = true;
+	
+// 		$imgCt.animate({
+// 			left:'+=310px'
+// 		},function(){
+// 			curPageIndex --;
+// 			if (curPageIndex < 0) {
+// 				$imgCt.css('left', -(imgLength*$firstImg.width()));
+// 				curPageIndex = imgLength - 1
+// 			}
+
+// 		})
+// 					isAnimate = false;
+// 			setBullet()//必须执行函数，否则没有效果
+// 	}
+
+
+// //下面的页码显示
+// 	function setBullet(){
+// 		$bullet.children()
+// 			   .removeClass('active')
+// 			   .eq(curPageIndex)
+// 			   .addClass('active')
+// 	}
+
+
+
+	// $bullet.on('click','.bullet li', function(e){
+	// 	e.preventDefault;
+	// 	if (isAnimate) { //重复点击问题：状态锁
+	// 		return
+	// 	} else{
+	// 		isAnimate = true;
+	// 	}
+	// 	$imgCt.animate({
+	// 		left:'+=310'
+	// 	},function(){
+	// 		curPageIndex --;
+	// 		if (curPageIndex < 0) {
+	// 			$imgCt.css('left', -(imgLength)*$firstImg.width());
+	// 			curPageIndex = imgLength - 1
+	// 		}
+	// 		isAnimate = false;
+	// 		serBullet()//必须执行函数，否则没有效果
+	// 	})
+	// })
+
+
+//模块化1*: 代码层面的封装，让我们把代码聚合在一起 
+//1 是防止命名的污染，全局变量的污染  
+//2 层次化更清晰代码的扩展性更强
+
+	function Carousel($ct){//属性和方法，把容器传递进来
+		this.$ct = $ct;
+		this.init();//必须有，启动函数
+		this.bind();
+	}
+
+	Carousel.prototype.init = function(){
+
+		var $imgCt = this.$imgCt = this.$ct.find('.img-ct'),
+			$preBtn = this.$preBtn = this.$ct.find('.btn-pre'),
+			$nextBtn = this.$nextBtn = this.$ct.find('.btn-next'),
+			$bullet = this.$bullet = this.$ct.find('.bullet');
+
+		var $firstImg = $imgCt.find('li').first(),
+			$lastImg = $imgCt.find('li').last();
+
+		this.curPageIndex = 0;//一个变量需要函数间共享就用this
+		this.imgLength = $imgCt.children().length;
+		this.isAnimate = false;
+	//必须在上面写，因为后面增加了两个元素.现在是4个img
+	//
+
+
+	// 把最后一个img克隆复制到第一个
+		$imgCt.prepend($lastImg.clone())
+		$imgCt.append($firstImg.clone())
+
+	//增加图片同时ct也要相应更改
+		$imgCt.width($firstImg.width() * $imgCt.children().length)
+		$imgCt.css('left','-310px')
+		}
+
+
+
+	Carousel.prototype.bind = function(){
+		var _this = this;
+		this.$preBtn.on('click', function(e){
+		//$preBtn 获取不到在其他函数绑定的变量，只能从全局作用域找
+			e.preventDefault;
+
+			_this.playPre();//this.playPre里面的this代表按钮(preBtn.)，this需要绑定在对象Carousel.prototype.playPre()
+			
+		})
+
+		this.$nextBtn.on('click', function(e){
+			e.preventDefault;
+			_this.playNext();
+		})
+	}
+
+	Carousel.prototype.playPre = function(){
+		var _this = this;
+		if (this.isAnimate) return//重复点击问题：状态锁
+
+			this.isAnimate = true;
+	
+		this.$imgCt.animate({
+			left:'+=310px'
+		},function(){
+			_this.curPageIndex --;
+			if (_this.curPageIndex < 0) {
+				_this.$imgCt.css('left', -(_this.imgLength*$firstImg.width()));
+				_this.curPageIndex = _this.imgLength - 1
+			}
+
+		})
+			this.isAnimate = false;
+			this.setBullet()//必须执行函数，否则没有效果
+	}
+	Carousel.prototype.playNext = function(){
+		var _this = this;
+		if (this.isAnimate)  return//重复点击问题：状态锁
+			this.isAnimate = true;
+		
+		this.$imgCt.animate({
+			left:'-=310px'
+		}, function(){
+			_this.curPageIndex ++;
+			if (_this.curPageIndex === _this.imgLength) {
+				_this.$imgCt.css({'left':'-310px'})
+				_this.curPageIndex = 0
+			}
+			//console.log curPageIndex
+
+		})
+			this.isAnimate = false;
+			//动画完成之后 isAnimate是false
+			this.setBullet()//必须执行函数，否则没有效果
+	}
+	Carousel.prototype.setBullet = function(){
+			this.$bullet.children()
+			   .removeClass('active')
+			   .eq(this.curPageIndex)
+			   .addClass('active')
+	}
+
+
+new Carousel($('.carousel').eq(0));//$('carousel')选中了页面上所有的carousel
+new Carousel($('.carousel').eq(1))//第二个运行
+
+
+
+
+
+
+//模块化2*: 想运行两个以上的东西
+
+	// Carousel2 = {
+
+	// 	init:function(){
+	// 			console.log(123);//carousel本身来说就是个对象，所有的东西只能作为属性添加上去
+	// 		}
+	// }
+
+
+// 	Carousel2 = (function(){
+// 		var a = 1;				//还可以添加局部变量,这个a在外界永远都获取不到
+
+// 		return {
+// 			init:function($ct){
+// 				$ct.each(function(index, node){
+// 					new Carousel($(node));   //获取$ct,对于里面的每一项都去创建对象
+// 					//这个是原生dom元素，所以需要做一层包裹
+					
+// 				})
+// 			}
+// 		}
+// 	})()//后面的括号代表立刻执行函数得到return结果
+
+// 	Carousel2.init($('.carousel'));
+// //用立刻执行的表达式封装代码
+
+
+</script>
+	
+</body>
+</html>

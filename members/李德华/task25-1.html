@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html, body, ul, li {
+        margin: 0px;
+        padding: 0px;
+      }
+      li {
+        list-style: none;
+        position: relative;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      .list {
+        width: 200px;
+        margin: 50px;
+      }
+      .list>li {
+        background: rgb(192, 26, 37);;
+      }
+      .list>li>a {
+        line-height: 40px;
+        display: block;
+        color: white;
+        padding-left: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-style: none none dashed none;
+        border-width: 1px;
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      .list>li:last-child>a {
+        border-style: none;
+      }
+      .show {
+        display: block;
+      }
+      .sub-list {
+        position: absolute;
+        top: 0px;
+        left: 100%;
+        width: 120px;
+        display: none;
+        border: 1px solid #ddd;
+      }
+      .sub-list>li {
+        float: left;
+        margin: 10px;
+      }
+      .sub-list>li>a {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="list">
+      <li>
+        <a href="#">珠宝玉器</a>
+        <ul class="sub-list">
+          <li><a href="#">翡翠</a></li>
+          <li><a href="#">玉石</a></li>
+          <li><a href="#">宝石</a></li>
+          <li><a href="#">水晶</a></li>
+          <li><a href="#">玛瑙</a></li>
+          <li><a href="#">珍珠</a></li>
+          <li><a href="#">钻石</a></li>
+          <li><a href="#">琥珀</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">珠宝玉器</a>
+        <ul class="sub-list">
+          <li><a href="#">翡翠</a></li>
+          <li><a href="#">玉石</a></li>
+          <li><a href="#">宝石</a></li>
+          <li><a href="#">水晶</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">珠宝玉器</a>
+        <ul class="sub-list">
+          <li><a href="#">翡翠</a></li>
+          <li><a href="#">玉石</a></li>
+          <li><a href="#">宝石</a></li>
+          <li><a href="#">水晶</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">珠宝玉器</a>
+        <ul class="sub-list">
+          <li><a href="#">翡翠</a></li>
+          <li><a href="#">玉石</a></li>
+          <li><a href="#">宝石</a></li>
+          <li><a href="#">水晶</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">珠宝玉器</a>
+        <ul class="sub-list">
+          <li><a href="#">翡翠</a></li>
+          <li><a href="#">玉石</a></li>
+          <li><a href="#">宝石</a></li>
+          <li><a href="#">水晶</a></li>
+        </ul>
+      </li>
+    </ul>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script>
+      $('.list>li').on('mouseover mouseout', function() {
+        $(this).find('.sub-list').toggle();
+      });
+    </script>
+  </body>
+</html>

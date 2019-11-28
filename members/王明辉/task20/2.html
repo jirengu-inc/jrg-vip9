@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+<script>
+    // 2. 使用闭包封装一个汽车对象，可以通过如下方式获取汽车状态
+    var Car = new CarObj()//todo;
+
+
+    Car.setSpeed(30);
+    console.log(Car.getSpeed()); //30
+    Car.accelerate();
+    console.log(Car.getSpeed()); //40;
+    Car.decelerate();
+    Car.decelerate();
+    console.log(Car.getSpeed()); //20
+    console.log(Car.getStatus()); // 'running';
+    Car.decelerate();
+    Car.decelerate();
+    console.log(Car.getStatus());  //'stop';
+    //Car.speed;  //error
+
+
+    function CarObj(speed){
+
+        this.speed = speed;
+
+        this.setSpeed = function(speed){
+            return this.speed = speed;
+        }
+        this.getSpeed = function(){
+            return this.speed;
+        }
+        this.accelerate = function(){
+            this.speed += 10;
+            return '加速';
+        }
+        this.decelerate = function(){
+            if(this.speed < 0){
+                return 0;
+            }else{
+                return this.speed -= 10;
+            }
+        }
+        this.getStatus = function(){
+            if(this.speed <= 0){
+                return 'stop';
+            }else{
+                return 'running';
+            }
+        }
+    };
+</script>
+</body>
+</html>

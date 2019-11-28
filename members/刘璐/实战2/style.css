@@ -1,0 +1,146 @@
+/*================清除重置样式==================*/
+body,html,ol,ul,dd,dl,dt,
+p,h1,h2,h3,li{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration:none;
+}
+img{
+    overflow:hidden;
+    border:none;
+}
+li,dt,dd{
+    list-style:none
+}
+body,html{
+    height:100%
+}
+body{
+    font-family: "宋体", Arial, Helvetica, sans-serif;
+    color:#333;
+    line-height:1.5;
+    background:#fff;
+}
+/****************font-face字体声明****************/
+@font-face {font-family: "iconfont";
+    src: url('iconfont.eot?t=1467708575'); /* IE9*/
+    src: url('iconfont.eot?t=1467708575#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff?t=1467708575') format('woff'), /* chrome, firefox */
+    url('iconfont.ttf?t=1467708575') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1467708575#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family:"iconfont";
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-hua:before { content: "\e601"; }
+.icon-hua{
+    color:#333;
+    font-size:16px;
+}
+/******************通用样式组件******************/
+.layout{
+    width:1000px;
+    margin:0 auto;
+}
+.btn{
+    display:block;
+    width:36px;
+    padding:8px;
+    margin:5px auto;
+    font-size:12px;
+    color:#eee;
+    border:1px solid;
+    background:#333;
+    border-radius:6px;
+}
+.clearfix{zoom:1;}
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+/****************#header css样式****************/
+#header .nav{
+    margin-left:-20px;
+    position:relative;
+}
+#header .nav>li{
+    float:left;
+    padding:15px 0 20px 15px;
+}
+#header a{
+    color:#333;
+}
+.nav .child {
+    position:absolute;
+    top:100%;
+    left:180px;
+    display:none;
+    background:#333;
+    border:1px solid #eee;
+    border-top:none;
+}
+.nav li:hover .child{
+    display:block;
+}
+.child li{
+    font-size:12px;
+    padding:5px;
+    border-bottom:1px dotted #eee;
+}
+.child li:nth-child(3){
+    border:none;
+}
+.child li:hover{
+    background:#656565;
+}
+/****************#content css样式****************/
+#content .intro{
+    padding:40px 0;
+    background:orange;
+}
+/****************#content-address样式****************/
+.address{
+    background:#808080;
+    margin:30px auto;
+}
+.address p{
+    padding:10px;
+}
+.address a{
+    color:orange;
+}
+/****************#content-work-list样式****************/
+.works-list{
+    padding-bottom:10px;
+    margin-left:-35px;
+}
+.works-list li{
+    width:308px;
+    margin-left:35px;
+    float:left;
+    border:1px solid orange;
+    margin-bottom:20px;
+    background:orange;
+}
+.works-list li:hover{
+    opacity:0.7;
+}
+.works-list img{
+    width:308px;
+    height:200px;
+}
+/*********************#footer 样式*********************/
+#footer{
+    background:orange;
+    text-align:center;
+    padding:30px;
+}

@@ -1,0 +1,38 @@
+html,body,div {
+	margin:0;
+	padding: 0;
+}
+#header,#footer {
+	background-color: #ccc;
+	height: 40px;
+}
+#container {
+
+}
+#container:after {
+    content: '';
+    display: block;
+    clear:both;
+}
+#container .main {
+    background-color: rgba(255,0,0,0.5);
+    width: 100%;
+    float: left;
+}
+#container .main .content {
+	margin:0 200px;
+}
+#container .aside {
+	background-color: rgba(0,255,0,0.5);
+	height: 200px;
+	width: 200px;
+	float: left;
+	margin-left: -100%;
+}
+#container .ad {
+	background-color: rgba(0,0,255,0.5);
+	height: 200px;
+	width: 200px;
+	float: left;
+	margin-left: -200px;
+}

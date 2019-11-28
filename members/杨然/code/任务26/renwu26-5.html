@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu26-5</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<select name="" id="sel">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+</select>
+<input id="ipt" type="text">
+<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js
+'></script>
+<script>
+	$('#sel').on('change', function(){
+		$('#ipt').val($('#sel option:selected').text());
+	});
+</script>
+</body>
+</html>

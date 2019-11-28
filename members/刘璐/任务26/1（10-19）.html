@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .text-display,.text-display2{
+            border:1px solid #ccc;
+            width:150px;
+            height:20px;
+            line-height:20px;
+            display:inline-block;
+            vertical-align:middle;
+        }
+        .btn1,.btn2,.btn3,.btn4{
+            vertical-align:middle;
+        }
+        .node{
+            width:200px;
+            height:200px;
+            margin:10px;
+            padding:10px;
+            border:1px solid #cccccc;
+            background:url(haha.jpg);
+        }
+        .btn.active{
+            display:block;
+        }
+        .btn{
+            width:80px;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            background:#000;
+            color:#fff;
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+    <hr>
+    <div class="node"></div>
+    <hr>
+    <button class="btn1">不包括内边距</button>
+    <button class="btn2">包括内边距</button>
+    <button class="btn3">包括边框</button>
+    <button class="btn4">包括外边距</button>
+    <div class="text-display"></div>
+    <hr>
+    <button class="btn5">获取根节点水平垂直偏移距离</button>
+    <div class="text-display2"></div>
+    <p class="node-p">此处有一段会变色的话</p>
+    <ul class="list-wrap ct">
+        <li>列表1 →→→ $('.ct').children()</li>
+        <li>列表2 →→→ $('.ct').children()</li>
+        <li>列表3 →→→ $('.ct').children()</li>
+        <li>列表4 →→→ $('.ct').children()</li>
+        <li>列表5 →→→ $('.ct').children()</li>
+        <li class="item">我是item →→→ $('.ct').children('.item')</li>
+        <li>我是第七个
+            <ul>
+                <li>子列表</li>
+                <li>子列表</li>
+                <li>子列表</li>
+                <li class="panel">我是panel，我要找到父亲ct下的item,把他背景色变成蓝色</li>
+            </ul>
+        </li>
+    </ul>
+    <p>计算列表（不包括子列表）数量<span class="comp"></span></p>
+    <p class="last">我排行第<span></span></p>
+<!--遍历节点，把每个节点里面的文本内容重复一遍-->
+    <div class="btn">点我</div>
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+    var $node = $('.node');
+    var $node_p = $('.node-p');
+    var $ct = $('.ct');
+    var $comp = $('.comp');
+    $('.btn1').on('click',function(){
+        var width = $node.width();
+        var height = $node.height();
+        $('.text-display').text(width+'*'+height);
+    });
+    $('.btn2').on('click',function(){
+        var width = $node.innerWidth();
+        var height = $node.innerHeight();
+        $('.text-display').text(width+'*'+height);
+    });
+    $('.btn3').on('click',function(){
+        var width = $node.outerWidth();
+        var height = $node.outerHeight();
+        $('.text-display').text(width+'*'+height);
+    });
+    $('.btn4').on('click',function(){
+        var width = $node.outerWidth(true);
+        var height = $node.outerHeight(true);
+        $('.text-display').text(width+'*'+height);
+    });
+    $(window).scroll(function(){
+        var nub = $(window).scrollTop();
+        if(nub>200){
+            $('.btn').addClass("active")
+        }
+        else{
+            $('.btn').removeClass("active")
+        }
+    });
+    $('.btn').on("click",function(){
+        $(window).scrollTop(0);
+    });
+    $('.btn5').on('click',function(){
+        var w = $('.node').offset();//不包括内边距;
+        $('.text-display2').text('top='+ w.top + " "+'left='+ w.left);
+    });
+    $node_p.on('mouseenter',function(){
+        $(this).css({'color':"red",'font-size':'14px'})
+    });
+    $node_p.on('mouseleave',function(){
+        $(this).css({'color':"#000",'font-size':'16px'})
+    });
+    $ct.children('.item').css('color','red');
+    $ct.children().css('border','1px solid #ccc');
+    $('.panel').parents('.ct').children('.item').css('background','blue');
+    $comp.text(" "+$('.ct>li').length);
+    $comp.css('color','red');
+    $('.last span').text($('.last').index());
+</script>
+</body>
+</html>

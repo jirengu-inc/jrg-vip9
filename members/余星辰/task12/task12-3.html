@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body,
+        div {
+            margin: 0;
+            padding: 0;
+            font: 14px "microsoft yahei", sans-serif;
+        }
+
+        #header {
+            height: 40px;
+            background-color: #ccc;
+        }
+
+        #content {
+            padding-left: 200px;
+        }
+
+        #content::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .main {
+            background: green;
+            min-height: 200px;
+            float: left;
+            width: 100%;
+        }
+
+        .aside {
+            float: left;
+            min-height: 200px;
+            width: 200px;
+            background: red;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+
+        #footer {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+    <title>task12-2</title>
+</head>
+
+<body>
+    <div id="header">头部</div>
+    <div id="content">
+        <div class="main">main</div>
+        <div class="aside">aside</div>
+    </div>
+    <div id="footer">尾部</div>
+</body>
+
+</html>

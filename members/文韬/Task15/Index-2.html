@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo-2</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        ul,
+        li {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        li {
+          cursor: pointer;
+            list-style: none;
+        }
+
+        header {
+            width: 1000px;
+            margin:0 auto;
+            /*border: 1px solid green;*/
+        }
+
+        header:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        header a {
+            text-decoration: none;
+            font-size: 15px;
+            color: black;
+        }
+
+        header a:hover {
+            color: #555;
+        }
+
+        header li {
+            float: left;
+            padding: 5px;
+            margin: 0 5px;
+            line-height: 30px;
+
+            /*background-color: rgba(125, 122, 129, 0.5);*/
+        }
+
+        .fir-word {
+          margin-left: 0px;
+            font-size: 20px;
+            color: rgba(125, 122, 129, 1);
+            cursor: default;
+        }
+
+        .work-intro {
+            position: relative;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .work-intro ul {
+            position: absolute;
+            top: 100%;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .work-intro li {
+            display: none;
+            float: none;
+            /*padding: 0px;*/
+            margin: 0px;
+            border-left-right: 1px solid rgba(150, 150, 150, 0.4);
+            font-size: 18px;
+        }
+
+        .work-intro li:hover {
+            background-color: rgba(150, 150, 150, 0.7)
+        }
+
+        .work-intro:hover li {
+            display: block;
+        }
+
+        #content-color {
+            /*width: 1000px;*/
+            /*height: 200px;*/
+            /*margin-left: 300px;*/
+            /*padding-left: 300px;*/
+            padding-bottom: 10px;
+            background-color: rgba(150, 150, 150, 1);
+        }
+
+        #content-color h1 {
+            margin: 0px;
+            padding: 20px;
+            font-size: 30px;
+            cursor: default;
+            /*line-height: 40px;*/
+        }
+
+        #content-color p {
+            padding-left: 20px;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: default;
+            /*margin: 0;*/
+            /*padding: 0;*/
+        }
+.content-color-font{
+  width: 1000px;
+  margin: 0 auto;
+}
+        #guide {
+            width: 1000px;
+            margin:10px auto;
+        }
+
+        #guide a {
+            /*padding-left: 20px;*/
+            font-size: 18px;
+            line-height: 24px;
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        #guide a:first-child {
+            padding-left: 20px;
+        }
+
+        #guide a:hover {
+            color: red;
+        }
+
+        #show{
+          width: 960px;
+          /*height: 600px;*/
+          margin: 0 auto;
+          border: 1px dotted green;
+        }
+        #show ul:after{
+          content: "";
+          display: block;
+          clear: both;
+        }
+
+        #show li{
+          float: left;
+          width: 300px;
+          height: 200px;
+          margin: 10px;
+          background-color: red;
+        }
+
+        #show ul :nth-child(2),
+        #show ul :nth-child(5),
+        #show ul :nth-child(8)
+        {
+          margin:10px 20px;
+        }
+        #show ul :nth-child(1),
+        #show ul :nth-child(2),
+        #show ul :nth-child(3)
+        {
+        margin-top: 0;
+        }
+
+        #show ul :nth-child(1),
+        #show ul :nth-child(4),
+        #show ul :nth-child(7)
+        {
+        margin-left: 0;
+        }
+
+        #show ul :nth-child(3),
+        #show ul :nth-child(6),
+        #show ul :nth-child(9)
+        {
+        margin-right: 0;
+        }
+
+        #show ul :nth-child(7),
+        #show ul :nth-child(8),
+        #show ul :nth-child(9)
+        {
+        margin-bottom: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="head-intro">
+            <a name="">
+                <li class="fir-word">Christian·Wen</li>
+            </a>
+            <li class="work-intro">我的作品
+                <ul>
+                    <a href="file:///Users/ChrisWen/Desktop/%E6%96%87%E9%9F%AC-%E6%9A%91%E5%81%87/Task14/index-1.html">
+                        <li>个人主页</li>
+                    </a>
+                    <li>摄影展示</li>
+                    <li>个人简历</li>
+                </ul>
+            </li>
+            <li><a href="">博客</a></li>
+            <li><a href="">项目</a></li>
+            <li><a href="">主页</a></li>
+        </ul>
+    </header>
+    <div id="content-color">
+      <div class="content-color-font">
+        <h1>诵读古经文
+        韬光自养晦</h1>
+        <p>君子之心事，天青日白，不可使人不知</p>
+        <p>君子之才华，玉韫珠藏，不可使人易知</p>
+    </div>
+    </div>
+    <div id="guide">
+        <a href="file:///Users/ChrisWen/Desktop/%E6%96%87%E9%9F%AC-%E6%9A%91%E5%81%87/Task14/index-1.html">主页</a>
+        /
+        <a href="file:///Users/ChrisWen/Desktop/%E6%96%87%E9%9F%AC-%E6%9A%91%E5%81%87/Task15/Index-2.html">我的作品</a>
+        /
+        <a href="">作品集合</a>
+    </div>
+<div id="show">
+  <ul>
+  <li></li>
+  <li></li>
+  <li></li>
+
+  <li></li>
+  <li></li>
+  <li></li>
+
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+</div>
+    <footer></footer>
+</body>
+
+</html>

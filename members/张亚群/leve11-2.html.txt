@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style>
+.header,.footer{
+  height:50px;
+  background:red;
+}
+
+.aside{
+  width:300px;
+  float:left;
+  background:#ccc;
+  
+}
+.main{
+  overflow:auto;
+  background:pink;
+}
+</style>
+</head>
+<body>
+<div class="header">header</div>
+<div class="content">
+  <div class="aside">   `</div>
+  <div class="main">我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main</div>
+</div>
+  <div class="footer">footer</div>
+</body>
+</html>

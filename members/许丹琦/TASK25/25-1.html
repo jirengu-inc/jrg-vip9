@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+html,body,ul,li{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+
+.parent-li:hover{
+	cursor: pointer;
+}
+.parent-li{
+	position: relative;
+	width: 100px;
+	background-color: #c7171e;
+	padding-top: 10px;
+	border-bottom: 1px solid #fff;
+}
+	.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+	}
+	.parent .more{
+	display: none;
+	}
+	.parent .active{
+	display: block;
+	border:1px solid #ccc;
+	width: 100px;
+	position: absolute;
+	left: 100px;
+	top: 0;
+	}
+	.parent .active>li{
+	width: 50px;
+	float: left;
+	}
+</style>
+</head>
+<body>
+<ul class="parent">
+	<li class="parent-li">
+		<span>珠宝玉器</span>
+		<ul class="more  clearfix">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>玛瑙</li>
+			<li>珍珠</li>
+			<li>钻石</li>
+			<li>琥珀</li>
+			<li>和田</li>
+			<li>琥珀</li>
+		</ul>
+	</li>
+	<li class="parent-li">
+		<span>珠宝玉器</span>
+		<ul class="more  clearfix">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>和田</li>
+			<li>琥珀</li>
+
+		</ul>
+	</li>
+	<li class="parent-li">
+		<span>珠宝玉器</span>
+		<ul class="more clearfix">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+
+		</ul>
+		</li>
+	<li class="parent-li">
+		<span>珠宝玉器</span>
+		<ul class="more clearfix">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+
+		</ul>
+	</li>
+	<li class="parent-li">
+		<span>珠宝玉器</span>
+		<ul class="more clearfix">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+
+		</ul>
+	</li>
+</ul>
+<script type="text/javascript" src="JS/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+	$('.parent-li').on('mouseenter',function(){
+		var index = $(this).index();
+		$('.parent>li .more').eq(index).addClass('active');
+	})
+
+	$('.parent-li').on('mouseleave',function(){
+		var index = $(this).index();
+		$('.parent>li .more').eq(index).removeClass('active');
+	})
+</script>
+    
+</body>
+</html>

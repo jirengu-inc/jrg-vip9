@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="tab切换 原生js" />
+    <meta charset="utf-8">
+    <title>4</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<div class="mod-tab">
+    <ul class="tabs">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="panel active">内容1</div>
+    <div class="panel">内容2</div>
+    <div class="panel">内容3</div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/1.11.0/jquery.js"></script>
+<script>
+    var tabBtn = document.querySelectorAll('.tabs li');
+    var tabContent = document.querySelectorAll('.mod-tab .panel');
+
+    for(var i=0; i<tabBtn.length; i++){
+        tabBtn[i].index = i;
+        tabBtn[i].addEventListener('click',function(){
+            for(var i=0; i<tabBtn.length; i++){
+                tabBtn[i].classList.remove('active');
+                tabContent[i].classList.remove('active');
+            }
+            this.classList.add('active');
+            tabContent[this.index].classList.add('active');
+
+        },false);
+    }
+</script>
+</body>
+</html>

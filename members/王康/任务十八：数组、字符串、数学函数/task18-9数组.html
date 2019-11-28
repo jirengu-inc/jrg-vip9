@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-9</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var john = { name: "John Smith", age: 23 }
+      var mary = { name: "Mary Key", age: 18 }
+      var bob = { name: "Bob-small", age: 6 }
+      var people = [ john, mary, bob ]
+      function ageSort(arr) {
+        arr.sort(function(a, b){return a.age - b.age;});
+      }
+      /*
+      function ageSort(arr) {
+        arr.sort(
+          function(p1,p2) {
+            return p1.age > p2.age;
+          }
+        )
+      }
+      */
+      ageSort(people) // [ bob, mary, john ]
+    </script>
+  </body>
+</html>

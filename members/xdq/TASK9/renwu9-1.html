@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+
+<style type="text/css">
+.sprite{
+	width: 400px;
+	margin: 0 auto;
+}
+.style{display: inline-block;}
+
+
+    .go{
+    	background:url(http://csssprites.com/results/b400f2d49458105a289c790295b6b978/result.png);
+    	background-position: 0px -2px;
+        display: inline-block;
+    	width: 30px;
+    	height: 30px;
+    }
+
+    .go:hover{
+    	background-position: -127px -2px;
+     }
+
+    .start{
+    	background:url(http://csssprites.com/results/b400f2d49458105a289c790295b6b978/result.png);
+    	background-position: -42px -2px;
+    	display: inline-block;
+    	width: 30px;
+    	height: 30px;
+    }
+    .start:hover{
+    	background-position: -175px -2px;
+    }
+
+    
+    .end{
+    	background:url(http://csssprites.com/results/b400f2d49458105a289c790295b6b978/result.png);
+    	background-position: -88px -5px;
+        display: inline-block;
+     	width: 30px;
+     	height: 30px;
+
+    }
+    .end:hover{
+    	background-position: -215px 0px;
+    }
+    .style:hover
+    {
+    	color: #a663be;
+    	cursor: pointer;
+    }
+
+
+
+
+</style>
+</head>
+
+<body>
+<div class="sprite">
+<div class="style"><div class="go"></div><span>前进</span></div>
+<div class="style"><div class="start"></div><span>开始</span></div>
+<div class="style"><div class="end"></div><span>停止</span></div>
+</div>
+    
+</body>
+</html>

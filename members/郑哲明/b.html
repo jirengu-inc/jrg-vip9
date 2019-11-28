@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>降域-b</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h3{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>iframe:来自b.jirengu.com:8080</h3>
+        <input type="text" placeholder="b.jirengu.com:8080">
+    </div>
+    <script src="scripts/jquery-3.1.0.js"></script>
+    <script>
+        $('.container input').on('input',function() {
+            window.parent.postMessage(this.value,'http://a.jirengu.com:8080')
+        })
+        $(window).on('message',function(e) {
+            var data = e.originalEvent.data
+            if(data.match('rgb')){
+                $('.container input').css('background-color',data)
+                return this
+            }
+            $('.container input').val(data)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task32</title>
+    <style>
+        body{
+            font-family: '微软雅黑'
+        }
+        ul,
+        li,h4,p{
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .wrap {
+            width: 900px;
+            margin: auto;
+            /*            outline: 1px solid;*/
+        }
+        
+        .img-ct {
+            position: relative;
+        }
+        
+        .img-ct li {
+            width: 280px;
+            margin: 10px;
+            border: 1px solid #dfdfdf;
+            box-sizing: border-box;
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .img-ct img {
+            width: 100%;
+        } 
+        .img-ct h4{
+            margin-top:10px;
+            line-height: 1.8em;
+            border-bottom: 1px solid silver;
+        }
+        .img-ct p{
+            margin-top: 10px;
+            font-size: 13px;
+            opacity: 0.5;
+        }
+        #loadMore{
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="img-ct">
+            <!--
+            <li>
+                <img src="" alt="">
+                <h3></h3>
+                <p></p>
+            </li>
+-->
+        </ul>
+    </div>
+    <div id="loadMore"></div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        var data,
+            num = 10,
+            page = 1,
+            idx = 0,
+            len = num,
+            wtf,
+            lock = false,
+            clock
+
+        function jsonp() {
+            var url = 'http://platform.sina.com.cn/slide/album_tech?jsoncallback=getData&app_key=1271687855',
+                src = url + '&num=' + num + '&page=' + page,
+                script = $('<script><\/script>').appendTo('body').attr('src', src)
+            page++
+        }
+
+        function getData(ret) {
+            data = ret.data
+        }
+
+        function factory() {
+            for (var i = 0; i < len; i++) {
+                var item = '<li>' +
+                                '<img src="" alt="">' +
+                                '<h4></h4>' +
+                                '<p></p>' +
+                            '</li>',
+                    $item = $(item)
+                $item.children('img').attr('src', data[i].img_url)
+                $item.children('h4').text(data[i].short_name)
+                $item.children('p').text(data[i].short_intro)
+                $item.appendTo('.img-ct')
+            }
+        }
+
+
+        var waterfall = function (e) {
+                var wtf = {
+                    init:function (e) {
+                        var $ct = $('.img-ct'),
+                            $items = $(e).parents('li'),
+                            $widthItem = $items.outerWidth(true),
+                            $widthCt = $ct.width(),
+                            $col = parseInt($widthCt / $widthItem),
+                            $colsH = []
+                        for (var i = 0; i < $col; i++) {
+                            $colsH.push(0)
+                        }
+                        return {'$colsH':$colsH,'$items':$items,'$widthItem':$widthItem,'$col':$col}
+                    },
+                getMin:function getMin(arr) {
+                            var min = arr[0],
+                                idx = 0
+                            for (var i = 0; i < $col; i++) {
+                                if (arr[i] < min) {
+                                    min = arr[i]
+                                    idx = i
+                                }
+                            }
+                            return {
+                                min: min,
+                                idx: idx
+                            }
+                        },
+                placeItems:function placeItems() {
+                                for (var i = 0; i < $items.length; i++) {
+                                    var xAxis = this.getMin($colsH).idx * $widthItem,
+                                        yAxis = this.getMin($colsH).min
+                                    $items.eq(i).css({
+                                        left: xAxis,
+                                        top: yAxis
+                                    })
+                                    $colsH[this.getMin($colsH).idx] += $items.eq(i).outerHeight(true)
+                                    console.log($items[0],$colsH)
+                                }
+                        },
+                render:function render(e) {
+                            $items = $(e).parents('li')
+                            this.placeItems()
+                            $items.animate({opacity:1},500)
+                        },
+                colsH:function () {
+                    console.log($colsH)
+                        }
+                }
+                var init = wtf.init(e),
+                    $colsH = init.$colsH,
+                    $items = init.$items,
+                    $widthItem = init.$widthItem,
+                    $col = init.$col
+                return wtf
+        }
+
+
+        function isVisible(node) {
+            var winTop = $(window).scrollTop(),
+                winH = $(window).height(),
+                referPointH = $(node).offset().top
+            if( winTop + winH > referPointH) return true
+            return false
+        }
+        
+        function tmp() {
+            factory()
+            $('.img-ct').find('img').on('load',function () {
+                     if (lock === false ) {
+                         lock = true
+                         wtf = waterfall(this)
+                     }
+                    console.log(1)
+                     wtf.render(this)
+                     $('.img-ct').height($(document).height())
+                })
+        }
+        
+        function loadMore() {
+            while(true){
+                if (isVisible('#loadMore')){
+                    jsonp()
+                    $('script').last().on('load',tmp)
+                }
+                break
+            }
+        }
+            
+        loadMore()
+        
+        $(window).on('scroll', function() {
+            if (clock) clearTimeout(clock)
+            clock = setTimeout(function (){
+                 loadMore()
+            },300)
+        })
+
+
+        //        render调用与否，与闭包
+    </script>
+</body>
+
+</html>

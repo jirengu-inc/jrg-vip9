@@ -1,0 +1,46 @@
+@color: #4D9261;
+@fontSize: 10px;
+
+.radius(@topLeft, @topRight, @bottomRight, @bottomLeft){
+  border-raidus: @topLeft @topRight @bottomRight  @bottomLeft;
+  -webkit-border-raidus: @topLeft @topRight @bottomRight  @bottomLeft;
+}
+#header {
+  color: @color;
+  font-size: @fontSize;
+  .radius(10px, 10px, 10px, 10px)
+
+}
+h2 {
+  color: @color;
+}
+
+
+#header {
+  .title {
+    .close {
+      color: @color;
+    }
+    span{
+      font-size: 30px;
+    }
+  }
+
+  .content{
+    display: none;
+
+    > p{
+      color: red;
+    }
+
+    &:after{
+      content:'';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .footer{
+    height: 40px;
+  }
+}

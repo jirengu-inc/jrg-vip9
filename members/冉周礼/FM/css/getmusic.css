@@ -1,0 +1,323 @@
+
+
+
+
+
+
+.panel .back {
+    float: left;
+    margin-left: 10px;
+    margin-top: 15px;
+    height: 30px;
+    width: 30px;
+    font-family: iconfont;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    color: #eee;
+    cursor: pointer;
+}
+/*  歌名歌手  */
+
+.panel .title {
+    position: absolute;
+    top: 10px;
+    text-align: left;
+    left: 50px;
+    height: 40px;
+    width: 200px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+    letter-spacing: 1px;
+    overflow: hidden;
+    cursor:default;
+}
+
+.panel .title .song-name {
+    line-height: 20px;
+    font-size: 13px;
+    color: #fff;
+    cursor:default;
+}
+
+.panel .title .singer {
+    line-height: 15px;
+    font-size: 12px;
+    color: #aaa;
+    cursor:default;
+}
+/*  频道分类  */
+
+.panel .channels {
+    position: absolute;
+    top: 15px;
+    left: 260px;
+    z-index: 100;
+}
+
+.panel .channel-btn {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'iconfont';
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.panel .channels-list {
+    display: none;
+    margin-top: 10px;
+    width: 110px;
+    height: 328px;
+    padding: 8px 0;
+    background-color: #fff;
+    box-shadow: 2px 0px 2px #888;
+    overflow: auto;
+    border-top: 8px solid #fff;
+    border-bottom: 8px solid #fff;
+    box-sizing: border-box;
+}
+
+ ::-webkit-scrollbar {
+    width: 2px;
+    background-color: #fff;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background-color: rgba(187, 187, 187, 0.7);
+    height: 10px;
+    border-radius: 3px;
+}
+/* 滑块颜色 */
+
+ ::-webkit-scrollbar-button {
+    height: 0px;
+}
+
+.panel .channels-list li {
+    position: relative;
+    text-align: center;
+    line-height: 30px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.panel .channels-list li:hover {
+    background-color: #db4437;
+    color: #fff;
+}
+
+.list-selected:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 5px;
+    background-color: #db4437;
+}
+
+.prev,
+.next,
+.on-off {
+    font-family: 'iconfont';
+}
+/*  黑胶旋转  */
+
+.panel .title {
+    position: absolute;
+    top: 10px;
+    text-align: left;
+    left: 50px;
+    height: 40px;
+    width: 200px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+    letter-spacing: 1px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.panel .rotate {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 300px;
+    height: 240px;
+    overflow: hidden;
+}
+
+.panel .rotate .disco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -100px;
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    background: url(../images/disc-ip6.png) no-repeat center center;
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+}
+
+.panel .rotate .cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background: url(../images/timg4.jpg) no-repeat center center;
+    background-size: cover;
+    height: 126px;
+    width: 126px;
+    border-radius: 63px;
+}
+
+.panel .rotate .current-cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 126px;
+    width: 126px;
+    border-radius: 63px;
+}
+
+.panel .rotate .active {
+    animation-name: rotate;
+    animation-duration: 25s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+
+.needle {
+    position: absolute;
+    top: -3px;
+    left: 140px;
+    -webkit-transform-origin: 12px 0;
+    -moz-transform-origin: 12px 0;
+    height: 88px;
+    width: 60px;
+    background: url(../images/needle.png) no-repeat center center;
+    background-size: cover;
+    z-index: 8;
+    transition: 0.5s;
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+}
+
+.needle-play {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+}
+/*   歌词滚动   */
+
+.lyric {
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    height: 240px;
+    width: 300px;
+    /*background-color: rgba(102, 102, 102, 0.3);*/
+    z-index: 99px;
+    display: none;
+}
+
+.lyric .lyric-ct {
+    position: absolute;
+    top: 20px;
+    height: 200px;
+    width: 300px;
+    /*background-color: #333;*/
+    overflow: hidden;
+}
+
+.lyric .lyric-ct .lyric-box {
+    position: absolute;
+    top: 80px;
+    width: 300px;
+    font-family: Arial, '微软雅黑';
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    overflow: hidden;
+    color: rgba(170, 170, 170, 0.7);
+}
+
+.light-lyric {
+    color: #fff;
+}
+
+.lyric-btn {
+    position: absolute;
+    right: 55px;
+    bottom: 130px;
+    height: 16px;
+    width: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-family: iconfont;
+    font-size:16px;
+    color: rgba(170, 170, 170, 0.7);
+    cursor: pointer;
+}
+/*  控制三键  */
+
+.panel .control {
+    position: absolute;
+    bottom: 0;
+    left: 60px;
+    height: 100px;
+    width: 180px;
+    font-family: iconfont;
+    color: #fff;
+}
+
+.panel .control .prev {
+    float: left;
+    margin: 30px 0;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 17px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.panel .control .next {
+    float: right;
+    margin: 30px 0;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 17px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.panel .control .on-off {
+    margin: 23px 63px;
+    height: 54px;
+    width: 54px;
+    text-align: center;
+    line-height: 54px;
+    font-size: 25px;
+    border: 1px solid #fff;
+    border-radius: 27px;
+    box-sizing: border-box;
+    cursor: pointer;
+}

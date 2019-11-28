@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>server-mock使用说明</title>
+    <style>
+    html,body,h2,p,ul,li{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      color: #333;
+      text-decoration: none;
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <p id="target">这里是数据</p>
+    <button class="load-more">点我</button>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+    $('.load-more').on('click', function(){
+    //   $.ajax({
+    //     url: '/getInfo',
+    //     type: 'post',
+    //     data: {
+    //       username: 'ruoyu'
+    //     },
+    //     dataType: 'text',
+    //     success: function(ret){
+    //       console.log('ajax....');
+    //       console.log(ret);
+    //     },
+    //     error: function(){
+    //       console.log('error...')
+    //     },
+    //     complete: function(){
+    //       console.log('over')
+    //     }
+    //   })
+
+    // })
+
+
+    $.ajax({
+        url: '/getInfo',
+        type: 'get',
+        data: {
+          username: 'ruoyu'
+        },
+        dataType: 'text'
+    }).done(function(ret){
+      console.log('done...');
+      console.log(ret)
+    }).fail(function(){
+      console.log('done error')
+    }).always(function(){
+      console.log('haha')
+    })
+
+    $.get('/getInfo', {username: 'ruoyu'}).done(function(ret){
+      console.log('get .. done...');
+      console.log(ret)
+    }).fail(function(){
+
+    })
+
+})
+
+
+
+    // var btn = document.querySelector('.load-more');
+    // btn.addEventListener('click', function(){
+
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.open('get', '/getInfo', true);
+    //   xhr.send();
+    //   xhr.onreadystatechange = function(){
+    //     if(xhr.status === 200  && xhr.readyState === 4){
+    //       document.querySelector('#target').innerText = xhr.responseText;
+    //       console.log(xhr.responseText)
+    //     } 
+    //   }
+
+    // })
+
+    </script>
+  </body>
+</html>

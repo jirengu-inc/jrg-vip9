@@ -1,0 +1,20 @@
+table {
+	border:#ccc solid 1px;
+	width:68%;
+	margin:0 auto;
+	border-spacing:0;
+}
+table td,th {
+	margin:0;
+	height:45px;
+	text-align:center;
+}
+table th {
+	background-color:#04B4AE;
+}
+.a1,.b1,.c1 {
+	border-right:#ccc solid 1px;
+}
+.a1,.a2,.b1,.b2 {
+	border-bottom:#ccc solid 1px;
+}

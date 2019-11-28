@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>task22-5</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+	.modal-dialog{
+		display: none;
+	}
+	a{
+		text-decoration: none;
+		color: black;
+	}
+	.cover{
+		background-color: #ccc;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 99;
+		position: fixed;
+	}
+	.modal-ct{
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 400px;
+		border-radius: 3px;
+		background-color: #fff;
+		transform: translate(-50%, -50%);
+		z-index: 100;
+	}
+	.header{
+		position: relative;
+		height: 36px;
+		border-bottom: 1px solid #ccc;
+		line-height: 36px;
+	}
+	.header h3{
+		margin: 0;
+		padding-left: 10px;
+		font-size: 16px;
+
+	}
+	.header .close{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		line-height: 1;
+	}
+	.content{
+		padding: 10px;
+	}
+	.footer{
+            padding: 10px;
+            border-top: 1px solid #eee;
+
+    }
+    .btn{
+    	float: right;
+    	margin-left: 10px;
+    	margin-bottom: 10px;
+    }
+    .footer{
+    	content: '';
+    	display: block;
+    	clear: both;
+    }
+</style>
+<body>
+    <div class="btn-group">
+    	<button id="btn-modal">点我</button>
+    </div>
+    <div id="modal-1" class="modal-dialog">
+    	<div class="cover"></div>
+    	<div class="modal-ct">
+    		<div class="header">
+    			<h3>我是标题</h3>
+    			<a href="#" class='close'>×</a>
+    		</div>
+    		<div class="content">
+    			<p>我是内容1</p>
+    			<p>我是内容2</p>
+    		</div>
+    		<div class="footer">
+    			<a href="#" class="btn btn-confim">确定</a>
+    			<a href="#" class="btn btn-cancel">取消</a>
+    		</div>
+    	</div>
+    </div>
+    <script>
+    	var btn= document.querySelector('#btn-modal'),
+    		modal= document.querySelector('#modal-1'),
+    		modalCt=document.querySelector('#modal-1 .modal-ct')
+    	btn.addEventListener('click',function(e){
+    		e.stopPropagation();
+    		showModal(modal);
+    	});
+    	modalCt.addEventListener('click',function(e){
+    		e.stopPropagation();
+    		if( hasClass(e.target,'close') || hasClass(e.target,'btn-cancel')){
+    			hideModal(modal);
+    		}
+    	});
+    	document.body.addEventListener('click',function(){
+    		hideModal(modal)
+    	})
+
+    	function showModal(modal){
+    		modal.style.display ='block';
+    	}
+    	function hideModal(modal){
+    		modal.style.display ='none';
+    	}
+    	function hasClass (ele, cls){
+    		return !!ele.className.match(new RegExp('\\b'+cls+'\\b'));
+}
+    </script>
+</body>
+</html>

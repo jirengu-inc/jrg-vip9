@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task21-2</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+  function hasClass(el, cls) {
+    var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)')
+    return reg.test(el.className);
+  }
+
+  function addClass(el, cls) {
+  if (!hasClass(el, cls)) {
+      el.className += " " + cls;
+  }
+}
+
+function removeClass(el, cls) {
+  var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)')
+      tmp = node.className.replace(reg, '').replace(/\s{2,}/g, ' '); //把两个以上的空格替换为一个空格
+  el.className = trim(tmp);
+}
+
+  </script>
+</body>
+</html>

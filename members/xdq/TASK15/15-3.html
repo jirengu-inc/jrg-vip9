@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1467989323_5539577.css">
+
+
+<style type="text/css">
+
+.iconfont{
+font-family:"iconfont";
+font-size:36px;
+
+font-style:normal;
+-webkit-font-smoothing: antialiased;
+-webkit-text-stroke-width: 0.2px;
+-moz-osx-font-smoothing: grayscale;
+}
+                    
+                    
+
+
+
+html,body,h1,h2,h3,ul,li,a{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+h1,h2,h3,h4,p{
+	text-align: center;
+}
+body {
+    font: 14px/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.layout{
+	width: 1200px;
+	margin: 0 auto;
+}
+.head{
+	padding-top: 100px;
+}
+/*header部分*/
+#header{
+	width: 100%;
+	height: 100%;
+	background: url(header-bg.jpg) center center no-repeat;
+}
+
+
+
+
+
+#header a{
+	color: #fff;
+}
+
+#header .container{
+	height: 100%;
+	display: table;
+}
+#header .table{
+	display: table-cell;
+	width: 1200px;
+	vertical-align: middle;
+	text-align: center;
+}
+#header .title>h1{
+	float: left;
+   
+	color: #FEC810;
+	
+}
+#header .title ul{
+	float: right;
+   
+	
+}
+#header .navbar>li{
+	float: left;
+	margin: 10px;
+}
+#header .navbar>li:hover a{
+	color: #FEC810;
+}
+#header .text-center{
+
+	color: #fff;
+	font-size: 28px;
+	line-height: 1.5;
+}
+#header .text-center a{
+	display: inline-block;
+	width: 150px;
+	height: 70px;
+	font-size: 16px;
+	line-height: 70px;
+	border-radius: 20px;
+	background-color:#fed136;
+}
+#header .text-center a:hover{
+	background-color: #fec503;
+}
+/*services部分*/
+
+#services .serv-icon>li{
+	float: left;
+	width: 400px;
+	text-align: center;
+	padding: 30px 0;
+
+}
+#services .serv-icon>li i{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	color: #fff;
+	font-size: 48px;
+	border-radius: 50px;
+	background-color: #f1de36;
+}
+#portfolid{
+	padding-bottom: 50px;
+	background-color: #ccc;
+	
+
+}
+
+#portfolid .port-image{
+	margin-left: -30px;
+}
+#portfolid .port-image>li{
+	float: left;
+	width: 380px;
+	background-color: #fff;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+#portfolid .port-image>li img{
+	width: 380px;
+	height: 260px;
+
+}
+
+#portfolid .port-image>li a{
+	position: relative;
+	display: inline-block;
+	height: 260px;
+	
+}
+
+#portfolid .port-image>li .img-hover{
+	width: 380px;
+	height: 260px;
+	background-color: rgba(254,209,54,.9);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+#portfolid .port-image>li .img-hover i{
+	width: 30px;
+	height:30px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -15px;
+	margin-left: -15px;
+	color: #fff;
+}
+
+#portfolid .port-image>li a:hover .img-hover{
+	display: block;
+}
+
+/*about部分*/
+
+
+
+#about .about-description{
+	text-align: center;
+}
+
+
+
+#about .about-description>li img{
+	display:inline-block;
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+
+
+}
+#about .about-description>li {
+	position: relative;
+	margin-top: 30px;
+}
+
+#about .about-description .left-information{
+	width: 380px;
+	position: absolute;
+	left: 100px;
+	top: 0;
+	
+}
+
+#about .about-description .right-information{
+	width: 380px;
+	position: absolute;
+	right: 100px;
+	top: 0;
+	
+}
+#about .about-description{
+	position: relative;
+}
+
+#about .about-description:after {
+    content:"";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 2px dotted #ccc;
+}
+
+#ourteam{
+	background-color: #ccc;
+	
+}
+#ourteam .team-members{
+	text-align: center;
+}
+
+#ourteam .team-members>li img{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+}
+
+#ourteam .team-members>li{
+	float: left;
+	width: 400px;
+
+}
+
+#ourteam .team-members>li .iconfont:hover{
+	color: yellow;
+}
+
+#contact{
+	background: url(images/map-image.png) #222 no-repeat center center;
+	height: 500px;
+}
+#contact .contact-input{
+	width: 50%;
+	float: left;
+
+}
+#contact .contact-textarea{
+	width: 50%;
+	float: left;
+}
+
+#contact .contact-input input {
+	display: block;
+	width: 95%;
+	height: 60px;
+	margin-top: 10px;
+	float: left;
+}
+
+#contact .contact-textarea textarea{
+	display: block;
+	margin-top: 10px;
+	width: 95%;
+	height: 210px;
+	float: left;
+}
+#ad ul{
+	height: 100px;
+}
+
+#ad ul>li{
+	float: left;
+	width: 25%;
+	padding-top: 30px;
+}
+
+
+
+#footer .icon-center{
+	margin-left: 200px;
+}
+
+#footer p:first-child{
+	float: left;
+
+
+}
+#footer p:last-child{
+	float: right;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+ <div id="header">
+ 		<div class="title clearfix layout">
+ 		<h1>Start Boostrap</h1>
+ 		<ul class="navbar clearfix">
+ 			<li><a href="">SERVICES</a></li>
+ 			<li><a href="">PORTFOLIO</a></li>
+ 			<li><a href="">ABOUT</a></li>
+ 			<li><a href="">TEAM</a></li>
+ 			<li><a href="">CONTACT</a></li>
+ 		</ul>
+ 		</div>
+ 	    <div class="container layout">
+  		<div class="table">
+ 		<div class="text-center">
+ 			<h2>Welcome to our studio!</h2>
+ 			<h1>IT'S NICE TO MEET YOU</h1>
+ 			<a class="btn" href="#">TELL ME MORE</a>
+ 		</div>
+ 	    </div>	
+ 	</div>
+ </div>
+
+ <div id="services">
+ <div class="layout">
+ 	<h1 class="head">SERVICES</h1>
+ 	<p>Lorem ipsum sit amet consectetur.</p>
+ 		<ul class="serv-icon clearfix">
+ 			<li>
+ 			<i class="iconfont">&#xe600;</i>
+ 			<h4>E-Commerce</h4>
+ 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+ 			</li>
+ 			<li>
+ 				<i class="iconfont">&#xe601;</i>
+ 				<h4>Responsive Design</h4>
+ 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+ 			</li>
+ 			<li>
+ 				<i class="iconfont">&#xe602;</i>
+ 				<h4>Web Security</h4>
+ 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+ 			</li>
+ 		</ul>
+  </div>
+ </div>
+
+ <div id="portfolid">
+ <div class="layout">
+ 	<h1 class="head">PORTFOLIO</h1>
+ 	<p>Lorem ipsum dolor sit amet consectetur.</p>
+ 	<ul class="port-image clearfix">
+ 		<li>
+ 		 	<a href="">
+ 			<div class="img-hover"><i class="iconfont">&#xe602;</i></div>
+ 			<img src="images/roundicons.png">
+ 			</a>
+ 		 	<h4>Round Icons</h4>
+ 			<p>Graphic Design</p>
+ 		</li>
+ 		<li>
+ 			<a href="">
+ 			<div class="img-hover"><i class="iconfont">&#xe602;</i></div>
+ 			<img src="images/startup-framework.png">
+ 			</a>
+ 		 	<h4>Startup Framework</h4>
+ 			<p>Website Design</p>
+ 		</li>
+ 		<li>
+ 			<a href="">
+ 			<div class="img-hover"><i class="iconfont">&#xe602;</i></div>
+ 			<img src="images/treehouse-preview.png">
+ 			</a>
+ 			<h4>Treehouse</h4>
+ 			<p>Website Design</p>
+ 		</li>
+ 		<li>
+ 			<a href="">
+ 			<div class="img-hover"><i class="iconfont">&#xe602;</i></div>
+ 			<img src="images/golden-preview.png">
+ 			</a>
+ 			<h4>Golden</h4>
+ 			<p>Website Design</p>
+ 		</li>
+ 		<li>
+ 			<a href="">
+ 			<div class="img-hover"><i class="iconfont">&#xe602;</i></div>
+ 			<img src="images/escape-preview.png">
+ 			</a>
+ 			<h4>Escape</h4>
+ 			<p>Website Design</p>
+ 		</li>
+ 		<li>
+ 			<a href="">
+ 			<div class="img-hover"><i class="iconfont">&#xe602;</i></div>
+ 			<img src="images/dreams-preview.png">
+ 			</a>
+ 			<h4>Dreams</h4>
+ 			<p>Website Design</p>
+ 		</li>
+ 	</ul>
+ </div>
+ </div>
+
+ <div id="about">
+  	<h1 class="head">ABOUT</h1>
+ 	<p>Lorem ipsum dolor sit amet consectetur.</p>
+ 	<ul class="about-description layout">
+ 		<li>
+ 		<img src="images/about.jpg">
+ 		<div class="left-information clearfix">
+ 		<h4>2009-2011<br>
+        Our Humble Beginnings</h4>
+      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+      	</div>
+ 		</li>
+ 		<li>
+ 		<img src="images/about.jpg">
+ 		<div class="right-information">
+ 		<h4>2009-2011<br>
+        Our Humble Beginnings</h4>
+      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+      	</div>
+ 		</li>
+ 		<li>
+ 		<img src="images/about.jpg">
+ 		<div class="left-information">
+ 		<h4>2009-2011<br>
+        Our Humble Beginnings</h4>
+      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+      	</div>
+ 		</li>
+ 		<li>
+ 		<img src="images/about.jpg">
+ 		<div class="right-information">
+ 		<h4>2009-2011<br>
+        Our Humble Beginnings</h4>
+      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+      	</div>
+ 		</li>
+ 		<li>
+ 		<img src="images/about.jpg">
+ 	 	</li>
+ 	</ul>
+ </div>
+ <div id="ourteam">
+ 	<h1 class="head">Our Amazing Team</h1>
+ 	<p>Lorem ipsum dolor sit amet consectetur.</p>
+ 	<ul class="team-members clearfix layout">
+ 		<li>
+ 			<img src="images/Kay.jpg">
+ 			<h4>Kay Garland</h4>
+ 			<p>Lead Designer</p>
+ 			<a href=""><i class="iconfont">&#xe606;</i></a>
+ 			<a href=""><i class="iconfont">&#xe604;</i></a>
+ 		</li>
+ 		<li>
+ 			<img src="images/Kay.jpg">
+ 			<h4>Kay Garland</h4>
+ 			<p>Lead Designer</p>
+ 			<a href=""><i class="iconfont">&#xe606;</i></a>
+ 			<a href=""><i class="iconfont">&#xe604;</i></a>
+ 		</li>
+ 		<li>
+ 			<img src="images/Kay.jpg">
+ 			<h4>Kay Garland</h4>
+ 			<p>Lead Designer</p>
+ 			<a href=""><i class="iconfont">&#xe606;</i></a>
+ 			<a href=""><i class="iconfont">&#xe604;</i></a>
+ 		</li>
+ 	</ul>
+ </div>
+ <div id="ad">
+ 	<ul class=" layout clearfix">
+ 		<li><img src="images/envato.jpg"></li>
+ 		<li><img src="images/designmodo.jpg"></li>
+ 		<li><img src="images/creative-market.jpg"></li>
+ 		<li><img src="images/themeforest.jpg"></li>
+ 	</ul>
+ </div>
+ <div id="contact">
+ 	<div class="layout">
+ 	<h1 class="head">CONTACT US</h1>
+ 	<p>Lorem ipsum dolor sit amet consectetur.</p>
+ 	<div class="contact-input clearfix">
+ 		<input type="text" name="username" value="YOUR NAME">
+ 		<input type="text" name="emal" value="YOUR EMAIL">
+ 		<input type="text" name="mobile" value="YOUR PHONE">
+ 	</div>	
+ 	<div class="contact-textarea">
+ 		<textarea name="comments" cols="20" rows="4">YOUR MESSAGE</textarea>
+ 	</div>
+ 	<a href="">SEND MESSAGE</a>
+ 	</div>
+  </div>  
+  <div id="footer">
+  <div class="layout clearfix">
+  
+   <p>Copyright © Your Website 2014 Privacy PolicyTerms of Use</p>
+
+  	<span class="icon-center">
+  	<i class="iconfont">&#xe606;</i>
+  	<i class="iconfont">&#xe604;</i>
+  	</span>
+  
+  	<p>
+  	<a href="">Privacy Policy</a>
+  	<a href="">Terms of Use</a>
+  	</p>
+  	
+  </div>
+  </div> 
+</body>
+</html>

@@ -1,0 +1,332 @@
+html, body, ul, li, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  padding: 0px;
+  font-family: PingFangSC-Regular, "微软雅黑", SimHei
+}
+html, body {
+  height: 100%;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.layout {
+  width: 1140px;
+  margin: 0 auto;
+}
+.font-italic {
+  font-style: italic;
+}
+.font-bold {
+  font-weight: bold;
+}
+.white-font {
+  color: white;
+}
+.text-center {
+  text-align: center;
+}
+.light-gray-text {
+  color: rgb(119, 119, 119);
+}
+#header, #services, #portfolio, #team, #contact {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+#header {
+  /*background-image: url(../Resources/header-bg.jpg);
+  background-position: center;*/
+  position: relative;
+  height: 100%;
+}
+#header .layout>a:first-child {
+  color: rgb(253, 196, 46);
+  float: left;
+}
+#header .layout>a:first-child h3 {
+  font-family: Zapfino;
+  font-size: 24px;
+}
+#header h1 {
+  margin-top: 180px;
+  margin-bottom: 30px;
+}
+#header p {
+  font-size: 60px;
+}
+.carousel {
+  left: 0;
+  top: 0;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*overflow: hidden;*/
+}
+.arrow {
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  margin-top: -15px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  line-height: 30px;
+  text-align: center;
+  top: 50%;
+}
+.pre {
+  left: 0;
+}
+.next {
+  left: 100%;
+  margin-left: -30px;
+}
+.carousel>.img-ct {
+  position: absolute;
+  height: 100%;
+}
+.carousel>.img-ct>li {
+  list-style: none;
+  float: left;
+  height: 100%;
+  /*background-image: url(../Resources/2016-07-22.jpg);
+  background-position: center;*/
+}
+.carousel>.img-ct img {
+  height: 100%;
+}
+.carousel>.img-ct:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.button-style {
+  background: rgb(253, 208, 72);
+  color: white;
+  padding: 20px 40px 20px 40px;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: bold;
+}
+#header .layout>a:last-child {
+  margin-top: 50px;
+  margin-bottom: 180px;
+}
+#header .layout>a:last-child:hover {
+  background: rgb(253, 196, 46);
+}
+#header>.layout>ul {
+  margin-top: 10px;
+}
+#header>.layout>ul>li {
+  float: right;
+}
+#header>.layout>ul>li>a {
+  color: white;
+  display: block;
+  padding: 20px 10px 20px 10px;
+  font-size: 14px;
+}
+#header>.layout>ul>li>a:hover {
+  color: rgb(253, 196, 46);
+}
+.title-style {
+  margin-top: 160px;
+  margin-bottom: 10px;
+}
+.subtitle-style {
+  margin-top: 20px;
+  font-style: italic;
+  color: rgb(119, 119, 119);
+}
+.services-list {
+  margin-left: -10px;
+  margin-top: 80px;
+  margin-bottom: 160px;
+}
+.services-list>li {
+  float: left;
+  max-width: 370px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.icon-basket, .icon-desktop, .icon-lock {
+  margin: 0 auto;
+  font-size: 48px;
+  color: white;
+  width: 100px;
+  line-height: 100px;
+  background: rgb(253, 208, 72);
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#portfolio, #team {
+  background: rgb(247, 247, 247);
+}
+.portfolio-list {
+  margin-left: -10px;
+  margin-bottom: 60px;
+  margin-top: 50px;
+  position: relative;;
+}
+.more-btn {
+  margin-bottom: 80px;
+}
+.portfolio-list>li {
+  width: 360px;
+  margin: 10px;
+  background: white;
+  position: absolute;
+}
+.portfolio-list>li img {
+  width: 100%;
+}
+.portfolio-list>li>h3:first-of-type {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.portfolio-list>li>p:first-of-type {
+  margin-bottom: 40px;
+  font-style: italic;
+}
+.icon-plus {
+  top: 0;
+  left: 0;
+  color: white;
+  position: absolute;
+  line-height: 260px;
+  width: 100%;
+  font-size: 60px;
+  background: rgba(253, 208, 72, 0.7);
+  opacity: 0;
+}
+.icon-plus:hover {
+  opacity: 1;
+}
+.seperate-line {
+  width: 0px;
+  height: 150px;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+}
+.about-list {
+  margin-top: 80px;
+  margin-bottom: 160px;
+}
+.about-list>li {
+  position: relative;
+  font-size: 0;
+}
+.div-left-float {
+  position: absolute;
+  left: 20px;
+  max-width: 450px;
+  text-align: right;
+  font-size: 16px;
+}
+.div-right-float {
+  position: absolute;
+  right: 20px;
+  max-width: 450px;
+  text-align: left;;
+  font-size: 16px;
+}
+.about-list>li>img {
+  height: 140px;
+  border-radius: 70px;
+  border: 5px solid #ddd;
+}
+.circle-style {
+  height: 140px;
+  border-radius: 70px;
+  border: 5px solid rgb(241, 241, 241);
+}
+.circle-text-style {
+  width: 80px;
+  height: 80px;
+  background: rgb(253, 208, 72);
+  margin: 0 auto;
+  color: black;
+  font-size: 16px;
+  padding: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+.team-list {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+.team-list+p {
+  margin: 0 200px 160px 200px;
+}
+.team-list>li {
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.contact-list>li {
+  display: inline-block;
+}
+.contact-list>li>a {
+  display: block;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+  background: black;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+}
+.contact-list {
+  margin-top: 10px;
+}
+.contact-list>li>a:hover {
+  background: rgb(253, 208, 72);
+}
+.team-list img {
+  width: 210px;
+  border-radius: 110px;
+  border: 5px solid white;
+}
+#contact {
+  background-image: url(../Resources/map-image.png);
+  background-color: black;
+}
+.form-part {
+  width: 570px;
+  float: left;
+  height: 232px;
+  border-radius: 3px;
+}
+.input-style {
+  float: left;
+  width: 550px;
+  line-height: 58px;
+  margin-bottom: 24px;
+  border-radius: 3px;
+}
+.form-style {
+  margin-top: 80px;
+}
+.form-style a {
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 160px;
+}
+.form-style a:hover {
+  background: rgb(253, 196, 46);
+}

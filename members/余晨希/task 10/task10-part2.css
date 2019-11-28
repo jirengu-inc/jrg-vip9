@@ -1,0 +1,58 @@
+.container {
+    width: 300px;
+}
+
+.arrow-up {
+  position: relative;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #888;
+}
+.arrow-up-right-outer {
+  position: relative;
+  top: 58.8px;
+  left: 270px;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-top: 30px solid #888;
+}
+.arrow-up-right-inner {
+  position: relative;
+  top: 28.9px;
+  left: 271px;
+  width: 0;
+  height: 0;
+  border-left: 28.2842712px solid transparent;
+  border-top: 28.2842712px solid red;
+}
+
+
+
+.arrow-up-outer {
+  position: relative;
+  top: 19px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #888;
+}
+.arrow-up-inner {
+    position: relative;
+    top: 1px;
+  left: 11px;
+  width: 0;
+  height: 0;
+  border-left: 19px solid transparent;
+  border-right: 19px solid transparent;
+  border-bottom: 19px solid #fff;
+}
+.rectangle {
+    height: 130px;
+    border: 1px solid #888;
+}

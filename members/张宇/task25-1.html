@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task25-1 jQuery实现侧栏</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+
+        body *{
+            box-sizing: border-box;
+            font-family: '微软雅黑';
+        }
+        a {
+            text-decoration: none;
+        }
+        ul,li{
+            list-style: none;
+            margin:0;
+            padding: 0;
+        }
+        .ct > ul{
+            width:200px;
+        }
+        .ct > ul > li{
+            background: rgb(200,18,18);
+            position: relative;
+        }
+        .ct > ul > li > a {
+            color: white;
+            display: block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-bottom: 1px solid rgb(224,36,38);
+        }
+        .ct > ul > li > i{
+            position: absolute;
+            top:30%;
+            right:10%;
+            color: #fff;
+        }
+        .child-panel{
+            position: absolute;
+            top:0;
+            left:100%;
+            width: 250px;
+            border:solid 1px #aaaaaa;
+            display: none;
+        }
+        .child-panel > li a{
+            float: left;
+            padding:5px 40px 5px 20px;
+            margin: 5px;
+            color: #333;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <ul class="ul">
+            <li>
+                <a href="#">家用电器</a>
+                <i class="fa fa-angle-right fa-lg"></i>
+                <ul class="child-panel">
+                    <li>
+                        <a href="">生活电器</a>
+                        <a href="">个护健康</a>
+                        <a href="">大型家电</a>
+                        <a href="">厨房电器</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">手机、数码</a>
+                <i class="fa fa-angle-right fa-lg"></i>
+                <ul class="child-panel">
+                    <li>
+                        <a href="">手机通讯</a>
+                        <a href="">手机配件</a>
+                        <a href="">摄影摄像</a>
+                        <a href="">数码配件</a>
+                        <a href="">影音娱乐</a>
+                        <a href="">智能设备</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">医疗保健</a>
+                <i class="fa fa-angle-right fa-lg"></i>
+                <ul class="child-panel">
+                    <li>
+                        <a href="">中西药品</a>
+                        <a href="">营养健康</a>
+                        <a href="">营养成分</a>
+                        <a href="">滋补养生</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <script>
+        $li = $('.ul>li');
+        $panel = $li.find('.child-panel');
+
+        $li.on('mouseenter',function(){
+            $(this).find('.child-panel').show(200);
+        });
+        $li.on('mouseleave',function(){
+            $(this).find('.child-panel').hide(200);
+        });
+    </script>
+</body>
+</html>

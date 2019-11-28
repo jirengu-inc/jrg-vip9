@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Waterfall</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        body,div,ul,li,img{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .ct{
+            position: relative;
+        }
+        .list{
+            display: block;
+            margin: 0 auto;
+            position: relative;
+        }
+        .list>li{
+            width: 250px;
+            position: absolute;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 1s;
+        }
+        .list>li>img{
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <ul class="list">
+            <li><img  src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTZWFPV3htSnpBWlVEVnBjVGwzQjhaTGh4Sjd6RmltWnV3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTU1JTV2kydTM4WjZ4ZjJzSGV2V2RxV2tUTTYvNngyZWNnPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTUlVoYXJOV0NRSFhRQ2x2QmZTSTdMdHpRNithNmEwNEZnPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTWjk5enZESUQ5T0c3MWNySFYyaDY3bWV4V3FiNWxIWnBRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTYU9Kc1lVLytob01MOVlyUmlEQW9tU3BIb2JKcjd2KzV3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTVGRNV0lwRC9VdjRIdHF2QkhLTytmNWRqeVlERlowdnl3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTWFlCUVIwS2phc0dndjM0STJHeFpqdmtEMmtOMHoxZHpnPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTVW1JWWhzdDNKeU5yL2V4MHg5bDlxNU9vbS9GU3ZMd2x3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTVndEL3cxdHJKcEJVRm5DbWxueGRhS2Q5bXRySjZocUpnPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTVGg3TlVuQzFXSzdlUDRjVkI5OUpjL0MvTnZoQ2FRMXdBPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTWHpYSGliVGZDYngrTlFUazRmMHJrUDhQMlU0a0xtREN3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTWHpYSGliVGZDYnhSOW9SOXZpTUF1cGQ5SzRMNEUvYk5nPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+            <li><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2dSbXdOdVlyRkVTVTA4Rk1sbVZ0K0pjd1RXdHl6WTBxUDNONFVOb1NneDVRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt=""></li>
+        </ul>
+    </div>
+
+<script>
+    var winWidth,$imgLi,$imgUl,imgWidth,colNum,colHeightArr;
+    init();
+    layout();
+    $(window).resize(function(){
+        init();
+        layout();
+    })
+    function init(){
+        winWidth = $(window).width(),   //窗口宽
+        $imgLi = $('.list>li'),
+        $imgUl = $('.list'),            //ul
+        imgWidth = $imgLi.eq(0).outerWidth(true),   //li宽
+        colNum = parseInt(winWidth / imgWidth),     //列数
+        colHeightArr = [];      //初始列高度数组
+        $imgUl.css('width',colNum*imgWidth + 'px');     //ul获得高度
+
+        for(var i = 0; i < colNum; i++){
+            colHeightArr.push(0);
+        };
+    }
+
+    function layout(){
+        var $imgs = $('.list img');
+        $imgs.each(function(){
+            console.log(this.complete);
+            if(this.complete){
+                setPosition(this);
+            }
+        });
+
+        $imgs.one('load',function(){
+            setPosition(this);
+        })    
+    }
+
+    function setPosition(img){
+        var $imgLi = $(img).parent(),
+            minObj = getMin(colHeightArr),
+            minVal = minObj.minValue,
+            minIndex = minObj.minIndex;
+        $imgLi.css({
+            'top': minVal,
+            'left': minIndex*imgWidth
+        });
+        colHeightArr[minIndex] += $imgLi.outerHeight(true);
+        console.log(colHeightArr);
+    }
+
+    function getMin(arr){
+        if(arr.length === 0) return;
+        var index = 0,
+            val = arr[0];
+        for(var i = 0;i < arr.length; i++){
+            if(arr[i]<val){
+                val = arr[i];
+                index = i;
+            }
+        }
+        return {minValue: val, minIndex: index}
+    }
+
+</script>
+</body>
+</html>

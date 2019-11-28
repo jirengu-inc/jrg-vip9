@@ -1,0 +1,99 @@
+body,ul,li,p,h1{
+    margin: 0;
+    padding: 0;
+    color: #666;
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+    color: #666;
+}
+
+.clearFix:after{
+  content: '';
+    display: block;
+    clear: both;
+}
+
+.mid{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header{
+    height: 50px;
+    background: #000;
+}
+.header .head{
+    height: 50px;
+}
+.header .head h1{
+    float:left;
+    height: 40px;
+    padding-top: 5px;
+}
+.header .head h1 img{
+    height: 100%;
+}
+.header .head .nav{
+    float:right;
+}
+.header .head .tip{
+    float: left;
+}
+
+.header .head .tip a{
+    display: block;
+    line-height: 50px;
+    color: #fff;
+    padding: 0 20px;
+}
+.header .head .tip a:hover{
+    color: #000;
+    background: #fff;
+}
+
+.box{
+    margin-top: 10px;
+}
+.box .left{
+    float: left;
+    width: 200px;
+}
+.box .left .cont{
+    width: 190px;
+    height: 500px;
+    background: #ccc;
+}
+.box .right{
+    float: right;
+    width: 700px;
+}
+.box .right .cont{
+    width: 640px;
+    height: 440px;
+    padding: 30px;
+    background: #ccc;
+}
+.box .right .cont h1{
+    padding-bottom: 30px;
+}
+.box .right .cont p{
+    padding-bottom: 10px;
+}
+
+.footer{
+    margin-top: 10px;
+    height: 40px;
+    background: #000;
+}
+
+.foot{
+    line-height: 40px;
+}
+.foot span{
+    color: #fff;
+    padding-right: 20px;
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+	.box{
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+	.box.active{
+		width: 500px;
+		height: 100px;
+		background: yellow;
+	}
+	</style>
+</head>
+<body>
+	<input id="username" type="text">
+	<img class="avatar" src="http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/4.gif" alt="">
+	<button class="btn1">图片1</button>
+	<button class="btn2">图片2</button>
+
+	<ul class="img-list">
+		<li data-src="http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/1.gif">1</li>
+		<li data-src="http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/2.gif">2</li>
+		<li data-src="http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/3.gif">3</li>
+		<li data-src="http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/4.gif">4</li>
+	</ul>
+	<button class="btn3">添加</button>
+
+	<div class="box"></div>
+	<button class="btn4">变色1</button>
+	<button class="btn5">变色2</button>
+	<button class="btn6">变色</button>
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+
+	var $avatar = $('.avatar');
+
+	$('.btn1').on('click', function(){
+		$avatar.attr('src', 'http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/4.gif');
+	})
+	$('.btn2').on('click', function(){
+		$avatar.attr('src', 'http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/3.gif');
+	})
+
+	$('.img-list>li').on('click', function(){
+		console.log(this);
+		//var url = this.getAttribute('data-src');
+		var url = $(this).attr('data-src');
+		$avatar.attr('src', url);
+	})
+
+	$('.btn3').on('click', function(){
+		$('.img-list').append('	<li data-src="http://jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/1.gif">4</li>')
+	})
+
+
+	$('.btn4').on('click', function(evt){
+		console.log($(evt.target))
+		console.log($(this))
+		$('.box').addClass('active');
+	})
+	$('.btn5').on('click', function(){
+		$('.box').removeClass('active');
+	})
+	$('.btn6').on('click', function(){
+		var $box = $('.box');
+		$box.toggleClass('active');
+		// if($box.hasClass('active')){
+		// 	$box.removeClass('active');
+		// }else{
+		// 	$box.addClass('active');
+		// }
+	})
+
+	</script>
+
+</body>
+</html>

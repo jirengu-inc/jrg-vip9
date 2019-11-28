@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stickup1</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+    <style>
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #header,#body,#nav,#aside,#main,#footer{
+            padding:5px;
+            margin-bottom: 5px;
+        }
+
+        #header{
+            background: #22aaaa;
+            height: 100px;
+        }
+        #nav{
+            text-align: center;
+        }
+        #body{
+            background: #aaaaaa;
+        }
+        #aside{
+            background: #337ab7;
+            float: left;
+            width: 100px;
+            min-height: 500px;
+        }
+        #main{
+            background: #ffffff;
+            margin-left:115px;
+            height: 1500px;
+        }
+        #footer{
+            background: #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <p>It's Header. </p>
+</div>
+
+<div id="nav" class="nav" style="background: #5ca2cf;">
+    <p>It's Nav. 我跟随浏览器窗口宽度。</p>
+</div>
+
+<div id="body" class="clearfix">
+    <div id="aside">
+        <p>I'm aside.</p>
+    </div>
+    <div id="main">
+        <p>I'm main.</p>
+    </div>
+</div>
+
+<div id="nav" class="nav" style="background: #57cf63;">
+    <p>It's Nav. 我跟随浏览器窗口宽度。</p>
+</div>
+
+<div id="body" class="clearfix">
+    <div id="aside">
+        <p>I'm aside.</p>
+    </div>
+    <div id="main">
+        <p>I'm main.</p>
+    </div>
+</div>
+
+<div id="nav" class="nav" style="background: #cf4f5d;">
+    <p>It's Nav. 我跟随浏览器窗口宽度。</p>
+</div>
+
+<div id="body" class="clearfix">
+    <div id="aside">
+        <p>I'm aside.</p>
+    </div>
+    <div id="main">
+        <p>I'm main.</p>
+    </div>
+</div>
+
+<div id="footer">
+    <p>It's Footer.</p>
+</div>
+
+<script>
+    $('.nav').each(function () {
+        fixNav($(this));
+    });
+
+    function fixNav(ele) {
+        var $nav = ele,
+                navH = $nav.height(),
+                navW = $nav.width(),
+                offsetTop = $nav.offset().top,
+                offsetLeft = $nav.offset().left;
+
+        var $navClone = $nav.clone()
+                .css({
+                    'position':'fixed',
+                    'top':0,
+                    'left':offsetLeft,
+                    'width':navW,
+                    'margin':0,
+                    'z-index':100
+                })
+                .hide()
+                .insertBefore($nav)
+                .data('data-fixed',false);
+
+
+        $(window).on('scroll',function () {
+            var scrollTop = $(this).scrollTop();
+
+            if(scrollTop >= offsetTop){
+                if(!isFixed()){
+                    setFix();
+                }
+            }
+            if(scrollTop < offsetTop){
+                if(isFixed()){
+                    stopFix();
+                }
+            }
+        });
+        $(window).on('resize',function () {
+            $navClone.css('width',$nav.width());
+        });
+
+
+        function setFix() {
+            $navClone.show();
+            $navClone.data('data-fixed',true);
+        }
+        function stopFix() {
+            $navClone.hide();
+            $navClone.data('data-fixed',false);
+        }
+        function isFixed() {
+            return $navClone.data('data-fixed');
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .ct {
+        position: relative;
+    }
+    
+    .ct>ul>li {
+        position: absolute;
+        width: 200px;
+        margin-right: 10px;
+        margin-top: 10px;
+        transition: all 1s;
+    }
+    
+    .h1 {
+        height: 200px;
+        background-color: #f4b300;
+    }
+    
+    .h2 {
+        height: 300px;
+        background-color: #691BB8;
+    }
+    
+    .h3 {
+        height: 400px;
+        background-color: #006ac1;
+    }
+    
+    .h4 {
+        height: 500px;
+        background-color: #aabbcc;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <ul>
+            <li class="h1">1</li>
+            <li class="h2">2</li>
+            <li class="h3">3</li>
+            <li class="h4">4</li>
+            <li class="h3">5</li>
+            <li class="h4">6</li>
+            <li class="h3">7</li>
+            <li class="h2">8</li>
+            <li class="h1">9</li>
+            <li class="h1">10</li>
+        </ul>
+    </div>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+
+    var colHeightArr,boxWidth,colCount;//将局部变量改成全局变量
+
+    init();
+    layout();
+
+
+
+    $(window).on('resize', function(){
+    	init();
+    	layout();
+ 	})
+
+    function init(){
+    	colHeightArr = [];
+    	boxWidth = $('.ct>ul>li').outerWidth(true);//outerWidth(true)包括外边距
+    	colCount = parseInt($('.ct').width()/boxWidth);//以容器的宽度去算
+
+    	//1* 数组里面是高度之和
+    	for (var i = 0; i < colCount; i++) {
+    		colHeightArr.push(0);
+    	}
+    }
+
+
+    function layout(){
+    	//3* 放置流程  [0,0,0,0,0]
+    	$('.ct>ul>li').each(function(){
+    		var $box = $(this);
+    		var minObject = getMin(colHeightArr);
+    		var minValue = minObject.minValue;
+    		var minIndex = minObject.minIndex;
+
+
+    		$box.css({left:boxWidth*minIndex, top:minValue})
+
+    		colHeightArr[minIndex] += $box.outerHeight(true);
+    	})
+
+    }
+
+
+    	//[20,10,50,100]
+    	//2* 每次放的时候从数组里面挑选一个最小值，还知道他的下标（相当于知道他水平方向的位置）
+    	//	 知道他的最小值就知道他垂直方向的位置，把元素放进去。放进去之后更新一下数组
+    	function getMin(arr){
+    		if (arr.length === 0) return;
+    		var value = arr[0];
+    			index = 0;
+    		for (var i = 0; i < arr.length; i++) {
+    			if(arr[i]<value){
+    				value = arr[i];
+    				index = i;
+    			}
+    		}
+
+
+    		return {minValue: value,minIndex: index};
+    	}
+
+//写完之后再console测试一下
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

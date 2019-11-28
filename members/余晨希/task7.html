@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>任务七表单</title>
+</head>
+<body>
+    <form method="post">
+        <div>
+            <label for="name">姓名：</label>
+            <input id="name" type="text" name="name" placeholder="用户名">
+        </div>
+        <div>
+            <label for="password">密码：</label>
+            <input id="password" name="password" type="password" placeholder="密码">
+        </div>
+        <div>
+            <label>性别：</label>
+            <input type="radio" name="gender" id="male" value="男" checked>
+            <label for="male">男</label>
+            <input type="radio" name="gender" id="female" value="女">
+            <label for="female">女</label>
+        </div>
+        <div>
+            <label>取向：</label>
+            <input type="radio" name="orientation" id="male-orientation" value="男">
+            <label for="male-orientation">男</label>
+            <input type="radio" name="orientation" id="female-orientation" value="女" checked>
+            <label for="female-orientation">女</label>
+        </div>
+        <div>
+            <label>爱好：</label>
+            <input id="radio-dota" name="hobbies" value="dota" type="checkbox">
+            <label for="radio-dota">dota</label>
+            <input id="radio-travel" name="hobbies" value="旅游" type="checkbox" checked>
+            <label for="radio-travel">旅游</label>
+            <input id="radio-pets" name="hobbies" value="宠物" type="checkbox" checked>
+            <label for="radio-pets">宠物</label>
+        </div>
+        <div>
+            <label for="comments">评论：</label>
+            <textarea id="comments" name="comments"  cols="40" rows="15" placeholder="ddd"></textarea>
+        </div>
+        <div>
+            <label>我的car：</label>
+            <select name="mycar">
+                <option value="萨博" selected>萨博</option>
+                <option value="宝马">宝马</option>
+                <option value="奔驰">奔驰</option>
+            </select>
+            <input type="submit" value="提交">
+        </div>
+    </form>
+</body>
+</html>

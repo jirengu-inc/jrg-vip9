@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task29-backTop</title>
+    <style>
+        .content{
+            width: 900px;
+            background: #b00;
+            height: 1300px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $('<div></div>').appendTo('body').css({
+            position:'fixed',
+            bottom:'50px',
+            right:'50px',
+            width:'60px',
+            height:'60px',
+            cursor:'pointer',
+            display:'none',
+            backgroundImage:'url(http://news.d.cn/resource/img/back.png)',
+            backgroundRepeat:'no-repeat',
+            backgroundPosition:'center',
+        })
+        $('body').children().last().on('click',function(){
+            $(window).scrollTop(0)
+        })
+        $(window).on('scroll',function(){
+            var $scrollTop = $(window).scrollTop()
+            if ($scrollTop >= 300) {
+                $('body').children().last().show()
+            } else {
+                $('body').children().last().hide()
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu28-2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	html,body,p {
+		color: #fff;
+		margin: 0;
+		padding: 0;
+	}
+	#header {
+		height: 75px;
+		background-color: red;
+		margin-bottom: 20px;
+	}
+	.nav {
+		height: 50px;
+		background: blue;
+	}
+	#contant {
+		height: 700px;
+		background-color: #ccc;
+		padding: 10px;
+	}
+	#contant .aside {
+		height: 500px;
+		width: 100px;
+		float: left;
+		background-color: green;
+	}
+	#contant .main {
+		height: 100%;
+		background-color: #fff;
+		overflow: hidden;
+	}
+	#footer {
+		height: 25px;
+		background-color: yellow;
+	}
+</style>
+<script type='text/javascript' src='http://libs.useso.com/js/jquery/1.9.1/jquery.min.js'></script>
+</head>
+<body>
+    <div id="header">header</div>
+    <div class="nav">nav1</div>
+    <div id="contant">
+    	<div class="aside">aside</div>
+    	<div class="main">main</div>
+    </div>
+    <div id="footer">footer</div>
+    <div id="header">header</div>
+    <div class="nav">nav2</div>
+    <div id="contant">
+    	<div class="aside">aside</div>
+    	<div class="main">main</div>
+    </div>
+    <div id="footer">footer</div>
+    <div id="header">header</div>
+    <div class="nav">nav3</div>
+    <div id="contant">
+    	<div class="aside">aside</div>
+    	<div class="main">main</div>
+    </div>
+    <div id="footer">footer</div>
+    <div id="header">header</div>
+    <div class="nav">nav4</div>
+    <div id="contant">
+    	<div class="aside">aside</div>
+    	<div class="main">main</div>
+    </div>
+    <div id="footer">footer</div>
+    <div id="header">header</div>
+    <div class="nav">nav5</div>
+    <div id="contant">
+    	<div class="aside">aside</div>
+    	<div class="main">main</div>
+    </div>
+    <div id="footer">footer</div>
+<script>
+	$.fn.stickup = function(){
+		var $cur = this,//$('#nav'),
+			offsetTop = $cur.offset().top,
+			offsetLeft = $cur.offset().left,
+			curH = $cur.height(),
+			scrollTop,
+			curW = $cur.width();//记录并保存初始位置和长宽大小
+
+		var $curClone = $cur.clone().css({opacity: 0})//仍然占据高度，设为none
+									.insertBefore($cur)//在$cur外层添加
+									.hide();//这个克隆元素只在show的时候占据文档流
+		$(window).on('scroll', function(){
+			scrollTop = $(this).scrollTop();
+			// console.log('当前window滚动' + scrollTop + '元素高度' + offsetTop);
+			if (scrollTop >= offsetTop) {
+				if (!isFixed()) {
+					setFixed();
+					console.log('执行setFixed');
+				}
+			} else if (scrollTop < offsetTop) {
+				if (isFixed()) {
+					unsetFixed();
+					console.log('执行unsetFixed');
+				}
+			}
+		});
+		function isFixed(){
+			return !!$cur.data('data-fixed');//强制转化为布尔值
+		}
+		function setFixed(){
+			$cur.data('data-fixed', true).css({
+				position: 'fixed',
+				top: 0,
+				left: 'offsetLeft',
+				width: curW,
+				'z-index': 999
+			});
+			$curClone.show();//显示出来并占据文档流
+			// console.log($cur.data());
+		}
+		function unsetFixed(){
+			$cur.data('data-fixed', false).removeAttr('style');
+			// console.log($cur.data());
+			$curClone.hide();
+		}
+	}
+	$('.nav').each(function(){
+		$(this).stickup();
+	});
+
+	//或者直接写成
+	//$('.nav').each(function(){
+	//    var ....
+	//    coding...
+	//})
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-2</title>
+</head>
+<body>
+    <ul class="ct">
+    <li data-img="https://www.baidu.com/img/bd_logo1.png">鼠标放置查看图片1</li>
+    <li data-img="http://img3.imgtn.bdimg.com/it/u=613257515,2343067750&fm=21&gp=0.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://img2.imgtn.bdimg.com/it/u=3136615853,1321023175&fm=21&gp=0.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+        var ul = document.querySelector('.ct');
+        var div = document.querySelector('.img-preview');
+
+        ul.addEventListener('mouseover',function (e) {
+            var newImg = document.createElement('img');
+            newImg.src = e.target.getAttribute('data-img');
+            div.appendChild(newImg);
+        });
+
+        ul.addEventListener('mouseout',function () {
+            div.removeChild(div.childNodes[0]);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body, ul, li, p, h1, h2, h3, h4, h5, h6 {
+        margin: 0px;
+        padding: 0px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      a:hover {
+        cursor: pointer;
+      }
+      #header {
+        background: black;
+        height: 50px;
+        margin: 0px;
+      }
+      .header-content {
+        width: 900px;
+        margin: 0 auto;
+      }
+      .header-img {
+        height: 50px;
+        float: left;
+      }
+      .header-ul {
+        line-height: 50px;
+        list-style: none;
+        float: right;
+      }
+      ul li {
+        color: white;
+        display: inline-block;
+        text-align: center;
+      }
+      .header-ul li a {
+        display: block;
+        width: 50px;
+        line-height: 50px;
+      }
+      .header-ul li a:hover {
+        background: white;
+        color: black;
+      }
+      #container {
+        width: 900px;
+        margin: 0px auto;
+        margin-top: 10px;
+      }
+      .aside {
+        width: 200px;
+        background: rgb(238, 238, 238);
+        height: 500px;
+        float: left;
+      }
+      .main {
+        width: 700px;
+        height: 200px;
+        float: left;
+        position: relative;
+        background: rgb(238, 238, 238);
+        left: 10px;
+      }
+      .main p {
+        margin-left: 10px;
+        font-size: 1em;
+        line-height: 1.5em;
+      }
+      .main p:first-of-type {
+        margin-top: 10px;
+        font-size: 2em;
+        line-height: 2.5em;
+        font-weight: bold;
+      }
+      .clear {
+        clear: both;
+      }
+      #footer {
+        background: black;
+        height: 50px;
+      }
+      .footer-content {
+        width: 900px;
+        margin: 0 auto;
+      }
+      .footer-ul {
+        display: inline-block;
+        line-height: 50px;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="header-content">
+        <a href="">
+          <img class="header-img" src="logo-tiny.png" alt="饥人谷" />
+        </a>
+        <ul class="header-ul">
+          <li><a href="#">技能</a></li>
+          <li><a href="#">经历</a></li>
+          <li><a href="#">作品</a></li>
+          <li><a href="#">关于</a></li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="container">
+      <div class="aside"></div>
+      <div class="main">
+        <p>我的作品</p>
+        <p>生活很美好</p>
+        <p>心情不错</p>
+        <p>代码写的很漂亮</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="footer">
+      <div class="footer-content">
+        <ul class="footer-ul">
+          <li><a href="＃">饥人谷<a/></li>
+          <li><a href="＃">JSCODE</a></li>
+          <li><a href="＃">JSBIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+html,
+body,
+div,
+h1,
+p,
+ul,
+li,
+a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.layout{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+@font-face{
+	font-family: mylogo;
+	src:url(../font/kaushan-script/KaushanScript-Regular.otf);
+
+}
+/*header*/
+header{
+	position: fixed;
+	height: 50px;
+	background-color: #222;
+
+}
+
+header>.logo{
+	font-family: mylogo;
+	color: #fed136;
+	
+
+
+}
+/*header end*/

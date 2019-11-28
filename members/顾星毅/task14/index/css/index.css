@@ -1,0 +1,223 @@
+
+html, body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "宋体",Arial,Helvetica,sans-serif;
+  font-size: 14px;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+#header {
+    height: 100%;
+    background: url("../img/bg.jpg");
+    background-size: cover;
+  }
+#header .table{
+    height: 100%;
+    width: 960px;
+    display: table;
+    margin: 0 auto;
+}
+#header .table-cell{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+#header h1{
+  font-size: 50px;
+  margin: 0 auto;
+}
+#header p{
+  font-size: 20px;
+}
+.btn-black{
+  display: inline-block;
+  height: 50px;
+  width: 120px;
+  line-height: 50px;
+  color: #fff;
+  background-color: #777;
+
+}
+.btn-black:hover{
+  background-color: #333;
+}
+.abuot{
+  width: 100%;
+  margin: 50px 0;
+}
+.introduction{
+  margin: 0 auto;
+  width: 960px;
+  text-align: center;
+}
+.skill{
+  background-color: #337ab7;
+  color: #fff;
+  padding: 100px 0;
+}
+.ability{
+  width: 960px;
+  margin: 0 auto;;
+  overflow: auto;
+}
+.skill h2{
+  height: 50px;
+  width: 120px;
+  font-size: 25px;
+  font-family: "微软雅黑";
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  text-align: center;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+.skill ul{
+  width: 960px;
+  margin: 0 auto;
+}
+.skill li{
+  float: left;
+  width: 200px;
+  padding: 20px 20px;
+  text-align: center;
+  background-color: #337ab7;
+}
+.skill .iconfont{
+  font-size: 50px;
+}
+.btn-white{
+  display:inline-block;
+  height: 40px;
+  width: 100px;
+  line-height: 40px;
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+}
+.btn-white:hover{
+  background-color: #ccc;
+}
+.information{
+  padding: 200px 0;
+  color: #000;
+  background: url("../img/bg2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.information .something{
+  width: 960px;
+  margin: 0 auto;;
+}
+.information h1{
+  text-align: center;
+  font-size: 40px;
+}
+.information p{
+  text-align: center;
+  font-size: 20px;
+}
+.works{
+  padding-top: 50px;
+}
+.show{
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+.show h1{
+  font-size: 30px;
+}
+.show hr{
+  width: 100px;
+  border-top: 1px solid #eee;
+}
+.show li {
+  float: left;
+  width:440px;
+  height: 440px;
+  margin: 20px;
+}
+.show li img{
+  width:440px;
+  height: 440px;
+}
+.show ul{
+  overflow: auto;
+}
+.btn-works{
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #666;
+  margin: 10px 0;
+}
+.btn-works:hover{
+  background-color: #999;
+}
+.more-about-me{
+  background-color: #337ab7;
+  padding: 30px 0;
+}
+.more-about-me .text-center{
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+.btn-more{
+  display: inline-block;
+  text-align: center;
+  width: 140px;
+  height: 30px;
+  line-height: 30px;
+}
+.more-about-me h3{
+  color: #fff;
+}
+.more-about-me .btn1{
+  color: #000;
+  background-color: rgba(255,255,255, 0.9);
+}
+.more-about-me .btn1:hover{
+  background-color: rgba(150,150,150, 0.7);
+}
+.more-about-me .btn2{
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.more-about-me .btn2:hover{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#footer{
+  padding: 50px 0;
+}
+.contact-me{
+  width: 960px;
+  margin: 0 auto;
+  font-family: "微软雅黑";
+  text-align: center;
+}
+.contact-me li{
+font-size: 16px;
+margin-bottom: 10px;
+}
+.weixin{
+  width: 150px;
+  height: 150px;
+}
+.contact-me hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-top: 1px solid #eee;
+  max-width: 100px;
+}

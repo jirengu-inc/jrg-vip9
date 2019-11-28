@@ -1,0 +1,24 @@
+{
+  "name": "hungertest",
+  "version": "1.0.0",
+  "description": "我的一个测试包",
+  "main": "index.js",
+  "scripts": {
+    "test": "mkdir abc",
+    "make": "mkdir abcd",
+    "delete": "rm -r abcd",
+    "start": "touch hello"
+
+  },
+  "keywords": [
+    "饥人谷"
+  ],
+  "author": "若愚",
+  "license": "ISC",
+  "dependencies": {
+    "easytpl": "^1.0.4"
+  },
+  "devDependencies": {
+    "server-mock": "^1.0.5"
+  }
+}

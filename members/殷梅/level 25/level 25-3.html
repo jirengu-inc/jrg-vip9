@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 25-3</title>
+    <link rel="stylesheet" href="level 25-3.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>珠宝首饰</h2>
+        <div class="content">
+            <ul class="tab-ct clearfix">
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/diamon.jpg" alt="">
+                        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/diamon.jpg" alt="">
+                        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/diamon.jpg" alt="">
+                        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/diamon.jpg" alt="">
+                        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/diamon.jpg" alt="">
+                        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/diamon.jpg" alt="">
+                        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="append tab-ct clearfix">
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/monkey.jpg" alt="">
+                        <p class="name">柯兰 黄金手 猴哥款</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/monkey.jpg" alt="">
+                        <p class="name">柯兰 黄金手 猴哥款</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="mask">
+                            <a href="#">立即抢购</a>
+                        </div>
+                        <img class="image" src="images/monkey.jpg" alt="">
+                        <p class="name">柯兰 黄金手 猴哥款</p>
+                        <p class="price">￥1699.00</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <a href="#" class="add-button">添加</a>
+    </div>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+
+    var products = [
+    {
+        img: 'images/monkey.jpg',
+        name: '珂兰 黄金手 猴哥款',
+        price: '￥405.00'
+    },{
+        img: 'images/monkey.jpg',
+        name: '珂兰 黄金转运珠 猴哥款',
+        price: '￥100.00'
+    },{
+        img: 'images/monkey.jpg',
+        name: '珂兰 黄金手链 3D猴哥款',
+        price: '￥45.00'
+    }
+];
+
+    function getProdHtml(prod){
+        var html = '';
+        html += '<li>';
+        html +=     '<div class="item">'
+        html +=         '<div class="mask"><a href="#">立即抢购</a></div>';
+        html +=         '<img class="image" src=" '+ prod.img + ' " alt="">';
+        html +=         '<p class="name">' + prod.name + '</p>';
+        html +=         '<p class="price">' + prod.price + '</p>';
+        html +=     '</div>';
+        html += '</li>';
+        return html;
+    }
+
+    $('.add-button').on('click', function(e){
+        e.preventDefault();
+        //$('.content').append($('.append'))
+        //$('.append').addClass('active')
+        //$('.content').append($('.append'))
+        $.each(products,function(idx, prod){
+            var html = getProdHtml(prod);
+            $('.tab-ct').append(html);
+        });
+
+    }); 
+
+
+    $('.tab-ct').on('mouseenter','li', function(e){
+        $(this).addClass('hover')
+    })
+
+    $('.tab-ct').on('mouseleave', 'li',function(e){
+        $(this).removeClass('hover')
+    }) 
+
+    // $('.tab-ct>li').on('mouseenter', function(e){
+    //     $(this).addClass('hover')
+    // })
+
+    // $('.tab-ct>li').on('mouseleave', function(e){
+    //     $(this).removeClass('hover')
+    // }) 
+
+
+
+ 	// $('.add-button').on('click', function(){
+ 	// 	//$('.content').append($('.append'))
+ 	// 	$('.append').addClass('active')
+ 	// 	//$('.content').append($('.append'))
+ 	// })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

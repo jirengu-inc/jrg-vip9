@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>饥人谷：固定宽度居中</title>
+  <style>
+    /*标签选择器定义全局样式，一定不要写太多属性，够用就好*/
+    body,html,ul,li{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    
+    /*
+      layout 只用于控制宽度居中，别在给其他样式了。
+    */
+    .layout{
+      width: 900px;
+      margin: 0 auto;
+    }
+    
+    #header{
+      margin-top: 20px;
+      padding: 10px 10px;
+      border-bottom: 1px solid red;
+    }
+    
+    #content{
+      margin-top: 30px;
+    }
+    
+    #content .breadcrumb{
+      padding: 10px;
+      background: #eee;
+    }
+  
+    #content .main{
+      margin-top: 10px;
+      padding: 10px 0;
+      background: #ccc;
+    }
+    
+    
+    #content .panels{
+      margin-left: -20px;   /*父亲设置负边距，让元素上去*/
+    }
+    #content .panels:after{  /*清除浮动，让父亲撑开高度*/
+      content: '';
+      display: block;
+      clear: both;
+    }
+    
+    #content .panels > li{
+      float: left;    /*子元素浮动*/
+      margin-left: 20px;   /*只设置左margin 即可*/
+      margin-top: 10px;  
+      width: 286px;       /* 286 = (900-20*2)/3 */
+      height: 80px;
+      background: #004210;
+    }
+    
+    
+    #footer{
+      margin-top: 30px;
+      padding: 10px;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      
+    }
+  </style>
+</head>
+<body>
+
+  <div id="content" class="layout">
+
+    <div class="main">
+      <ul class="panels">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+    </div>
+  </div>
+
+  </div>
+
+</body>
+</html>

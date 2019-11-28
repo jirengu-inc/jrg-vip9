@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task21-6</title>
+</head>
+<body>
+  <script type="text/javascript">
+  function isValidPassword(str){
+    if(str.length<6 || str.length>20){
+      return false;
+    }
+    if(/[^0-9A-Za-z_]/.test(str)){
+      return false;
+    }
+    if(/^[a-z]+$|^[0-9]+$|^[A-Z]+$|^_+$/){
+      return false;
+    }else {
+      return true;
+    }
+  }
+
+
+  </script>
+</body>
+</html>

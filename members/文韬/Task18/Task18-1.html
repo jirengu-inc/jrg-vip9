@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+  var arr = new Array(7)
+  arr[0] = "天策"
+  arr[1] = "藏剑"
+  arr[2] = "七秀"
+  arr[3] = "五毒"
+  arr[4] = "万花"
+  arr[5] = "苍云"
+  arr[6] = "狗比丐帮"
+
+document.write(arr + "<br />")
+arr.splice(7,0,"琴始皇")
+document.write(arr + ' '+'这是用splice()实现了push()方法'+'<br>')
+arr.splice(7,1)
+document.write(arr + ' '+'这是用splice()实现了pop()方法'+'<br>')
+arr.splice(0,1)
+document.write(arr + ' '+'这是用splice()实现了shift()方法'+'<br>')
+arr.splice(0,0,"天策是第一帅的职业")
+document.write(arr + ' '+'这是用splice()实现了unshift()方法'+'<br>')
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>消费信息设置</title>
+    <link rel="stylesheet" href="./Groupwork1.Css/normalize.css">
+    <link rel="stylesheet" href="./Groupwork1.Css/Button.css">
+    <link rel="stylesheet" href="./Groupwork1.Css/BaseInform.css">
+</head>
+
+<body>
+    <header>
+        <div class="header_guid"></div>
+
+    </header>
+    <div id="guid">
+        <ul class="guid_list">
+            <li>欢迎您！<span class="guid_guid-username">XXX</span></li>
+            <li><a href="Welcome.html">当前位置：消费信息管理</a></li>
+            <li>时间：<span class="guid_guid-time"id="time">
+            </span></li>
+            <li><a href="Welcome.html">返回主菜单</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="content_leftbox">
+            <div class="content_leftbox_guid">选择管理菜单</div>
+            <ul class="content_leftbox-baseinformation">
+
+                <li><img src="./Groupimg/InforPng/listPointer.gif" alt="">消费管理
+                    <ul class="content_leftbox-baseinformation-guestroom-type">
+                        <li>
+                            消费入账信息列表
+                        </li>
+                    </ul>
+                </li>
+        </div>
+        <div class="content_rightbox">
+            <div class="content_rightbox_guid">查询客房信息列表</div>
+
+            <!-- 列表盒子  上行table名需修改 -->
+
+
+            <div class="content_rightbox_table">
+              <form id="form1" runat="sever">
+
+              <table>
+                <tr>
+                    <th>类型名称</th>
+                    <th>额定人数</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+
+                <tr>
+                    <td>总统套房</td>
+                    <td>20人</td>
+                    <td>文氏总统豪华套房</td>
+                    <td>
+                      <span class="add">增加</span>
+                      <span class="del">删除</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>总统套房</td>
+                    <td>20人</td>
+                    <td>文氏总统豪华套房</td>
+                    <td>
+                      <span class="add">增加</span>
+                      <span class="del">删除</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>总统套房</td>
+                    <td>20人</td>
+                    <td>文氏总统豪华套房</td>
+                    <td>
+                      <span class="add">增加</span>
+                      <span class="del">删除</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>总统套房</td>
+                    <td>20人</td>
+                    <td>文氏总统豪华套房</td>
+                    <td>
+                      <span class="add">增加</span>
+                      <span class="del">删除</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>总统套房</td>
+                    <td>20人</td>
+                    <td>文氏总统豪华套房</td>
+                    <td>
+                      <span class="add">增加</span>
+                      <span class="del">删除</span>
+
+                    </td>
+                </tr>
+                </table>
+                <div class="content_rightbox_footer">
+                  <select class="page" name="">
+                  <option value="">第一页</option>
+                  <option value="">第二页</option>
+                </select>
+              <input class="confirm" type="button" value="确定">
+              <input class="submit" type="button"  value="提交">
+                </div>
+                </form>
+            </div>
+
+
+            <!-- 列表盒子 -->
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer_copy">
+            <p>Copyright (c) 2016 Christian·Wen Reserved.
+               <br/> 赵泽 文韬 袁聪 全洋 阳海涛 欧静思</p>
+        </div>
+    </footer>
+    <script src="./Groupwork1.Js/jquery-3.1.1.min.js">
+    </script>
+    <script src="./Groupwork1.Js/BaseInfor.js">
+    </script>
+    <script>
+    document.getElementById('time').innerHTML=new Date().toLocaleString();
+    setInterval("document.getElementById('time').innerHTML=new Date().toLocaleString();",1000);
+</script>
+
+
+</body>
+
+</html>

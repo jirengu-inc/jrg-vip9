@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body, html {
+
+      }
+      body, html {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+        position: relative;
+      }
+      tr>td:first-child {
+        width: 100px;
+      }
+      td>p {
+        font-size: 12px;
+        color: #999;
+      }
+      .warn-style {
+        outline: 1px solid red;
+      }
+      .cover {
+        height: 100%;
+        width: 100%;
+        background: rgba(99, 99, 99, 0.7);
+        position: absolute;
+        display: none;
+      }
+      .show-cover {
+        display: block;
+      }
+      .cover-content {
+        width: 400px;
+        height: 90px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -200px;
+        margin-top: -50px;
+        background: white;
+      }
+      .cover-content>h5 {
+        padding-left: 10px;
+      }
+      .cover-content>a {
+        text-decoration: none;
+        float: right;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">111
+      <div class="cover-content">
+        <h5>正在注册</h5>
+        <hr>
+        <a href="#">关闭</a>
+      </div>
+    </div>
+    <form class="" action="index.html" method="post">
+      <table>
+        <th>注册</th>
+        <tr>
+          <td>用户名</td>
+          <td><div>
+            <input class="inputBox" type="text" name="username" value="" placeholder="用户名">
+          </div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <p>只能是字母、数字、下划线，3-10个字符</p>
+          </td>
+        </tr>
+        <tr>
+          <td>密码</td>
+          <td>
+            <div>
+              <input class="inputBox" type="password" name="pwd" value="">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <p>大写字母、小写、数字、下划线最少两种，6-15个字符</p>
+          </td>
+        </tr>
+        <tr>
+          <td>再输一次</td>
+          <td>
+            <div>
+              <input class="inputBox" type="password" name="pwd2" value="" placeholder="再输入一次密码">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <p></p>
+          </td>
+        </tr>
+      </table>
+      <input class="regist" type="submit" name="name" value="注册">
+    </form>
+    <script type="text/javascript">
+      var boxes = document.getElementsByClassName('inputBox');
+      var warnLabels = document.getElementsByTagName('p');
+      var correctUsername = false;
+      var correctPwd = false;
+      var correctPwd2 = false;
+      var pwd = '';
+      for (var i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener('blur', function(){
+          if (this.value.length <= 0) return;
+          switch (this.name) {
+            case 'username':
+              if (!/^\w{3,10}$/.test(this.value)) {
+                this.classList.add('warn-style');
+                warnLabels[0].innerText = '用户名格式不正确';
+                correctUsername = false;
+              } else if (this.value === 'hunger') {
+                this.classList.add('warn-style');
+                warnLabels[0].innerText = '用户名已经存在';
+                correctUsername = false;
+              } else {
+                this.classList.remove('warn-style');
+                warnLabels[0].innerText = '用户名可用';
+                correctUsername = true;
+              }
+              break;
+            case 'pwd':
+              if (isValidPassword(this.value)) {
+                correctPwd = true;
+                warnLabels[1].innerText = '';
+                this.classList.remove('warn-style');
+              } else {
+                correctPwd = false;
+                warnLabels[1].innerText = '密码格式不正确'
+                this.classList.add('warn-style');
+              }
+              pwd = this.value;
+              break;
+            case 'pwd2':
+              if (pwd.length != 0 && correctPwd && this.value == pwd) {
+                correctPwd2 = true;
+                warnLabels[2].innerText = '';
+                this.classList.remove('warn-style');
+              } else {
+                correctPwd2 = false;
+                warnLabels[2].innerText = '密码格式不正确'
+                this.classList.add('warn-style');
+              }
+              break;
+            default:
+          }
+        }, false);
+      }
+      document.getElementsByClassName('regist')[0].addEventListener('click', function(e) {
+        e.preventDefault();
+        if (correctUsername && correctPwd && correctPwd2) {
+          document.getElementsByClassName('cover')[0].classList.add('show-cover');
+        } else {
+          alert('请正确填写信息');
+        }
+      }, false);
+      document.querySelector('.cover-content>a').addEventListener('click', function() {
+          document.getElementsByClassName('cover')[0].classList.remove('show-cover');
+      }, false);
+      function isValidPassword(str) {
+        if (/^\w{6,20}$/.test(str)) {
+          if (/[a-z]+/.test(str)) {
+            if (/[A-Z]+/.test(str) || /[0-9]+/.test(str) || /[_]+/.test(str))
+              return true;
+          } else if (/[A-Z]+/.test(str)) {
+            if (/[0-9]+/.test(str) || /[_]+/.test(str))
+              return true;
+          } else if (/[0-9]+/.test(str)) {
+            if(/[_]+/.test(str))
+              return true;
+          }
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

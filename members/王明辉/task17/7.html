@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 如下代码的输出？为什么 （难度***）
+    var fn;
+    function fn(fn){
+        console.log(fn);
+    }
+    fn = 1;
+    console.log(fn(fn)); // 报错,这个时候fn已经不是函数了. fn = 1;
+</script>
+</body>
+</html>

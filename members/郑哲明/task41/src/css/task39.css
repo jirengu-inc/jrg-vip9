@@ -1,0 +1,167 @@
+/*回到顶部-效果*/
+.gotop{
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAADiklEQVRogeWbTUsbQRjHfwcPWhFbv4O2pXMImJPkJjag5LqosBerbiD1YH23rS2IL6VSjdBGDwqih+Zb5DPkW+SSS26BxR520sboxiS7z2aof/hfwmbm+W02szPPPANy6gPeAJPAPLAJHAKnwLn2qf5sS18zqb/TJxhXqHoBTADrQI5/YO06p9uYAIYiJWhRw0CGYJDN4DPASGQ0TTQCrBI+pJ9X6RL4IDDXZrBhek7HEIlGgRNhoFZ8omMRUw8wbQBoo6d1bKGqF1g2AM7Pq0B/WLADwLYBUI/5s441kPqAjwbAtOpPBJi09GD2Y+znZTr8T88YEHynnmkXdtSAoIM63irsc+DYgICD+hhvbv+o0gYEG5bTj8G+NCDIsP2qGfBapw0nk8mLvb29rxJOJpMXAYDX/GCHg9xJ27ZPb29vFyVs2/ZpkNg02z1lgjQ6Njb2W9IBgTONsAPILN5NcY6Gaee4AUFJe7weuOPBqkPPakfZ59/Bq48IH2fbtg9c1110XXfRtu2DCIFzmhUVVaepVOq4Uqk4tdG3Uqk4qVQqylmdAi8XLN5ZIpE4L5VK6cZXTqlUSicSibOIgKcAFqQ7isfjl8ViMeP3ni0Wi5l4PH4ZAfACeFl/sU5isdhVoVBYemxyUSgUlmKx2JUw8BZ4Wx0iHSilrvP5/EqrM6p8Pr+ilLoWBP4Gd/d6woS92d/f3253Gnl4eLitlLoRAs4idTcdx9l1XddpF9h1XcdxnF3BXzn8Ri3LOqpWqx0vFqrV6qJlWUcCsf2E8B/pnXK5fO/1067L5XIa2Ak5th8Q/qD1xbKs7w/ZD87verxcc5ix7YPwa6lmpdSNH7DgINXoLYhg4mEQ8AJENLU0BHgKIlo8GAKsIKLloQHAOeAZWuIJAAOA72QvxVM8BgDfSfGIJ/G6DHwviQfw/j8GvpemhYCJeMOBH0zEg+DgpZS6yWazmw9ZGNh3qwW8jSfJO90Nv24GDE9suxSe4IY4PLGSh5pmDAi6U8+2Cwte6c+KAcG361UClCL2E36aRdI7hFCCOIBX4dZtmFZgA5ce1tQLfDAAqtljHFpxaU09mDmQzSBQPlwvUwrEswgXiNdrEHgnDNTM80R4BKBeI0RbLrGOVzzXdY3graclNrbPdNtGHONp1BDwFtgg+EGtDd2WkQe1HlL9UbwFvKz/Ht6k/pf2sf5sS18jfhTvD1yjDCvk+y8RAAAAAElFTkSuQmCC);
+    background-size:40px;
+}
+.gotop:hover{
+    opacity: 0.7
+}
+/*首屏轮播*/
+.big-picture{
+    position:relative;
+    display: block;
+}
+.welcome p{
+/*    color: rgba(255,255,255,0.5)*/
+/*
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.4)
+*/
+}
+.welcome{
+    position: absolute;
+    top:0;
+    bottom:0;
+    height: 300px;
+    margin: auto;
+    width: 100%;
+    background:url();
+    
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    color: white;
+    text-decoration:none;
+}
+.slideshow{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+.slide li{
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+.slide{
+    position:absolute;
+    width: 500%;
+    height: 100%;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.slideshow .pre,.slideshow .next{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background: #555;
+    border-radius:100%;
+    line-height: 30px;
+    text-align: center;
+    box-shadow: 0 0 5px #000;
+}
+.slideshow .pre{
+    left:10px;
+}
+.slideshow .pre:hover{
+    opacity: 0.8;
+}
+.slideshow .next{
+    right:10px;
+}
+.slideshow .next:hover{
+    opacity: 0.8;
+}
+.slideshow > .slide-nav > li{
+    width: 20px;
+    height: 5px;
+    border-radius:5px;
+    display: inline-block;
+    background: white;
+    cursor: pointer;
+}
+.slide-nav li:nth-child(2){
+    margin: 0 5px;
+}
+.slideshow .slide-nav{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center
+}
+.slide-nav li.active{
+    background: #888;
+}
+/*导航栏*/
+.wrap-nav{
+    background:linear-gradient(rgba(0,0,0,0.5) 20%,transparent 80%)
+}
+
+/*瀑布流*/
+ul,
+li,h4,p{
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.wrap {
+    width: 900px;
+    margin: auto;
+    /*            outline: 1px solid;*/
+}
+
+.img-ct {
+    position: relative;
+}
+
+.img-ct li {
+    width: 280px;
+    margin: 10px;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+}
+.img-ct img {
+    width: 100%;
+} 
+.img-ct h4{
+    margin-top:10px;
+    line-height: 1.8em;
+    border-bottom: 1px solid silver;
+}
+.img-ct p{
+    margin-top: 10px;
+    font-size: 13px;
+    opacity: 0.5;
+}
+/*about特效*/
+.about-desp li {
+    opacity: 0;
+}

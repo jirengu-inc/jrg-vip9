@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .layout {
+        width: 720px;
+        margin: 0 auto;
+      }
+      ul, li {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        float: left;
+        margin: 10px;
+      }
+      li img {
+        width: 220px;
+        height: 400px;
+      }
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <ul>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+        <li>
+          <img src-data="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg" alt="" />
+        </li>
+      </ul>
+    </div>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script>
+      var willLoadImages = [];
+      $('img').each(function(index) {
+        if (isVisible($(this))) {
+          $(this).attr('src', $(this).attr('src-data'));
+        } else {
+          $(this).css({'opacity': '0'});
+          willLoadImages.push($(this));
+        }
+      });
+      var timer;
+      $(window).on('scroll', function() {
+        if (timer) {
+          clearInterval(timer);
+        }
+        timer = setInterval(function() {
+          if (willLoadImages.length > 0) {
+            var tmpArr = willLoadImages.slice(0);
+            for (var i = 0; i < tmpArr.length; i++) {
+              if (isVisible(tmpArr[i])) {
+                tmpArr[i].attr('src', tmpArr[i].attr('src-data'));
+                tmpArr[i].css({'opacity':'1'});
+                willLoadImages.splice(willLoadImages.indexOf(tmpArr[i]), 1);
+              }
+            }
+          }
+        }, 300);
+      });
+      function isVisible($node) {
+			  var windowWidth = $(window).width();
+			  var windowHeight = $(window).height();
+			  var topOffset = $(window).scrollTop();
+			  var leftOffset = $(window).scrollLeft();
+        var nodeTop = $node.offset().top;
+        var nodeLeft = $node.offset().left;
+        var nodeWidth = $node.width();
+        var nodeHeight = $node.height();
+			  if ((nodeTop > topOffset && nodeTop < topOffset + windowHeight) || (nodeTop + nodeHeight > topOffset && nodeTop + nodeHeight < topOffset + windowHeight)) {
+				  if ((nodeLeft > leftOffset && nodeLeft < leftOffset + windowWidth) || (nodeLeft + nodeWidth > leftOffset && nodeLeft + nodeWidth < leftOffset + windowWidth))
+						return true;
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

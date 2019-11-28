@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>task22-2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<ul class="ct">
+    	<li>这里是</li>
+    	<li>饥人谷</li>
+   		<li>前端6班</li>
+	</ul>
+	<input class="ipt-add-content" placeholder="添加内容"/>
+	<button id="btn-add-start">开头添加</button>
+	<button id="btn-add-end">结尾添加</button>
+<script>
+	var ct = document.querySelector('.ct');
+	var ipt = document.querySelector('.ipt-add-content');
+	var startBtn= document.querySelector('#btn-add-start');
+	var endBtn= document.querySelector('#btn-add-end');
+	ct.addEventListener('click',function(e){
+		if(e.target.tagName.toLowerCase() === 'li'){
+			console.log(e.target.innerText);
+		}
+	},false)
+	startBtn.addEventListener('click',function(e){
+		var li = document.createElement('li')
+		li.innerText = ipt.value;//给 li 属性添加内容
+		ct.insertBefore(li,ct.firstChild);
+	},false);
+	endBtn.addEventListener('click',function(e){
+		var li = document.createElement('li')
+		li.innerText = ipt.value;
+		ct.appendChild(li);
+	},false)
+
+</script>
+    
+</body>
+</html>

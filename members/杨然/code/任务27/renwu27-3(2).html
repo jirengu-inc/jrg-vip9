@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu27-3(2)</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<style>	
+	a {
+		text-decoration: none;
+		/*color: #fff;*/
+	}
+	html, body, ul, li, p {
+		margin: 0;
+		padding: 0;
+	}
+	ul,li {
+		list-style: none;
+	}
+	.carousel {
+		margin: 10px auto;
+		position: relative;
+		width: 320px;
+		height: 200px;
+		overflow: hidden;
+	}
+	.img-ct {
+		position: relative;
+	}
+	.img-ct li {
+		float: left;
+		/*display: none;*/
+		/*position: absolute;*/
+		/*不加绝对定位画面跳转的时候很不和谐。*/
+	}
+	.img-ct img {
+		width: 320px;
+		height: 200px;
+	}
+	.arrow {
+		position: absolute;
+		top: 50%;
+		width: 30px;
+		height: 30px;
+		margin-top: -15px;
+		line-height: 30px;
+		text-align: center;
+		background-color: #ccc;
+		color: #fff;
+		border-radius: 30px;
+		opacity: 0.8;
+	}
+	.pre {
+		left: 10px;
+	}
+	.next {
+		right: 10px;
+	}
+	.bullet {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		/*margin-left: -38px;*/
+	}
+	.bullet > li {
+		width: 16px;
+		height: 4px;
+		border-radius: 2px;
+		background-color: #fff;
+		cursor: pointer;
+		display: inline-block;
+	}
+	.bullet li.active {
+		background-color: #888;
+	}
+	.arrow:hover {
+		opacity: 1;
+	}
+	.btn {
+		text-align: center;
+		/*margin: 0 auto;*/
+	}
+	.clearfix:after {
+		content: '';
+		clear: both;
+		display: block;
+	}
+</style>
+</head>
+<body>
+    <div class="carousel">
+    	<ul class="img-ct clearfix">
+    		<li><a href="#"><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/960x600/1384835088908.jpg" alt=""></a></li>
+    		<li><a href="#"><img src="http://img2.3lian.com/2014/f6/146/d/89.jpg" alt=""></a></li>
+    		<li><a href="#"><img src="http://img2.imgtn.bdimg.com/it/u=2608179549,3817753564&fm=21&gp=0.jpg" alt=""></a></li>
+    		<li><a href="#"><img src="http://image78.360doc.com/DownloadImg/2014/09/2603/45611063_5.jpg" alt=""></a></li>
+    	</ul>
+    	<a href="#" class="pre arrow"><</a>
+    	<a href="#" class="next arrow">></a>
+    	<ul class="bullet">
+    		<!-- <li class="active"></li>
+    		<li></li>
+    		<li></li>	
+    		<li></li> -->
+    	</ul>
+    </div>
+  	<script>
+  	(function($){
+  		$.fn.carousel = function(){
+  			var $this = $(this),
+	  			$ct = $this.find('.img-ct'),
+	  			$items = $ct.children(),
+	  			imgCount = $items.size(),
+	  			imgWidth = $items.width(),
+	  			$bullet = $this.find('.bullet'),
+	  			$next = $this.find('.next'),
+	  			$pre = $this.find('.pre'),
+	  			clock,
+	  			curIdx = 0,
+	  			isAnimate = false;
+
+	  		autoPlay();
+	  		bullet();
+	  		// $ct.prepend($items.last().clone());
+	  		// $ct.append($items.first().clone());
+	  		// imgRealCount = $ct.children().size();
+	  		// $ct.css({left: 0 - imgWidth, width: imgRealCount * imgWidth});
+	  		$ct.css({left: 0, width: imgCount * imgWidth});
+
+	  		$next.on('click', function(){
+	  			stopAuto();
+	  			playNext();
+	  			autoPlay();
+	  		});
+	  		$pre.on('click', function(){
+	  			stopAuto();
+	  			playPre();
+	  			autoPlay();
+	  		});
+	  		$bullet.on('click', 'li', function(){
+	  			var idx = $(this).index();
+	  			// console.log('点击'+idx);
+	  			// console.log('当前'+curIdx);
+	  			if (idx > curIdx) {
+	  				playNext(idx - curIdx);
+	  			} else if (idx < curIdx) {
+	  				playPre(curIdx - idx);
+	  			}
+	  		});
+	  		function playNext(skip){
+	  			var skip = skip || 1;
+	  			if (!isAnimate) {
+	  				isAnimate = true;
+	  				$ct.animate({left: '-=' + (imgWidth * skip)}, function(){
+	  					// console.log('差值为'+skip);
+	  					// console.log('变化前curIdx='+curIdx);
+	  					// console.log('公式curIdx+skip='+(curIdx + skip));
+	  					// console.log('imgCount='+imgCount);
+	  				curIdx = (curIdx + skip) % imgCount;
+	  				for (var i = 0; i < skip; i++) {
+	  					$ct.append($ct.children().first());
+	  				}
+	  				$ct.css({'left': 0});
+	  				// if (curIdx == 0) {
+	  				// 	// $ct.css({left: 0 - imgWidth});
+	  				// 	$ct.css({left: 0});
+	  				// }
+	  				// console.log('计算后curIdx='+curIdx);
+	  				// console.log('---');
+	  				isAnimate = false;
+	  					setBullet();
+	  				})
+
+	  			}
+	  		}
+	  		function playPre(skip){
+	  			var skip = skip || 1;
+	  			if (!isAnimate) {
+	  				isAnimate = true;
+	  				// $ct.animate({left: '+=' + (imgWidth * skip)}, function(){
+	  						// console.log('差值为'+ (-skip));
+	  						// console.log('变化前curIdx='+curIdx);
+	  						// console.log('公式imgCount + curIdx - skip='+(imgCount + curIdx - skip));
+	  						// console.log('imgCount='+imgCount);
+	  					curIdx = (imgCount + curIdx - skip) % imgCount;
+	  					for (var i = 0; i < skip; i++) {
+		  					$ct.prepend($ct.children().last());
+		  				}
+		  				$ct.css({left: - imgWidth * skip });//牛逼，上一句在头部把尾部加上，然后无缝转到之前的位置，看上去没有变化，然后再用动画效果移位到left0
+		  				$ct.animate({left: 0}, function(){
+		  					isAnimate = false;
+	  						setBullet();
+		  				});
+		  				// $ct.css({'left': - imgWidth * skip});
+	  					// if (curIdx == (imgCount - 1)) {
+	  					// 	$ct.css({left: 0 - imgWidth * (imgCount - 1)});
+	  					// }
+	  					// console.log('计算后curIdx='+curIdx);
+	  					// console.log('---');
+	  					
+	  				// })
+	  			}
+	  		}
+	  		function setBullet(){
+	  			$bullet.children().removeClass('active')
+	  							  .eq(curIdx).addClass('active');
+	  		}
+	  		function stopAuto(){
+	  			clearInterval(clock);
+	  		}
+	  		function autoPlay(){
+	  			clock = setInterval(function(){
+	  				playNext();
+	  			}, 3000);
+	  		}
+	  		function bullet(){
+	  			for(var i = 0; i < imgCount; i ++){
+	  				$bullet.append('<li></li>');
+	  			}
+	  			$bullet.children().first().addClass('active');
+	  		}
+  		}
+  	})(jQuery)
+  	$('.carousel').each(function(){
+  		$(this).carousel();
+  	})
+  	</script>
+</body>
+</html>

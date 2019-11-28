@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任务22DOM-事件</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+
+	    <!-- 有如下代码，要求当点击每一个元素li时控制台展示该元素的文本内容。不考虑兼容 -->
+	    <ul class="ct">
+		    <li>这里是</li>
+		    <li>饥人谷</li>
+		    <li>前端6班</li>
+		</ul>
+		<script>
+			var aLi = document.querySelectorAll('.ct')[0].getElementsByTagName('li');
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].addEventListener('click', function(){
+					console.log(this.innerText);
+				});
+			}
+		</script>
+		
+
+</body>
+</html>

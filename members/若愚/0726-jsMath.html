@@ -1,0 +1,53 @@
+<script>
+    Math.round(1.4); //1
+    Math.round(1.5) //2
+    Math.round(-1.4) //-1
+    Math.round(-1.5) //-1
+    Math.round(-1.51) //-
+
+
+    Math.abs(-2.3) //2.3
+    Math.abs(3) //3
+
+    Math.max(2, 3, 1, -9); //3
+
+    var arr = [1, 3, -3, 8, 9]
+    console.log(Math.max.apply(null, arr))
+    console.log(Math.min.apply(null, arr))
+
+    //apply call
+
+    //Math.random() * 10 //[0 10)
+
+    var MAX = 10000;
+
+    var obj = {};
+    for (var i = 0; i < MAX; i++) {
+        var val = 10 + Math.floor(Math.random() * 11);
+        if (obj[val] === undefined) {
+            obj[val] = 1;
+        } else {
+            obj[val]++
+        }
+    }
+    for (var key in obj) {
+        obj[key] = obj[key] / MAX
+    }
+    console.log(obj)
+
+    function getRandArr(len) {
+        //todo ...  0 - 9  a- z A-Z
+        var dict = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_';
+        var ch, str = '',
+            idx;
+
+        for (var i = 0; i < len; i++) {
+            idx = Math.floor(Math.random() * 64);
+            ch = dict[idx];
+            str += ch;
+        }
+        return str;
+    }
+    var str = getRandArr(30);
+    console.log(str);
+</script>

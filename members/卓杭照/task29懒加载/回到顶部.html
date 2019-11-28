@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+	.go-top{
+		font-size: 16px;
+		color: white;
+		border: 1px solid #fff;
+		width: 45px;
+		padding: 5px;
+		height: 45px;
+		background-color: #407c98;
+		text-align: center;
+		line-height: 1.4;
+		border-radius: 50%;
+		cursor: pointer;
+		position: fixed;
+		right: 10px;
+		bottom: 10px;
+		display: none;
+	}
+	p{
+		line-height: 3;
+	}
+</style>
+<body>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容3</p><p>内容1</p>
+	<p>内容1</p><p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容4</p><p>内容1</p>
+	<p>内容1</p><p>内容1</p>
+	<p>内容1</p><p>内容1</p>
+	<p>内容6</p><p>内容1</p>
+	<p>内容7</p>
+
+    <div class="go-top">回到顶部</div>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+    	$(window).on('scroll',function(){
+    		if($(window).scrollTop()>100){
+    			$('.go-top').css('display','block');
+    		}else{
+    			$('.go-top').css('display','none');
+    		}
+    	})
+    	$('.go-top').on('click',function(){
+    		$(window).scrollTop(0);
+    	})
+
+
+    </script>
+</body>
+</html>

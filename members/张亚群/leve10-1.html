@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style>
+body,html,ul,li,h3,p{
+  margin:0;
+  padding:0;
+}
+li{
+  list-style:none;
+}
+body{
+  font:16px/1.5 'MicosoftYaHei';
+}
+a{
+  text-decoration:none;
+  color:#fff;
+}
+a:hover{
+  color:black;
+}
+li:hover{
+  background:#fff;
+  color:black;
+}
+#header,#footer{
+  height:50px;
+  background:#333;
+  line-height:50px;
+}
+.contenter{
+  width:900px;
+  margin:0 auto;
+  overflow:both;
+}
+.nav{
+  float:right;
+}
+.logo>img{
+  width:150px;
+  
+}
+ul>li{
+  float:left; 
+  margin:0 10px;
+}
+
+#content{
+  margin-top:10px;
+}
+#content:after{
+  content:"";
+  display:table;
+  clear:both;
+  
+}
+.aside{
+  width:200px;
+  border:1px solid #ccc;;
+  min-height:500px;
+  float:left;
+  background:#ccc;
+}
+.main{
+  border:1px solid #ccc;
+  padding:10px;
+  margin-left:210px;
+  background:#ccc;
+}
+.main>h3{
+  font-size:30px;  
+  padding:20px 0;
+  color:gray;
+}
+.main>p{
+  font-size:12px;
+  color:gray;
+}
+
+</style>
+</head>
+<body>
+<div id="header">
+  <div class="contenter">
+    <a href="#" class="logo">
+     <img src="http://cdn.jirengu.com/public/logo-tiny.png" alt="">
+    </a>
+    <ul class="nav">
+      <li><a href="">技能</a></li>
+      <li><a href="">经历</a></li>
+      <li><a href="">作品</a></li>
+      <li><a href="">关于</a></li>
+    </ul>
+  </div>
+</div>
+<div id="content">
+  <div class="contenter">
+    <div class="aside"></div>
+    <div class="main">
+      <h3>我的作品</h3>
+      <p>心情很美好</p>
+       <p>生活很不错</p>
+      <p>代码很漂亮</p>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="contenter">
+    <ul>
+      <li><a href="">饥人谷</a></li>
+      <li><a href="">JSBIN</a></li>
+      <li><a href="">JSCODE</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

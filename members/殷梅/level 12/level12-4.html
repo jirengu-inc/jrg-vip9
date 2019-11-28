@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level12-2</title>
+    <style>
+    body,
+    html,
+    div {
+        padding: 0;
+        margin: 0;
+    }
+    
+    #header {
+        width: 100%;
+        height: 50px;
+        background-color: #ccc;
+    }
+    
+    #footer {
+        width: 100%;
+        height: 50px;
+        background-color: #ccc;
+    }
+    
+    #content:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .left {
+        width: 200px;
+        height: 200px;
+        float: left;
+        margin-left: -100%;
+        background-color: red;
+    }
+    
+    .main {
+        width: 100%;
+        height: 200px;
+        float: left;
+        background: green;
+    }
+    
+    .wrap {
+        height: 200px;
+        margin: 0 200px;
+        background-color: green;
+    }
+    
+    .right {
+        width: 200px;
+        height: 200px;
+        float: left;
+        margin-left: -200px;
+        background: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="header">tou</div>
+    <div id="content">
+        <div class="main">
+            <div class="wrap">圣杯布局是一个两边在父容器里顶宽，中间自适应的布局并且中间主内容首先渲染。设置三个div浮动，左右两栏加上负margin使其与中间栏并排。然后中间栏设置左右padding，再对两个边栏使用position: relative属性并设置left定位使其不遮挡中间栏。
+            </div>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div id="footer">wei</div>
+</body>
+
+</html>

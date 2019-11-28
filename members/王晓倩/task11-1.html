@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task11-1</title>
+	<style>
+		html,body,div,ul,li {
+			margin: 0;
+			padding: 0;
+		}
+		li,ul {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		a,li {
+			font-family: '微软雅黑' Arial ；
+			font-size:16px;
+			color: #000;
+		}
+		div>ul>li {
+			float: left;
+			padding: 10px 20px;
+            background: #ccc;
+            position: relative;
+		}
+		/* 在元素上设置:hover 兼容ie8+ */
+		div>ul>li:hover {
+            background: #aaa;
+		}
+		div>ul>li>ul {
+			display: none;
+		}
+		div>ul>li:hover > ul {
+			display: block;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			border: 1px solid #eee;
+		}
+		div>ul>li:hover >ul>li>a {
+			display:block;
+			padding:10px;
+		}
+		div>ul>li>ul>li:hover {
+			background: #ccc;
+		}
+	
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><a href="#">前端</a>
+                   <ul>
+                   	   <li><a href="#">JavaScript</a></li>
+                   	   <li><a href="#">CSS</a></li>
+                   	   <li><a href="#">HTML</a></li>
+                   </ul>
+			</li>
+			<li><a href="#">服务器</a>
+                     <ul>
+                     	<li><a href="#">Node</a></li>
+                     	<li><a href="#">PHP</a></li>
+                     	<li><a href="#">Jave</a></li>
+                     </ul>
+			</li>
+			<li><a href="#">前端工具</a>
+                      <ul>
+                      	 <li><a href="#">Sumblime</a></li>
+                      	 <li><a href="#">WebStorm</a></li>
+                      	 <li><a href="#">Git</a></li>
+                      </ul>
+			</li>
+			<li><a href="#">HTML</a></li>
+			<li><a href="#">NODE</a></li>
+		</ul>
+	</div>
+</body>
+</html>

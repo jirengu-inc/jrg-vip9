@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task12-4</title>
+  <style>
+    body{
+      margin:0;
+    }
+    #header,#footer{
+      height: 30px;
+      background: silver;
+    }
+    .aside,.extra{
+      width: 200px;
+      height:150px;
+    }
+    .main{
+      width: 100%;
+      height: 150px;
+    }
+    .aside,.extra,.main{
+      float: left;
+    }
+    .aside{
+      margin-left: -100%;
+      background: red;
+    }
+    .extra{
+      margin-left: -200px;
+      background: yellow;
+    }
+    .child{
+      height: 100%;
+      margin:0 200px;
+      background: green;
+    }
+    #content:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">头部</div>
+  <div id="content">
+    <div class="main">
+      <div class="child">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae libero, possimus? Eaque quod adipisci minima reprehenderit hic, itaque officia numquam maiores aperiam architecto consequuntur accusamus laboriosam recusandae molestiae reiciendis, dolorem!</div>
+    </div>
+    <div class="aside">左侧边栏，宽度固定</div>
+    <div class="extra">右侧边栏，宽度固定</div>
+  </div>
+  <div id="footer">尾部</div>
+</body>
+</html>

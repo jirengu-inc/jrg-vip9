@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en zh">
+<head>
+    <meta charset="UTF-8">
+    <title>实战2</title>
+    <script src="https://use.fontawesome.com/d252776c84.js"></script>
+    <style>
+        html,
+        body,
+        ul,
+        li,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 16px/1.5 "微软雅黑";
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .layout {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .clearfix::after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        .btn {
+            padding: 5px 15px;
+            display: inline-block;
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+
+        .btn-dark {
+            background: rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+
+        .btn-dark:hover {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        #nav {
+            font-size: 18px;
+            background-color: #eee;
+        }
+
+        #nav .nav-list>li {
+            float: left;
+            position: relative;
+        }
+
+        #nav .nav-list>li a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+        }
+
+        #nav .nav-list>li a:hover {
+            background-color: #aaa;
+        }
+
+        #nav .nav-list>li:first-child img {
+            height: 1.3em;
+        }
+
+        #nav .nav-list>li .child {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 10%;
+            background: white;
+            z-index: 1;
+        }
+
+        #nav .nav-list>li .child a {
+            padding: 5px 20px;
+            margin: 5px;
+            display: block;
+            font-size: 0.8em;
+        }
+
+        #nav .nav-list>li:hover .child {
+            display: block;
+        }
+
+        #header {
+            background: rgb(182, 78, 72);
+            color: white;
+            padding: 40px 0;
+        }
+
+        #header>.layout {
+            padding-left: 50px;
+        }
+        #content{
+            margin-top:10px;
+        }
+
+        #content .segment {
+            margin-bottom: 30px;
+        }
+
+        #content .segment p:first-child {
+            background-color: #eee;
+            border-radius: 3px;
+            padding: 5px 20px;
+            border-radius: 5px;
+        }
+
+        #content .segment p>a {
+            color: rgb(182, 78, 72);
+        }
+
+        #content .projects-list>li {
+            box-sizing: border-box;
+            float: left;
+            width: 310px;
+            text-align: center;
+            border: solid 1px #ccc;
+            padding: 2px;
+            padding-bottom: 20px;
+            margin: 10px;
+        }
+        #content .projects-list>li a:hover{
+            opacity: 0.7;
+        }
+
+        #content .projects-list>li img {
+            width: 100%
+        }
+
+        #footer {
+            background: rgb(182, 78, 72);
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div class="layout">
+            <ul class="nav-list clearfix">
+                <li>
+                    <a href="#"><img src="http://cdn.jirengu.com/public/logo-tiny.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#">我的作品
+                        <i class="fa fa-angle-down fa-lg" aria-hidden="true">
+                        </i>
+                    </a>
+
+                    <ul class="child">
+                        <li><a href="">作品1</a></li>
+                        <li><a href="">作品2</a></li>
+                        <li><a href="">作品3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">项目</a></li>
+                <li><a href="#">关于我</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="header">
+        <div class="layout">
+            <h1>页面特征</h1>
+            <p>不需要处理响应式，不使用bootstrap，不需要js。</p>
+            <p>图标使用font-awosome <i class="fa fa-angle-down" aria-hidden="true"></i></p>
+        </div>
+    </div>
+    <div id="content">
+        <div class="layout">
+            <div class="segment">
+                <p>
+                    <a href="#">首页 </a> / 我的作品
+                </p>
+                <ul class="projects-list clearfix">
+                    <li>
+                        <a href="#"><img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/creative.jpg" alt=""></a>
+                        <h2>Creative</h2>
+                        <p>A one page creative theme.</p>
+                        <br>
+                        <a href="#" class="btn btn-dark">更多</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/creative.jpg" alt=""></a>
+                        <h2>Creative</h2>
+                        <p>A one page creative theme.</p>
+                        <br>
+                        <a href="#" class="btn btn-dark">更多</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/creative.jpg" alt=""></a>
+                        <h2>Creative</h2>
+                        <p>A one page creative theme.</p>
+                        <br>
+                        <a href="#" class="btn btn-dark">更多</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/creative.jpg" alt=""></a>
+                        <h2>Creative</h2>
+                        <p>A one page creative theme.</p>
+                        <br>
+                        <a href="#" class="btn btn-dark">更多</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/creative.jpg" alt=""></a>
+                        <h2>Creative</h2>
+                        <p>A one page creative theme.</p>
+                        <br>
+                        <a href="#" class="btn btn-dark">更多</a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/creative.jpg" alt=""></a>
+                        <h2>Creative</h2>
+                        <p>A one page creative theme.</p>
+                        <br>
+                        <a href="#" class="btn btn-dark">更多</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="layout">
+            <h2>想了解更多？</h2>
+            <h3>下载简历打电话找我吧</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>

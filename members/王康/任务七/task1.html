@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务七</title>
+	<style type="text/css">
+		form {
+			background-color:#91c4d7;
+			padding:20px;
+			width:250px;
+		}
+		.wrap {
+			margin-bottom:10px;
+		}
+		#submit {
+			display:block;
+			margin:0 auto;
+		}
+
+	</style>
+</head>
+<body>
+	<form>
+		<div class="wrap" class="wrap" class="wrap" class="wrap" class="wrap" class="wrap" class="wrap" class="wrap">
+			<label for="name">姓名：</label>
+			<input type="text" name="name" id="name" placeholder="用户名">
+		</div>
+		<div class="wrap" class="wrap" class="wrap" class="wrap" class="wrap" class="wrap" class="wrap">
+			<label for="password">密码：</label>
+			<input type="password" name="password" id="password">	
+		</div>
+		<div class="wrap" class="wrap" class="wrap" class="wrap" class="wrap" class="wrap">
+			性别：
+			<input type="radio" name="sex" id="male" value="male">
+			<label for="male">男</label>
+			<input type="radio" name="sex" id="famale" value="famale">
+			<label for="famale">女</label>
+		</div>
+		<div class="wrap" class="wrap" class="wrap" class="wrap" class="wrap">
+			取向：
+			<input type="radio" name="sex-pref" id="pref-male" value="pref-male">
+			<label for="pref-male">男</label>
+			<input type="radio" name="sex-pref" id="pref-famale" value="pref-famale">
+			<label for="pref-famale">女</label>
+		</div>
+		<div class="wrap" class="wrap" class="wrap" class="wrap">
+			爱好：
+			<input type="checkbox" name="hobby" id="dota" value="dota">
+			<label for="dota">Dota</label>
+			<input type="checkbox" name="hobby" id="travel" value="travel">
+			<label for="travel">旅游</label>
+			<input type="checkbox" name="hobby" id="pet" value="pet">
+			<label for="pet">宠物</label>
+		</div>
+		<div class="wrap" class="wrap" class="wrap">
+			<label for="comments">评论：</label>
+			<textarea name="comments" id="comments" placeholder="在此写下您的评论" cols="21" rows="5"></textarea>
+		</div>
+		<div class="wrap" class="wrap">
+			<label for="mycar">我的car:</label>
+			<select name="mycar" id="mycar">
+				<option value="futian">福田</option>
+				<option value="wuzheng">五征</option>
+				<option value="yuejin">跃进</option>
+			</select>
+		</div>
+		<div class="wrap">
+			<input type="submit" name="submit" id="submit" value="提交">
+		</div>
+	</form>
+</body>
+</html>

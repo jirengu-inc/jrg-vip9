@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-10</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function isNumeric (el){
+          return typeof el === 'number';
+      }
+      arr = ["a",3,4,true, -1, 2, "b"]
+      function filter(arr,func) {
+        for (var i = arr.length-1; i>=0; i--) {
+          if (func(arr[i]) === false) {
+            arr.splice(i,1);
+          };
+        };
+        return arr;
+      }
+      arr = filter(arr, isNumeric) ; // arr = [3,4,-1, 2],  过滤出数字
+      arr = filter(arr, function(val) { return  typeof val === "number" && val > 0 });  // arr = [3,4,2] 过滤出大于0的整数
+    </script>
+  </body>
+</html>

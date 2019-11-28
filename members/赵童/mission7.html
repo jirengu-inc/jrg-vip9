@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>list</title>
+    </head>
+    <body>
+        <form action="index.html" method="get">
+            <div class="username">
+                <label for="username">姓名：</label>
+                <input id="username" type="text" name="username" placeholder="用户名">
+            </div>
+            <div class="password">
+                <label for="password">密码：</label>
+                <input id="password" type="password" name="password" placeholder="密码">
+            </div>
+            <div class="sex">
+                <label for="sex">性别：</label>
+                <input id="sex-male" type="radio" name="sex" value="male" checked="checked">
+                <label for="sex-male">男</label>
+                <input id="sex-female" type="radio" name="sex" value="female">
+                <label for="sex-female">女</label>
+            </div>
+            <div class="sexual">
+                <label for="sexual-male">取向：</label>
+                <input id="sexual-male" type="radio" name="sexual" value="male">
+                <label for="sexual-male">男</label>
+                <input id="sexual-female" type="radio" name="sexual" value="female" checked="checked">
+                <label for="sexual-female">女</label>
+            </div>
+            <div class="hobby">
+                <label for="hobby">爱好：</label>
+                <input id="dota" type="checkbox" name="hobby" value="dota">
+                <label for="dota">dota</label>
+                <input id="travel" type="checkbox" name="hobby" value="travel">
+                <label for="travel">旅游</label>
+                <input id="pet" type="checkbox" name="hobby" value="pet">
+                <label for="pet">宠物</label>
+            </div>
+            <div class="comment">
+                <label for="comment">评论：</label>
+                <textarea id="comment" name="comment" rows="10" cols="40" placeholder="ddd"></textarea>
+            </div>
+            <div class="car">
+                <span>我的car：</span>
+                <select class="car" name="car">
+                    <option value="saab">萨博</option>
+                    <option value="audi">奥迪</option>
+                    <option value="vw">大众</option>
+                </select>
+                <input type="submit">
+            </div>
+        </form>
+    </body>
+</html>

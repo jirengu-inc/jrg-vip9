@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+
+    /* 去掉默认样式定义全局样式*/
+    li{
+      list-style: none;
+    }
+    body,ul,li{
+      margin: 0;
+      padding: 0;
+    }
+
+    /*宽度居中*/
+    .layout{
+      width: 900px;
+      margin: 0 auto;
+    }
+
+    #content{
+      margin-top: 30px;
+      background-color: #eee;
+      padding: 10px;
+    }
+
+    #content .panels:after{  /*清除浮动*/
+      content: '';
+      display: block;
+      clear: both;
+    }
+    #content .panels > li{
+      float: left;
+      margin-left: 20px;
+      margin-top: 10px;
+      width: 286px;   /*286=(900-20*2)/3*/
+      height: 80px;
+      background: #004210;
+    }
+
+    .panels{
+      margin-left: -20px;
+    }
+
+  
+    </style>
+  </head>
+  <body>
+     <div id="content" class="layout">
+       <div class="main">
+         <ul class="panels">
+           <li>1</li>
+           <li>2</li>
+           <li>3</li>
+           <li>4</li>
+           <li>5</li>
+           <li>6</li>
+         </ul>
+
+       </div>
+
+     </div>
+  </body>
+</html>

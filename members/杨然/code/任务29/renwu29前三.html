@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu29前三问</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    
+<script>
+// 如何判断一个元素是否出现在窗口可视范围（浏览器的上边缘和下边缘之间，肉眼可视）。写一个函数 isVisible实现
+function isVisible($node){
+  var scrollTop = $(window).scrollTop();
+  var winH = $(window).height();
+  var eleT = $ele.offset().top;
+  return (eleT < scrollTop + winH)&&(scrollTop < eleT);
+}
+
+// 当窗口滚动时，判断一个元素是不是出现在窗口可视范围。每次出现都在控制台打印 true 。用代码实现
+$(windows).on('scroll',function(){
+  if(isVisible($node)){
+    console.log('true');
+  }
+})
+
+// 当窗口滚动时，判断一个元素是不是出现在窗口可视范围。在元素第一次出现时在控制台打印 true，以后再次出现不做任何处理。用代码实现
+$(windows).on('scroll',function(){
+  if(isVisible($node)){
+    showIt();
+  }
+});
+function showIt(){
+  if(!$node.data('data-showed')){
+    console.log('true');
+  	$node.data('data-showed',true);
+  }
+}
+</script>
+
+
+</body>
+</html>

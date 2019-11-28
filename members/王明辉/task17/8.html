@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //作用域
+    console.log(j);// undefined
+    console.log(i);// undefined
+    for(var i=0; i<10; i++){
+        var j = 100;
+    }
+    console.log(i);// 10
+    console.log(j);// 100;
+</script>
+</body>
+</html>

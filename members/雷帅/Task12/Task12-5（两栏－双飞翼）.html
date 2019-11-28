@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>两栏布局（双飞翼原理）</title>
+		<style>
+		html,body,div{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			height: 30px;
+			background-color: #aaa;
+		}
+		.footer{
+			height: 30px;
+			background-color: #aaa;
+		}
+		.container:after{/*main形成BFC，对后面元素块aside extra的影响要记住*/
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.main{
+			width: 100%;
+			height: 500px;
+			float: left;
+		}
+		.main .wrap{
+			height: 500px;
+			margin-right: 200px;
+			background-color: pink;
+		}
+		.extra{
+			width: 200px;
+			height: 500px;
+			background-color: orange;
+			float: left;
+			margin-left: -200px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="header">111</div>
+		<div class="container">
+			<div class="main">
+				<div class="wrap">3333 3333 3333</div>
+			</div>
+			<div class="extra">4444</div>
+		</div>
+		<div class="footer">555</div>
+	</body>
+</html>

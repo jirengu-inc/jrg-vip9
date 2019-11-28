@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level12-1</title>
+    <style>
+    .ct {
+        width: 620px;
+        height: 130px;
+        background-color: #ccc
+    }
+
+    .container{
+    	margin-left: -10px;
+    }
+    
+    .container:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .box {
+        width: 200px;
+        height: 50px;
+        background-color: green;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    
+
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <div class="container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+        </div>
+    </div>
+</body>
+
+</html>

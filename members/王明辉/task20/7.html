@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7</title>
+</head>
+<body>
+<script>
+    // 7. 下面这段代码输出？如何输出delayer: 0, delayer:1...（使用闭包来实现）
+    for(var i=0;i<5;i++){
+        setTimeout(function(){
+            console.log('delayer:' + i );
+        }, 0);
+        console.log(i);
+        // 闭包
+        (function(index){
+            console.log('delayer:' + index );
+        })(i)
+    }
+</script>
+</body>
+</html>

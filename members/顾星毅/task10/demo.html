@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>demo</title>
+    <style media="screen">
+      .test{
+        width: 200px;
+        height: 120px;
+        border: 2px solid #ccc;
+        margin: 50px;
+      }
+      .demo1{
+        position: relative;
+        left:20px;
+        top:-20px;
+        width: 0;height: 0;
+        border-bottom: 20px solid #aaa;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+      }
+      .demo2{
+        position: relative;
+        left:172px;
+        width: 0;height: 0;
+        border-top: 28px solid #f00;
+        border-left: 28px solid transparent
+      }
+      .demo3{
+        position: relative;
+        left:20px;
+        top:-20px;
+        width: 0;height: 0;
+        border-bottom: 20px solid #ccc;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        z-index: 1;
+      }
+      .demo4{
+        position: relative;
+        left:20px;
+        top:-38px;
+        width: 0;height: 0;
+        border-bottom: 20px solid #fff;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test">
+      <div class="demo1"></div>
+    </div>
+    <div class="test">
+      <div class="demo2"></div>
+    </div>
+    <div class="test">
+      <div class="demo3"></div>
+      <div class="demo4"></div>
+    </div>
+  </body>
+</html>

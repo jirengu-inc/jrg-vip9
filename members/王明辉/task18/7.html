@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 7.如下代码输出什么？为什么? (***)
+    var arr = ["a", "b"];
+    arr.push(function(){
+        alert(console.log('hello hunger valley'));
+    });
+    arr[arr.length-1]();
+    /*
+     浏览器打印: hello hunger valley
+     而console.log() 他的返回值是undefined
+     所以弹框alert() -> undefined
+    */
+
+
+</script>
+</body>
+</html>

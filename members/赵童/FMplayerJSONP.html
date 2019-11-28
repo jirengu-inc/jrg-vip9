@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <title>Tie's FM</title>
+    <link rel="stylesheet" href="http:////at.alicdn.com/t/font_j3k13t81l03blnmi.css">
+    <script src="js/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="css/fm.css">
+</head>
+<body>
+    <h1>这里面的歌很好听哦，您可以多听一会^_^</br>（按住小ICON可以拖动）</h1>
+<script>
+    function FmPlayer(){
+        this.init();
+        this.bind();
+        $('body').append(this.$playerCt);
+    }
+    FmPlayer.prototype = {
+        init: function(){
+            this.creatHTML();
+            this.$playerIcon = this.$playerCt.find('.player-icon');
+            this.$player = this.$playerCt.find('.player');
+            this.$currentChannel = this.$playerCt.find('.current-channel');
+            this.$currentChannelSpan = this.$playerCt.find('.current-channel>span').eq(1);
+            this.$channelList = this.$playerCt.find('.channel-list');
+            this.$channelListUl = this.$playerCt.find('.channel-list>ul');
+            this.$volumeIcon = this.$playerCt.find('.icon-ic_volume_up_px');
+            this.$volume = this.$playerCt.find('.volume');
+            this.$audio = this.$playerCt.find('audio');
+            this.$albumArt = this.$playerCt.find('.album-art');
+            this.$artist = this.$playerCt.find('.artist');
+            this.$title = this.$playerCt.find('.title');
+            this.$lyricUl = this.$playerCt.find('.lyric-ul');
+            this.$playBtn = this.$playerCt.find('.icon-ic_play_arrow_px');
+            this.$knob = this.$playerCt.find('.knob');
+            this.$volumeBtn = this.$playerCt.find('.icon-ic_volume_up_px');
+            this.$strip = this.$playerCt.find('.strip');
+            this.$nextBtn = this.$playerCt.find('.icon-ic_skip_next_px');
+            this.$lyricBtn = this.$playerCt.find('.icon-ic_my_library_books_px');
+            this.$beat = this.$playerCt.find('.beat');
+            this.$lyricCt = this.$playerCt.find('.lyric-ct');
+            this.$lyricBorderTop = this.$playerCt.find('.border-top');
+            
+            this.channelArr = [];
+            this.musicStatus = false;
+            this.isClickMute = true;
+            this.volumeMemory = 0;
+            this.isLyricDisplay = true;
+            this.oldSid = 0;
+
+
+            // this.getChannel();
+
+            this.send('http://api.jirengu.com/fm/getChannels.php','fm.getChannel');
+            // this.send('http://api.jirengu.com/fm/getSong.php','fm.getSong');
+            // this.send('http://api.jirengu.com/fm/getLyric.php','fm.getLyric');
+            // this.getSong(this.$currentChannelSpan.data('id'));
+            // this.getLyric(this.$audio.data('sid'));
+            this.adjustVolume(80);
+            this.$lyricBtn.css('color','#45a156');
+            this.beatPause();
+            var _this = this;
+            setInterval(function(){
+                if(_this.$audio[0].ended){
+                    _this.$nextBtn.click();
+                }
+            },1000)
+        },
+        creatHTML: function(){
+            var htmlStr = '<div class="player-ct">'
+                    + '<div class="player-icon"><i class="iconfont icon-ic_audiotrack_px"></i></div>'
+                    + '<div class="player"><div class="album-art"></div>'
+                    + '<div class="information"><h3 class="title"></h3><p class="artist"></p>'
+                    + '<div class="lyric-ct"><div class="border-top"></div>'
+                    + '<div class="beat"><div class="one"></div><div class="two"></div><div class="three"></div><div class="four"></div><div class="five"></div><div class="six"></div></div>'
+                    + '<div class="lyric-div"><ul class="lyric-ul"></ul></div><div class="border-bottom"></div></div></div>'
+                    + '<div class="channel-list"><ul></ul></div>'
+                    + '<div class="volume"><div class="strip"><div class="knob"></div></div></div>'
+                    + '<div class="function"><div class="current-channel"><span><i class="iconfont icon-ic_radio_px"></i></span><span>轻音乐MHz</span></div>'
+                    + '<div class="button"><span class="small-button"><i class="btn-style iconfont icon-ic_play_arrow_px"></i><i class="btn-style iconfont icon-ic_skip_next_px"></i></span>'
+                    + '<span class="big-button"><i class="btn-style iconfont icon-ic_my_library_books_px"></i><i class="btn-style iconfont icon-ic_volume_up_px"></i></span></div></div>'
+                    + '<div class="test"></div></div><audio src=""></audio></div>';
+            
+            this.$playerCt = $(htmlStr);
+        },
+        send: function(url,callback,data){
+            var $script = $('<script>');
+            var str = url+'?';
+            if(data){
+                str += data + '&';
+            }
+            str += 'callback='+callback;
+            $script.attr('src',str);
+            $('head').append($script);
+            // $script.remove();
+        },
+        getChannel: function(channelInfo){
+            var _this = this;
+            var channelInfoArr = channelInfo.channels;
+            // var channelInfoArr = JSON.parse(channelInfo).channels;
+            $(channelInfoArr).each(function(){
+                if(/xinqing/.test(this.channel_id)){
+                    _this.channelArr.push(this);
+                }
+            });
+            $(this.channelArr).each(function(){
+                var $li = $('<li data-id="'+ this.channel_id + '">' + this.name + 'MHz' + '</li>');
+                _this.$channelListUl.append($li);
+            });
+            this.switchChannel(_this.channelArr[0].channel_id);
+
+        },
+        getSong: function(song){
+            var songInfo = song.song[0];
+            this.$audio.data('sid',songInfo.sid);
+            this.$audio.attr('src',songInfo.url);
+            this.$albumArt.css('background-image','url('+songInfo.picture+')');
+            this.$artist.text(songInfo.artist);
+            this.$title.text(songInfo.title);
+        },
+        getLyric: function(sid){
+            var _this = this;
+            $.ajax({
+                // async: false,
+                url: 'http://api.jirengu.com/fm/getLyric.php',
+                method: 'POST',
+                data: {sid: sid}
+            }).done(function(lyric){
+                var str = JSON.parse(lyric).lyric;
+                var lyricMatch = str.match(/\[\d\d\:\d\d\.\d\d\].+\n/g);
+                var lyricArr = [];
+                for(var i = 0;i < lyricMatch.length;i++){
+                    lyricMatch[i] = lyricMatch[i].replace('\n','')
+                    var time = lyricMatch[i].match(/\[\d\d\:\d\d\.\d\d\]/);
+                    time = time[0].match(/\d\d\:\d\d/)[0];
+                    var min = parseInt(time.match(/\d\d/)[0]);
+                    var sec = parseInt(time.replace(/\d\d\:/,''));
+                    var newTime = min*60+sec;
+                    var value = lyricMatch[i].replace(/\[\d\d\:\d\d\.\d\d\]/,'');
+                    lyricArr.push({time:newTime,value:value});
+                };
+                var lyricStr = '';
+                for(var i = 0;i < lyricArr.length;i++){
+                    lyricStr += '<li data-time="' + lyricArr[i].time + '">' + lyricArr[i].value + '</li>';
+                };
+                _this.$lyricUl.empty();
+                _this.$lyricUl.append($(lyricStr));
+            });
+        },
+        // getLyric: function(lyric){
+        //     // var _this = this;
+        //     console.log(2);
+        //     var str = lyric.lyric;
+        //     var lyricMatch = str.match(/\[\d\d\:\d\d\.\d\d\].+\n/g);
+        //     var lyricArr = [];
+        //     for(var i = 0;i < lyricMatch.length;i++){
+        //         lyricMatch[i] = lyricMatch[i].replace('\n','')
+        //         var time = lyricMatch[i].match(/\[\d\d\:\d\d\.\d\d\]/);
+        //         time = time[0].match(/\d\d\:\d\d/)[0];
+        //         var min = parseInt(time.match(/\d\d/)[0]);
+        //         var sec = parseInt(time.replace(/\d\d\:/,''));
+        //         var newTime = min*60+sec;
+        //         var value = lyricMatch[i].replace(/\[\d\d\:\d\d\.\d\d\]/,'');
+        //         lyricArr.push({time:newTime,value:value});
+        //     };
+        //     var lyricStr = '';
+        //     for(var i = 0;i < lyricArr.length;i++){
+        //         lyricStr += '<li data-time="' + lyricArr[i].time + '">' + lyricArr[i].value + '</li>';
+        //     };
+        //     this.$lyricUl.empty();
+        //     this.$lyricUl.append($(lyricStr));
+        // },
+        bind: function(){
+            var _this = this;
+            this.bindIcon();
+            this.bindList();
+            this.bindPlay();
+            this.bindVolume();
+            this.bindNext();
+            this.bindLyric();
+            this.bindLyricBtn();
+            this.bindChannelTimer = setInterval(function(){
+                if(_this.$channelListUl.find('li').length>0){
+                    _this.bindChannel();
+                    clearInterval(_this.bindChannelTimer);
+                }
+            },100);
+            
+        },
+        bindIcon: function(){
+            var _this = this;
+            this.notMove = true;
+            this.playerDisplay = false;
+            this.$playerIcon.on('mousedown',function(){
+                var intialX = event.clientX,
+                    intialY = event.clientY,
+                    ctY = parseInt(_this.$playerCt.css('top')),
+                    ctX = parseInt(_this.$playerCt.css('left')),
+                    valueX = intialX - ctX,
+                    valueY = intialY - ctY;
+                $(this).css('cursor','move');
+                $('body').on('mousemove.ctMove',function(){
+                    _this.$playerCt.css('left',event.clientX-valueX+'px');
+                    _this.$playerCt.css('top',event.clientY-valueY+'px');
+                    _this.notMove = false;
+                    var animateStatus = false,
+                        iconX = _this.$playerIcon.offset().left,
+                        iconY = _this.$playerIcon.offset().top,
+                        winY = window.innerHeight/2,
+                        winX = window.innerWidth/2;
+                    if(iconY > winY && iconX > winX){
+                            animateStatus = true;
+                            _this.$player.css({'top':'-205px','left':'-365px'})
+                    }
+                    if(iconY > winY && iconX < winX){
+                            animateStatus = true;
+                            _this.$player.css({'top':'-205px','left':'0'})
+                    }
+                    if(iconY < winY && iconX < winX){
+                            animateStatus = true;
+                            _this.$player.css({'top':'40px','left':'0'})
+                    }
+                    if(iconY < winY && iconX > winX){
+                            animateStatus = true;
+                            _this.$player.css({'top':'40px','left':'-365px'})
+                    };
+                })
+            })
+            this.$playerIcon.on('mouseup',function(){
+                $('body').off('mousemove.ctMove');
+                $(this).css('cursor','default');
+            })
+            this.$playerIcon.on('click',function(){
+                if(_this.notMove){
+                    _this.$player.fadeToggle();
+                }else{
+                    _this.notMove = true;
+                }
+            })
+        },
+        bindList: function(){
+            bindMouseover(this.$currentChannel,this.$channelList,'40px','-100px');
+            bindMouseover(this.$volumeIcon,this.$volume,'40px','20px');
+            function bindMouseover($btn,$target,openPx,closePx){
+                var openStatus = false;
+                var mouseover = false;
+                $btn.on('mouseover',function(){
+                    mouseover = true;
+                    if(!openStatus){
+                        openStatus = true;
+                        $target.animate({'bottom':openPx},function(){
+                            openStatus = false;
+                        });
+                    }
+                })
+                $btn.on('mouseleave',function(){
+                        mouseover = false;
+                        setTimeout(function(){
+                            if(!mouseover){
+                                $target.animate({'bottom':closePx});
+                            }
+                        },1000)
+                })
+                $target.on('mouseover',function(){
+                    mouseover = true;
+                    if(!openStatus){
+                        $target.animate({'bottom':openPx},function(){
+                            openStatus = false;
+                        });
+                    }
+                })
+                $target.on('mouseleave',function(){
+                        mouseover = false;
+                        setTimeout(function(){
+                            if(!mouseover){
+                                $target.animate({'bottom':closePx});
+                            }
+                        },1000)
+                })
+            }
+        },
+        bindVolume: function(){
+            var _this = this;
+            this.$knob.on('mousedown',function(){
+                var orginalX = event.pageX;
+                var orginalLeft = parseInt($(this).css('left'));
+                $('body').on('mousemove.volume',function(){
+                    _this.isClickMute = false;
+                    var moveX = event.pageX - orginalX + orginalLeft;
+                    if(moveX >= 0 && moveX <= 100){
+                        _this.adjustVolume(moveX);
+                    }
+                })
+            })
+            this.$knob.on('mouseup',function(){
+                $('body').off('mousemove.volume');
+                $('body').off('mousewheel.volume');
+            })
+            this.$knob.on('mouseout',function(){
+                $('body').off('mousemove.volume');
+                $('body').off('mousewheel.volume');
+            })
+            this.$volume.on('mouseleave',function(){
+                $('body').off('mousewheel.volume');
+            })
+            this.$volume.on('mouseover',function(){
+                $('body').on('mousewheel.volume',function(){
+                    _this.isClickMute = false;
+                    var knob = _this.$knob;
+                    var orginalLeft = parseInt(knob.css('left'));
+                    event.preventDefault();
+                    if(orginalLeft < 100 && event.wheelDelta > 0){
+                        _this.adjustVolume(orginalLeft + 1);
+                    }
+                    if(orginalLeft > 0 && event.wheelDelta < 0){
+                        _this.adjustVolume(orginalLeft - 1);
+                    }
+                })
+            })
+            this.$strip.on('click',function(){
+                _this.isClickMute = false;
+                var value = event.pageX - $(this).offset().left;
+                _this.adjustVolume(value);
+            })
+            this.$volumeBtn.on('click',function(){
+                if(_this.$audio[0].volume === 0){
+                    if(_this.isClickMute){
+                        _this.adjustVolume(_this.volumeMemory);
+                    }else if(!_this.isClickMute){
+                        _this.adjustVolume(10);
+                    }
+                }else{
+                    _this.isClickMute = true;
+                    _this.volumeMemory = _this.$audio[0].volume*100;
+                    _this.adjustVolume(0);
+                }
+            })
+        },
+        adjustVolume: function(num){
+            if(num === 0){
+                this.$knob.css('left',num + 'px');
+                this.$audio[0].volume = 0;
+                this.$volumeBtn.removeClass('icon-ic_volume_up_px');
+                this.$volumeBtn.addClass('icon-ic_volume_off_px');
+            }else if(0<num<=100){
+                this.$volumeBtn.removeClass('icon-ic_volume_off_px');
+                this.$volumeBtn.addClass('icon-ic_volume_up_px');
+                this.$knob.css('left',num + 'px');
+                this.$audio[0].volume = num/100;
+            }
+
+        },
+        playMusic: function(){
+            this.$audio[0].play();
+            this.musicStatus = true;
+            this.$playBtn.removeClass('icon-ic_play_arrow_px');
+            this.$playBtn.addClass('icon-ic_pause_px');
+            this.beatPlay();
+        },
+        pauseMusic: function(){
+            this.$audio[0].pause();
+            this.musicStatus = false;
+            this.$playBtn.removeClass('icon-ic_pause_px');
+            this.$playBtn.addClass('icon-ic_play_arrow_px');
+            this.beatPause();
+        },
+        bindPlay: function(){
+            var _this = this;
+            this.$playBtn.on('click',function(){
+                if(!_this.musicStatus){
+                    _this.playMusic();
+                    return;
+                }
+                if(_this.musicStatus){
+                    _this.pauseMusic();
+                    return;
+                }
+            });
+        },
+        bindChannel: function(){
+            var _this = this;
+            this.$channelListUl.find('li').each(function(){
+                $(this).on('click',function(){
+                    _this.oldSid = _this.$audio.data('sid');
+                    _this.switchChannel($(this).data('id'));
+                    _this.nextTimer = setInterval(function(){
+                        if(_this.$audio.data('sid') !== _this.oldSid){
+                            _this.playMusic();
+                            clearInterval(_this.nextTimer);
+                        }
+                    },100)
+                })
+            })
+            this.$channelListUl.on('mouseover',function(){
+                    $('body').css('overflow','hidden');
+            });
+            this.$channelListUl.on('mouseleave',function(){
+                    $('body').css('overflow','visible');
+            });
+        },
+        switchChannel: function(channelId){
+            var _this =this;
+            // this.pauseMusic();
+            this.$channelListUl.find('li').each(function(){
+                if(channelId === $(this).data('id')){
+                    _this.$currentChannelSpan.text($(this).text());
+                    _this.$currentChannelSpan.data('id',$(this).data('id'));
+                    // _this.send('http://api.jirengu.com/fm/getSong.php','fm.getSong','channel='+channelId);
+                    // // _this.getSong($(this).data('id'));
+                    // // _this.getLyric(_this.$audio.data('sid'));
+                    // _this.lyricTimer = setInterval(function(){
+                    //     if(fm.$audio.data('sid')){
+                    //         fm.send('http://jirenguapi.applinzi.com/fm/getLyric.php','fm.getLyric','sid='+fm.$audio.data('sid'));
+                    //         clearInterval(fm.lyricTimer);
+                    //     }
+                    // },100);
+                    _this.switchSong();
+                }
+            })
+        },
+        bindNext: function(){
+            var _this = this;
+            this.$nextBtn.on('click',function(){
+                _this.oldSid = _this.$audio.data('sid');
+                _this.switchSong();
+                _this.nextTimer = setInterval(function(){
+                    if(_this.$audio.data('sid') !== _this.oldSid){
+                        _this.playMusic();
+                        clearInterval(_this.nextTimer);
+                    }
+                },100)
+            })
+        },
+        switchSong: function(){
+            var _this = this;
+            this.pauseMusic();
+            this.oldSid = this.$audio.data('sid');
+            this.send('http://api.jirengu.com/fm/getSong.php','fm.getSong','channel='+this.$currentChannelSpan.data('id'));
+            // this.getSong(this.$currentChannelSpan.data('id'));
+
+            this.lyricTimer = setInterval(function(){
+                if(_this.$audio.data('sid') !== _this.oldSid){
+                    _this.getLyric(_this.$audio.data('sid'));
+                    // fm.send('http://jirenguapi.applinzi.com/fm/getLyric.php','fm.getLyric','sid='+fm.$audio.data('sid'));
+                    clearInterval(_this.lyricTimer);
+                }
+            },100);
+            
+        },
+        bindLyric: function(){
+            var _this = this;
+            var lyricTimer = setInterval(function(){
+                var currentTime = parseInt(_this.$audio[0].currentTime);
+                _this.$lyricUl.find('li').each(function(){
+                    if($(this).data('time') === currentTime && currentTime > 0){
+                        var valueX = $(this).offset().top - _this.$lyricUl.offset().top + 1;
+                        _this.$lyricUl.find('li').removeClass('current');
+                        $(this).addClass('current');
+                        $('.lyric-ul').animate({'top':-valueX + 'px'});
+                    }
+                })
+            },1000)
+        },
+        bindLyricBtn: function(){
+            var _this = this;
+            this.$lyricBtn.on('click',function(){
+                if(_this.isLyricDisplay){
+                    _this.$lyricCt.slideUp(500,function(){
+                        _this.$lyricBorderTop.hide();
+                        _this.$lyricUl.hide();
+                        _this.$beat.show();
+                        if(!_this.$audio[0].paused){
+                            _this.beatPlay();
+                        };
+                        _this.$lyricCt.slideDown(500,function(){
+                            _this.$lyricBtn.css('color','#4a4a4a');
+                            _this.isLyricDisplay = false;
+                        });
+                    });
+                }
+                if(!_this.isLyricDisplay){
+                    _this.$lyricCt.slideUp(500,function(){
+                        _this.$beat.hide();
+                        _this.$lyricBorderTop.show();
+                        _this.$lyricUl.show();
+                        _this.$lyricCt.slideDown(500,function(){
+                            _this.$lyricBtn.css('color','#45a156');
+                            _this.isLyricDisplay = true;
+                        });
+                    });
+                }
+            })
+        },
+        beatPause: function(){
+            this.$beat.find('div').each(function(){
+                $(this).css('animation-play-state','paused');
+            });
+        },
+        beatPlay: function(){
+            this.$beat.find('div').each(function(){
+                $(this).css('animation-play-state','running');
+            });
+        }
+    }
+
+
+    var fm = new FmPlayer();
+    // fm.$lyricBtn.click();
+    var playTimer = setInterval(function(){
+        if(fm.$audio.attr('src')){
+            fm.playMusic();
+            clearInterval(playTimer);
+        }
+    },500);
+</script>
+</body>
+</html>

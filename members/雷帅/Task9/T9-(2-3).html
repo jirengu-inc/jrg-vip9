@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>T9-2.3</title>
+<link href="" rel="stylesheet">
+<style>
+	body{
+		margin:0;
+		padding:0;
+	}
+	.border{
+        width:0;
+        height:0;
+        margin-bottom:30px;
+
+	}
+
+    .border.full{
+        border-top:50px solid red;
+        border-right:50px solid green;
+        border-bottom:50px solid blue;
+        border-left:50px solid yellow;
+    }
+    .border.top{
+        border-top:50px solid red;
+        border-right:50px solid transparent;
+        border-bottom:50px solid transparent;
+        border-left:50px solid transparent;
+    }
+    .border.left{
+        border-top:50px solid transparent;
+        border-right:50px solid transparent;
+        border-bottom:50px solid transparent;
+        border-left:50px solid yellow;
+    }
+     .border.right{
+        border-top:50px solid transparent;
+        border-right:50px solid green;
+        border-bottom:50px solid transparent;
+        border-left:50px solid transparent;
+    }
+     .border.bottom{
+        border-top:50px solid transparent;
+        border-right:50px solid transparent;
+        border-bottom:50px solid blue;
+        border-left:50px solid transparent;
+    }
+     
+     .border.bottom-left{
+        border-top:30px solid transparent;
+        border-right:30px solid transparent;
+        border-bottom:30px solid yellow;
+        border-left:30px solid yellow;
+    }
+     .border.bottom-right{
+        border-top:30px solid transparent;
+        border-right:30px solid green;
+        border-bottom:30px solid green;
+        border-left:30px solid transparent;
+    }
+</style>
+</head>
+<body>
+    <!-- <div class="border1"> -->
+    	<div class="border full"></div>
+    	<div class="border top"></div>
+    	<div class="border left"></div>
+    	<div class="border right"></div>
+    	<div class="border bottom"></div>
+    	<div class="border bottom-left"></div>
+    	<div class="border bottom-right"></div>
+    <!-- </div> -->
+</body>
+</html>

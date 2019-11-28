@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>expouse</title>
+    <style>
+        .desp{
+            margin: 30px 0;
+        }
+        .yellow{
+            height: 50px;
+            background: yellow;
+        }
+        .yellow-span{
+            background: yellow;
+        }
+        .red{
+            height: 50px;
+            background: red;
+            margin: 200px 0;
+            
+        }
+        .red-span{
+            background: red;
+        }
+        .help{
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+  <h3>曝光加载演示:</h3>
+    <p class="desp">当<span class="yellow-span">黄色区域</span>出现时，可重复曝光加载</p>
+    <p class="desp">当<span class="red-span">红色区域</span>出现时，仅加载一次</p>
+    <p class="desp">请向下滚动...</p>
+  <div class="help"></div>
+  <div class="yellow"></div>
+   <div class="help"></div>
+    <div class="red"></div>
+   <script src="scripts/jquery-3.1.0.js"></script>
+    <script>
+var Expouse = (function() {
+    var showed,
+        fns = {
+        bind:function($node,callback) {
+            var _this = this
+            $(window).on('scroll',function(){
+                if(_this.isShow($node)) {
+                    callback.call($node[0])
+                }
+            })
+        },
+        one:function($node,callback) {
+            var _this = this
+            $(window).on('scroll',function(){
+                if(_this.isShow($node) && !showed) {
+                    callback.call($node[0])
+                    showed = true
+                }
+            })
+        },
+        isShow:function ($target) {
+            if($target.length){
+                var targetTop = $target.offset().top,
+                    targetH = $target.height()
+            }
+            var winH = $(window).height(),
+                winTop = $(window).scrollTop()
+            
+            if((winH + winTop > targetTop) && (winTop < (targetTop + targetH))) {
+                return true
+            } else{
+                return false
+            }
+        }
+    }
+    return fns
+})()
+
+var $target1 = $('.yellow'),
+    $target2 = $('.red')
+
+//$target 是 jquery 对象
+// 当窗口滚动时，如果$target 出现在可见区域，执行回调函数里面的代码，且在回调函数内，$(this)代表$target
+Expouse.bind($target1, function(){
+    console.log($(this));    // $target
+})
+
+// 当窗口滚动时，如果$target 出现在可见区域，执行回调函数里面的代码，且在回调函数内，$(this)代表$target。 仅执行一次回调函数，下次$target 曝光不再执行
+Expouse.one($target2, function(){
+    console.log($(this));    // $target
+})
+    </script>
+</body>
+</html>

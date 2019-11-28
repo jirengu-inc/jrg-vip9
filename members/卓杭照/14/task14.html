@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>lv14-实战1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="css/iconfont.css" rel="stylesheet">
+</head>
+  <style>
+     html,body,h1,h2,p{
+     	padding: 0;
+     	margin: 0;
+     }
+     body,html{
+        height: 100%;
+    }
+    #header{
+        height: 100%;
+        background: url(http://img9.dzdwl.com/img/93275-8YbXVEA.jpg) no-repea;
+        background-size: cover;
+    }
+
+    .layout{
+        margin: 0 auto;
+    }
+    #poster{
+        text-align: center;
+        padding: 300px;   
+    }
+    #header h1,#content h2,
+    #header p,#content p{
+        margin: 30px;
+        
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    a:hover{
+        opacity: 0.7;
+    }
+    .btn{
+        background: #505b7e;
+        padding: 8px 20px;
+        border-radius: 4px
+    }
+    #content{
+        text-align: center;
+        width: 960px;
+        padding: 20px;
+    }
+    #skills{
+        background: #71accd;
+        text-align: center;
+    }
+    #skills h1{
+        padding: 20px 0;
+        border-bottom: 1px solid white;
+        color: white;
+    }
+    .my-skill{
+        width: 960px;
+        margin: 0 auto;
+        padding: 50px;
+        
+    }
+    .my-skill li{
+        float: left;
+        text-align: center;
+        margin: 5px 45px;
+    }
+    .list>p{
+        padding: 10px 0;
+        font-size: 10px;
+    }
+
+    .list .icon{
+        font-size: 100px;
+    }
+
+    .my-skill:after{
+        content:'';
+        display: block;
+        clear: both;
+
+    }
+
+    #sky{
+        height: 50%;
+        background: url(http://www.kuoo8.com/upfiles/2014-03/2/2014032015381880330.jpg);
+        background-size: cover;
+        text-align: center;
+    }
+    #sky h2{
+        padding: 180px;
+        color: white;
+    }
+    #works{
+        width: 960px;
+        text-align: center;
+        margin: 0 auto;
+
+    }
+    #works h2{
+        padding-top: 20px;
+    }
+    .list2>li{
+        float: left;
+        padding: 10px;
+    }
+    .list2 img{
+        width: 420px;
+        height: 300px;
+    }
+    .list2:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    #link{
+        background: #71accd;
+        margin-top: 20px;
+    }
+    .my-link{
+        width: 960px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .my-link h2{
+        color: white;
+        padding-top: 30px;
+    }
+    .linking{
+        padding-left: 328px;
+    }
+    .linking>li{
+        float: left;
+        margin:40px 20px;
+    }
+    .linking:after{
+        content: '';
+        display: block;
+        clear: both;
+
+    }
+    #footer{
+        width: 960px;
+        margin: 100px auto;
+        text-align: center;
+    }
+    li{
+        list-style-type: none;
+    }
+    .last-list .icon{
+        float: left;
+        font-size: 50px;
+        margin-left: 20px;
+    }
+    .last-list{
+        margin: 25px 330px;
+    }
+    #footer>p,
+    .footer-list>li{
+        font-size: 15px;
+    }
+    .footer-list>li:first-child{
+        margin-left: -50px;
+    }
+    .footer-list{
+        margin-top: 0px;
+    }
+    #footer>p:nth-child(5){
+        margin-left: 30px;
+        margin-bottom: 100px;
+        margin-top: 30px;
+    }
+
+    .footer-list,
+    .last-list:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+  </style>
+<body>  
+	<div id="header">
+		<div id="poster" class="layout">
+		    <h1>我是卓杭照</h1>
+		    <p>想做一个热爱生活的前端工程师</p>
+		    <a class="btn" href="xxx">more</a>
+	    </div>
+    </div>
+    <div id="content" class="layout">
+       <h2>Coke</h2>
+       <p>可口可乐（英语：Coca-Cola；简称 Coke，可乐）是由美国可口可乐公司生产出品的一种可乐。目前可口可乐在大多数国家的可乐市场处领导地位，其销量不但远远超越其主要竞争对手百事可乐，更被列入吉尼斯世界纪录。其中在香港更几乎垄断碳酸饮料市场，而在台湾则具有百分之六十以上的市场占有</p> 
+    </div>
+    <div id="skills">
+        <h1>My Skill</h1>
+        <ul class="my-skill">
+            <li class="list">
+                <span><i class="icon iconfont">&#xe61e;</i></span>
+                <h2>Html</h2>
+                <p>HyperText Markup Language</p>
+                <a class="btn" href="xxx">more</a>
+            </li>
+            <li class="list">
+                <span><i class="icon iconfont">&#xf01c3;</i></span>
+                <h2>Css</h2>
+                <p>Cascading Style Sheets</p>
+                <a class="btn" href="xxx">more</a>
+            </li>
+            <li class="list">
+                <span><i class="icon iconfont">&#xe605;</i></span>
+                <h2>JS</h2>
+                <p>JavaScript</p>
+                <a class="btn" href="xxx">more</a>
+            </li>
+            <li class="list">
+                <span><i class="icon iconfont">&#xe735;</i></span>
+                <h2>GitHub</h2>
+                <p>Shared web hosting service</p>
+                <a class="btn" href="xxx">more</a>
+            </li>    
+        </ul>
+    </div>
+    <div id="sky">
+        <h2>The Sky was so pretty</h2>
+    </div>
+    <div id="works">
+        <h2>My Works</h2>
+        <div class="my-works">
+            <ul class="list2">
+                <li>
+                    <a href="">
+                        <img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-1.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-3.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-4.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div><a class="btn" href="xxx">more</a></div>
+    </div>
+    <div id="link">
+        <div class="my-link">
+            <h2>My Link</h2>
+            <ul class="linking">
+                <li>
+                    <a class="btn" href="xxx">My Blog</a>
+                </li>
+                <li>
+                    <a class="btn" href="xxx">My GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        <h3>我的信息</h3>
+        <p>深圳市南山区</p>
+        <ul class="footer-list">
+            <li>
+                <i class="icon iconfont">&#xe63f;</i> 13509628082
+            </li>
+            <li>
+                <i class="icon iconfont">&#xe838;</i> ylzhuohangzhao@163.com
+            </li>
+        </ul>
+        <ul class="last-list">
+            <li>
+                
+                <i class="icon iconfont">&#xe607;</i>
+                
+            </li>
+            <li>
+                <i class="icon iconfont">&#xe661;</i>
+            </li>
+            <li>
+                <i class="icon iconfont">&#xe735;</i>
+            </li>
+        </ul>
+        <p>Copyright © Your Website 2016</p>
+    </div>
+</body>
+</html>

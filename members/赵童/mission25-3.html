@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>珠宝首饰</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        div,ul,li,a,div{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+            font-size: 0.8rem;
+            color: dimgray;
+        }
+        a:visited{
+            color: inherit;
+        }
+        a:link{
+            color: inherit;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .main{
+            width: 664px;
+            margin: 0 auto;
+        }
+        .list{
+            margin-top: -20px;
+            margin-left: -20px;
+        }
+        .content{
+            display: block;
+            width: 200px;
+            height: 250px;
+            float: left;
+            border: 1px solid #eee;
+            margin-top: 20px;
+            margin-left: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .list .content>img{
+            display: block;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+        }
+        .list .content>h4{
+            line-height: 1rem;
+            padding: 0 20px;
+        }
+        .list .content>p{
+            padding: 0 20px;
+            color: red;
+        }
+        .content .cover{
+            height: 250px;
+            width: 200px;
+            background: rgba(0,0,0,0.3);
+            position: absolute;
+            opacity: 0;
+            transition: all 1s;
+        }
+        .content .cover>a{
+            display: block;
+            width: 60px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid red;
+            border-radius: 5px;
+            background: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -15px;
+            margin-left: -30px;
+        }
+        .loadmore{
+            margin-top: 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+        .content .hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 class="clearfix">珠宝首饰</h1>
+        <ul class="list clearfix">
+            <li class="content">
+                <div class="cover"><a href="">立即购买</a></div>
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                <p>¥1699.00</p>
+            </li>
+            <li class="content">
+                <div class="cover"><a href="">立即购买</a></div>
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                <p>¥1699.00</p>
+            </li>
+            <li class="content">
+                <div class="cover"><a href="">立即购买</a></div>
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                <p>¥1699.00</p>
+            </li>
+            <li class="content">
+                <div class="cover"><a href="">立即购买</a></div>
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                <p>¥1699.00</p>
+            </li>
+            <li class="content">
+                <div class="cover"><a href="">立即购买</a></div>
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                <p>¥1699.00</p>
+            </li>
+            <li class="content">
+                <div class="cover"><a href="">立即购买</a></div>
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                <p>¥1699.00</p>
+            </li>
+        </ul>
+        <button class="loadmore">添加</button>
+    </div>
+
+    <script>
+        var products = [
+            {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥405.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金转运珠 猴哥款',
+                price: '￥100.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手链 3D猴哥款',
+                price: '￥45.00'
+            }
+        ];
+        $('.list').on('mouseover','.content .cover',function(e){
+            $(this).addClass('hover')
+        });
+        $('.list').on('mouseout','.content .cover',function(e){
+            $(this).removeClass('hover')
+        });
+        $('.loadmore').on('click',function(e){
+            for(var i = 0;i<3;i++){
+                var newElement = $('.content').eq(0).clone();
+                newElement.find('img').attr('src',products[i].img);
+                newElement.find('h4').text(products[i].name);
+                newElement.find('p').text(products[i].price);
+                $('.main .list').append(newElement);
+            }
+        })
+    </script>
+</body>
+</html>

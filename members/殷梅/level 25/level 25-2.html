@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 25-2</title>
+    <link rel="stylesheet" href="level 25-2.css">
+</head>
+
+<body>
+    <div class="tab">
+        <ul class="tab-header clearfix">
+            <li class="active">热门</li>
+            <li>珠宝首饰</li>
+            <li>奢侈品</li>
+        </ul>
+        <ul class="tab-ct clearfix">
+            <li>
+                <div class="item">
+                    <div class="mask">
+                        <a href="#">立即抢购</a>
+                    </div>
+                    <img class="image" src="images/diamon.jpg" alt="">
+                    <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <div class="mask">
+                        <a href="#">立即抢购</a>
+                    </div>
+                    <img class="image" src="images/diamon.jpg" alt="">
+                    <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <div class="mask">
+                        <a href="#">立即抢购</a>
+                    </div>
+                    <img class="image" src="images/diamon.jpg" alt="">
+                    <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <div class="mask">
+                        <a href="#">立即抢购</a>
+                    </div>
+                    <img class="image" src="images/diamon.jpg" alt="">
+                    <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <div class="mask">
+                        <a href="#">立即抢购</a>
+                    </div>
+                    <img class="image" src="images/diamon.jpg" alt="">
+                    <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <div class="mask">
+                        <a href="#">立即抢购</a>
+                    </div>
+                    <img class="image" src="images/diamon.jpg" alt="">
+                    <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+    $('.tab-header>li').on('click', function() {
+        var $this = $(this);
+        $this.siblings().removeClass('active');
+        $this.addClass('active');
+
+        
+         // $('.tab-ct>li').each(function(){
+         //  var index= $('.tab-ct>li').index()
+
+
+
+
+        $('.tab-header>li:nth-of-type(1)').on('click', function() {
+
+            $('.image').attr('src', 'images/diamon.jpg')
+
+        })
+
+        $('.tab-header>li:nth-of-type(2)').on('click', function() { 
+        	$('.image').attr('src', 'images/diamon.jpg') 
+
+            $('.image:eq(0)').attr('src', 'images/necklace.jpg')
+            $('.image:eq(0)').siblings().attr('src', 'images/diamon.jpg')
+
+        })
+
+
+        $('.tab-header>li:nth-of-type(3)').on('click', function() {
+            $('.image').attr('src', 'images/diamon.jpg')
+            $('.image:eq(0)').attr('src', 'images/golden.jpg')
+            $('.image:eq(3)').attr('src', 'images/golden.jpg')
+        })
+
+
+    })
+
+    $('.tab-ct>li').on('mouseenter', function(e){
+ 		$(this).addClass('hover')
+ 	})
+
+ 	$('.tab-ct>li').on('mouseleave', function(e){
+ 		$(this).removeClass('hover')
+ 	})
+
+    
+    </script>
+</body>
+
+</html>

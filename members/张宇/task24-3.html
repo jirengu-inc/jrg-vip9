@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task24-3</title>
+    <style>
+        .ct {
+            font-family:'微软雅黑';
+            font-size: 1rem;
+        }
+        .register dt{
+            float: left;
+            margin-left: 5px;
+        }
+        .register dd{
+            margin-left: 110px;
+            margin-bottom: 5px;
+        }
+        .register dd input{
+            padding: 3px;
+            border-radius: 3px;
+            width: 250px;
+        }
+        .register .waring-words{
+            font-size: 0.5rem;
+            opacity: 0;
+            color: red;
+        }
+        .register
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <h3>注册</h3>
+        <dl class="register">
+            <dt >用户名：</dt>
+            <dd><input type="text" placeholder="请输入3-8位，字母、数字、下划线" class="username"></dd>
+            <dd class="waring-words">格式不正确或已被注册</dd>
+            <dt>密码：</dt>
+            <dd><input type="password" placeholder="6-15位，包括字母数字下划线，两种以上" class="password"></dd>
+            <dd class="waring-words">格式不正确</dd>
+            <dt>再输入一次：</dt>
+            <dd><input type="password" placeholder="再输入一次密码" class="password-check"></dd>
+            <dd class="waring-words">两次输入不一致</dd>
+            <dd><button class="btn">注册</button></dd>
+
+        </dl>
+    </div>
+    <script>
+        function ajax(opts){
+            var xmlhttp = new XMLHttpRequest();
+            var dataStr = "";
+            for(var key in opts.data){
+                dataStr += key + '=' + opts.data[key] + '&' ;
+            }
+            dataStr = dataStr.substring(0,dataStr.length-1);
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4) {
+                    if ( (xmlhttp.status >= 200 && xmlhttp.status < 300) || (xmlhttp.status == 304) ) {
+                        opts.success(xmlhttp.responseText);
+                    } else {
+                        opts.error(xmlhttp.status);
+                    }
+                }
+            };
+            if (opts.type.toLowerCase() === 'post'){
+                xmlhttp.open('POST', opts.url, true);
+                xmlhttp.send( dataStr );
+            }
+            if(opts.type.toLowerCase() === 'get'){
+                xmlhttp.open('GET', opts.url+"?"+dataStr, true);
+                xmlhttp.send(null);
+            }
+        }
+
+        var register = document.querySelector('.register');
+        var username = register.querySelector('.username');
+        var password = register.querySelector('.password');
+        var passwordCheck = register.querySelector('.password-check');
+
+        username.addEventListener('change',function(){
+            if(!/^\w{3,10}$/.test(username.value)) {
+                register.querySelectorAll('.waring-words')[0].style.opacity = '1';
+            } else {
+                ajax({
+                    url: "Task2403.php",
+                    type: 'get',
+                    data: {
+                        usrInfo: username.value
+                    },
+                    success: function (val) {
+                        console.log(val);
+                        if(val.slice(0,1) == '1'){
+                            register.querySelectorAll('.waring-words')[0].style.opacity = '1';
+                        } else {
+                            register.querySelectorAll('.waring-words')[0].style.opacity = '0';
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+        });
+
+        password.addEventListener('change',function(){
+            function isValidPassword(str){
+                if (str.match(/^\w{6,20}$/)){
+                    if(str.match(/^[A-Z]*$/)) return false;
+                    if(str.match(/^[a-z]*$/)) return false;
+                    if(str.match(/^[0-9]*$/)) return false;
+                    if(str.match(/^[_]*$/)) return false;
+                    return str;
+                } else return false;
+            }
+            if(!isValidPassword(password.value)) {
+                register.querySelectorAll('.waring-words')[1].style.opacity = '1';
+            } else {
+                register.querySelectorAll('.waring-words')[1].style.opacity = '0';
+            }
+        });
+        passwordCheck.addEventListener('change',function () {
+            if(passwordCheck.value !== password.value){
+                register.querySelectorAll('.waring-words')[2].style.opacity = '1';
+            } else {
+                register.querySelectorAll('.waring-words')[2].style.opacity = '0';
+            }
+        })
+    </script>
+</body>
+</html>

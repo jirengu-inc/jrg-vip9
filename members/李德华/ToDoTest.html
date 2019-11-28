@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      var EventManager = (function() {
+        var store = {};
+        function on(evt, handler) {
+          store[evt] = store[evt] || [];
+          var fun = {};
+          fun['name'] = handler;
+          fun['args'] = [].slice.call(arguments, 2);
+          store[evt].push(fun);
+        }
+        function fire(evt) {
+          var array = store[evt];
+          for (var i = 0; i < array.length; i++) {
+            var fun = array[i];
+            fun['name'].apply(this, fun['args']);
+          }
+        }
+        function off(evt, handler) {
+          if (arguments.length < 2)
+            delete store[evt];
+          else {
+            var handlerStr = funToString(handler.toString());
+            for (var i = 0; i < store[evt].length; i++) {
+              var fun = store[evt][i];
+              if (handlerStr === funToString(fun['name'].toString())) {
+                store[evt].splice(i, 1);
+                return;
+              }
+            }
+          }
+        }
+        function funToString(fun) {
+          fun = fun.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+          fun = fun.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+          fun = fun.replace(/ /ig,'');//去掉
+          fun = fun.replace(/^[\s　]+|[\s　]+$/g, "");//去掉全角半角空格
+          fun = fun.replace(/[\r\n]/g,"");//去掉回车换行
+          return fun;
+        }
+        return {
+          on: on,
+          fire: fire,
+          off: off
+        }
+      })();
+      EventManager.on('test', function() {
+        console.log('test1');
+      });
+      EventManager.on('test', function() {
+        console.log('test2');
+      });
+      EventManager.on('test', function(str) {
+        console.log(str + 'test2');
+      }, 'My');
+      EventManager.on('test', function(str, str2) {
+        console.log(str + 'test' + str2);
+      }, 'Li', 'hello');
+      EventManager.fire('test');
+      console.log('-----------------------------');
+      EventManager.off('test', function(str) {
+        console.log(str + 'test2');
+      });
+      EventManager.fire('test');
+      console.log('-----------------------------');
+      EventManager.off('test', function() {
+        console.log('test2');
+      });
+      EventManager.fire('test');
+      var logMessage = function() {
+        console.log('log');
+      }
+      console.log('-----------------------------');
+      EventManager.on('test', logMessage);
+      EventManager.fire('test');
+      EventManager.off('test', logMessage);
+      EventManager.fire('test');
+    </script>
+  </body>
+</html>

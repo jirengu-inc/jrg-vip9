@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      html, body {
+        height: 100%;
+      }
+      #layout {
+        width: 900px;
+        margin: 0 auto;
+        position: relative;
+        height: 100%;
+      }
+      .dialog {
+        width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -200px;
+        margin-top: -100px;
+        background: #ddd;
+      }
+      .cover {
+        width: 100%;
+        height: 100%;
+        background: rgba(55, 55, 55, 0.5);
+        position: absolute;
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+      .close-style {
+        float: right;
+        margin: 10px;
+        text-decoration: none;
+        color: black;
+      }
+      .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <div class="cover">
+        <div class="dialog clearfix">
+          <a class="close-style" href="#">关闭</a>
+          <p>我是标题</p>
+          <hr>
+          <p>我是内容一</p>
+          <p>我是内容二</p>
+          <hr>
+          <a class="close-style" href="#">确定</a>
+          <a class="close-style" href="#">取消</a>
+        </div>
+      </div>
+      <button type="button" name="button">点我</button>
+    </div>
+    <script type="text/javascript">
+      var clickBtn = document.getElementsByTagName('button')[0];
+      var cover = document.getElementsByClassName('cover')[0];
+      clickBtn.addEventListener('click', function(){
+        cover.classList.add('show');
+      }, false);
+      var closeBtn = document.getElementsByClassName('close-style')[0];
+      closeBtn.addEventListener('click', function(){
+        cover.classList.remove('show');
+      },false);
+    </script>
+  </body>
+</html>

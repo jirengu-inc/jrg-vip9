@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+<script>
+    // 3.写一个函数获取n天前的日期
+    var lastWeek =  getLastNDays(7); // ‘2016-01-08’
+    var lastMonth = getLastNDays(30); //'2015-12-15'
+
+    function getLastNDays(num){
+        var date = new Date().getTime() - (num * 24*60*60*1000);
+
+        var oldDate = new Date(date)
+        var year = oldDate.getFullYear();
+        var month = oldDate.getMonth()+1;
+        var day = oldDate.getDate();
+
+        return year+'-'+month+'-'+day;
+    };
+
+</script>
+</body>
+</html>

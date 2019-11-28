@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      html, body, ul, li {
+        margin: 0px;
+        padding: 0px;
+      }
+      #layout {
+        width: 900px;
+        height: 400px;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        font-size: 0px;
+      }
+      li {
+        list-style: none;
+        display: inline-block;
+        width: 298px;
+        border: 1px solid #ddd;
+      }
+      li a {
+        display: block;
+        font-size: 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+      }
+      .gray-background {
+        background: #eee;
+      }
+      .text-area {
+        height: 300px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <ul>
+        <li class="tab-item" content-data="内容一"><a href="#">tab1</a></li>
+        <li class="tab-item" content-data="内容二"><a href="#">tab2</a></li>
+        <li class="tab-item" content-data="内容三"><a href="#">tab3</a></li>
+      </ul>
+      <div class="text-area"></div>
+    </div>
+    <script type="text/javascript">
+      var items = document.getElementsByClassName('tab-item');
+      var textArea = document.getElementsByClassName('text-area')[0];
+      var selectItem;
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        item.addEventListener('click',function(){
+          if (selectItem != null) {
+            selectItem.classList.remove('gray-background')
+          }
+          this.classList.add('gray-background');
+          selectItem = this;
+          textArea.innerText = this.getAttribute('content-data');
+        },false);
+      }
+    </script>
+  </body>
+</html>

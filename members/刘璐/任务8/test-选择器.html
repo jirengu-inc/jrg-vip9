@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    h1+p{color:blue;}/*相邻元素选择器，字体颜色为蓝色*/
+    h1~p{background:pink;}/*普通相邻元素选择器，背景颜色为粉色*/
+    .box1{border:1px solid pink;}
+    .box1 p{color:green;}/*后代选择器，设置颜色为绿色*/
+    .box1>p{text-align:center;}/*直接后代，设置居中*/
+</style>
+<body>
+<h1 class="title">我是大标题哈哈哈</h1>
+<p>我是第一段</p>
+<p>我是第二段</p>
+<p>我是第三段</p>
+<p>我是第四段</p>
+<p>我是第五段</p>
+<div class="box1">
+    <div class="box2">
+        <p>我是第6段</p>
+    </div>
+    <p>我是第7段</p>
+    <p>我是第8段</p>
+</div>
+</body>
+</html>

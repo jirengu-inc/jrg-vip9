@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        .wrap {
+            padding: 50px;
+            border: 1px solid #ccc;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="wrap" action="index.html" method="post">
+        姓名：
+        <input type="text" name="username" value="" placeholder="用户名">
+        </br>
+        密码：
+        <input type="password" name="password" value="" placeholder="密码">
+        </br>
+        性别：
+        <input type="radio" name="sex" value="male">男
+        <input type="radio" name="sex" value="female">女</br>
+        取向：
+        <input type="radio" name="seek" value="male">男
+        <input type="radio" name="seek" value="famale">女</br>
+        爱好：
+        <input type="checkbox" name="hobby[]" value="dota">Dota
+        <input type="checkbox" name="hobby[]" value="travel">旅游
+        <input type="checkbox" name="hobby[]" value="pet" checked>宠物</br>
+        </br>
+        评论：</br>
+        <textarea name="comment" rows="8" cols="40" placeholder="ddd"></textarea>
+        </br>
+        我的car：
+        <select class="" name="mycar">
+            <option value="sabo">萨博</option>
+            <option value="aodi">奥迪</option>
+            <option value="benz">奔驰</option>
+            <option value="auto">奥拓</option>
+        </select>
+        <input type="submit" value="提交">
+    </form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+.mask {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    background-color: #ffffff;
+    z-index: 2;
+    display: none;
+}
+/* 弹出基本资料div */
+
+div.sample_popup {
+    height: auto;
+    border: 1px solid #327eca;
+    width: 500px;
+    background-color: #f1f8fe;
+
+}
+
+div.menu_form_header {
+    background: url('') repeat-x;
+    text-align: center;
+
+
+}
+.window-desc{
+  /*width: 50px;*/
+  line-height: 20px;
+  margin-top: 10px;
+  /*border: 1px solid red;*/
+}
+#popup_exit{
+  float: left;
+  margin-left: 10px;
+  margin-top: 5px;
+  line-height: 10px;
+  cursor: pointer;
+
+}
+
+div.sample_popup div.menu_form_header {
+    border-bottom: 0px;
+    cursor: default;
+    width: 100%;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: "Times New Roman", Serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: black;
+    background-color: #f1f8fe;
+}
+
+div.menu_form_body {
+    width: 100%;
+    /*height: 150px;*/
+    font-size: 13px;
+    background-color: #f1f8fe;
+}
+
+div.sample_popup input.menu_form_exit {
+    float: right;
+    margin: 0px 5px 0px 0px;
+    cursor: pointer;
+}
+dl dd{
+  margin: 10px 0;
+}
+
+#show{
+  cursor: pointer;
+}
+#show:hover{
+  color: red;
+}

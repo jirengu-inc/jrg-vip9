@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="w+j+l.css">
+</head>
+
+<body>
+    <div class="ct-waterfall">
+        <ul class="ct clearfix" id="pic-ct">
+            <!-- <li class="item">
+                
+                	<a href="#"><img src="" alt=""></a>
+                	<h3>熊猫集体上演“熊猫瘫”</h3>
+                	<p>刚出生的23只大熊猫幼崽，被工作人员全部抱出来集体亮相。</p>
+                
+            </li> -->
+        </ul>
+        <div class="load">看不见</div>
+    </div>
+
+
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+
+    //判断元素是否出现
+    var load;
+    function isShow(){
+    	var nodeTop = $('.load').offset().top,    		scrollTop = $(document).scrollTop(),
+    		screenHeight= $(window).height();
+    	if (nodeTop<scrollTop + screenHeight) {
+    		load = true;
+    	}else{
+    		load = false;
+    	}
+
+    }
+
+    //发起ajax请求
+    var curPage = 1;
+    var perPageCount=30;
+    function getData(){
+    	isShow()
+    	if (load) {
+    		lock = true;
+    		$.ajax({
+    			url:"http://platform.sina.com.cn/slide/album_tech",
+    			method:'get',
+    			datatype:'jsonp',
+    			data:{
+
+    			app_key:'1271687855',
+    				format:'json',
+    				size:'img',
+    				num:perPageCount,
+    				page:curPage
+
+    			},
+    			jsonp:'jsoncallback'
+    	}).done(function(){
+    		curPage++;
+    		lock=false
+    	},renderData)
+    	}
+    }
+	getData()
+    //懒加载
+    //第二种上锁的方法=》定时器
+    //var clock =0
+    var clock = false;
+    $(document).on('scroll', function(){
+    	if (!lock) {
+    		getData();
+    	}
+    	//clearTimeout(clock)
+    	//clock = setTimeout(getData,1000)
+    })
+
+    //根据返回数据生成dom节点
+    function renderData(items){
+	 			var tpl = '',
+	 				$nodes;
+	 			for (var i = 0; i < items.length; i++) {
+	 				tpl += '<li class="item">';
+	 				tpl += '<a href="#"><img src="' + item[i].img_url + '"alt=""</a>';
+	 				tpl += '<h3>'+items[i].short_name + '</h3>';
+	 				tpl += '<p>'+item[i].short_intro+'</p>';
+	 				tpl += '</li>';
+
+	 			}
+	 			$nodes = $(tpl);
+	 			$('#pic-ct').append($nodes);
+	 			return $nodes;
+	 		}
+
+	//瀑布流布局
+	function layout(){
+		var screenWidth = $('.ct').width(),
+			itemWidth = $('.item').outerWidth(true),
+			colNum = Math.parseInt(screenWidth/itemWidth),
+			colHeight = [];
+		for (var i = 0; i < colNum; i++) {
+			colHeight.push(0)
+		}
+		$('.item').each(function(index, node){
+			var $node = $(node),
+				height = $node.outerHeight(true),
+				minHeight = Math.min.apply(null,colHeight),
+				minIndex = colHeight.indexOf(minHeight);
+			colHeight[ minIndex ] += height;
+				$node.css({
+					top:minHeight,
+					left:minIndex*itemWidth
+				})
+
+		})
+
+	
+	
+
+	//设置容器高度实现懒加载
+		function setContentHeight(){
+			var height = Math.min.apply(null,colHeight);
+			$('.content').height(height);
+		}
+		setContentHeight()
+    
+    }
+    	
+
+//{page:2,len=2}
+    	//1 获取数据 （10条）page=1
+    	//2 把10条数据拼装成dom 放到页面
+    	//3 使用瀑布流去拜访dom的位置
+    	//page++
+    	//当页面滚动的某个条件下
+    	//
+    	//1 获取数据 （10条）page=2
+    	//2 把10条数据拼装成dom 放到页面
+    	//3 使用瀑布流去拜访dom的位置
+    	//page++
+    	//当load出现在眼前的时候
+
+    
+    	
+
+ 
+
+
+
+
+
+    </script>
+</body>
+
+</html>

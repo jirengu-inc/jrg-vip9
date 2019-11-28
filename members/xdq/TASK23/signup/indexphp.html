@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+fieldset{
+  width: 200px;
+  height: 230px;
+  margin: 0 auto;
+
+}
+#btn{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.require{
+  color: #ccc;
+  font-size: 12px;
+}
+input{
+  border: 1px solid black;
+}
+  
+</style>
+
+
+</head>
+<body>
+<fieldset>
+<label>用户名</label><br />
+<input class="userName input" type="text" name="userName" placeholder="hunger已经注册过"><br />
+<span class="require">只能是字母、数字、下划线，3-10个字符</span><br />
+<label>密码：</label><br />
+<input class="passWord input" type="password" name="passWord"><br />
+<span class="require">大写字母、小写、数字、下划线至少两种，6-15个字符</span><br />
+<label>再输一次:</label><br />
+<input class="passWord-Again input" type="password" name="passWord-agin"><br />
+<span class="require"></span>
+<button id="btn">注册</button> 
+</fieldset> 
+
+
+<script type="text/javascript">
+var userName = $('.userName'),
+    passWord =  $('.passWord'),
+    passWordAgin=$('.passWord-Again'),
+    requireText =  $$('.require');
+
+var regName = /\w{3,10}/; //userName的正则表达式
+
+
+function $(id){
+   return document.querySelector(id);
+  }
+function $$(str){
+      return document.querySelectorAll(str);
+  } 
+
+
+//password的正则检验
+ function isValidPassword(str){
+    if(str.length<6||str.length>20||/\W/.test(str)){
+    return false;
+    }
+
+    if(/^[A-Z]+$/.test(str)) return false;
+        if(/^[a-z]+$/.test(str)) return false;
+    if(/^[0-9]+$/.test(str)) return false;
+        if(/^[_]+$/.test(str)) return false;
+    return true;
+}
+
+//判断两次输入的密码是否一致
+function theSame(str1,str2){
+  if(str1!==str2){return false;}
+  return true;
+}
+
+  //判断用户名是否符合要求
+function userJungle(ele){
+   var reqName = requireText[0];
+   if(regName.test( userName.value)){
+      if(!ele.exist){
+    reqName.innerText='用户名已存在';
+    reqName.style.color='red';
+      }
+      else{reqName.innerText= '用户名可以注册';reqName.style.color='#ccc';}
+    }
+  else if($('.userName').value==''){reqName.innerText='用户名不能为空';reqName.style.color='red';}
+  else{
+    reqName.innerText='只能是字母、数字、下划线，3-10个字符';
+    reqName.style.color='red';
+    }
+  }   
+
+
+       
+
+
+
+userName.addEventListener('change',function(){
+
+    var newOne = userName.value;
+    ajax({
+      url:'zhuce.php',
+      type:'get',
+      dataType:'json',
+      data:{userName:newOne},
+      success: userJungle,
+      error:function(){
+       console.log('error');  }
+    })
+});
+
+passWord.addEventListener('change',function(){
+    var getPassword = passWord.value;
+    var reqPassword = requireText[1];
+    // var reqPassword = $$('.require')[1];
+    if(!isValidPassword(getPassword)){
+        reqPassword.innerText='密码格式不正确';
+        reqPassword.style.color='red';
+    }
+    else if(getPassword!== passWordAgin.value){
+         reqPassword.innerText='密码不一致';
+          reqPassword.style.color='red';
+    }
+    else{reqPassword.innerText='';}
+})
+
+passWordAgin.addEventListener('change',function(){
+    var passWord1 =  passWord.value;
+    var passWord2 =  passWordAgin.value;
+    var reqAgin = requireText[2];
+
+    if(!theSame(passWord1,passWord2)){
+      reqAgin.innerText='密码不一致';
+       reqPassword.style.color='red';
+    }
+    else if(isValidPassword(passWord1)){
+      reqAgin.innerText='';
+      requireText[1].innerText='';
+      borderStatus=1;
+  };
+})
+ 
+
+
+
+
+
+ function ajax(opts){
+  var xhr =new XMLHttpRequest;
+  xhr.onreadystatechange=function(){
+    if(xhr.readyState == 4&& xhr.status == 200){
+          if (opts.dataType === 'text') {
+            opts.success(xhr.responseText);
+          }
+          if (opts.dataType === 'json') {
+            var json = JSON.parse(xhr.responseText);
+            opts.success(json);
+          }
+    }
+
+    if(xhr.status==404){
+      opts.error();
+    }
+  }
+
+  var dataStr = '';
+  for(var key in opts.data){
+    dataStr += key +'='+opts.data[key]+'&';
+    dataStr = dataStr.substr(0,dataStr.length-1);
+  }
+
+
+  if(opts.type.toLowerCase() === 'post'){
+    xhr.open(opts.type,opts.url,true);
+    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    xhr.send(dataStr);
+  }
+  if(
+    opts.type.toLowerCase()==='get'){xhr.open(opts.type,opts.url+'?'+dataStr,true);
+    xhr.send();
+  }
+
+}
+
+
+
+$('#btn').addEventListener('click',function(){
+  if(requireText[0].innerText=='用户名可以注册'&&requireText[1].innerText==''&&requireText[2].innerText ==''){
+    alert('正在注册');
+  }
+})
+  
+</script>
+</body>
+</html>

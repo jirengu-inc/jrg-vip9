@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .content{
+            position: relative;
+        }
+        .item{
+            position: absolute;
+            width:200px;
+            margin-right:10px;
+            margin-top:10px;
+            transition: all 1s;
+        }
+        .h1{
+            height:200px;
+            background: orangered;
+        }
+        .h2{
+            height:300px;
+            background: greenyellow;
+        }
+        .h3{
+            height:400px;
+            background: cadetblue;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="item h1">1</div>
+    <div class="item h2">2</div>
+    <div class="item h3">3</div>
+    <div class="item h1">4</div>
+    <div class="item h3">5</div>
+    <div class="item h2">6</div>
+    <div class="item h1">7</div>
+    <div class="item h2">8</div>
+    <div class="item h1">9</div>
+    <div class="item h1">10</div>
+    <div class="item h2">11</div>
+    <div class="item h3">12</div>
+    <div class="item h1">13</div>
+    <div class="item h2">14</div>
+    <div class="item h3">15</div>
+    <div class="item h1">16</div>
+    <div class="item h2">17</div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(function () {
+
+        function render() {
+            var nodeWidth = $('.item').outerWidth(true),
+                    nodeNum = parseInt($(window).width()/nodeWidth),
+                    colSumHeight=[];
+            for(var i = 0;i<nodeNum;i++){
+                colSumHeight.push(0);
+            }
+            $('.item').each(function () {
+                var idx = 0;
+
+                //colSumHeight[200,20,50,440,100]
+                var minHeight = colSumHeight[0];
+                for(var i = 0;i<colSumHeight.length;i++){
+                    if(colSumHeight[i]<minHeight){
+                        idx = i;
+                        minHeight = colSumHeight[i]
+
+                    }
+                }
+                $(this).css({
+                    left:nodeWidth*idx,
+                    top:minHeight
+                });
+                colSumHeight[idx] += $(this).outerHeight(true)
+            })
+        }
+        render();
+        $(window).on('resize',function () {
+            render()
+        })
+
+    })
+
+</script>
+</body>
+</html>

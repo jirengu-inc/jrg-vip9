@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任务22DOM-事件2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    
+		<!-- 补全代码，要求：
+			当点击按钮开头添加时在<li>这里是</li>元素前添加一个新元素，内容为用户输入的非空字符串；当点击结尾添加时在<li>前端6班</li>后添加用户输入的非空字符串.
+			当点击每一个元素li时控制台展示该元素的文本内容。 -->
+		<ul class="ct">
+		    <li>这里是</li>
+		    <li>饥人谷</li>
+		    <li>前端6班</li>
+		</ul>
+		<input class="ipt-add-content" placeholder="添加内容"/>
+		<button id="btn-add-start">开头添加</button>
+		<button id="btn-add-end">结尾添加</button>
+		<script>
+			var oUl = document.querySelectorAll('.ct')[0]
+			var aLi = oUl.getElementsByTagName('li');
+			var btnStart = document.getElementById('btn-add-start');
+			var btnEnd = document.getElementById('btn-add-end');
+			var content = document. querySelectorAll('.ipt-add-content')[0];
+			btnStart.addEventListener('click', function(){
+				var li = document.createElement('li');
+				li.innerText = content.value;
+				oUl.insertBefore(li, oUl.firstChild);
+			});
+			btnEnd.addEventListener('click', function(){
+				var li = document.createElement('li');
+				li.innerText = content.value;
+				oUl.appendChild(li);
+			});
+			oUl.addEventListener('click', function(event){
+			    if(event.target.tagName.toLowerCase() === 'li'){
+			    	console.log(event.target.innerText);
+			    }
+			});
+		</script>
+</body>
+</html>

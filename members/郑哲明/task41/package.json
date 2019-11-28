@@ -1,0 +1,23 @@
+{
+  "name": "task41",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andywang",
+  "license": "ISC",
+  "devDependencies": {
+    "concat": "^0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-html-minify": "^0.0.14",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch-path": "^0.1.0",
+    "rename": "^1.0.3"
+  }
+}

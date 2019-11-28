@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>10-1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    html,body,header,div,ul,li{
+            margin: 0px;
+            padding: 0px;
+    }
+
+    #header{
+            height: 50px;
+            background: black;
+    }
+    .container{
+          width: 900px;
+          height: 40px;
+          margin: 0 auto;
+
+    }
+    .logo{
+        	float: left;
+          margin: 0px 10px;
+    }
+
+	  img{
+          height: 40px;
+       
+     }
+
+    .container .nav{
+         float: right;
+         
+    }
+    .nav>li{
+         float: left;
+         list-style: none;
+    } 
+    
+	  .nav a{
+         text-decoration: none;
+         font-size: 16px;
+         font-family: bold;
+         color: white;
+         padding: 0px 20px;
+         line-height: 50px;
+         height: 50px;
+         display: block;
+
+    }
+    .nav a:hover{
+        background: #ccc;
+        color: black;
+    }
+    
+    #content{
+        margin:0 auto;
+        width: 900px;
+    }
+
+    .aside{
+        float: left;
+        width: 200px;
+        min-height: 400px;
+        background: #ccc;
+        margin-top: 10px;
+           
+    	
+    }
+    .main{
+         width: 670px;
+         height: 200px;
+         background: #ccc;
+         float: right;
+         margin-top: 10px;
+         padding: 10px;
+    }
+    
+    #footer{
+      
+         height: 30px;
+         background: black;
+    }
+    .last{
+         width: 900px;
+         margin:0 auto;
+    }
+    .last li{
+         float: left;
+         list-style: none;
+    }
+    .last a{
+           color: white;
+           text-decoration: none;
+           font-size: 16px;
+           height: 30px;
+           line-height: 30px;
+           display: block;
+           padding: 0 8px;
+    }
+  .clear{
+         clear:both;
+         height: 0px;
+         line-height: 0px;
+         font-size: 0px;
+}
+</style>
+</head>
+<body>
+  <div id="header">
+      <div class="container">
+   	    <div class="logo">
+         <img src="http://cdn.jirengu.com/public/logo-tiny.png" alt:"logo">
+        </div>
+  	    <ul class="nav">
+    	  <li><a href="#">技能</a></li>
+    	  <li><a href="#">经历</a></li>
+    	  <li><a href="#">作品</a></li>
+    	  <li><a href="#">关于</a></li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+  </div>
+  <div id="content">
+      <div class="aside"></div>
+      <div class="main">
+  	      <h2>我的生活</h2>
+  	      <p>既然改变不了中国，就改变自己</p>
+      </div>
+      <div class="clear"></div>
+  </div>
+  <div id="footer">
+      	<ul class="last">
+  		  <li><a href="http://jscode.me/">饥人谷</a></li>
+  		  <li><a href="http://jscode.me/">JSCODE</a></li>
+  		  <li><a href="http://jscode.me/">JSBIN</a></li>
+  		  </ul>
+  		<div class="clear"></div>
+  </div>
+</body>
+</html>

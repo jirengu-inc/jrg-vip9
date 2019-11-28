@@ -1,0 +1,48 @@
+
+@font-face {font-family: "iconfont";
+  src: url('../fonts/iconfont.eot?t=1478518754521'); /* IE9*/
+  src: url('../fonts/iconfont.eot?t=1478518754521#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/iconfont.woff?t=1478518754521') format('woff'), /* chrome, firefox */
+  url('../fonts/iconfont.ttf?t=1478518754521') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../fonts/iconfont.svg?t=1478518754521#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shuffle:before { content: "\e616"; }
+
+.icon-single:before { content: "\e617"; }
+
+.icon-list-loop:before { content: "\e618"; }
+
+.icon-download:before { content: "\e609"; }
+
+.icon-next:before { content: "\e600"; }
+
+.icon-previous:before { content: "\e605"; }
+
+.icon-like:before { content: "\e614"; }
+
+.icon-yinle:before { content: "\e615"; }
+
+.icon-pause:before { content: "\e603"; }
+
+.icon-muted:before { content: "\e604"; }
+
+.icon-play:before { content: "\e607"; }
+
+.icon-sound:before { content: "\e608"; }
+
+.icon-lyric:before { content: "\e601"; }
+
+.icon-to-right:before { content: "\e602"; }
+
+.icon-to-left:before { content: "\e606"; }
+

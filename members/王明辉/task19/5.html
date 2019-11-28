@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5</title>
+</head>
+<body>
+<script>
+    // 5.楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法？用代码（递归）实现
+
+
+    function cont(n){
+
+        if(n === 1)return 1;
+        if(n === 2)return 2;
+
+        return cont(n-1)+cont(n-2)
+    }
+
+    console.log(cont(10))
+
+</script>
+</body>
+</html>

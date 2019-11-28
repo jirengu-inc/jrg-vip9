@@ -1,0 +1,65 @@
+<script>
+	
+	function sum(a, b){
+		//var a = 1, b = 2;
+		console.log(arguments);
+		console.log(arguments.length);
+		console.log(arguments[0]);
+		console.log(arguments[1]);
+		console.log(b === arguments[1]);
+		// console.log(a + b);
+	}
+
+	// function sum(a,b,c){
+
+	// }
+
+	// function sum(a,b,c,d){
+
+	// }
+	//sum(1,2,5);
+
+	var printName = function(name){
+	    //console.log( 'hello ' + name);
+	};
+	printName('hunger');
+
+
+	var a = newSum(1,2);
+	var b = newSum(2,4,5);
+	console.log(a);
+	console.log(b);
+
+
+	function fn(n){
+		if(n>10) return;
+
+		console.log(n);
+	}
+
+	function fn(n){
+		if(n>10){
+
+		}else{
+			console.log(n);
+		}
+		console.log(n);
+	}
+
+	fn(8);
+	fn(11);
+
+	function newSum(){
+		var sum = 0;
+		for(var i=0; i<arguments.length; i++){
+			sum += arguments[i];
+		}
+		console.log(sum);
+		return sum;
+		//return console.log(sum);
+		//return sum;
+		//console.log('hello');
+	}
+
+
+</script>

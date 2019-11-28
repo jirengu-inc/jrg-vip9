@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en zh">
+<head>
+    <meta charset="UTF-8">
+    <title>无限、懒加载瀑布流</title>
+
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+    <style type="text/css">
+
+        html, body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        #waterfall {
+            position: relative;
+            margin: 0 auto;
+            transition: all 0.5s;
+            background: #aaaaaa;
+        }
+
+        #waterfall .items-ul > li {
+            width: 200px;
+            position: absolute;
+            margin-top: 5px;
+            margin-left: 5px;
+            transition: all 1s;
+            padding: 5px;
+            border: 1px solid transparent;
+            box-shadow: 2px 2px 3px #aaaaaa;
+            background: #fff;
+            opacity: 0;
+        }
+
+        #waterfall .items-ul > li > a > img {
+            width: 200px;
+        }
+
+        #waterfall .get-more {
+            position: relative;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100px;
+            border: solid;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="waterfall">
+    <ul class="items-ul">
+        <!--
+                <li>
+                    <a href="#">
+                        <img src="http://ww2.sinaimg.cn/mw690/a3a01dcbgw1f7izgk5036j20ku0q1goo.jpg" alt="">
+                        <h3>标题标题标题</h3>
+                        <p>说明文字，说明文字，说明文字，说明文字，说明文字，说明文字，说明文字，说明文字，说明文字。</p>
+                    </a>
+                </li>
+        -->
+    </ul>
+
+    <div class="get-more">实现封装瀑布流，图片加载完成后再进行布局</div>
+
+</div>
+
+
+<script type="text/javascript">
+    var $waterFall = $('#waterfall'),
+            $itemsCt = $waterFall.find('.items-ul'),
+            $getMore = $waterFall.find('.get-more');
+
+
+    var num = 10,
+            page = 1,
+            isGetting = false;
+
+    var isFirstLoad = true;
+
+
+    var intervalClock = setInterval(function () {
+        if (isVisible($getMore)) {
+            getNews();
+        } else {
+            clearInterval(intervalClock);
+        }
+    }, 500);
+
+
+    var scrollClock;
+    $(window).on('scroll', function () {
+        clearTimeout(scrollClock);
+        scrollClock = setTimeout(function () {
+            if (isVisible($getMore)) {
+                getNews();
+            }
+        }, 300)
+    });
+
+
+    var resizeClock;
+    $(window).on('resize', function () {
+        clearTimeout(resizeClock);
+        resizeClock = setTimeout(function () {
+            watFall1.init();
+            watFall1.setAllItems();
+        }, 50);
+    });
+
+
+    function getNews() {
+        if (isGetting) return;
+        isGetting = true;
+        $.ajax({
+            url: ' http://platform.sina.com.cn/slide/album_tech',
+            type: 'GET',
+            dataType: "jsonp",
+            jsonp: 'jsoncallback',
+            data: {
+                app_key: 1271687855,
+                num: num,
+                page: page
+            }
+        }).always(function () {
+            isGetting = false;
+        }).done(function (ret) {
+                    if (ret && ret.status && ret.status.code === '0') {
+                        if (isFirstLoad) {
+                            isFirstLoad = false;
+                            console.log('1');
+                            var HTML = data2html(ret.data[0]);
+                            $itemsCt.append(HTML);
+                            watFall1.init();
+                            $itemsCt.empty();
+                        }
+
+                        for (var i in ret.data) {
+                            var HTML = data2html(ret.data[i]);
+                            $itemsCt.append(HTML);
+                            var $node = $itemsCt.children().last();
+                            $node.find('img').on('load', function () {
+                                console.log(this);
+                                watFall1.setItem($(this).parents('li'));
+                            })
+                        }
+
+                        page++;
+                    }
+                }
+        );
+    }
+
+    function Waterfall($ct) {
+        this.$ct = $($ct);
+        this.init();
+    }
+
+    Waterfall.prototype.init = function () {
+        this.$items = this.$ct.children('li');
+        this.nodeWidth = this.$items.outerWidth(true);
+        this.border = this.nodeWidth - this.$items.outerWidth();
+        this.columnNum = parseInt(this.$ct.width() / this.nodeWidth);
+        this.columnHeight = [];
+        for (var i = 0; i < this.columnNum; i++) this.columnHeight.push(0);
+
+    };
+
+    Waterfall.prototype.setItem = function ($item) {
+        var $item = $($item);
+
+        var idx = 0,
+                minHeight = this.columnHeight[0];
+
+        for (var i in this.columnHeight) {
+            if (this.columnHeight[i] < minHeight) {
+                idx = i;
+                minHeight = this.columnHeight[i];
+            }
+        }
+
+        var coorX = idx * this.nodeWidth,
+                coorY = minHeight;
+
+        $item.css({top: coorY, left: coorX});
+        $item.animate({opacity:1},200);
+
+        this.columnHeight[idx] += $item.outerHeight(true);
+
+        this.setCt();
+
+    };
+    Waterfall.prototype.setAllItems = function () {
+
+        var _this = this;
+        this.$items.each(function () {
+            _this.setItem(this);
+        });
+
+    };
+    Waterfall.prototype.setCt = function () {
+        this.$ct.css({
+            height: Math.max.apply(null, this.columnHeight) + this.border
+        });
+    };
+
+
+    var watFall1 = new Waterfall($itemsCt);
+
+
+    function data2html(data) {
+        var HTML = '';
+        HTML += '<li>';
+        HTML += '<a href="' + data.url + '" target="_blank">';
+        HTML += '<img src="' + data.img_url + '" alt="' + data.name + '">';
+        HTML += '<h3>' + data.short_name + '</h3>';
+        HTML += '<p>' + data.short_intro + '</p>';
+        HTML += '</a></li>';
+//        HTML += '';
+        return HTML;
+    }
+
+    function isVisible($ele) {
+        return ($ele.offset().top <= $(window).scrollTop() + $(window).height()) && ($(window).scrollTop() <= $ele.offset().top)
+    }
+
+
+</script>
+</body>
+</html>

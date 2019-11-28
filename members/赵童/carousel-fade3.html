@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Tie's Carousel * 3</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        ul,li,a{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        body{
+            background-color: #2f3238;
+        }
+        .carousel{
+            width: 720px;
+            height: 306px;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-list>li>a>img{
+            width: 100%;
+        }
+        .img-list{
+            position: relative;
+        }
+        .img-list>li{
+            position: absolute;
+            left: 0;
+            width: 720px;
+        }
+        .btn{
+            position: absolute;
+            display: block;
+            font-size: 18px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px black;
+            color: #31aade;
+            top: 50%;
+            margin-top: -18px;
+        }
+        .btn.previous{
+            left: 20px;
+        }
+        .btn.next{
+            right: 20px;
+        }
+        .indicator-ct{
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0;
+            height: 28px;
+            width: 100%;
+            text-align: center;
+        }
+        .indicator{
+            display: inline-block;
+        }
+        .indicator>li{
+            width: 60px;
+            height: 4px;
+            background-color: white;
+            float: left;
+            margin: 12px 4px;
+            cursor: pointer;
+        }
+        .indicator .active{
+            background-color: #31aade;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <ul class="img-list clearfix">
+            <li data-index="0"><a href="JavaScript:"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwZzBtU25lbkYxWmJtMlIrd3hrY1JjL29aNHRqWWZCRHJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="1"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwbEw1Z2EwdjNHVFBQVkFTNnhPOE91V3l6UU9uZGVWbTlnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="2"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcGhPd1lSaHNGaitUcTMxOExmYlJKZlVEVG1tWjc3UzNBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="3"><a href="JavaScript:"><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwc3dyMzVIQW5nd3JzaEFNSFZhMXFDaGNVMXVYbThvWG5RPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="4"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaWFlRlJvMkdyOU0vbjBrTGRBYXcxL1FweHlieUpBQ1ZRPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+        </ul>
+        <a class="btn previous" href="JavaScript:">&lt;</a>
+        <a class="btn next" href="JavaScript:">&gt;</a>
+        <div class="indicator-ct">
+            <ul class="indicator clearfix">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+        <div class="carousel">
+        <ul class="img-list clearfix">
+            <li data-index="0"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwckZjc0VLNytvVngwSCtRRmx6T1NheEV4cGN4V2poZGJnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="1"><a href="JavaScript:"><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcm5YOU9DV0h5SmFDTE5NUktjTkc0RGkvRzA5VG0zSytBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="2"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcTJHK3d2SVlhRFZrenB1UmI1bW1wNnZ0VGlqaTF6YmJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="3"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwc3ZYNUtwcFlXT2xaemhTQXB6a3gyRXI5OHgrUnZLN1dBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="4"><a href="JavaScript:"><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwajBqamdUbGVsN25QeTlxeFpUNktBVjcwaVVqZDM0S3NRPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+        </ul>
+        <a class="btn previous" href="JavaScript:">&lt;</a>
+        <a class="btn next" href="JavaScript:">&gt;</a>
+        <div class="indicator-ct">
+            <ul class="indicator clearfix">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="carousel">
+        <ul class="img-list clearfix">
+            <li data-index="0"><a href="JavaScript:"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaGZVR2p0L1NIRmVxRmN4VjhRczUwajkzaHVqS1gzM3dBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="1"><a href="JavaScript:"><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaDNha0w0WmpGK0FqeGdvSXhtUWVVZmRaaktKeXk2eGZnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="2"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwb05OSHF2bDF4ZS8zK0VQa0RJdFVCZ25UT2FLa2dKUTN3PT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="3"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwdkFyKzRLUDdmRTZNMGxJeGxMWHV6Rk9YV21COGJIczJ3PT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="4"><a href="JavaScript:"><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwclFNUWlzVGJVekpiMFBTODhTbW1jZUliM1FyUDhSVU93PT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+        </ul>
+        <a class="btn previous" href="JavaScript:">&lt;</a>
+        <a class="btn next" href="JavaScript:">&gt;</a>
+        <div class="indicator-ct">
+            <ul class="indicator clearfix">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+<script>
+    var 
+        $btnPrev = $('.btn.previous'),
+        $btnNext = $('.btn.next'),
+        lock = [false,false,false],
+        pageIndex = [0,0,0];
+        timer = [];
+
+    $('.img-list').children('li').hide();
+    $("[data-index='0']").show();
+
+    $btnPrev.on('click',function(){
+        var divIndex = $(this).parents('.carousel').index();
+        clearInterval(divIndex+1);
+        var $node = $(this).parents('.carousel').find('.img-list');
+        playPrev($node);
+    });
+    $btnNext.on('click',function(){
+        var divIndex = $(this).parents('.carousel').index();
+        clearInterval(divIndex+1);
+        var $node = $(this).parents('.carousel').find('.img-list');
+        playNext($node);
+    });
+    $('.indicator').on('click','li',function(){
+        var divIndex = $(this).parents('.carousel').index();
+        clearInterval(divIndex+1);
+        var $node = $(this).parents('.carousel').find('.img-list');
+        jumpPage($node,$(this).index());
+    })
+    
+    setInterval(function(){
+        playNext($('.carousel').eq(0).find('.img-list'));
+    },1500)
+    setInterval(function(){
+        playNext($('.carousel').eq(1).find('.img-list'));
+    },1500)
+    setInterval(function(){
+        playNext($('.carousel').eq(2).find('.img-list'));
+    },1500)
+
+    // var timer = setInterval(function(){
+    //     for(var i = $('.carousel').length;i > 0;i--){
+    //         var ele = $('.carousel').eq(i-1).find('.img-list');
+    //         playNext(ele);
+    //     }
+    // },1500);
+
+    function jumpPage($node,i){
+        var $imgLi = $node.children('li'),
+            divIndex = $imgLi.parents('.carousel').index(),
+            $indicator = $imgLi.parents('.carousel').find('.indicator>li');
+            
+
+        // clearInterval(timer);
+        if(lock[divIndex] == false && i !== pageIndex[divIndex]){
+            lock[divIndex] = true;
+            $imgLi.fadeOut();
+            $imgLi.eq(i).fadeIn(function(){
+                pageIndex[divIndex] = i;
+                addActive($indicator,i);
+                lock[divIndex] = false;
+            });
+        }
+    }
+
+    function playNext($node){
+        var $imgUl = $node,
+            $imgLi = $node.children('li'),
+            $imgLength = $imgLi.length,
+            $indicator = $imgUl.nextAll('.indicator-ct').children('.indicator').children('li'),
+            divIndex = $imgLi.parents('.carousel').index();
+        
+        if(lock[divIndex] == false){
+            lock[divIndex] = true;
+            $imgLi.fadeOut();
+            if(pageIndex[divIndex] === $imgLength-1){
+                $imgLi.eq(0).fadeIn(function(){
+                    pageIndex[divIndex] = 0;
+                    addActive($indicator,pageIndex[divIndex]);
+                    lock[divIndex] = false;
+                });
+            }else{
+                $imgLi.eq(pageIndex[divIndex]+1).fadeIn(function(){
+                    pageIndex[divIndex]++;
+                    addActive($indicator,pageIndex[divIndex]);
+                    lock[divIndex] = false;
+                })
+            }
+        }
+    }
+
+    function playPrev($node){
+        var $imgUl = $node,
+            $imgLi = $node.children('li'),
+            $imgLength = $imgLi.length,
+            $indicator = $imgUl.nextAll('.indicator-ct').children('.indicator').children('li'),
+            divIndex = $imgLi.parents('.carousel').index()
+            ;
+
+        // clearInterval(timer);
+        if(lock[divIndex] == false){
+            lock[divIndex] = true;
+            $imgLi.fadeOut();
+            if(pageIndex[divIndex] === 0){
+                $imgLi.eq($imgLength-1).fadeIn(function(){
+                    pageIndex[divIndex] = $imgLength-1;
+                    addActive($indicator,pageIndex[divIndex]);
+                    lock[divIndex] = false;
+                })
+            }else{
+                $imgLi.eq(pageIndex[divIndex]-1).fadeIn(function(){
+                    pageIndex[divIndex]--;
+                    addActive($indicator,pageIndex[divIndex]);
+                    lock[divIndex] = false;
+                });
+            }
+        }
+    }
+
+    function addActive($node,i){
+        $node.removeClass('active');
+        $node.eq(i).addClass('active');
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>淡入淡出轮播</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<style>	
+	a {
+		text-decoration: none;
+		/*color: #fff;*/
+	}
+	html, body, ul, li, p {
+		margin: 0;
+		padding: 0;
+	}
+	ul,li {
+		list-style: none;
+	}
+	.carousel {
+		margin: 10px auto;
+		position: relative;
+		width: 320px;
+		height: 200px;
+		overflow: hidden;
+	}
+	.img-ct li {
+		position: absolute;
+		display:none;
+	}
+	.img-ct img {
+		width: 320px;
+		height: 200px;
+	}
+	.arrow {
+		position: absolute;
+		top: 50%;
+		width: 30px;
+		height: 30px;
+		margin-top: -15px;
+		line-height: 30px;
+		text-align: center;
+		background-color: #ccc;
+		color: #fff;
+		border-radius: 30px;
+		opacity: 0.8;
+	}
+	.pre {
+		left: 10px;
+	}
+	.next {
+		right: 10px;
+	}
+	.bullet {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		/*margin-left: -38px;*/
+	}
+	.bullet > li {
+		width: 16px;
+		height: 4px;
+		border-radius: 2px;
+		background-color: #fff;
+		cursor: pointer;
+		display: inline-block;
+	}
+	.bullet li.active {
+		background-color: #888;
+	}
+	.arrow:hover {
+		opacity: 1;
+	}
+
+</style>
+</head>
+<body>
+    <div class="carousel">
+    	<ul class="img-ct">
+    		<li><a href="#"><img src="../img/portfolio-1.jpg" alt=""></a></li>
+    		<li><a href="#"><img src="../img/portfolio-2.jpg" alt=""></a></li>
+    		<li><a href="#"><img src="../img/portfolio-3.jpg" alt=""></a></li>
+    		<li><a href="#"><img src="../img/portfolio-4.jpg" alt=""></a></li>
+    	</ul>
+    	<a href="#" class="pre arrow"><</a>
+    	<a href="#" class="next arrow">></a>
+    	<ul class="bullet">
+    		<li class="active"></li>
+    		<li></li>
+    		<li></li>	
+    		<li></li>
+    	</ul>
+    </div>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li><a href="#"><img src="../img/portfolio-1.jpg" alt=""></a></li>
+			<li><a href="#"><img src="../img/portfolio-2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="../img/portfolio-3.jpg" alt=""></a></li>
+			<li><a href="#"><img src="../img/portfolio-4.jpg" alt=""></a></li>
+		</ul>
+		<a href="#" class="pre arrow"><</a>
+		<a href="#" class="next arrow">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script>
+
+
+	function carousel(carousel){
+		this.carousel = carousel;
+		this.isAnimate = false;
+		this.curIdx = 0;
+		this.imgCount = this.carousel.find('.img-ct li').length;
+		this.play(0);
+		this.autoPlay();
+		this.bindEvent();
+
+	}
+
+	carousel.prototype = {
+		constructor: carousel,
+		play:function play(idx){
+			var _this= this;
+			if (this.isAnimate) { return; }
+			this.isAnimate = true;
+			this.carousel.find('.img-ct li').eq(this.curIdx).fadeOut(500);
+			this.carousel.find('.img-ct li').eq(idx).fadeIn(500, function(){
+				_this.isAnimate = false;
+			});//这里是刷新页面后第一张图片淡进淡出
+			this.curIdx = idx;
+			this.setBullet();
+		},
+		setBullet:function setBullet(){
+			this.carousel.find('.bullet li').removeClass('active');
+			this.carousel.find('.bullet li').eq(this.curIdx).addClass('active');
+		},
+		autoPlay:function autoPlay(){
+			var _this = this;
+			setInterval(function(){
+				_this.playNext();
+			}, 2000);
+		},
+		playNext: function playNext(){
+			    this.play((this.curIdx + 1) % this.imgCount);
+				},
+		playPre: function playPre(){
+				this.play((this.imgCount + this.curIdx - 1) % this.imgCount);
+		},
+
+	bindEvent:function(){
+			var _this= this;
+			this.carousel.find('.next').on('click', function(){
+				_this.playNext();
+			});
+			this.carousel.find('.pre').on('click', function(){
+				_this.playPre();
+			});
+			this.carousel.find('.bullet').find('li').on('click', function(){
+				var idx = $(this).index();
+				_this.play(idx);
+			});
+		}
+
+	};
+	var carouselInit1 = new carousel($('.carousel').eq(0));
+	var carouselInit2 = new carousel($('.carousel').eq(1));
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

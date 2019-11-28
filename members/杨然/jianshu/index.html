@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="jianshu">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+	<title>jianshu</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+	<script src="js/angular.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body ng-controller="index">
+	<div class="nav-media">
+		<div class="logo-media"><a href="javascript:;">简</a></div>
+		<ul class="user">
+			<li><a href="javascript:;"><i class="fa fa-moon-o"></i></a></li>
+			<li><a href="javascript:;"><i class="fa fa-sign-out"></i>登录</a></li>
+			<li><a href="javascirpt:;"><i class="fa fa-user"></i>注册</a></li>
+			<li class="down"><a href="javascript:;">APP下载</a></li>
+		</ul>
+	</div>
+	<ul class="user-show">
+			<li class="media-pos"><a href="javascript:;"><i class="fa fa-sign-out"></i>登录</a></li>
+			<li class="media-pos"><a href="javascirpt:;"><i class="fa fa-user"></i>注册</a></li>			
+		</ul>
+	<div class="aside">
+		<div class="aside-top">
+			<a href="javascript:;" id="logo">简</a>
+			<a href="javascript:;" class="fa fa-align-justify"><i></i></a>
+			<a href="javascript:;" class="fa fa-mobile"><i></i></a>
+		</div>
+		<div class="aside-bottom">
+			<a href="javascript:;" class="fa fa-font"><i></i></a>
+			<a href="javascript:;" class="fa fa-sign-out"><i></i></a>			
+		</div>
+	</div>
+	<div class="content">
+		<div class="bg-left">
+			<div class="cover-img"></div>
+			<div class="introduce">
+				<h1>简书</h1>
+				<h3>交流故事，沟通想法</h3>
+				<h5>一个基于内容分享的社区</h5>
+				<a href="javascript:;" class="btn">提笔写篇文章</a>
+			</div>
+		</div>
+		<div class="warp">
+			<div class="nav-common clearfix">
+				<ul class="nav-common-list">
+					<li><a href="javascript:;">发现</a></li>
+					<li><a href="javascript:;">2015精选</a></li>
+				</ul>
+				<div class="search">
+					<input type="text" placeholder="搜索" class="search-border">
+					<i class="fa fa-search"></i>
+				</div>
+			</div>
+			<ul class="article-category clearfix">
+				<li ng-repeat="item in categoryList" ng-class="item.id === categoryNow ? 'active' : '' "  ng-click="setCategoryNow(item.id)"><a href="javascript:;">{{item.name}}</a></li>
+			</ul>
+			<ul class="article-list">
+				<li class="clearfix" ng-repeat="item in articles">
+					<a href="javascript:;">
+						<img src="img/art-img.jpeg" alt="">
+					</a>
+					<div class="article-main">
+						<div class="art-head">
+							<a href="javascript:;">我是未来</a>
+							<span>·1天之前</span>
+						</div>
+						<a href="article.html?id={{item.articleId}}"><div ng-bind-html="item.title | showAsHtml"></div>
+						<!-- <h2>
+							
+								不止《你的名字》，这几部诚意满满的高分动画同样清新又治愈
+							
+						</h2> -->						<!-- {{item.title}} -->
+
+						</a>
+						
+						<div class="art-foot">
+							<a href="javascript:;">阅读5800</a>
+							<a href="javascript:;">·评论 46</a>
+							<span>·喜欢 403</span>
+							<span>·打赏 1</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="load">
+				<a href="javascript:;" class="load-btn" ng-click="nextPage()">加载更多</a>						
+			</div>
+			<div class="footer">
+				<span>作者：杨然</span>
+			</div>
+		</div>
+	</div>
+	<div class="nav">
+		
+	</div>
+	
+</body>
+</html>

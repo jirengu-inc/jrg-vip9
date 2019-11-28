@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>task24-2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+	<style>
+		ul,li{
+			margin: 0;
+			padding:0;
+			list-style-type: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.list>li{
+			height: 50px;
+			border: 1px solid #ccc;
+			margin: 5px;
+			line-height: 2;
+			cursor: pointer;
+		}
+		.list>li:hover{
+			background-color: green;
+		}
+		.btn{
+			text-align: center;
+		}
+		.btn>a{
+			padding: 10px 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			display: inline-block;
+			color: #f44336;
+		}
+		.btn>a:hover{
+			background-color: #339A67;
+		}
+	</style>
+<body>
+    <div class = "wrap">
+    	<ul class="list">
+    		<li>内容1</li>
+    		<li>内容2</li>
+    	</ul>
+    </div>
+    <div class="btn">
+    	<a href="#">加载更多</a>
+    </div>
+	
+	<script src="ajax.js"></script>
+    <script>
+    	var list = document.querySelector(".list")
+    	var btn = document.querySelector(".btn")
+    	var lock = 0
+
+    	btn.addEventListener("click",function(e){
+    			e.preventDefault()
+    			if (lock===1){
+    				return
+    			}
+    			lock = 1
+    			ajax({
+    				url:"task24.php",
+    				type:"get",
+    				data:{
+    					index: 3,
+    					len: 5
+    				},
+    				success:function(res){
+    					for(var i=0;i<this.data.len;i++){
+                           var newLi= document.createElement("li")
+                           newLi.innerText = '内容' + res.data[i]
+                           list.appendChild(newLi)
+                           this.data.index++
+                        }
+                        lock = 0
+    				},
+    				error:function(){
+                        alert("系统出错")
+                        lock = 0
+    				}
+    			})
+    		})
+
+    </script>
+</body>
+</html>

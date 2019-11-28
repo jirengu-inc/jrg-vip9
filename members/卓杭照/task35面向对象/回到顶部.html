@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+	.go-top{
+		font-size: 16px;
+		color: white;
+		border: 1px solid #fff;
+		width: 40px;
+		padding: 5px;
+		height: 40px;
+		background-color:  #43748b;
+		border-radius: 4px;
+		text-align: center;
+		line-height: 1.2;
+		cursor: pointer;
+		position: fixed;
+		right: 10px;
+		bottom: 10px;
+		display: none; 
+	}
+	p{
+		line-height: 3;
+	}
+</style>
+<body>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容3</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容4</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容1</p>
+	<p>内容6</p>
+	<p>内容1</p>
+	<p>内容7</p>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+
+// 面向对象    
+    function GoTop($ct){
+    	this.$ct = $ct;
+    	this.target = $('<div class="go-top">回到顶部</div>');
+    }
+    GoTop.prototype.createNode = function(){
+    	this.$ct.append(this.target);
+    }
+    GoTop.prototype.bindEvent = function(){
+    	$(window).on('scroll',function(){
+    		if($(window).scrollTop()>100){
+    			$('.go-top').css('display','block');
+    		}else{
+    			$('.go-top').css('display','none');
+    		}
+    	})
+
+    	this.target.on('click',function(){
+    		$(window).scrollTop(0);
+    	});
+    }
+    var goTop = new GoTop($('body'));
+        goTop.createNode();
+    	goTop.bindEvent();
+
+
+
+// 原始
+    // 	$(window).on('scroll',function(){
+    // 		if($(window).scrollTop()>100){
+    // 			$('.go-top').css('display','block');
+    // 		}else{
+    // 			$('.go-top').css('display','none');
+    // 		}
+    // 	})
+    // 	$('.go-top').on('click',function(){
+    // 		$(window).scrollTop(0);
+    // 	})
+
+
+    </script>
+</body>
+</html>

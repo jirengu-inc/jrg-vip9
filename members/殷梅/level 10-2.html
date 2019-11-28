@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 10-2</title>
+    <style>
+    .container {
+        margin: 20px
+    }
+    .container:nth-child(2) {
+        margin-top: 35px
+    }
+    
+    .box {
+        width: 200px;
+        height: 100px;
+        border: 1px #ccc solid;
+    }
+    
+    .trangle {
+        height: 0px;
+        width: 0px;
+        /*background-color:orange;*/
+        border-width: 15px;
+        border-style: solid;
+    }
+    
+    .trangle:nth-of-type(1) {
+        position: relative;
+        left: 10px;
+        border-bottom-color: #878787;
+        border-top-color: white;
+        border-left-color: white;
+        border-right-color: white;
+    }
+    
+    .trangle3 {
+        width: 0px;
+        height: 0px;
+        border-width: 10px;
+        border-style: solid;
+        border-bottom-color: white;
+        border-left-color: white;
+        border-top-color: red;
+        border-right-color: red;
+        position: relative;
+        left: 180px;
+        background-color: white;
+    }
+    
+    .trangle2 {
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        -ms-transform: rotate(45deg);
+        /* IE 9 */
+        -webkit-transform: rotate(45deg);
+        /* Chrome, Safari, Opera */
+        transform: rotate(45deg);
+        position: relative;
+        left: 15px;
+        border-top: 1px #ccc solid;
+        border-left: 1px #ccc solid;
+        top: 11px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="trangle"></div>
+        <div class="box"></div>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="trangle3"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="trangle2"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>

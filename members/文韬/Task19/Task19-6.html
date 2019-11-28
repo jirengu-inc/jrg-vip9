@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task19-6</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function deepCopy(obj) {
+            var newObj = {}
+            for (var key in obj) {
+                if (typeof obj[key] === 'Object') {
+                    newObj[key] = deepCopy(obj[key])
+                } else {
+                    newObj[key] = obj[key]
+                }
+            }
+            return newObj
+        }
+    </script>
+</body>
+
+</html>

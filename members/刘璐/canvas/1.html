@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border:1px solid red"></canvas>
+
+
+
+
+    <script>
+
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        canvas.width = 500;
+        canvas.height = 500;
+
+//绘制一个线段、多边形。
+        context.beginPath();
+        context.moveTo(100,100);
+        context.lineTo(300,300);
+        context.lineTo(300,500);
+        context.lineTo(100,300);
+//      context.lineTo(100,100);
+        context.closePath();
+        context.lineWidth=5;
+        context.strokeStyle='#005588';
+        context.stroke();
+
+        context.fillStyle = '#ccc';
+        context.fill();
+
+
+
+
+
+
+//绘制一个人弧形
+        context.beginPath();
+        context.arc(100,100,100,0,1.5*Math.PI);
+        context.closePath();
+        context.stroke();
+
+
+
+
+        context.beginPath();
+        context.arc(250,250,100,0,1.5*Math.PI,true);
+        context.closePath();//具有闭合的作用
+        context.stroke();
+
+
+
+
+
+
+//绘制不闭合的弧形
+
+
+        context.beginPath();
+        context.arc(200,400,100,0,1.5*Math.PI);
+        context.stroke();
+
+
+
+
+        context.beginPath();
+        context.arc(150,300,100,0,1.5*Math.PI,true);
+//        context.closePath();//具有闭合的作用
+        context.stroke();
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

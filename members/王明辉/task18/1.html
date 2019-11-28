@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+<script>
+    // 1.用 splice 实现 push、pop、shift、unshift方法 （***）
+
+    var arr = ['a','b','c','d','e']
+    function fnPush(arr,data){
+        arr.splice(arr.length,0,data);
+        return arr;
+    };
+
+    function fnPop(arr){
+        arr.splice(arr.length-1,1);
+        return arr;
+    };
+
+
+    function fnShift(arr,data){
+        arr.splice(0,1);
+        return arr;
+    };
+
+
+    function fnUnshift(arr,data){
+        arr.splice(0,0,data);
+        return arr;
+    };
+
+    console.log(fnPush(arr,'fffffff')); //["a", "b", "c", "d", "e", "fffffff"]
+    console.log(fnPop(arr)); //["a", "b", "c", "d", "e"]
+    console.log(fnShift(arr)); //["b", "c", "d", "e"]
+    console.log(fnUnshift(arr,'fffffff')); //["fffffff", "b", "c", "d", "e"]
+
+</script>
+</body>
+</html>

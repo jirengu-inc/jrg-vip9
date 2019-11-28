@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-13</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    // 1.获取从 min到 max之间的随机整数，包括 min不包括 max
+      function randomNumber1(min,max) {
+        return parseInt(Math.random()*(max-min)+min);
+      }
+
+    // 2.获取从 min到 max之间的随机整数，包括 min包括 max
+      function randomNumber2(min,max) {
+        return parseInt(Math.random()*(max-min+1)+min);
+      }
+
+    // 3.获取一个随机数组，数组中元素为长度为 len，最小值为 min，最大值为 max(包括)的随机整数
+      function randomArr(min,max,len) {
+        var arr = [];
+        for (var i=0; i<len; i++) {
+          arr[i] = randomNumber2(min,max);
+        }
+        return arr;
+      }
+
+    // 4.生成一个长度为 len 的随机字符串，字符串字符的取值范围包括 0到 9，a到 z，A到 Z。
+      var DataRange = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      function getRandStr (len) {
+        var arr = [];
+        var n;
+        for (var i=0; i<len; i++) {
+          n = parseInt(Math.random()*62);
+          arr[i] = DataRange[n];
+        }
+        return arr.join('');
+      }
+    </script>
+  </body>
+</html>

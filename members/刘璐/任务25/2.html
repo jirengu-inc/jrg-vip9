@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p,body,ul,li,div,h1,h2,h3,h4,h5,h6{
+            padding:0;
+            margin:0;
+        }
+        ul,li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        .clear{
+            zoom:0;
+        }
+        .clear:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .tab-wrap{
+            margin:200px;
+        }
+        .tab{
+            font-size:16px;
+        }
+        .tab>li{
+            float:left;
+            padding:5px 18px;
+            border-radius:4px 4px 0 0;
+            border:1px solid #ccc;
+        }
+        .tab>li.active{
+            background:#8c8c8c;
+        }
+        .tab-content{
+            margin-left:-50px;
+            margin-top:-50px;
+            display:none;
+        }
+        .tab-content.active{
+            display:block;
+        }
+        .tab-content>li{
+            width: 250px;
+            padding: 19px;
+            border: 1px solid #ccc;
+            float: left;
+            margin:49px 0 0 49px;
+            position:relative;
+        }
+        .tab-content>li .cover{
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background:rgba(0,0,0,0.3);
+            display:none;
+        }
+        .tab-content>li .cover.hover{
+            display:block;
+        }
+        .tab-content>li>img{
+            width:250px;
+        }
+        .wrap{
+            width:967px;
+            border:1px solid #ccc;
+            margin-top:-1px;
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-wrap">
+        <ul class="tab clear">
+            <li class="active">热门</li>
+            <li>珠宝首饰</li>
+            <li>奢侈品</li>
+        </ul>
+            <div class="wrap">
+                <ul class="tab-content clear active">
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                </ul>
+                <ul class="tab-content clear">
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB13VrqMVXXXXb1aXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                </ul>
+                <ul class="tab-content clear">
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i1/TB1PCTDMVXXXXa6XVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <div class="tab-wrap">
+        <ul class="tab clear">
+            <li class="active">热门</li>
+            <li>珠宝首饰</li>
+            <li>奢侈品2</li>
+        </ul>
+            <div class="wrap">
+                <ul class="tab-content clear active">
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                </ul>
+                <ul class="tab-content clear">
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB13VrqMVXXXXb1aXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                </ul>
+                <ul class="tab-content clear">
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i1/TB1PCTDMVXXXXa6XVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                    <li>
+                        <div class="cover"></div>
+                        <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                        <a href="#">臧金路路通吊坠</a>
+                        <a href="#">￥1999.00</a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+    $(".tab li").on("click",function(){
+       var i = $(this).index();
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
+        $(this).parents(".tab-wrap").find(".tab-content").removeClass("active");
+        $(this).parents(".tab-wrap").find(".tab-content").eq(i).addClass("active");
+    });
+
+
+
+
+    $(".tab-content>li").on("mouseenter",function(){
+        $(this).find(".cover").addClass("hover");
+    });
+    $(".tab-content>li").on("mouseleave",function(){
+        $(this).find(".cover").removeClass("hover");
+    })
+</script>
+</body>
+</html>

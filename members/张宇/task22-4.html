@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-4</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <style>
+        ul,li{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .clearfix::after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+
+        .ct *{
+            box-sizing: border-box;
+        }
+        .ct{
+            border:#ccc 1px solid;
+            height:200px;
+        }
+        .ct ul>li{
+            float: left;
+            border-bottom: #ccc 1px solid;
+            border-right:#ccc 1px solid;
+            width: 33.333%;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .ct ul>li.active{
+            background: #eee;
+        }
+        .ct ul>li:last-child{
+            border-right: none;
+        }
+        .ct .content{
+            padding: 10px;
+            display: none;
+        }
+        .ct .content.active{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <p>实现tab切换</p>
+    <div class="ct">
+        <ul class="clearfix">
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <div class="content">这里是</div>
+        <div class="content">饥人谷</div>
+        <div class="content">直播9班</div>
+    </div>
+    <script>
+        var ct = document.querySelector('.ct');
+        var ul = ct.querySelector('ul');
+        var lis = ul.querySelectorAll('li');
+        var divs = ct.querySelectorAll('div');
+
+        function hasClass(el, cls){
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)', 'g' );
+            return reg.test(el.className);
+        }
+        function addClass(el, cls){
+            if(!hasClass(el, cls)){
+                el.className = el.className + ' ' + cls;
+            }
+            return el.className;
+        }
+        function removeClass(el, cls){
+            if(hasClass(el, cls)){
+                var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+                el.className = el.className.replace(reg, '');
+            }
+            return el.className;
+        }
+
+        ul.addEventListener('click',function(e){
+            var i = 0;
+            for(var x in lis){
+                removeClass(lis[x], 'active');
+                removeClass(divs[x], 'active');
+                if (lis[x]===e.target){i = x;}
+            }
+            addClass(e.target, 'active');
+            addClass(divs[i], 'active');
+        },false)
+
+    </script>
+</body>
+</html>

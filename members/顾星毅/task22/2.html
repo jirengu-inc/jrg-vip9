@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>天净沙·夏</title>
+  </head>
+  <body>
+    <ul class="ct">
+      <li>云收雨过波添</li>
+      <li>楼高水冷瓜甜</li>
+      <li>绿树阴垂画檐</li>
+      <li>纱厨藤簟</li>
+      <li>玉人罗扇轻缣</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <script>
+      var ct = document.querySelector('.ct'),
+          addStartBtn = document.querySelector('#btn-add-start'),
+          addEndBtn = document.querySelector('#btn-add-end'),
+          ipt = document.querySelector('.ipt-add-content');
+
+      ct.addEventListener('click', function(e){
+        if(e.target.tagName.toLowerCase() === 'li'){
+         console.log(e.target.innerText);
+        }
+      });
+
+      addEndBtn.addEventListener('click', function(){
+       if (!ipt.value.match(/^\s*$/)){
+         var li = document.createElement('li');
+         li.innerText = ipt.value;
+         ct.appendChild(li);
+       }
+      });
+
+      addStartBtn.addEventListener('click', function(){
+       if (!ipt.value.match(/^\s*$/)){
+         var li = document.createElement('li');
+         li.innerText = ipt.value;
+         ct.insertBefore(li,ct.firstChild);
+       }
+      });
+    </script>
+  </body>
+</html>

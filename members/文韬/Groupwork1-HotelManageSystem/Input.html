@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>窗口类 </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
+    <link rel="stylesheet" href="Input.css">
+</head>
+
+<body>
+  <script src="Input.js">
+  </script>
+  <div class="clearinfor">
+    <div>
+        <input type="button" id="show" onclick="javascript:new DivWindow('popup','popup_drag','popup_exit','exitButton','500','700',4);" value="触发弹出详细基本资料DIV" />
+    </div>
+    <!-- 遮罩层 -->
+    <div id="mask" class="mask">
+    </div>
+    <!-- 弹出基本资料详细DIV层 -->
+    <div class="sample_popup" id="popup" style="visibility: hidden; display: none;">
+        <div class="menu_form_header" id="popup_drag">
+            <input type="button" id="popup_exit" value="退出" />
+            <span class="window-desc">个人详细信息</span>
+        </div>
+        <div class="menu_form_body">
+            <div id="popDetail">
+                片区名称：
+            </div>
+        </div>
+    </div>
+    <!-- 弹出基本资料详细DIV层 -->
+    <div class="sample_popup" id="Div1" style="visibility: hidden; display: none;">
+        <div class="menu_form_header" id="Div2">
+            <input type="button" id="exit2" value="退出" /> 片区资料2222
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

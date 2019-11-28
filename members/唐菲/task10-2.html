@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task10-2</title>
+	<style type="text/css">
+.demo1>div{width: 200px;height:100px;border: 1px solid #cacaca;margin: 50px auto;position: relative;}
+.demo1>div>div{width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 15px 15px 15px;
+border-color: transparent transparent #888 transparent;
+position: absolute;
+top:-15px;
+left:12px;
+}
+
+.demo2>div{width: 200px;height:100px;border: 1px solid #cacaca;margin: 50px auto;position: relative;}
+.demo2>div>div{
+float: right;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 20px 20px 0;
+border-color: transparent red transparent transparent;
+}
+
+.demo3>div{width: 200px;height:100px;border: 1px solid #cacaca;margin: 50px auto;position: relative;}
+.demo3>div>div{width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 15px 15px 15px;
+border-color: transparent transparent #888 transparent;
+position: absolute;
+top:-15px;
+left:12px;
+}
+.demo3>div>div:after{
+	content: "";
+	width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 14px 14px 14px;
+border-color: transparent transparent white transparent;
+position: absolute;
+top:1px;
+left:-14px;
+}
+
+</style>
+</head>
+<body>
+	
+<div class="demo1">
+	<div>
+		<div></div>	
+	</div>
+</div>
+
+
+<div class="demo2">
+	<div>
+		<div></div>	
+	</div>
+</div>
+
+<div class="demo3">
+	<div>
+		<div></div>	
+	</div>
+</div>
+
+</body>
+</html>

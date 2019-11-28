@@ -1,0 +1,128 @@
+<script>
+	var key = 'hello';
+/*
+	var a;
+	var b;
+	var obj;
+	var obj2;
+
+
+	a = 1;
+	b = 2;
+
+	var obj = {
+		name: 'ruoyu',
+		sex: 'male',
+		age: 30,
+		friend: {
+			name: 'hello', 
+			age: 100
+		}
+	}
+
+	var newObj = {};
+
+
+
+	b = a;
+	console.log(b);
+
+	var obj2 = obj;
+
+
+	var obj3 = {name: 'hello'};
+	var obj4 = {name: 'hello'};
+	obj3 === obj4
+
+
+
+	function sum(){
+		console.log('sum...')
+	}
+	var sum2 = sum;
+	sum2()
+
+*/
+
+/*
+
+function inc(n){
+	n++;
+}
+var a = 10;
+inc(a);
+console.log(a);
+
+function incObj(obj){
+	//var obj = o //0x0001
+	obj.n++;
+}
+
+var o = {n: 10};  //o = 0x0001
+incObj(o);
+console.log(o);
+
+
+function squireArr( arr ){
+	//var arr = 0x0011
+	for(var i = 0; i < arr.length; i++){
+		arr[i] = arr[i] * arr[i];
+	}
+}
+function squireArr2( arr ){
+	var newArr = [];
+	for(var i = 0; i < arr.length; i++){
+		newArr[i] = arr[i] * arr[i];
+	}
+	return newArr;
+}
+
+var arr = [2,1,3,6]; //arr  0x0011
+squireArr(arr);
+console.log(arr); // [4,1,9,36]
+
+var arr2 = squireArr2(arr)
+console.log(arr2);
+
+*/
+
+	var obj = {
+		name: 'ruoyu',
+		sex: 'male',
+		age: 30,
+		friend: {
+			name: 'hello', 
+			age: 100
+		}
+	}
+	var newObj = copy(obj);
+	var newObj2 = deepCopy(obj);	
+
+	function copy(oldObj){
+		var newObj = {};
+		for(var key in oldObj){
+			newObj[key] = oldObj[key];
+		}
+		return newObj;
+	}
+
+
+	function deepCopy(oldObj){
+		var newObj = {};
+		for(var key in oldObj){
+			if(typeof oldObj[key] === 'object'){
+				newObj[key] = deepCopy( oldObj[key] );
+			}else{
+				newObj[key] = oldObj[key];
+			}
+		}
+		return newObj;
+	}
+\
+
+
+
+
+
+
+</script>

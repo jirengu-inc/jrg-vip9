@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>作业10－2</title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .box1,.box2,.box3{
+                position: relative;
+                width: 300px;
+                height: 150px;
+                border: 1px solid #ccc;
+                margin: 20px;
+            }
+            .box1>div{
+                position: absolute;
+                left: 20px;
+                top: -14px;
+                width: 0;
+                height: 0;
+                border-bottom: 14px solid #aaa;
+                border-right: 14px solid transparent;
+                border-left: 14px solid transparent;
+            }
+            .box2>div{
+                position: absolute;
+                right: 0;
+                width: 0;
+                height: 0;
+                border-top: 10px solid red;
+                border-left: 10px solid transparent;
+                border-right: 10px solid red;
+                border-bottom: 10px solid transparent;
+            }
+            .box3>div{
+                position: absolute;
+                left: 24px;
+                top: -11px;
+                transform: rotate(45deg);
+                width: 19px;
+                height: 19px;
+                background: #fff;
+                border-top: 1px solid #ccc;
+                border-left: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">
+            <div></div>
+        </div>
+        <div class="box2">
+            <div></div>
+        </div>
+        <div class="box3">
+            <div></div>
+        </div>
+    </body>
+</html>

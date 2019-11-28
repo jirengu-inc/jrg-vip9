@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul class="ct">
+      <li>这里是</li>
+      <li>饥人谷</li>
+      <li>前端9班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容">
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <script type="text/javascript">
+      var liLists = document.getElementsByTagName('li');
+      var textBox = document.getElementsByClassName('ipt-add-content')[0];
+      var list = document.getElementsByClassName('ct')[0];
+      for (var i = 0; i < liLists.length; i++) {
+        var liClick = liLists[i];
+        liClick.addEventListener('click', function() {
+          console.log(this.innerText);
+        }, false);
+      }
+      var startBtn = document.getElementById('btn-add-start');
+      startBtn.addEventListener('click', function(){
+        if (textBox.value.length == 0) {
+          alert('请输入要添加的内容');
+          return;
+        }
+        var newLi = document.createElement('li');
+        newLi.innerText = textBox.value;
+        newLi.addEventListener('click', function() {
+          console.log(this.innerText);
+        }, false);
+        list.insertBefore(newLi, list.firstChild);
+        textBox.value = '';
+      }, false);
+      var endBtn = document.getElementById('btn-add-end');
+      endBtn.addEventListener('click', function(){
+        if (textBox.value.length == 0) {
+          alert('请输入要添加的内容');
+          return;
+        }
+        var newLi = document.createElement('li');
+        newLi.innerText = textBox.value;
+        newLi.addEventListener('click', function() {
+          console.log(this.innerText);
+        }, false);
+        list.appendChild(newLi);
+        textBox.value = '';
+      }, false);
+    </script>
+  </body>
+</html>

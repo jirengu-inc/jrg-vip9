@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var prod = {
+            name: '女装',
+            styles: ['短款', '冬季', '春装']
+        };
+
+        function getTplStr(data) {
+            var clothes = [];
+            clothes.push('<dl class="product">')
+            clothes.push('<dt>' + data.name + '</dt>')
+            for (var i = 0; i < data.styles.length; i++) {
+                clothes.push("<dd>" + data.styles[i] + "</dd>");
+            };
+            clothes.push("</dl>")
+            return clothes.join("\n");
+            //todo...
+        };
+        var result = getTplStr(prod);
+        document.write(result); //result为下面的字符串
+    </script>
+    <dl class="product">
+        <dt>女装</dt>
+        <dd>短款</dd>
+        <dd>冬季</dd>
+        <dd>春装</dd>
+    </dl>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+.fm {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    box-sizing: border-box;
+    z-index: 99999;
+}
+.icon-yinle {
+    font-size: 40px;
+    color: rgba(0,128,128,0.6);
+    cursor:pointer;
+}
+.background {
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+}
+.fm-main {
+    position: relative;
+    background-color: #008080;
+    margin-top: -10px;
+}
+/***********歌词***********/
+.lrc-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(120, 120, 120, 0.8);
+    width: 300px;
+    height: 300px;
+}
+.lyric-box {
+    margin-top:10%;
+    margin-bottom: 10%;
+    height: 80%;
+    text-align: center;
+    overflow: hidden;
+}
+.lyric {
+    margin-top: 0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.lyric li {
+    color: palegoldenrod;
+}
+.lyric li.active {
+    color: #7ebaf7;
+    font-weight: bold;
+}
+/***********音乐信息及操作***********/
+.content {
+    width: 300px;
+}
+.music-info {
+    width: 280px;
+}
+.music-info > div {
+    box-sizing: border-box;
+}
+.music-info .info {
+    float: left;
+    max-width: 180px;
+}
+.info .title {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 20px;
+}
+.info .artist {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 20px;
+}
+.info .show-channel {
+    height: 20px;
+}
+.music-info .music-icon {
+    float: right;
+    width: 100px;
+    text-align: right;
+}
+.music-icon span, .music-icon a {
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    width: 33.33333333%;
+    font-size: 24px;
+    line-height: 57px;
+    cursor: pointer;
+}
+.music-icon span.switch-lrc-wrap:hover {
+    color: #8eab99;
+}
+.music-icon a:hover {
+    color: #8eab99;
+}
+.like.active {
+    color: tomato;
+}
+/***********音乐播放操作***********/
+.control {
+    box-sizing: border-box;
+    width: 300px;
+}
+/***********时间操作***********/
+.time {
+    position: relative;
+    width: 250px;
+    cursor: pointer;
+}
+.time-line {
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    height: 6px;
+    width: 70%;
+    background-color: #110F0B;
+    border-radius: 4px;
+}
+.time-outline {
+    border-radius: 4px;
+    max-width: 100%;
+    height: 100%;
+    background-color: #cccccc;
+}
+.cur-time {
+    float: left;
+    margin-left: 4px;
+    font-weight: bold;
+}
+.total-time {
+    float: right;
+    margin-right: 4px;
+    font-weight: bold;
+}
+/***********按键操作***********/
+.btn-control {
+    position: relative;
+    width: 300px;
+    height: 60px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.btn-control span {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+.btn-control span:hover {
+    color: #8eab99;
+}
+.icon-previous {
+    left: 4px;
+    font-size: 24px;
+}
+.btn-play {
+    left: 32px;
+    font-size: 55px;
+}
+.icon-next {
+    left: 91px;
+    font-size: 24px;
+}
+.circle {
+    left: 135px;
+    font-size: 20px;
+}
+.volume {
+    left: 165px;
+    font-size: 24px;
+}
+.volume-bar {
+    position: absolute;
+    top: 50%;
+    left: 193px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    height: 5px;
+    width: 100px;
+    background-color: #110F0B;
+    border-radius: 4px;
+}
+.volume-outline {
+    height: 5px;
+    border-radius: 4px;
+    background-color: #eeeeee;
+    max-width: 100%;
+}
+/***********footer***********/
+.footer {
+    margin-top: 8px;
+    width: 300px;
+    height: 14px;
+    line-height: 14px;
+    background-color: black;
+    color: #eeeeee;
+}
+.footer .to-channel {
+    float: left;
+    margin-left: 5px;
+}
+.footer .to-list {
+    float: right;
+    margin-right: 5px;
+}
+/***********FM-频道***********/
+.fm-channel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    overflow-y: auto;
+    background-color: rgba(150, 150, 150, 0.9);
+    display: none;
+}
+.channels > li {
+    margin-top: 10px;
+    border: 1px solid #008080;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    background: -webkit-linear-gradient(315deg, teal 25%, #8eab99 50%, #008080 75%, #8eab99 100%);
+    background: linear-gradient(135deg, teal 25%, #8eab99 50%, #008080 75%, #8eab99 100%);
+}
+.channels > li.active {
+    color: rgba(236, 177, 64, 0.8);
+    font-weight: bold;
+}
+.fm-list {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 60%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: rgba(150, 150, 150, 0.9);
+    display: none;
+}
+.option {
+    width: 100%;
+    height: 9%;
+    text-align: center;
+}
+.option li {
+    float: left;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    display: table;
+}
+.option li.active {
+    background-color: #999fd0;
+}
+.option li > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.list {
+    display: none;
+    width: 100%;
+}
+.list.active {
+    display: block;
+}
+.list > li {
+    height: 40px;
+    width: 100%;
+    background: -webkit-linear-gradient(315deg, transparent 0%, teal 25%, transparent 50%, #008080 75%, transparent 100%);
+    background: linear-gradient(135deg, transparent 0%, teal 25%, transparent 50%, #008080 75%, transparent 100%);
+    display: table;
+    box-sizing: border-box;
+    margin-top: 5px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.list > li > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 3px;
+    background-color: #008080;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #000000;
+    border-radius: 3px;
+    background-color: #008080;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 6px #cccccc;
+    background-color: #3f3e3c;
+}
+
+
+
+

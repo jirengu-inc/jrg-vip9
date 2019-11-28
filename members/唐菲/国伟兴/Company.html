@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>江苏国伟兴</title>
+    <link href="Company.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/slide.css"/>
+</head>
+<body>
+      <div class="head">
+          <div class="head_middle">
+              <p id="top">欢迎访问江苏国伟兴塑胶科技有限公司！</p>
+              <ul>
+                  <li><img src="微信_02.png"></li>
+                  <li><a href="#">联系我们</a></li>
+                  <li><a href="#">返回首页</a>｜</li>
+              </ul>
+          </div>
+      </div>
+      <div class="logo">
+          <div class="logo_middle">
+          <img src="国伟兴图标_03.png">
+          <ul>
+              <li><a href="#"></a>首页</li>
+              <li><a href="#"></a>走进国伟兴</li>
+              <li><a href="#"></a>产品中心</li>
+              <li><a href="#"></a>案例中心</li>
+              <li><a href="#"></a>新闻中心</li>
+              <li><a href="#"></a>人力资源</li>
+              <li><a href="#"></a>联系我们</li>
+          </ul>
+          </div>
+      </div>
+      <div class="slides">
+          <div class="slideInner">
+              <a href="#" class="a1" style="background: url(beiji5_02.png) no-repeat; background-position: center" ></a>
+              <a href="#" class="a2" style="background: url(beij_02.png) no-repeat;background-position: center"></a>
+          </div>
+          <div class="nav">
+              <a class="prev" href="javascript:;"></a>
+              <a class="next" href="javascript:;"></a>
+          </div>
+      </div>
+      <script src="js/jquery-1.11.3.min.js"></script>
+      <script src="js/slide.js"></script>
+      <script >
+          $(document).ready(function() {
+              $(".slideInner").slide({
+                  slideContainer: $('.slideInner a'),
+                  effect: 'easeOutCirc',
+                  autoRunTime: 5000,
+                  slideSpeed: 1000,
+                  nav: true,
+                  autoRun: true,
+                  prevBtn: $('a.prev'),
+                  nextBtn: $('a.next')
+              })
+          })
+      </script>
+      <div class="product">
+          <div class="product_middle" >
+          <button><a href="#">更多产品+</a> </button>
+          </div>
+      </div>
+     <div class="main_case">
+         <div class="main_case_middle">
+         <button class="btn1"><a href="#">工程案例</a></button>
+         <button class="btn2"><a href="#">典型客户</a></button>
+         <button class="btn3"><a href="#">MORE+</a></button>
+         </div>
+     </div>
+     <div class="main_about">
+         <div class="main_about_middle">
+             <button class="b1"><a href="#">办公环境</a></button>
+             <button class="b2"><a href="#">旗下品牌</a></button>
+             <button class="b3"><a href="#">企业文化</a></button>
+             <button class="b4"><a href="#">企业简介</a></button>
+             <button class="b5"><a href="#">...了解更多</a></button>
+         </div>
+     </div>
+      <div class="main_news">
+          <div class="news_center">
+              <div class="news_left">
+                  <div class="news_left_top">
+                      <h4><span>广东国伟兴塑胶国庆放假通知</span></h4>
+                      <p>国庆将至，根据国家有关规定，结合公司实际情况，广东国伟兴塑胶科技股份有限公司规定：<br>
+                          国庆放假四天...<a href="#">[详情]</a></p></div>
+                  <div class="news_left_button">
+                      <ul>
+                          <li><a href="#"> 第23届广州博览会邀请函</a></li>
+                          <li><a href="#"> 第23届广州博览会邀请函</a></li>
+                          <li><a href="#"> 第23届广州博览会邀请函</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="news_right">
+                  <video src="mov_bbb.ogg" width="372" height="300" controls="controls">
+                      <img src="宣传片2_03.png">
+                  </video>
+              </div>
+          </div>
+      </div>
+      <div class="foot">
+          <div class="foot_middle">
+           <ul>
+               <li><a href="#">联系我们</a></li>
+               <li><a href="#">人力资源</a></li>
+               <li><a href="#">新闻中心</a></li>
+               <li><a href="#">案例中心</a></li>
+               <li><a href="#">产品中心</a></li>
+               <li><a href="#">走进国伟兴</a></li>
+               <li><a href="#">首页</a></li>
+           </ul>
+      </div>
+      </div>
+</body>
+</html>

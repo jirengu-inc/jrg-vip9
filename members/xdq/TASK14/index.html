@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="iconfont.css" rel="stylesheet">
+<style type="text/css">
+html, body, ul, li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+li, a, h1, h2, h3, h4, p {
+  text-align: center;
+}
+h2{
+	font-size: 30px;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-top: 1px solid #eee;
+  max-width: 100px;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+a.btn-big {
+  height: 50px;
+  width: 140px;
+  line-height: 50px;
+}
+.icon{
+ font-size: 48px;
+}
+	
+#header{
+	width: 100%;
+	height: 100%;
+	background: url(images/head.jpg);
+	background-size: cover;
+  }
+ .container {
+  width: 960px;
+  margin: 0 auto;
+ text-align: center;
+ }
+
+ .table {
+ 	height: 100%;
+  display: table;
+  background-color: pink;
+  }
+ .vertical-center{
+ display: table-cell;
+ vertical-align: middle;
+ }
+
+.btn1{
+ 	display: inline-block;
+ 	font-size: 16px;
+ 	color: white;
+ 	width: 140px;
+ 	height: 30px;
+ 	background-color: rgba(0,0,0,0.4);
+ 	text-align: center;
+ 	line-height: 30px;
+   }
+ 
+.btn1:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+#content .about{
+	padding-top:50px;
+	padding-bottom: 50px;
+}
+#content .about h2{
+	font-size: 30px;
+	font-style: bold;
+}
+
+#content .about p{
+	font-size: 21px;
+}
+#content .about a{
+	color: blue;
+}
+#content .about a:hover{
+	text-decoration: underline;
+}
+#content .skill{
+	height: 350px;
+	background-color: rgb(51,122,183);
+}
+#content .skill .container>p{
+	padding-top: 30px;
+	font-size: 36px;
+	color: white;
+}
+
+#content .skill ul>li{
+	float: left;
+	width: 25%;
+	color: white;
+}
+.btn2{
+	display: inline-block;
+	color: #333;
+	width: 70px;
+	height: 30px;
+	background-color: white;
+	line-height: 30px;
+}
+.btn2:hover{
+	background-color: #eee;
+}
+#content .middleimage{
+	background: url(images/middle.jpg);
+	background-size: cover;
+	padding: 200px 0;
+}
+#content .middleimage p{
+  font-size: 36px;
+  color: white;
+}
+#content .myworks{
+	padding: 50px 0;
+}
+#content .myworks ul{
+   margin-right: -30px;
+}
+#content .myworks ul>li{
+	float: left;
+  width: 465px;
+	height: 305px;
+	margin-bottom: 30px;
+	margin-right: 30px;
+}
+
+#content .myworks li img{
+	width: 465px;
+	height: 305px;
+}
+#content .more-introduce{
+  width: 100%;
+	height: 150px;
+	padding-top:60px;
+	background-color: rgb(51,122,183);
+}
+#content .more-introduce ul{
+	
+	width: 300px;
+	margin: 0 auto;
+}
+#content .more-introduce ul>li{
+   float: left;
+
+}
+#footer .contact{
+	width: 400px;
+	margin: 0 auto;
+	}
+
+#footer .contact li{
+	float: left;
+	color: #337ab7;
+	padding: 20px 40px;
+}
+#footer .icon-contact{
+	font-size: 12px;
+}
+
+	
+
+</style>
+</head>
+<body>
+    <div id="header">
+      <div class="container table">
+        <div class="vertical-center text-center">
+     <h1>许丹琦</h1><p>一个爱前端的同学</p>
+    <a href="#" class="btn1">查看更多</a>
+      </div>
+        </div>
+    </div>
+    <div id="content">
+      <div  class="about container">
+        <h2>学习前端</h2>
+    	<p>学习了html,css,js后 <a href="#">作品</a></p>
+      </div>
+      <div class="skill">
+        <div class="container">
+        <p>技能</p>
+        <hr>
+    	<ul class="clearfix">
+    		<li>
+    		 <i class="icon iconfont">&#x3500;</i>
+    		<p>html&css</p>
+    		<p>html css相关技能，比如...</p>
+    		<a href="#" class="btn2">相关作品</a>
+    		</li>
+    		<li>
+    		<i class="icon iconfont">&#x3466;</i>
+    		<p>JS&Jquery</p>
+    		<p>JS插件、比如...</p>
+    		<a href="#"   class="btn2">相关作品</a>
+    		</li>
+    		<li>
+    		<i class="icon iconfont">&#xe60d;</i>
+    		<p>项目</p>
+    		<p>项目1234567</p>
+    		<a href="#"   class="btn2">我的项目</a>
+    		</li>
+    		<li>
+    		<i class="icon iconfont">&#x3458;</i>
+    		<p>个人博客</p>
+    		<p>学习历程</p>
+    		<a href="#"   class="btn2">查看博客</a>
+    		</li>
+    	</ul>
+       </div>
+        </div>
+      <div class="middleimage">
+        <div class="container">
+     <p>我挥舞着键盘，想要把这个世界写个明明白白</p>
+      </div>
+        </div>
+      <div class="myworks container">
+    <h2>我的作品</h2>
+    <hr>
+    	<ul class="clearfix">
+    		<li><img src="images/portfolio.jpg"></li>
+    		<li><img src="images/portfolio.jpg"></li>
+    		<li><img src="images/portfolio.jpg"></li>
+    		<li><img src="images/portfolio.jpg"></li>
+    	</ul>
+    	<a href="#" class="btn1">更多作品</a>
+      </div>
+      <div class="more-introduce"> 	
+        <div class="container">
+    <p>我是一个聪明勤奋的人</p>
+    <ul class="clearfix">
+    	<li><a href="#" class="btn1 btn-big">Click Me</a></li>
+    	<li><a href="#" class="btn2 btn-big">Look at Me</a></li>
+    </ul>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+    	<h4>我的信息</h4>
+    	<p>3481 Melrose Place <br>Beverly Hills, CA 90210</p>
+    	<ul>
+    	<li><i class="icon iconfont icon-contact">&#xe6d2;</i><span>(123) 456-7890</span></li>
+    	<li><a href="#"><i class="icon iconfont icon-contact">&#xe606;</i><span>1204252728@qq.com</span></a></li>
+    	</ul>
+    	<ul class="contact clearfix">
+    		<li><i class="icon iconfont">&#xe634;</i></li>
+    		<li><i class="icon iconfont">&#xe764;</i></li>
+    		<li><i class="icon iconfont">&#xe606;</i></li>
+    	</ul>
+    	<hr>
+    	<p>Copyright © hunger 2016</p>
+      </div>
+     </div>
+
+</body>
+</html>

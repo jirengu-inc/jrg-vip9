@@ -1,0 +1,153 @@
+html,body,p,div,h1,h2,h3,h4,h5,h6,a,ul,li {
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-family: "宋体";
+	color: #000;
+}
+a {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+html,body {
+	height: 100%;
+}
+.layout {
+	width: 960px;
+	margin: 0 auto;
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+/* 字体图标 */
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1467635836'); /* IE9*/
+  src: url('iconfont.eot?t=1467635836#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1467635836') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1467635836') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1467635836#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-call:before { content: "\e614"; }
+.icon-skill:before { content: "\e651"; }
+.icon-zujian:before { content: "\e657"; }
+.icon-project:before { content: "\e645"; }
+.icon-qq:before { content: "\e607"; }
+.icon-sina:before { content: "\e62b"; }
+.icon-email:before { content: "\e61d"; }
+.icon-blog:before { content: "\e60d"; }
+.icon-wechat:before { content: "\3433"; }
+
+/* header部分 */
+#header {
+	background: url(images/head-bg.jpg) 0 0 no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 100%;
+}
+.table {
+	height: 100%;
+	display: table;
+}
+#headline {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+h1 {
+    font-family: Helvetica; 
+    font-size: 32px;
+    line-height: 200%;
+}
+
+#headline a {
+	display: inline-block;
+	padding: 10px 20px;
+	background: rgba(0,0,0,.4);
+	color: #fff;
+	margin: 10px;
+}
+#headline a:hover {
+	background: rgba(0,0,0,.6)
+}
+
+/* main部分 */
+#main .title {
+	text-align: center;
+	margin: 70px;
+	
+}
+#main .title h1 {
+	font-family: "宋体";
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+#main .title p {
+	line-height: 150%;
+	font-size: 20px;
+}
+#main .title a {
+	font-size: 20px;
+	color: #3e52a4;
+}
+#main .title a:hover {
+	text-decoration: underline;
+	color: #344899;
+}
+#main .menu {
+	text-align: center;
+	background: #337ab7;
+	padding:30px 0;
+}
+#main .menu .skill {
+	display: inline-block;
+	zoom: 1;
+	*display: block;
+	font-size: 32px;
+	font-weight: bold;
+	color: #fff;
+	padding: 20px;
+	border-bottom: 2px solid #fff;
+
+}
+#main .menu .skill-menu>div {
+	width: 240px;
+	margin: 20px 0;
+	float: left;
+	
+}
+#main .menu .skill-p1 {
+	font-family: "iconfont";
+	font-size: 100px;
+	color: #fff;
+	line-height: 170px;
+}
+#main .menu .skill-p2,
+#main .menu .skill-p3 {
+	font-family: Helvetica;
+	color: #fff;
+	line-height: 25px;
+
+}
+#main .menu .skill-p4 a {
+	display: inline-block;
+	margin: 15px;
+	padding: 5px 20px;
+	background: #fff;
+	font-size: 14px;
+}
+#main .menu .skill-p4 a:hover {
+	background: #eee;
+}

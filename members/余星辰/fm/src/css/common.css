@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.layout {
+    margin: 0 auto;
+}
+
+.clearfix::after {
+    display: block;
+    content: '';
+    clear: both;
+}

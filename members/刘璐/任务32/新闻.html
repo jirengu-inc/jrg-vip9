@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>task32</title>
+    <style>
+        ul, li, div, body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+        .clear:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            clear: both;
+        }
+        .waterfall-list {
+            position: relative;
+        }
+        ul, li {
+            list-style: none;
+        }
+        .waterfall-list .item {
+            position: absolute;
+            width: 250px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            transition: all 1s;
+        }
+        .waterfall-list .item img {
+            width: 240px;
+            padding-left: 5px;
+        }
+        .waterfall-list .item .title {
+            font-size: 12px;
+            text-align: center;
+        }
+        .waterfall-list .item .description {
+            font-size: 12px;
+            text-align: center;
+        }
+        .hide {
+            display: none;
+        }
+        .load {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <ul class="waterfall-list clear">
+
+        <li class="item hide"></li>
+    </ul>
+
+    <div class="load">看到此处加载</div>
+</div>
+
+<script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+<script>
+    window.onload(function(){
+
+                var clock;
+                $(window).on('scroll', function () {
+                    if (clock) {
+                        clearTimeout(clock);
+                    }
+                    clock = setTimeout(function () {
+                        display();
+                    }, 100);
+                });
+                display();
+                function display() {
+                    if (isShow($('.load'))) {
+                        getData();
+                    }
+                }
+                function isShow($node) {
+                    var nodeScrollTop = $node.offset().top;
+                    var screenHeight = $(window).height();
+                    var currentScrollTop = $(document).scrollTop();
+                    if (currentScrollTop + screenHeight > nodeScrollTop) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                var currentPage = 1;
+                var pageCount = 10;
+                function getData() {
+                    $.ajax({
+                        url: 'http://platform.sina.com.cn/slide/album_tech',
+                        type: 'get',
+                        dataType: 'jsonp',
+                        jsonp: 'jsoncallback',
+                        data: {
+                            app_key: '1271687855',
+                            num: pageCount,
+                            page: currentPage
+                        },
+                        success: function (ret) {
+                            if (ret && ret.status && ret.status.code === "0") {
+                                //console.log(ret.data);
+                                var $nodes = renderData(ret.data);
+                                waterfall($nodes);
+                                currentPage++;
+                            } else {
+                                console.log("error happened");
+                            }
+                        }
+                    });
+                }
+                function renderData(items) {
+                    var template = "";
+                    for (var i = 0; i < items.length; i++) {
+                        template += '<li class="item">';
+                        template += '<a href="' + items[i].url + '" class="link"><img src="' + items[i].img_url + '" alt=""/></a>';
+                        template += '<h5 class="title">' + items[i].short_name + '</h5>';
+                        template += '<p class="description">' + items[i].short_intro + '</p>';
+                        template += '</li>';
+                    }
+                    var $nodes = $(template);
+                    $('.waterfall-list').append($nodes);
+                    return $nodes;
+                }
+                var colHeightArray = [];
+                var nodeWidth = $('.item').outerWidth(true);
+                var colNum = parseInt($('.waterfall-list').width() / nodeWidth);
+                for (var i = 0; i < colNum; i++) {
+                    colHeightArray.push(0);
+                }
+                function waterfall($node) {
+                    $node.each(function () {
+                        var $current = $(this);
+                        var idx = 0;
+                        var minSumHeight = colHeightArray[0];
+                        for (var i = 0; i < colHeightArray.length; i++) {
+                            if (colHeightArray[i] < minSumHeight) {
+                                idx = i;
+                                minSumHeight = colHeightArray[i];
+                            }
+                        }
+                        $current.css({
+                            left: nodeWidth * idx,
+                            top: minSumHeight,
+                            opacity: 1
+                        });
+                        colHeightArray[idx] = $current.outerHeight(true) + colHeightArray[idx];
+                        //$('.waterfall-list').height(Math.max.apply(null, colHeightArray));
+                    });
+                }
+
+    }
+    )
+
+</script>
+</body>
+</html>

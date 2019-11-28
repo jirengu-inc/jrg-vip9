@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="tab切换 原生js" />
+  <meta charset="utf-8">
+  <title>效果 切换</title>
+  <style>
+  li{
+    list-style: none;
+  } 
+  .ct >ul >li{
+    border: 1px solid #ccc;
+  }
+  .ct>ul>li>p{
+    display: none;
+  } 
+  .hide{
+    display:none;
+  }
+
+  p{
+   /* display: inline;*/
+  }
+
+  </style>
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+
+  <p id="p1">我是段落1</p>
+  <button id="btn1">hide</button>
+  <button id="btn2">show</button>
+  <button id="btn3">切换toggle</button>
+  <button id="btn4">切换非toggle</button>
+
+
+  <script>
+
+  $('#btn1').on('click', function(){
+    $('#p1').hide(1000);
+    //$('#p1').css('display', 'none');
+  })
+  $('#btn2').on('click', function(){
+    $('#p1').show(1000);
+    //$('#p1').css('display', 'block');
+  })
+
+  $('#btn3').on('click', function(){
+    $('#p1').toggle();
+  })
+  var isShow = true;
+  $('#btn4').on('click', function(){
+    if($('#p1').css('display') === 'none'){
+      $('#p1').show();
+      isShow = true;
+    }else{
+      $('#p1').hide();
+      isShow = false;
+    }
+  })
+
+
+  </script>
+
+  <div></div>
+
+  <button id="btn5">fadeIn</button>
+  <button id="btn6">fadeOut</button>
+  <button id="btn7">切换toggle</button>
+  <button id="btn8">切换非toggle</button>
+
+  <script>
+  $('#btn5').on('click', function(){
+    $('#p1').fadeIn(300);
+  })
+  $('#btn6').on('click', function(){
+    $('#p1').fadeOut(300);
+  })
+  $('#btn7').on('click', function(){
+    $('#p1').fadeToggle();
+  })
+
+  </script>
+
+
+
+
+  <div class="ct">
+    <ul>
+      <li class="item">
+        <h3>标题1</h3>
+        <p>内容1</p>
+      </li>
+      <li class="item">
+        <h3>标题2</h3>
+        <p>内容2</p>
+      </li>
+      <li class="item">
+        <h3>标3</h3>
+        <p>内容3</p>
+      </li>
+      <li class="item">
+        <h3>标题4</h3>
+        <p>内容4</p>
+      </li>
+    </ul>
+  </div>
+
+<script>
+
+$('.ct .item').on('mouseenter', function(){
+   $(this).find('p').slideDown(300);
+});
+$('.ct .item').on('mouseleave', function(){
+   $(this).find('p').slideUp(300);
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    <button id="btn14">变宽</button>
+    <button id="btn15">复原</button>
+    <button id="btn16">变宽变大移动</button>
+    <button id="btn17">多个动画</button>
+    <button id="btn18">stop</button>
+
+    <div class="div3" style="width:80px;height:80px;background-color:red; position:relative"></div>
+
+  <script type="text/javascript">
+    $(function(){
+        var $div3 = $(".div3");
+        // $("#btn14").on('click', function(e){
+        //     $div3.animate({
+        //       width: '200px',
+        //       height: '100px',
+        //       opacity: 0.5,
+        //       left: '100px'
+        //     }, 1000, function(){
+        //       console.log('456')
+        //     });
+        //     console.log('123')
+        // });
+      var pos = [
+        {left: '100px', top: 0},
+        {left: '100px', top: '50px'},
+        {left: '200px', top: '50px'},
+        {left: 0, top: '50px'},
+        {left: 0, top: 0},
+      ]
+
+      var isMove = false;
+
+      $('#btn14').on('click',function(){
+
+        // $div3.animate({
+        //   left: '100px'
+        // }, function(){
+        //     $div3.animate({
+        //       top: '50px'
+        //     }, function(){
+        //       $div3.animate({left: '0'}, function(){
+        //         $div3.animate({top: 0})
+        //       })
+        //     })
+        // })
+
+        // $div3.animate(pos[1], function(){
+        //   $div3.animate(pos[2], function(){
+        //     $div3.animate(pos[3], function(){
+        //       $div3.animate(pos[0])
+        //     })
+        //   })          
+        // })
+
+        // $div3.animate(pos[1])
+        // $div3.animate(pos[2])
+        // $div3.animate(pos[3])
+        // $div3.animate(pos[0])
+        
+          // $.each(pos, function(){
+          //   $div3.animate(this, 1000)
+          // }) 
+
+        //$div3.finish()
+        
+        if(!isMove){
+          isMove = true;
+          $div3.animate(pos[0])
+          $div3.animate(pos[1])
+          $div3.animate(pos[2])
+          $div3.animate(pos[3])
+          $div3.animate(pos[4], function(){
+            isMove = false
+          })
+         
+        }
+
+
+
+      })
+
+      $('#btn18').on('click', function(){
+        //$div3.stop(true, true);
+        $div3.finish()
+      })
+
+
+
+        $("#btn15").on('click', function(){
+            $div3.animate({
+                width:'80px',
+                height: '80px',
+                left: '0px',
+                top: '0px',
+                opacity: 1
+            }, 500);
+        });
+        $("#btn16").on('click', function(){
+            $div3.animate({
+                width:'150px',
+                height: '150px',
+                left: '100px',
+                top: '100px',
+                opacity: 0
+            }, 500, function(){
+
+            });
+        });
+
+        var clickable = true;
+        $("#btn17").on('click', function(){
+            // if(!clickable){
+            //   return;
+            // }
+            //clickable = false;
+            //$div3.finish()
+            $div3.stop(true, true);
+            $div3.css({width: 80, height: 80, left: 0, top: 0});
+            $div3.stop(true, true);
+            $div3.animate({width:'150',height:'150px'}).animate({left:'200px'})
+                 .animate({top:'200px'});
+
+            $div3.animate({left:'0px'});
+            $div3.animate({top:'0px'});
+            $div3.animate({width:'80px',height:'80px'}, function(){
+              clickable = true;
+            });
+        });
+
+    });
+    </script>
+
+
+
+
+
+
+
+<h2>Greetings</h2>
+<div class="container">
+  <div class="inner">Hello</div>
+  <div class="inner">Goodbye</div>
+  <!--<div class="inner">jirengu</div>-->
+</div>
+<button id="add-to-last">添加最后</button>
+<button id="add-to-first">添加前面</button>
+<button id="switch">switch</button>
+
+
+<script>
+  
+$('#add-to-last').on('click', function(){
+  $('.container').append('<div >jirengu</div>');
+})
+$('#add-to-first').on('click', function(){
+  $('.container').prepend('<div>jirengu</div>');
+})
+$('#switch').on('click', function(){
+  $('.inner').eq(1).after($('.inner').eq(0));
+})
+</script>
+
+
+</body>
+</html>

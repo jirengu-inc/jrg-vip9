@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 4.如下代码的输出？为什么 （难度*）
+    var sayAge;
+
+    sayName('world'); // hello world
+    sayAge(10); // 报错
+    /*
+        根据变量提升,sayAge提升到顶部之后,sayAge -> undefined
+        sayAge不是一个方法,所以执行 sayAge 报错
+    */
+
+    function sayName(name){
+        console.log('hello ', name);
+    }
+    sayAge = function(age){
+        console.log(age);
+    };
+</script>
+</body>
+</html>

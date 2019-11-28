@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task2501</title>
+    <style>
+        *{
+            font-family: '微软雅黑';
+        }
+        dl,dt,dd{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .list{
+            position: relative;
+        }
+        .list>dt{
+            width: 200px;
+            background: rgb(199,23,30);
+            text-align: left;
+            color: white;
+        }
+        .list span{
+            margin-left: 105px;
+        }
+        .list>dt>a{
+            color: white;
+            display: block;
+            padding: 10px;
+            padding-right: 0px;
+        }
+        .list>dd{
+            width:200px;
+            border:1px solid silver;
+            font-size: 0px;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            display: none;
+            padding:10px 0;
+        }
+        .list>dd>a{
+            display: inline-block;
+            text-align: center;
+            font-size: 14px;
+            width:50%;
+            
+        }
+    </style>
+</head>
+<body>
+    <dl class="list">
+        <dt><a href="#">珠宝玉器<span>></span></a></dt>
+        <dd>
+            <a href="#">翡翠</a>
+            <a href="#">玉石</a>
+            <a href="#">宝石</a>
+            <a href="#">水晶</a>
+            <a href="#">玛瑙</a>
+            <a href="#">珍珠</a>
+            <a href="#">钻石</a>
+            <a href="#">琥珀</a>
+            <a href="#">和田</a>
+        </dd>
+    </dl>
+    <dl class="list">
+        <dt><a href="#">珠宝玉器<span>></span></a></dt>
+        <dd>
+            <a href="#">玉石</a>
+            <a href="#">宝石</a>
+            <a href="#">水晶</a>
+            <a href="#">玛瑙</a>
+            <a href="#">钻石</a>
+            <a href="#">琥珀</a>
+        </dd>
+    </dl>
+    <dl class="list">
+        <dt><a href="#">珠宝玉器<span>></span></a></dt>
+        <dd>
+            <a href="#">宝石</a>
+            <a href="#">玛瑙</a>
+            <a href="#">珍珠</a>
+            <a href="#">钻石</a>
+            <a href="#">和田</a>
+        </dd>
+    </dl>
+    <dl class="list">
+        <dt><a href="#">珠宝玉器<span>></span></a></dt>
+        <dd>
+            <a href="#">翡翠</a>
+            <a href="#">玉石</a>
+            <a href="#">钻石</a>
+            <a href="#">琥珀</a>
+            <a href="#">和田</a>
+        </dd>
+    </dl>
+    <dl class="list">
+        <dt><a href="#">珠宝玉器<span>></span></a></dt>
+        <dd>
+            <a href="#">翡翠</a>
+            <a href="#">玉石</a>
+            <a href="#">琥珀</a>
+            <a href="#">和田</a>
+        </dd>
+    </dl>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+    <script>
+        $(".list dt").on('mouseenter',function(e){
+            var i = $(".list dt").index($(this))
+            $(".list dd").eq(i).toggle()
+        })
+        $(".list dt").on('mouseleave',function(e){
+            var i = $(".list dt").index($(this))
+            $(".list dd").eq(i).toggle()
+        })
+    </script>
+</body>
+</html>

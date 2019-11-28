@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task16-1</title>
+</head>
+<body>
+<script type="text/javascript">
+	function isNumber(el) {
+		if ( typeof el === 'number' ){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	function isString(el) {
+		if ( typeof el === 'string' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	function isBoolean(el) {
+		if ( typeof el === 'boolean' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	function isFunction(el) {
+		if ( el instanceof Function === true ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	var a = 1,
+		b = 'jirengu',
+		c = false;
+	alert( isNumber(a) );
+	alert( isString(a) );
+	alert( isString(b) );
+	alert( isBoolean(c) );
+	alert( isFunction(a) );
+	alert( isFunction( isNumber ) );
+</script>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>旺角卡门</title>
+    <style media="screen">
+      .img-preview img{
+        width: 640px;
+        height: 360px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ct">
+      <li data-img="1.jpg">鼠标放置查看图片1</li>
+      <li data-img="2.jpg">鼠标放置查看图片2</li>
+      <li data-img="3.jpg">鼠标放置查看图片3</li>
+      <li data-img="4.jpg">鼠标放置查看图片4</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+      var ct = document.querySelector(".ct");
+      var imgPreview = document.querySelector(".img-preview");
+      ct.addEventListener("mouseover",function(e) {
+        imgPreview.innerHTML = '<img src="' + e.target.getAttribute("data-img") + '">';
+      })
+
+      //上面的方法只能用mouseover,性能较差且在margin上无效,padding上会图片地址为null无法显示.可参考下面使用mouseenter的方法直接在li上操作
+      // var ct = document.querySelector('.ct'),
+      //     childs = ct.querySelectorAll('li'),
+      //     preview = document.querySelector('.img-preview');
+      // for(var i=0; i<childs.length; i++){
+      //     childs[i].addEventListener('mouseenter', function(){
+      //        var dataImg = this.getAttribute('data-img');
+      //        preview.innerHTML = '<img src="' + dataImg + '">'
+      //     });
+      // }
+    </script>
+  </body>
+</html>

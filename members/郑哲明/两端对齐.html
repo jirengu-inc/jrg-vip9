@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>两端对齐</title>
+	<style type="text/css">
+		.justify{
+			text-align: justify;
+			text-align-last: justify;
+		}
+		.justify:after{                   /*使用伪元素，使文本在firefox和chrome中实现两端对齐*/
+			content: '';
+			display: inline-block;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>  
+ <p class='justify'>文 本 两 端 对 齐</p> <!--必须要用空格或者换行符分隔开，justify在ie中才能生效-->
+</body>
+</html>

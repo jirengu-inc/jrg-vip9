@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>利用BFC实现两栏布局</title>
+<style>
+	body{
+		margin: 0;
+	}
+	#header{
+		width: 600px;
+		margin: 0 auto;
+		min-height: 40px;
+		/*border: 1px solid red;*/
+		background-color: red;
+	}
+	#content{
+		/*border: 1px solid blue;*/
+		min-height: 300px;
+		width: 600px;
+		margin: 0 auto;
+	}
+	#content.clear:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#content.clear{
+		*zoom: 1;
+	}
+	#content .aside{
+		background-color: blue;
+		width: 200px;
+		float: left;
+		opacity: 0.2;
+		/*border: 1px solid pink;*/
+	}
+	#content .main{
+		/*float: left;*/
+		padding-left: 200px;
+		/*border: 1px solid #000;*/
+	}
+	#footer{
+		width: 600px;
+		margin: 0 auto;
+		min-height: 40px;
+		background-color: green;
+	}
+	/*分别给aside main设置float，导致父容器塌陷，footer内的文本内容环绕浮动区*/
+</style>
+</head>
+<body>
+    <div id="header">header</div>
+    <div id="content" class="clear">
+    	<div class="aside">aside</div>
+    	<div class="main">
+			我是main 
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+    	</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+</html>

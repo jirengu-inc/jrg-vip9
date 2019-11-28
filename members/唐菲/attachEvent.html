@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<a href="javascript:">this is a</a>
+
+<script>
+window.innerText="this is window";
+!function addEventListenerVSattachEvent (){
+	that=this;
+	var oA=document.getElementsByTagName('a')[0];
+	if (!oA) return false;
+	if (oA.addEventListener){oA.addEventListener("click",function(){
+		alert(this.innerText+"&"+that.innerText)
+	})}
+		else if(oA.attachEvent){
+			oA.attachEvent("onclick",function(){
+				alert(this.innerText+"&"+that.innerText)
+			})
+		}
+		else{
+			return false;
+		}
+	}()
+</script>	
+</body>
+</html>

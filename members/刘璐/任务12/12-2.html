@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        #header,#footer{
+            background:#ccc;
+        }
+        #content{
+            padding:0 200px;
+        }
+        #content:after{
+            content:"";
+            clear:both;
+            display:block;
+        }
+        .main{
+            float:left;
+            background:pink;
+        }
+        .aside-left{
+            width:200px;
+            float:left;
+            margin-left:-100%;
+            position:relative;
+            right:200px;
+            background:blue;
+        }
+        .aside-right{
+            width:200px;
+            float:left;
+            background:blue;
+            margin-left:-200px;
+            position:relative;
+            left:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">头部</div>
+    <div id="content">
+        <div class="main">圣杯布局是指两边顶宽，中间自适应的三栏布局，
+            中间栏放在文档流前面以优先渲染。参考：圣杯布局原理。流程为：
+            第一步：1+2个div,div1宽度不设置，另外两个固定宽度，全部浮动
+            第二步：父元素设置左右padding
+            第三步：div23设置负边距，使在padding的位置</div>
+        <div class="aside-left">左侧边栏</div>
+        <div class="aside-right">右侧边栏</div>
+    </div>
+    <div id="footer">尾部</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 25</title>
+    <link rel="stylesheet" href="font-awesome-4.6.3 2/css/font-awesome.min.css">
+    <style>
+    div,
+    li,
+    ul,
+    a,
+    i {
+        list-style: none;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .clearfix:after{
+    	content: '';
+    	display: block;
+    	clear: both;
+    }
+    
+    .ct {
+        width: 200px;
+        background-color: #c7171e;
+    }
+    .list-header>li{
+    	position: relative;
+    	
+    }
+    
+    
+    .header {
+        width: 160px;
+        padding: 10px;
+
+        margin-right: 10px;
+        border-bottom: 1px dotted #de272e;
+        margin-left: -30px;
+    }
+    
+    .header>a {
+        padding-right: 90px;
+        color: white;
+    }
+    
+    .header>i {
+        font-weight: bold;
+        color: white;
+    }
+    
+    .list-item {
+        position: absolute;
+        background-color: white;
+        width: 200px;
+        font-size: 12px;
+        left: 200px;
+        border: 1px solid #ccc;
+        left: 160px;
+        top:0;
+        display: none;
+        
+    }
+    .list-li.active .list-item{
+/*    	position: absolute;
+        background-color: white;
+        width: 200px;
+        font-size: 12px;
+        left: 200px;
+        border: 1px solid #ccc;
+        left: 160px;
+        top:0;*/
+    	display: block;
+    }
+    
+    .list-item>li {
+    	font-size: 12px;
+        float: left;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: -5px;
+        margin-right: 30px;
+        padding-top: 5px;
+        padding-right: 40px;
+        padding-left: 0px;
+        padding-bottom: 5px;
+        cursor: pointer;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <ul class="list-header">
+            <li class="list-li">
+                <div class="header">
+                    <a href="#">珠宝玉器</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <ul class="list-item clearfix">
+                    <li>翡翠</li>
+                    <li>宝石</li>
+                    <li>钻石</li>
+                    <li>珍珠</li>
+                    <li>玛瑙</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>玛瑙</li>
+                    <li>琥珀</li>
+                    <li>金银</li>
+                </ul>
+            </li>
+            <li class="list-li">
+                <div class="header">
+                    <a href="#">珠宝玉器</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <ul class="list-item clearfix">
+                    <li>翡翠</li>
+                    <li>宝石</li>
+                    <li>水晶</li>
+                    <li>玛瑙</li>
+                    <li>琥珀</li>
+                    <li>金银</li>
+                </ul>
+            </li>
+            <li class="list-li">
+                <div class="header">
+                    <a href="#">珠宝玉器</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <ul class="list-item clearfix">
+                    <li>翡翠</li>
+                    <li>宝石</li>
+                    <li>钻石</li>
+                    <li>珍珠</li>
+                    <li>水晶</li>
+                    <li>玛瑙</li>
+                    <li>琥珀</li>
+                    <li>金银</li>
+                </ul>
+            </li>
+            <li class="list-li">
+                <div class="header">
+                    <a href="#">珠宝玉器</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <ul class="list-item clearfix">
+                    <li>翡翠</li>
+                    <li>宝石</li>
+                    <li>钻石</li>
+                    <li>珍珠</li>
+                    <li>琥珀</li>
+                    <li>金银</li>
+                </ul>
+            </li>
+            <li class="list-li">
+                <div class="header">
+                    <a href="#">珠宝玉器</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <ul class="list-item clearfix">
+                    <li>翡翠</li>
+                    <li>宝石</li>
+                    <li>钻石</li>
+                    <li>金银</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+
+   // var index = $('.this').index();
+$(function(){
+	$('.list-li').on('mouseenter', function(){
+		console.log($(this));
+		$(this).addClass('active');
+
+    })
+    $('.list-li').on('mouseleave', function(){
+		$(this).removeClass('active');
+		console.log($(this));
+		
+	})
+
+})
+
+
+
+
+    </script>
+</body>
+
+</html>

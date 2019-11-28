@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>task 6</title>
+    <style type="text/css">
+     /*问题一 这种方法只对一行文字和固定高度的父容器有效*/
+    #q1 {
+        border: 1px solid #ccc;
+        width: 200px;
+        height: 80px;
+        text-align: center;
+    }
+    #q1 p {
+        display: inline;
+        font-size: 14px;
+        color: #f0f;
+        vertical-align: middle;
+        line-height: 80px;
+    }
+    #q2.dialog {
+        border: 1px solid #ccc;
+    }
+    #q2 .header {
+        height: 40px;
+        text-align: left;
+        padding-left: 10px;
+        font-size: 16px;
+        color: #f00;
+        border-bottom: 1px solid #ccc;
+    }
+    #q2 .header h3 {
+        font-size: 16px;
+    }
+    #q2 .content {
+        height: 100px;
+    }
+    #q2 .content a {
+        text-decoration: none;
+        color: blue;
+    }
+    #q2 .content a:hover {
+        color: red;
+    }
+    #q2 .footer {
+        height: 50px;
+        text-align: center;
+    }
+    #q2 .btn {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 4px 3px;
+        text-decoration: none;
+        display: inline-block;
+
+    }
+
+    #q3 {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    #q3 td,th {
+        border: 1px solid #ccc;
+        height: 50px;
+        text-align: center;
+    }
+    #q3 th {
+        background-color: #22AAAA;
+    }
+    #q3 tr:nth-child(even) {
+        background-color: #eee;
+    }
+    #q4 .wrap{
+        background-color: blue;
+      width: 900px;
+      margin: 0 auto;
+    }
+    </style>
+    </head>
+    <body>
+        <!--问题一-->
+        <h1>问题一</h1>
+        <div id="q1">
+            <p>
+                这里是饥人谷
+            </p>
+        </div>
+        <!--问题二-->
+        <h1>问题二</h1>
+        <div id="q2" class="dialog">
+            <div class="header">
+                <h3>我是标题</h3>
+                <a class="close" title="关闭" href="#">X</a>
+            </div>
+            <div class="content">
+                <h3>欢迎来到  <a href="http://jirengu.com">饥人谷</a></h3>
+                <p> 在这个大家庭你能快乐的学到更多前端技能</p>
+            </div>
+            <div class="footer">
+                <a class="btn btn-cancel" href="#">取消</a>
+                <a class="btn btn-confirm" href="#">确认</a>
+            </div>
+        </div>
+        <!--问题三-->
+        <h1>问题三</h1>
+        <table id="q3">
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+            </tr>
+            <tr>
+                <td>小明</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>小花</td>
+                <td>女</td>
+            </tr>
+        </table>
+        <!--问题四-->
+        <h1>问题四</h1>
+        <div id="q4">
+            <div id="header">
+                <div class="wrap">这里是标题</div>
+            </div>
+            <div id="content">
+                <div class="wrap">这里是内容</div>
+            </div>
+            <div id="footer">
+                <div class="wrap">这里是 footer</div>
+            </div>
+            <p>作用：当我们把背景色调成蓝色，可以很明显的发现，不论浏览器的宽度调成多大，蓝色方块始终在浏览器中间。当蓝色方块的宽度小于900px时，方块的宽度会随着浏览器的宽度发生改变，从而保证居中显示。当随着浏览器宽度的变大，蓝色方块的宽度开始等于900px时，方块的宽度开始保持不变，无论浏览器宽度达到多大，蓝色方块宽度始终是900px，但会整体右移来保证居中显示。
+    </body>
+</html>
+
+    </div>
+
+    </body>
+</html>

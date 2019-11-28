@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>dialog</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        .dialog{
+            background-color: #eee;
+            box-shadow: 0px 0px 10px;
+            width: 400px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -200px;
+            padding: 0;
+            border-radius: 0 0 5px 5px;
+            overflow: hidden;
+        }
+        .dialog>.head{
+            background-color: #676666;
+            display: inline-block;
+            width: 100%;
+            padding: 0px 20px;
+            line-height: 20px;
+            color: white;
+        }
+        .dialog>.head>h5{
+            margin: 0;
+            line-height: 30px;
+        }
+        .dialog>.content{
+            padding: 20px 20px;
+        }
+        .btn-list{
+            display: block;
+            text-align: center;
+        }
+        .btn-list>button{
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 5px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="open1">打开1</button>
+    <button id="open2">打开2</button>
+    <button id="open3">打开3</button>
+    <button id="open4">打开4</button>
+    <button id="open5">打开5</button>
+
+<script>
+
+    function Dialog(){
+        this.init();
+    }
+    Dialog.prototype.init = function(){
+        var _this = this;
+        this.dialog = $('<div class="dialog"></div>');
+        this.dialog.on('mousedown',function(e){
+            var $this = $(this);
+            $this.addClass('active');
+            $this.css('cursor','move');
+            $this.css('opacity','0.7');
+            $('.active').data('valueY',e.pageY - $this.offset().top);
+            $('.active').data('valueX',e.pageX - $this.offset().left);
+        })
+        this.dialog.on('mouseup',function(){
+            var $this = $(this);
+            $this.removeClass('active');
+            $this.css('cursor','auto');
+            $this.css('opacity','1');
+        })
+        $('body').on('mousemove',function(e){
+            if($('#active')){
+                var $active = $('.active');
+                $active.css('left',(e.pageX - $active.data('valueX') + 200) + 'px');
+                $active.css('top',(e.pageY - $active.data('valueY') + 200) + 'px');
+            }
+        })
+    }
+    Dialog.prototype.open = function(opts){
+        if(typeof(opts) == 'string'){
+            this.dialog.append($('<div class="content"><h5>' + opts + '</h5></div>'));
+            this.dialog.find('.content').append($('<div class="btn-list"></div>'));
+            this.dialog.find('.btn-list').append($('<button class="close" >取消</button>'));
+            this.dialog.find('.close').on('click',function(){
+                $(this).parents('.dialog').remove();
+            });
+            this.dialog.css('border-radius','5px 5px 5px 5px');
+            $('body').append(this.dialog);
+            return
+        }
+        if(opts.title){
+            this.dialog.append($('<div class="head"><h5>' + opts.title + '</h5></div>'));
+        }
+        if(opts.message){
+            this.dialog.append($('<div class="content">' + opts.message + '</div>'));
+        }
+        if(opts.isShowCloseBtn || opts.isShowConfirmBtn){
+            this.dialog.find('.content').append($('<div class="btn-list"></div>'));
+        }else{
+            this.dialog.find('.content').append($('<div class="btn-list"></div>'));
+            this.dialog.find('.btn-list').append($('<button class="close" >取消</button>'));
+        }
+        if(opts.isShowCloseBtn){
+            this.dialog.find('.btn-list').append($('<button class="confirm" >确定</button>'));
+        }
+        if(opts.isShowConfirmBtn){
+            this.dialog.find('.btn-list').append($('<button class="close" >取消</button>'));
+        }
+        if(opts.onClose){
+            this.dialog.find('.close').on('click',function(){
+                opts.onClose();
+                $(this).parents('.dialog').remove();
+            });
+        }
+        if(opts.onConfirm){
+            this.dialog.find('.confirm').on('click',function(){
+                opts.onConfirm();
+                $(this).parents('.dialog').remove();
+            });
+        }
+        $('body').append(this.dialog);
+    }
+
+    $('#open1').on('click', function() {
+            var dialog1 = new Dialog();
+            dialog1.open('hello, 这里是饥人谷');
+        });
+
+        $('#open2').on('click', function() {
+            var dialog2 = new Dialog();
+            dialog2.open('<a href="http://jirengu.com">饥人谷</a>');
+        });
+
+        $('#open3').on('click', function() {
+            var dialog3 = new Dialog();
+            dialog3.open({
+                title: '欢迎来到饥人谷',
+                message: 'hello',
+                isShowCloseBtn: true,
+                isShowConfirmBtn: true,
+                onClose: function() {
+                    alert('close')
+                },
+                onConfirm: function() {
+                    alert('确定');
+                }
+            });
+        });
+
+        var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+        $('#open4').on('click', function() {
+            var dialog4 = new Dialog();
+            dialog4.open({
+                title: '欢迎来到饥人谷',
+                message: tpl,
+                isShowCloseBtn: true,
+                isShowConfirmBtn: true,
+                onClose: function() {
+                    alert('close')
+                },
+                onConfirm: function() {
+                    alert('确定');
+                }
+            });
+        });
+        $('#open5').on('click', function() {
+            var dialog5 = new Dialog();
+            dialog5.open({
+                title: '欢迎来到饥人谷',
+                message: 'hello',
+                isShowCloseBtn: false,
+                isShowConfirmBtn: false
+            });
+        });
+</script>
+</body>
+</html>

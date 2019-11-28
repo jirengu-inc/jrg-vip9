@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task27-4</title>
+</head>
+<style>
+	html,body,ul,li{
+		margin: 0;
+		padding: 0;
+	}
+	a  {text-decoration: none;}
+	li {list-style: none;}
+
+	html,body,.carousel,.img-ct{
+		height: 100%;
+		width: 100%
+	}
+	.carousel{
+		overflow: hidden;
+		position: relative;
+	}
+	.img-ct{
+		position: absolute;
+	}
+	.img-ct li{
+		float: left;
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+	.clearfix:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.img-ct .cover{
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+	.carousel .bullet{
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+
+	}
+	.carousel .bullet li{
+			display: inline-block;
+			width: 16px;
+			height: 4px;
+			background: #fff;
+			cursor: pointer;
+		}
+	.carousel .bullet .active{
+		background: #666;
+	}
+</style>
+<body>
+	<div class="carousel">
+		<ul class="img-ct clearfix">
+			<li data-index=0>
+				<div class="cover" data-bg-img="http://www.kuoo8.com/upfiles/2015-01/2/2015011623191479699.jpg"></div>
+			</li>
+			<li data-index=1>
+				<div class="cover" data-bg-img="http://www.kuoo8.com/wall_up/hsf2288/201004/2010043012014545912.jpg"></div>
+			<li data-index=2>
+				<div class="cover" data-bg-img="http://www.kuoo8.com/upfiles/2015-01/2/2015011623191479699.jpg" alt=""></div>
+			</li>
+			<li data-index=3>
+				<div class="cover" data-bg-img="http://www.kuoo8.com/upfiles/2015-01/2/2015011623145867474.jpg" alt=""></div>
+			</li>
+		</ul>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+	<script>
+			var $imgCt = $('.img-ct')
+			var	$imgLi = $imgCt.children()
+	 		var	$bullet = $('.bullet')
+	 		var $firstImg = $imgCt.find('li').first()
+	 		var $lastImg = $imgCt.find('li').last()
+	 		var $imgWidth = $firstImg.width()
+	 		var curPageIndex = 0					// 默认第一张图片，下标初始值为 0 （范围0-3）
+	 		var imgLength = $imgCt.children().length					// imgLength = 4
+	 		var isAnimate = false										// 状态锁，重复点击无效
+
+	 		$imgCt.append($firstImg.clone())
+	 		$imgCt.prepend($lastImg.clone())
+
+	 		var imgRealLength = $imgCt.width($firstImg.width() * $imgCt.children().length) 		 // imgRealLength = 6
+	 		$imgCt.find("li").css({ width: $imgWidth});
+		    $imgLi.find("img").css({ width: $imgWidth});
+			$imgCt.css({left:0-$imgWidth,width:imgRealLength}) // left 默认第一张图片，初始值为 -300
+
+
+
+	 		$bullet.find('li').on('click',function(){	
+	 			var idx = $(this).index()	// 点击bullet时候，获取 下标
+	 			if(idx>curPageIndex){
+	 				playNext(idx-curPageIndex)
+	 			}else{
+	 				playPre(curPageIndex-idx)
+	 		}
+
+	 	})
+	 		 setBg(1)
+	 		 autoPlay()
+
+	 		 function setBg(num){
+	 		 	var num = num|| 0
+	 		 	var $li = $imgCt.children().eq(num)
+	 		 	var $cover = $li.find('.cover')
+	 		 	var imgUrl = $cover.attr('data-bg-img')
+	 		 	if($li.data("isBgSet")) return
+	 		 	$cover.css('background-image','url('+imgUrl+')' )
+	 		 	$li.data('isBgSet',true)
+	 		 }
+
+	 		function playNext(num){
+	 			var num = num || 1		//	参数num是点击 bullet小图标格数，默认 1格
+	 			if(isAnimate)return
+	 			isAnimate = true
+	 			
+	 			setBg(curPageIndex+2)
+	 			$imgCt.animate({
+	 				left:"-="+$imgWidth*num
+	 			},function(){
+	 				curPageIndex=(curPageIndex+num)%imgLength   // imgLength 初始值 
+	 				if(curPageIndex === 0){
+	 					$imgCt.css({left:0-$imgWidth})
+	 				 	curPageIndex = 0
+	 				}
+	 				isAnimate = false
+	 				setBullet()
+	 			})	
+	 		}
+
+	 		function playPre(num){
+	 			if(isAnimate)return
+	 			isAnimate = true
+	 			var num = num || 1
+	 			setBg(curPageIndex)
+	 			$imgCt.animate({
+	 				"left":'+='+$imgWidth*num
+	 			},function(){
+	 				curPageIndex = (curPageIndex-num+imgLength)%imgLength
+	 				if(curPageIndex ===	imgLength-1){    //  图片下标是3时候
+	 					$imgCt.css({left:0-(imgLength*$imgWidth*num)})
+	 				}
+	 				isAnimate = false
+	 				setBullet()
+	 			})					
+	 		}
+
+	 		function setBullet(){
+	 			$bullet.children().removeClass('active').eq(curPageIndex).addClass('active')
+	 		}
+
+
+	 		function autoPlay(){
+	 			clock = setInterval(function(){
+	 				playNext();
+	 			},2000)
+	 		}
+	 		function stopAuto(){
+				clearInterval(clock);
+			}
+
+	</script>
+</body>
+</html>

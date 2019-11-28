@@ -1,0 +1,51 @@
+body,li,ul,p,h1,h2,h3,h4,h5,h6{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration:none;
+    color:#000;
+}
+li{
+    list-style:none;
+}
+/*清除样式*/
+.clear{
+    zoom:1;
+}
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/*清浮动*/
+.nav{
+    background:rgb(203,203,203);
+    width:900px;
+
+}
+.nav>li{
+    padding:10px;
+    float:left;
+    position:relative;
+}
+.nav li ul{
+    position:absolute;
+    left:0;
+    top:100%;
+    display:none;
+    border:1px solid rgb(203,203,203);
+    background:#fff;
+}
+.nav>li:hover {
+    background:rgb(169,169,169);
+}
+.nav>li:hover .child{
+    display:block;
+}
+.child li{
+    padding:10px;
+}
+.child li:hover{
+    background:rgb(203,203,203);
+}

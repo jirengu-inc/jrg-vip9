@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>加载更多</title>
+	<style>
+		ul,li{
+			margin:0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.ct>li{
+			border:1px solid #cccccc;
+			height: 30px;
+			line-height: 30px;
+			margin:10px 5px;
+		}
+		.btn{
+			padding: 10px;
+			border:1px solid #cccccc;
+			background: none;
+			border-radius: 3px;
+			outline-style:none;
+			cursor: pointer;
+		}
+		.active{
+			background: #337ab7;
+		}
+	</style>
+</head>
+<body>
+<ul class="ct">
+	<li class="active">内容1</li>
+	<li>内容2</li>
+</ul>
+<button class="btn">加载更多</button>
+<script>
+	var ct=document.querySelector('.ct'),
+			btn=document.querySelector('.btn');
+
+	ct.addEventListener('mouseover',function (e) {
+		var target = e.target;
+		if(target.tagName.toLowerCase()==='li'){
+			for(var i =0;i<ct.children.length;i++){
+				ct.children[i].classList.remove('active');
+			}
+			target.classList.add('active');
+		}
+	});
+	function ajax(opts) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState===4 && xhr.status===200){
+				var Info = JSON.parse(xhr.responseText);
+				console.log(xhr.responseText);
+				opts.success(Info)
+			}
+		};
+		var dataStr = '';
+		for(var key in opts.data){
+			dataStr += key + '=' + opts.data[key] + '&';
+		}
+		dataStr=dataStr.substr(0,dataStr.length-1);
+		if(opts.type.toLowerCase()==='get'){
+			xhr.open(opts.type,opts.url+'?'+dataStr,true);
+			xhr.send();
+		}
+		if (opts.type.toLowerCase()==='post'){
+			xhr.open(opts.type,opts.url,true);
+			xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+			xhr.send(dataStr);
+		}
+	}
+
+	var start = 3,
+			len=4;
+
+
+	btn.addEventListener('click',function () {
+		ajax({
+			url:'/setMore',
+			type:'get',
+			data:{
+				start:start,
+				len:len
+
+			},
+			success:function(Info) {
+				todo(Info);
+				start +=4
+
+			},
+			error:function () {
+				console.log('出错了')
+			}
+		})
+	});
+	function todo(Info) {
+		for (var i =0;i<Info.datas.length;i++){
+			var newLis = document.createElement('li');
+			newLis.innerText ='内容'+ Info.datas[i];
+			ct.appendChild(newLis);
+
+		}
+	}
+
+
+</script>
+</body>
+</html>

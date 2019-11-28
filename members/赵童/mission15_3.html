@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="zh">
+        <title>我的实战任务3</title>
+        <script src="https://use.fontawesome.com/36c88d9e85.js"></script>
+        <style media="screen">
+            body,div,ul,li,form,input,button{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                color: #777;
+            }
+            h1,h2,h3,h4{
+                color: #222;
+                font-weight: bold;
+            }
+            h2{
+                font-size: 3rem;
+                margin: 0;
+            }
+            a:link{
+                text-decoration: none;
+                color: currentColor;
+            }
+            a:visited{
+                text-decoration: none;
+                color: currentColor;
+            }
+            .layout{
+                width: 1140px;
+                margin: 0 auto;
+            }
+            .clearfix:after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+                                            /*以上去除默认样式*/
+            #header .navbar{
+                background-color: #222;
+                line-height: 70px;
+                position: fixed;
+                z-index: 3;
+                top: 0;
+                left: 0;
+                right: 0;
+                font-weight: bold;
+            }
+
+            #header .logo{
+                color: #fed136;
+                float: left;
+                font-size: 2rem;
+            }
+            #header .navbar>ul>li>ul>li{
+                float: right;
+                color: white;
+            }
+            #header .navbar>ul>li>ul>li>a{
+                padding: 1rem;
+            }
+            #header .navbar>ul>li>ul>li>a:hover{
+                color: #fed136;
+            }
+                                            /*以上是navbar*/
+            #header .banner{
+                background-image: url(http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2c1SVBySm4vejJtSXhMaUhVMDd4UXBiL3BIMlRKQThJb1gzN3IwT05EcXF3PT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                width: 100%;
+                text-align: center;
+                padding-top: 250px;
+                padding-bottom: 350px;
+                font-size: 2rem;
+                min-width: 1140px;
+            }
+            .banner>h1,.banner>h3{
+                color: white;
+            }
+            .banner>button{
+                border: 0;
+                font-family: inherit;
+                padding: 1rem 2rem;
+                background-color: #fed136;
+                color: white;
+                font-size: 1.5rem;
+                font-weight: bold;
+                border-radius: 30px;
+            }
+                                            /*以上是navbar*/
+            #service{
+                margin-top: 100px;
+                margin-bottom: 100px;
+                text-align: center;
+            }
+            .services-item{
+                margin-left: -30px;
+                margin-top: 30px;
+            }
+            .services-item li{
+                box-sizing: border-box;
+                float: left;
+                width: 360px;
+                height: 270px;
+                margin-left: 30px;
+                text-align: center;
+            }
+            .services-item .fa{
+                font-size: 3rem;
+                color: white;
+                line-height: 100px;
+            }
+            .icon{
+                width: 100px;
+                height: 100px;
+                background-color:  #fed136;
+                border-radius: 50px;
+            }
+                                            /*以上是service*/
+            #portfolio{
+                background-color: #f7f7f7;
+                text-align: center;
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+            #portfolio>p{
+                margin-bottom: 50px;
+            }
+            .album{
+                margin-left: -30px;
+            }
+            .album>li{
+                box-sizing: border-box;
+                float: left;
+                width: 360px;
+                height: 360px;
+                margin-left: 30px;
+                text-align: center;
+                background-color: white;
+                margin-bottom: 30px;
+            }
+            .album>li>p{
+                padding: 0 50px;
+            }
+            .pic{
+                width: 360px;
+                height: 240px;
+                background-color: #fed136;
+                position: relative;
+                text-align: center;
+            }
+            .pic i{
+                line-height: 240px;
+                font-size: 5rem;
+                position: absolute;
+                left: 50%;
+                margin-left: -30px;
+                color: rgba(255,255,255,0);
+                transition: 1s
+            }
+            .pic img{
+                width: 360px;
+                height: 240px;
+                transition: 1s;
+            }
+            .pic:hover img{
+                opacity: 0;
+            }
+            .pic:hover i{
+                color: rgba(255,255,255,1);
+            }
+                                            /*以上是portfolio*/
+            #about{
+                padding-top: 100px;
+                position: relative;
+                text-align: center;
+                padding-bottom: 100px;
+            }
+            .round{
+                box-sizing: border-box;
+                height: 160px;
+                width: 160px;
+                border: 5px solid #eee;
+                border-radius: 80px;
+                position: absolute;
+                right: 50%;
+                margin-right: -80px;
+                background-image: url(http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2c1SVBySm4vejJtRGhaYjExNU9XcjU3MWM3UmV2c1g0RUo4b003VThSM3lBPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg);
+                background-size: 160px 160px;
+                background-repeat: no-repeat;
+                z-index: 2;
+            }
+            .about{
+                margin-top: 50px;
+                position: relative;
+                height: 200px;
+            }
+            .text-left{
+                position: absolute;
+                right: 50%;
+                margin-right: 100px;
+                text-align: right;
+                height: 160px;
+                width: 360px;
+                z-index: 2;
+            }
+            .text-right{
+                position: absolute;
+                left: 50%;
+                margin-left: 100px;
+                text-align: left;
+                height: 160px;
+                width: 360px;
+                z-index: 2;
+            }
+            .round-last{
+                box-sizing: border-box;
+                height: 160px;
+                width: 160px;
+                border: 5px solid #eee;
+                border-radius: 80px;
+                position: absolute;
+                right: 50%;
+                margin-right: -80px;
+                background-color: #fed136;
+                z-index: 2;
+            }
+            .round-last h3{
+                width: 100px;
+                color: white;
+                font-size: 2rem;
+                margin: 30px auto;
+            }
+            .time-line{
+                margin-top: -1200px;
+                height: 1100px;
+                position: absolute;
+                left: 50%;
+                margin-left: -1px;
+                width: 2px;
+                background-color: #eee;
+                z-index: 1;
+            }
+                                            /*以上是about*/
+            #team{
+                background-color: #f7f7f7;
+                padding-top: 100px;
+                padding-bottom: 100px;
+                text-align: center;
+            }
+            .team-text{
+                margin-bottom: 60px;
+                text-align: center;
+            }
+            .team-info{
+                margin-left: -30px;
+            }
+            .member{
+                float: left;
+                margin-left: 30px;
+                text-align: center;
+                width: 360px;
+                height: 360px;
+                margin-bottom: 40px;
+            }
+            .portrait{
+                box-sizing: border-box;
+                border: 5px solid white;
+                width: 220px;
+                height: 220px;
+                border-radius: 110px;
+                background-image: url(http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2dhQzVCUG5kUjVLQm5ibGkyOWRlV0JMc2d2NVZxVnhVcm54bmxLVzE5SGN3PT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg);
+                background-size: contain;
+                margin: 0 auto;
+            }
+            .member-contact i{
+                color: white;
+                transition: 0.6s;
+                display: inline-block;
+                height: 2.6rem;
+                width: 2.6rem;
+                border-radius: 1.3rem;
+                background-color: #222;
+                margin-left: 5px;
+                margin-right: 5px;
+                font-size: 1.3rem;
+                line-height: 2.6rem;
+            }
+            .member-contact i:hover{
+                background-color: #fed136;
+            }
+                                            /*以上是team*/
+            #links{
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            #links i{
+                margin-left: 80px;
+                margin-right: 80px;
+                color: #ccc;
+                font-size: 5rem;
+            }
+                                            /*以上是links*/
+            #contact{
+                padding-top: 100px;
+                background-color: #222;
+                padding-bottom: 100px;
+                background-image: url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/map-image.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .contact-text>h2{
+                text-align: center;
+                color: white;
+            }
+            .contact-text>p{
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            #contact form{
+            }
+            .form-left{
+                float: left;
+                width: 550px;
+                height: 240px;
+                clear: left;
+            }
+            .form-right{
+                box-sizing: border-box;
+                float: left;
+                margin-left: 40px;
+                width: 550px;
+                height: 240px;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                line-height: 60px;
+                resize: none;
+                border: none;
+            }
+            .form-left input{
+                box-sizing: border-box;
+                width: 550px;
+                height: 60px;
+                margin-bottom: 30px;
+                font-size: 1.2rem;
+                border-radius: 5px;
+                border: none;
+            }
+            .submit{
+                box-sizing: border-box;
+                width: 150px;
+                height: 60px;
+                font-size: 2rem;
+                font-weight: bold;
+                border-radius: 5px;
+                background-color: #fed136;
+                color: white;
+                margin: 30px auto;
+                margin-left: 495px;
+                border: none;
+                cursor: pointer;
+            }
+            .submit:hover{
+                background-color: #fec503;
+            }
+                                            /*以上是contact*/
+            #footer{
+                text-align: center;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            .signature{
+                float: left;
+                line-height: 3rem;
+            }
+            .signature h3{
+                line-height: 3rem;
+                margin: 0;
+            }
+            .terms{
+                float: right;
+                line-height: 3rem;
+                color: #fed136;
+            }
+            #footer .member-contact{
+                margin: 0 auto;
+                width: 360px;
+                line-height:3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header" class="">
+            <div class="navbar">
+                <ul class="layout clearfix">
+                    <li class="logo" >
+                        <a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><a href="#">联络</a></li>
+                            <li><a href="#">团队</a></li>
+                            <li><a href="#">关于</a></li>
+                            <li><a href="#">影集</a></li>
+                            <li><a href="#">服务</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="banner">
+                <h3>欢迎您，我的客人</h3>
+                <h1>这里是丽江旅行</h1>
+                <button type="button" name="button">看看这里都有什么</button>
+            </div>
+        </div>
+        <div id="service" class="layout">
+            <h2>我们的服务</h2>
+            <p>相伴您的整个旅程。</p>
+            <p></p>
+            <div class="">
+                <ul class="services-item clearfix">
+                    <li>
+                        <p><i class="icon fa fa-building" aria-hidden="true"></i></p>
+                        <h3>住宿</h3>
+                        <p>全丽江3000家以上合作伙伴，星级酒店、农家旅馆、连锁客栈、青年旅舍等任您挑选。</p>
+                    </li>
+                    <li>
+                        <p><i class="icon fa fa-car" aria-hidden="true"></i></p>
+                        <h3>出行</h3>
+                        <p>火车、飞机、租车、拼团，我们为您安排最合理的旅游路线。</p>
+                    </li>
+                    <li>
+                        <p><i class="icon fa fa-map" aria-hidden="true"></i></p>
+                        <h3>景点</h3>
+                        <p>丽江最全的景区攻略，最优惠的门票打折资讯，轻轻一点，票就到手啦！</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="portfolio" class="">
+            <h2>景点影集</h2>
+            <p>工作人员在热门景区拍摄。</p>
+            <div class="layout clearfix">
+                <ul class="album">
+                    <li>
+                        <div class="pic"><a href="#"><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2lmUDN3T2VIZk5RMVhsK2VORUZocWRURXdQdTdQTEE4alNVWngzSTg0dll3PT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" /><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                        <h3>丽江古城</h3>
+                        <p>云南省丽江市古城区</p>
+                    </li>
+                    <li>
+                        <div class="pic"><a href="#"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2lmUDN3T2VIZk5RMFZBODdJL2tlVmZOQ1l4Z090VFlLWnZpR2w4NmRnTzBBPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" /><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                        <h3>玉龙雪山</h3>
+                        <p>云南省丽江市玉龙纳西族自治县</p>
+                    </li>
+                    <li>
+                        <div class="pic"><a href="#"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2lmUDN3T2VIZk5RK0tsNUJnbkhZendKc3JiQlB2cVpibjlRanlNeGxOVGpnPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" /><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                        <h3>泸沽湖</h3>
+                        <p>四川省凉山彝族自治州盐源县与云南省丽江市宁蒗彝族自治县之间</p>
+                    </li>
+                    <li>
+                        <div class="pic"><a href="#"><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2lmUDN3T2VIZk5RNk4wZ2kxS1hoVXlvVExzL0N2c1BFQjlPZ3pJcXgycjJ3PT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" /><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                        <h3>拉市海</h3>
+                        <p>云南省丽江市玉龙纳西族自治县拉市镇</p>
+                    </li>
+                    <li>
+                        <div class="pic"><a href="#"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2lmUDN3T2VIZk5RdzgyYkpZeHRQRjJZRzliYUhJL1BaOWVZM243amRHcjBBPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" /><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                        <h3>束河古镇</h3>
+                        <p>云南省丽江市古城区束河镇束河路</p>
+                    </li>
+                    <li>
+                        <div class="pic"><a href="#"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2lmUDN3T2VIZk5RMWNUWW52VGdxYzFDcFdBeUt2VUJKelZNUnRwd0tZWHRRPT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" /><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                        <h3>木府大院</h3>
+                        <p>云南省丽江市古城区光义街官院巷49号</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="about" class="layout">
+            <h2>我们的历程</h2>
+            <p>since 2000.</p>
+            <ul>
+                <li class="about clearfix">
+                    <div class="round"></div>
+                    <div class="text-left">
+                        <h3>2000年01月</h3>
+                        <p>从美国回来的两个年轻人携风险资金从硅谷回到中关村，创建百度。</p>
+                    </div>
+                </li>
+                <li class="about clearfix">
+                    <div class="round"></div>
+                    <div class="text-right">
+                        <h3>2001年10月22日</h3>
+                        <p>正式发布Baidu搜索引擎。正式发布Baidu搜索引擎。
+                        </p>
+                    </div>
+                </li>
+                <li class="about clearfix">
+                    <div class="round"></div>
+                    <div class="text-left">
+                        <h3>2003年12月1日</h3>
+                        <p>百度陆续推出地区搜索、“贴吧”等划时代功能，搜索引擎步入社区化时代;同时发布的还有高级搜索、时间搜索、新闻提醒三个功能。</p>
+                    </div>
+                </li>
+                <li class="about clearfix">
+                    <div class="round"></div>
+                    <div class="text-right">
+                        <h3>2008年3月5日</h3>
+                        <p>百度正式宣布，其语音搜索服务正式进入测试阶段，用户通过拨打百度语音搜索服务热线400-666-8585，连线百度服务工程师提出自己的搜索关键词，工程师根据用户请求进行搜索，并将相关搜索结果提供给用户。</p>
+                    </div>
+                </li>
+                <li class="about clearfix">
+                    <div class="round-last">
+                        <h3>期待我们的新成绩!</h3>
+                    </div>
+                </li>
+                <div class="time-line"></div>
+            </ul>
+        </div>
+        <div id="team" class="">
+            <div class="team-text layout">
+                <h2>我们的团队</h2>
+                <p>这是一个年青具有活力的团队！</p>
+            </div>
+            <div class=" layout clearfix">
+                <ul class="team-info">
+                    <li class="member">
+                        <div class="portrait"></div>
+                        <h3>瑞德</h3>
+                        <p>我们的设计师</p>
+                        <div class="member-contact">
+                            <a href="#"><i class="fa fa-qq" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                        </div>
+                    </li>
+                    <li class="member">
+                        <div class="portrait"></div>
+                        <h3>格林</h3>
+                        <p>我们的摄影师</p>
+                        <div class="member-contact">
+                            <a href="#"><i class="fa fa-qq" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                        </div>
+                    </li>
+                    <li class="member">
+                        <div class="portrait"></div>
+                        <h3>布鲁</h3>
+                        <p>我们的客服代表</p>
+                        <div class="member-contact">
+                            <a href="#"><i class="fa fa-qq" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <p>年轻的团队需要您的力量，如果您想加入我们，请通过以下的表格联系我们。</p>
+            </div>
+        </div>
+        <div id="links" class="layout">
+            <a href="#"><i class="fa fa-cc-visa" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-cc-paypal" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-cc-diners-club" aria-hidden="true"></i></a>
+        </div>
+        <div id="contact" class="">
+            <div class="contact-text layout">
+                <h2>联系我们</h2>
+                <p>如果您对本团队有任何意见建议，欢迎通过表格联系我们。</p>
+            </div>
+            <div class="layout clearfix">
+                <form class="form clearfix" action="index.html" method="post">
+                    <div class="form-left clearfix">
+                        <input class="name" type="text" name="name" value="" placeholder="&emsp;姓名＊">
+                        <input class="email" type="text" name="email" value="" placeholder="&emsp;EMAIL＊">
+                        <input class="phone" type="text" name="phone" value="" placeholder="&emsp;电话＊">
+                    </div>
+                    <textarea class="form-right" name="message" rows="4" cols="45" wrap="hard" placeholder="&emsp;有什么想对我们说的＊"></textarea>
+                    <input class="submit" type="submit" name="name" value="提交">
+                </form>
+            </div>
+        </div>
+        <div id="footer" class="layout">
+            <ul>
+                <li class="signature"><h3>holmewoo 2016</h3></li>
+                <li class="terms">
+                    <a href="#">隐私政策</a>&emsp;&emsp;
+                    <a href="#">使用条款</a>
+                </li>
+                <li>
+                    <div class="member-contact">
+                        <a href="#"><i class="fa fa-qq" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

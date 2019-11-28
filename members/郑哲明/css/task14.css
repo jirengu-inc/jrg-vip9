@@ -1,0 +1,263 @@
+/*重置默认样式*/
+        body,ul,li,h1,h2,p{
+            margin: 0;
+            padding: 0;
+        }
+        
+        li{
+            list-style: none;
+        }
+        a{  
+            color: black;
+            text-decoration: none;
+        }
+        /*固定宽度居中*/
+        .layout{
+            max-width: 960px;
+            margin:0 auto;  
+        }
+        /*首屏大图*/
+        body,html{
+            height: 100%;
+        }
+        #header{
+            background: url(../image/bg.jpg) no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            display: table;
+        }
+        /*第一功能区*/
+        /*首屏大图*/
+
+        .table-cell{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .table-cell h1 {
+            font-size: 4.5em;
+            color: rgba(0,0,0,0.7);
+        }
+        .table-cell p{
+            font-size: 2em;
+            line-height: 2em;
+            color: rgba(0,0,0,0.7);
+
+        }
+        .table-cell a{
+            font-size: 1.5em;
+            color: white;
+            background: #555;
+            padding: 10px;
+            line-height: 2em;
+        }
+
+        /*首屏大图*/
+        /*第一功能区*/
+        /*第二功能区*/
+        #content{
+            text-align: center;
+        }
+        /*自我介绍*/
+        .introduce{
+            padding: 50px 0; 
+            padding-left: 100px; 
+            padding-right: 100px;
+        }
+        .introduce h2{
+            font-size: 2em;
+            line-height: 2em;
+            color: rgba(0,0,0,0.8);
+
+        }
+        .introduce p{
+            font-size: 1.4em;
+            line-height: 1.4em;
+            color: rgba(0,0,0,0.8);
+        }
+        /*自我介绍*/
+        /*我的技能*/
+        .skill{
+            background: #337ab7;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            color: white;
+        }
+        .skill>ul>li{
+            float: left;
+        }
+        .skill > ul:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .skill hr{
+            color: white;
+            margin: 20px auto;
+            width: 100px;
+        }
+        .skill > h2{
+            font-size: 2em;
+        }
+        .skill-child{
+            width: 240px;
+        }
+        @font-face {font-family: 'iconfont';
+            src: url('../iconfont/2/iconfont.eot'); /* IE9*/
+            src: url('../iconfont/2/iconfont.eot?#iefix') format('embedded-opentype'),
+            url('../iconfont/2/iconfont.ttf') format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        }
+        .page:after{
+            font-family: 'iconfont';
+            content: '\e69e';
+            font-size:4.5em;
+            line-height: 100px;
+            color: #337ab7;
+        }
+        .JS-mod:after{
+            font-family: 'iconfont';
+            content: '\e62d';
+            font-size:4.5em;
+            line-height: 100px;
+            color: #337ab7;
+        }
+        .tool:after{
+            font-family: 'iconfont';
+            content: '\e653';
+            font-size:4.5em;
+            line-height: 100px;
+            color: #337ab7;
+        }
+        .html-css:after{
+            font-family: 'iconfont';
+            content: '\3442';
+            font-size:4.5em;
+            line-height: 100px;
+            color: #337ab7;
+        }
+        .page,.JS-mod,.tool,.html-css{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            border-radius: 50%;
+            margin: 0 auto;
+            background: #fff;
+        }
+        .btn {
+            color: #000;
+            background: white;
+            padding: 10px;
+        }
+        .skill-child p{
+            margin-bottom: 20px;
+        }
+        /*我的技能*/
+        /*个性宣言*/
+        .desp{
+            padding: 150px 0 ;
+            background: url(../image/callout.jpg) no-repeat center center ;
+        }
+        .desp p{
+            font-size: 4em;
+            color: white;
+        }
+        /*个性宣言*/
+        /*我的作品*/
+        .work h2{
+            margin-top: 50px;
+            margin-bottom: 15px;
+            font-size: 3em;
+            color: rgba(0,0,0,0.8);
+        }
+        .work li{
+            float: left;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 15px;
+        }
+        .work li img{
+            width: 450px;
+            display: block;
+        }
+        .work ul:after{
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .work ul{
+            margin-bottom: 30px;
+        }
+        .work > a{
+            background: silver;
+            padding: 10px;  
+            color: white;
+        }
+        /*我的作品*/
+        /*更多*/
+        .more{
+            margin-top:50px;
+            background:#337ab7 ;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        .more h2{
+            color: white;
+            margin-bottom: 30px;
+        }
+        .btn-blog{
+            background: white;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        .btn-github{
+            background: rgba(3,3,3,0.3);
+            padding: 10px;
+            margin-left: 10px;
+            color: white;
+        }
+        /*更多*/
+        /*第二功能区*/
+        /*第三功能区*/
+        #footer{
+            padding: 100px 0;
+            text-align: center;
+        }
+        #footer h2{
+            margin-bottom: 20px;
+        }
+        #footer ul:nth-of-type(1){
+            margin-bottom: 20px;
+        }
+        #footer ul:nth-of-type(2) li{
+            display: inline-block;
+            margin: 0 30px;
+        }
+        .qq:after{
+            font-family: 'iconfont';
+            content: '\e607';
+            font-size:3rem;
+            color: #337ab7;
+        }
+        .weibo:after{
+            font-family: 'iconfont';
+            content: '\e661';
+            font-size: 3rem;
+            color: #337ab7;
+        }
+        #footer ul:nth-of-type(1) a{
+            color: #337ab7;
+        }
+        #footer hr{
+            width: 100px;
+            color: rgba(0,0,0,0.2);
+        }
+        #footer p{
+            margin-top: 30px;
+        }
+        /*第三功能区*/
+        /*按钮效果*/
+        .btn:hover{
+            opacity: 0.7;
+        }
+        /*按钮效果*/

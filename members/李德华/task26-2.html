@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html, body {
+        height: 100%;
+      }
+      .btn {
+        padding: 10px 20px;
+        background: red;
+      }
+      .mouse-event {
+        height: 500px;
+      }
+      .border-style {
+        outline: blue solid 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn" type="button" name="button">按钮</button>
+    <p class="offset-text">垂直滚动距离</p>
+    <div class="mouse-event"></div>
+    <input class="input-box" type="text" name="name" value="">
+    <select class="group" name="">
+      <option value="value1" selected>value1</option>
+      <option value="value2">value2</option>
+      <option value="value3">value3</option>
+    </select>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script>
+      $('.btn').on('click', function() {
+        $(this).css('background', 'blue');
+      });
+      $(document).on('scroll', function() {
+        var offsetStr = '垂直滚动距离' + $(this).scrollTop();
+        $('.offset-text').text(offsetStr);
+      });
+      $('.mouse-event').on('mouseover', function() {
+        $(this).css('background', 'red');
+      });
+      $('.mouse-event').on('mouseout', function() {
+        $(this).css('background', 'white');
+      });
+      $('.input-box').on('focus', function() {
+        $(this).addClass('border-style');
+      });
+      $('.input-box').on('blur', function() {
+        $(this).removeClass('border-style');
+        console.log($(this).text());
+      });
+      $('.input-box').on('keyup', function() {
+        $(this).text($(this).text().toUpperCase());
+      });
+      $('.group').on('change',function() {
+        console.log($(this).val());
+      });
+    </script>
+  </body>
+</html>

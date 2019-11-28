@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+
+//1*
+	// function People(name, age) {
+	// 	this.name = name;
+	// 	this.age = age;
+
+	// 	this.sayName = function(){
+	// 		console.log(this.name)
+	// 	}
+	// }
+
+	// var p1 = new People('yin', 26);
+	// console.log(p1.name);
+	// console.log(p1.age);
+	// console.log(p1.sayName);
+
+//2* prototype 对应一个对象，叫原型对象。每个函数都有prototype
+ 	 
+	function People (name,age){
+	    this.name = name;
+	    this.age = age;
+	}
+	
+	People.prototype.sayName = function(){
+	    console.log(this.name)
+	}
+	//把函数绑定到构造函数的原型对象上
+	var p2 = new People('aaa', 100);
+</script>
+	
+</body>
+</html>

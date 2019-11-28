@@ -1,0 +1,116 @@
+div,
+ul,
+li,
+img,
+a,
+p {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/*tab-header start*/
+
+.tab-header {
+    width: 168px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab-header>li {
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tab-header>li.active {
+    color: #c81623;
+    background-color: #ccc;
+}
+
+
+
+/*tab-header end*/
+
+
+/*tab-ct start*/
+.tab-ct.hover .mask{
+	display: block;
+}
+
+.tab-ct {
+    width: 706px;
+    border: 1px solid #ccc;
+
+    margin-top: -21px;
+
+}
+
+.tab-ct>li {
+    float: left;
+    width: 180px;
+    height: 170px;
+    border: 1px solid #eee;
+    padding: 10px 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.tab-ct>li:nth-of-type(1),
+.tab-ct>li:nth-of-type(2),
+.tab-ct>li:nth-of-type(3) {
+    margin-top: 0px;
+}
+
+.tab-ct>li:nth-of-type(3),
+.tab-ct>li:nth-of-type(6) {
+    margin-right: 0px;
+}
+.item{
+	position: relative;
+}
+.mask{
+    background-color: rgba(0,0,0,0.2);
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    width: 220px;
+    height: 190px;
+    display: none;
+}
+.mask>a{
+	position: absolute;
+    top: 38%;
+    right: 32%;
+	border: 1px solid #c81623;
+	padding: 16px;
+	border-radius: 4px;
+	background-color: white;
+	color: #c81623
+}
+.name{
+	text-align: left;
+	height: 30px;
+	color:#666;
+
+}
+.price{
+	text-align: left;
+	color: #c81623
+}
+
+
+/*tab-ct end*/

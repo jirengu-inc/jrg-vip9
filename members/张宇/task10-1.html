@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task10-1两栏布局</title>
+    <style media="screen">
+        html,
+        body,
+        ul,
+        li,
+        p,
+        div,
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        ul,
+        li {
+            list-style: none;
+        }
+
+        body {
+            font: 14px/1.5 "微软雅黑",sans-serif;
+            color: #333;
+        }
+        .container{
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        #header,#footer {
+            background-color: #333;
+            height: 50px;
+        }
+        #header .logo {
+            display: block;;
+            float: left;
+            height: 40px;
+            padding: 5px;
+        }
+        #header .logo>img {
+            height: 40px;
+        }
+        #header .nav{
+            float: right;
+        }
+        #header .nav li{
+            float: left;
+            margin: 0 15px;
+        }
+        #header .nav a {
+            display: block;
+            font-size: 18px;
+            line-height: 50px;
+            color: white;
+            padding: 0 15px;
+        }
+        #header .nav a:hover{
+            background-color: white;
+            color:#333;
+        }
+        .container::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #content .aside{
+            float: left;
+            background: #eee;
+            width: 200px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        #content .main{
+            overflow: hidden;
+            background: #eee;
+            max-width: 700px;
+            margin: 5px;
+            padding: 10px;
+        }
+
+
+        #footer .nav {
+            float: left;
+        }
+        #footer .nav li{
+            float: left;
+        }
+        #footer .nav a {
+            display: block;
+            font-size: 18px;
+            line-height: 50px;
+            color: white;
+            padding: 0 15px;
+        }
+        #footer .nav a:hover{
+            background-color: white;
+            color:#333;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <a class="logo"><img src="http://cdn.jirengu.com/public/logo-tiny.png" alt="饥人谷"></a>
+            <ul class="nav">
+                <li><a href="#">技能</a></li>
+                <li><a href="#">经历</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="content">
+        <div class="container">
+            <div class="aside">
+                <p>I'm aside.</p>
+                <p>I'm aside.</p>
+                <p>I'm aside.</p>
+                <p>I'm aside.</p>
+                <p>I'm aside.</p>
+                <p>I'm aside.</p>
+                <p>I'm aside.</p>
+                <p>I'm aside.</p>
+
+            </div>
+            <div class="main">
+                <h1 style="margin:10px 0;">我的作品</h1>
+                    <p>生活很美好</p>
+                    <p>心情不错</p>
+                    <p>代码写得很漂亮生活很美好</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <ul class="nav">
+                <li><a href="#">饥人谷</a></li>
+                <li><a href="#">JSCODE</a></li>
+                <li><a href="#">JSBIN</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

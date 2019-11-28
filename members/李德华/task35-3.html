@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      html, body, ul, li {
+        margin: 0;
+        padding: 0;
+      }
+      .arrow {
+        position: absolute;
+        text-decoration: none;
+        color: white;
+        margin-top: -15px;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        line-height: 30px;
+        text-align: center;
+        top: 50%;
+      }
+      .carousel {
+        width: 310px;
+        height: 206px;
+        overflow: hidden;
+        position: relative;
+      }
+      .pre {
+        left: 0;
+      }
+      .next {
+        left: 100%;
+        margin-left: -30px;
+      }
+      .img-ct {
+        position: absolute;
+      }
+      .img-ct img {
+        height: 206px;
+        width: 310px;
+      }
+      .img-ct>li {
+        list-style: none;
+        float: left;
+      }
+      .img-ct:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="c1" class="carousel">
+			<ul class="img-ct">
+				<li><a href="#"><img src="Resources/portfolio-1.jpg"></a></li>
+				<li><a href="#"><img src="Resources/portfolio-2.jpg"></a></li>
+				<li><a href="#"><img src="Resources/portfolio-3.jpg"></a></li>
+				<li><a href="#"><img src="Resources/portfolio-4.jpg"></a></li>
+			</ul>
+			<a class="pre arrow" href="#"><</a>
+			<a class="next arrow" href="#">></a>
+		</div>
+
+		<div id="c2" class="carousel">
+			<ul class="img-ct">
+				<li><a href="#"><img src="Resources/portfolio-1.jpg"></a></li>
+				<li><a href="#"><img src="Resources/portfolio-2.jpg"></a></li>
+				<li><a href="#"><img src="Resources/portfolio-3.jpg"></a></li>
+				<li><a href="#"><img src="Resources/portfolio-4.jpg"></a></li>
+			</ul>
+			<a class="pre arrow" href="#"><</a>
+			<a class="next arrow" href="#">></a>
+		</div>
+    <script src="jquery-3.0.0.min.js" charset="utf-8"></script>
+    <script>
+      function Carousel($node) {
+        this.node = $node;
+        var $list = this.node.find('ul');
+        var firstEle = $list.find('li').first().clone();
+        var lastEle = $list.find('li').last().clone();
+        $list.prepend(lastEle);
+        $list.append(firstEle);
+        var listWidth = 310 * $list.find('li').length
+        $list.css({'left': -310, 'width': listWidth});
+        var $this = this;
+        $node.find('.pre').on('click', function() {
+          $this.action(1);
+        });
+        $node.find('.next').on('click', function() {
+          $this.action(-1);
+        });
+        this.action = function(index) {
+          var x = index * 310 + $list.offset().left;
+          $list.animate({
+            'left': x
+          }, 300, function() {
+            if ($list.offset().left === 0)
+              $list.css({'left': -1240});
+            else if ($list.offset().left === -1550)
+              $list.css({'left': -310});
+          });
+        }
+      }
+      $('.carousel').each(function() {
+        new Carousel($(this));
+      })
+    </script>
+  </body>
+</html>

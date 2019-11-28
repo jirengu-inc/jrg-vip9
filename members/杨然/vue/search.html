@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>search</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://cdn.bootcss.com/vue/2.1.6/vue.js"></script>
+	<!-- <script src="http://cdn.bootcss.com/vue-resource/1.0.3/vue-resource.js"></script> -->
+	<script src="http://cdn.bootcss.com/vue-resource/0.7.4/vue-resource.js"></script>
+	<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	<style>
+	*	{
+		margin: 0;
+		padding: 0;
+	}
+		#search {
+		    width: 400px;
+		    height: 40px;
+		    padding: 4px;
+		}
+		.box {
+			margin: 80px;
+		}
+		a {
+			text-decoration: none;
+			width: 50px;
+		    height: 40px;
+		    display: inline-block;
+		    background: #3baf4d;
+		    line-height: 40px;
+		    text-align: center;
+		    margin-left: -4px;
+		    color: #FFF;
+		}
+		a:hover {
+			color: #fff;
+			text-decoration: none;
+		}
+		body {
+			background-image: url(http://img2.3lian.com/img2007/22/01/016.jpg);
+		}
+		ul,li {
+			list-style: none;
+			cursor: pointer;
+		}
+		.list {
+		    /*height: 200px;*/
+		    width: 450px;
+		    background-color: #fff;
+		}
+		.chioce {
+			background-color: #ccc;
+		}
+		p {
+			background-color: #dc7979;
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			color: #222;
+			position: absolute;
+			top: 0;
+			left: 80px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<input type="text" id="search" v-model="str" @keyup="jsonp($event)" @keydown.down="down()" @keydown.up.prevent="up()" @keydown.enter="ent()">
+		<a href="javascript:;" @click="ent()">搜索</a>
+		<ul class="list" v-show="arr.length !== 0">
+			<li v-for="(val, idx) in arr" :class="{chioce: idx == cur}" @click="show($event)">{{val}}</li>
+		</ul>
+		<p v-show="arr.length === 0">请输入搜索内容</p>
+	</div>
+<script>
+	//http://cn.bing.com/AS/Suggestions?qry=b&cvid=5A0750CB814042F9B13BAB67C7EF5717
+	var vm = new Vue({
+		el: '.box',
+		data: {
+			arr: [],
+			str: '',
+			cur: -1
+		},
+		methods: {
+			jsonp: function(event){
+				if (event.keyCode == 38 || event.keyCode == 40) { return }
+				if (event.keyCode == 13) {
+					window.location.href='https://www.baidu.com/s?wd=' + this.str;
+					this.str = '';
+				}
+				this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+				{
+					wd: this.str
+				}, {
+					jsonp: 'cb'
+				}).then(function(res){
+					console.log(res.data.s);
+					this.arr = res.data.s;
+				},function(){
+					console.log('error');
+				});
+			},
+			get: function(){
+				this.$http.get('/hello').then(function(res){
+					console.log(res);
+				}).then(function(){
+					console.log('error')
+				})
+			},
+			post: function(){
+				this.$http.post('/comment', {
+					a: 1
+				}, {
+					emulateJSON: true
+				}).then(function(res){
+					console.log(res.data)
+				},function(res){
+					console.log(res + 'error')
+				})
+			},
+			down: function(){
+				this.cur ++;
+				if(this.cur == this.arr.length) {
+					this.cur = 0;
+				}
+				this.str = this.arr[this.cur];
+			},
+			up: function(){
+				this.cur --;
+				if (this.cur <= -1) {
+					this.cur = this.arr.length - 1;
+				}
+				this.str = this.arr[this.cur];
+			},
+			ent: function(){
+				if (this.str == 0) { return }
+				window.location.href='https://www.baidu.com/s?wd=' + this.str;
+				this.str = '';
+			},
+			show: function(e){
+				this.str = e.target.innerText;
+				this.ent();
+			},
+			con: function(){
+				console.log(1)
+			}
+		}
+	})
+	
+</script>
+	
+</body>
+</html>

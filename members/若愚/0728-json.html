@@ -1,0 +1,74 @@
+<script type="text/javascript">
+	
+	var obj = {
+		"name": "hunger",
+		"age": 30,
+		"friends": [
+		  {
+		  	"name": 'ruoyu'
+		  },
+		  {
+		  	"name": 'jirengu'
+		  }
+		]
+	}
+
+	var obj2 = {
+		name: 'jirengu',
+		age: 2
+	}
+
+	for(var a in obj){
+		console.log(a)
+		console.log(obj[a])
+	}
+
+
+//obj = {name: "hunger", "age": 100}
+
+
+	var str = '{"name": "hunger", "age": 100}';
+	var obj3 = JSON.parse(str);
+
+	var str2 = JSON.stringify(obj2);
+	console.log(str2)
+
+	function deepCopy(obj){
+		var str = JSON.stringify(obj);
+		return JSON.parse(str);
+	}
+
+	var obj4 = deepCopy(obj);
+	console.log(obj4)
+
+
+
+	var str3 = 'hhello wolrd, abcii ffooa dfee23rj fddff';
+	var dict = {};
+	for(var i=0; i<str3.length; i++){
+		if(dict[str3[i]] === undefined){
+			dict[str3[i]] = 1;
+		}else{
+			dict[str3[i]]++;
+		}
+	}
+	console.log(dict);
+
+	var num = 0;
+	var keyMax;
+
+	for(var key in dict){
+		if(dict[key]>num){
+			num = dict[key];
+			keyMax = key;
+		}
+	}
+	console.log(keyMax, num)
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    body,li,ul{
+        padding:0;
+        margin:0;
+        background:#ccc;
+    }
+    li{
+        list-style:none;
+    }
+    a{
+        text-decoration:none;
+    }
+    .list{
+        margin:10px;
+        height:30px;
+        line-height:30px;
+        border:1px solid #ccc;
+        padding:10px;
+        background:#fff;
+    }
+    .wrap{
+        text-align:center;
+    }
+    .load-more{
+        width: 130px;
+        height: 55px;
+        font-size: 18px;
+        display: inline-block;
+        line-height: 55px;
+        border-radius:3px;
+        background:#fff;
+        margin-bottom:30px;
+    }
+</style>
+</head>
+<body>
+<ul class="list-ct">
+    <li class="list">内容1</li>
+    <li class="list">内容2</li>
+</ul>
+<div class="wrap"><a href="#" class="load-more">加载更多</a></div>
+
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+
+    var $ct = $('.list-ct');
+    var $load = $('.load-more');
+    var cur = 3;
+    var clock;
+
+
+
+
+    //事件代理，鼠标放上li变色
+    $ct.on('mouseenter','.list',function(){
+        $(this).css('background','#005588')
+    });
+    $ct.on('mouseleave','.list',function(){
+        $(this).css('background','#fff')
+    });
+
+
+
+
+
+    function isVisible($node){
+        var windowH = $(window).height();
+        var offSet = $node.offset().top;
+        var eleH = $node.outerHeight(true);
+        var scroll = $(window).scrollTop();
+        return(windowH+scroll>offSet && offSet>scroll+eleH);
+    }
+
+
+
+    load ();
+    function load (){
+            $.ajax({
+                url: '1.php',
+                type: 'get',
+                dataType: 'json',
+                data:{
+                    start :cur ,
+                    len : 20
+                },
+                success: function(json){
+                    onSuccess(json);
+                },
+                error: function(){
+                    onError()
+                }
+            })
+        }
+
+
+
+    $(window).on('scroll',function(){
+
+//        if(isVisible($load)){
+//            if(!$load.data('open')){
+//                return;
+//            }
+//            $load.data('open','false');
+//            load();
+//        }
+        if(clock) clearTimeout(clock);
+        clock = setTimeout(function(){
+            if(!isVisible($load)) return;
+            load();
+        }, 100);
+    });
+
+
+
+    function onSuccess(json){
+        if(json.status === 1){
+        onAppend(json.data);
+        }
+        else{
+            alert('信息获取失败')
+        }
+        $load.data('open','true');
+        cur += 20;
+    }
+
+
+
+    function onError(){
+        alert('系统繁忙')
+    }
+
+
+    function onAppend(arr){
+
+        for(var i= 0;i<arr.length;i++){
+            $ct.append('<li class="list">'+arr[i] + '</li>')
+        }
+
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<meta charset="utf-8">-->
+    <!--<title>加载更多</title>-->
+    <!--<style>-->
+        <!--ul,li{-->
+            <!--margin: 0;-->
+            <!--padding: 0-->
+        <!--}-->
+        <!--#ct li{-->
+            <!--list-style:none;-->
+            <!--border: 1px solid #ccc;-->
+            <!--padding: 10px;-->
+            <!--margin-top: 10px;-->
+            <!--cursor:pointer;-->
+        <!--}-->
+        <!--#load-more{-->
+            <!--display: block;-->
+            <!--margin: 10px auto;-->
+            <!--text-align: center;-->
+            <!--cursor: pointer;-->
+        <!--}-->
+        <!--#load-more img{-->
+            <!--width: 40px;-->
+            <!--height: 40px;-->
+        <!--}-->
+        <!--.btn{-->
+            <!--display: inline-block;-->
+            <!--height: 40px;-->
+            <!--line-height: 40px;-->
+            <!--width: 80px;-->
+            <!--border: 1px solid #E27272;-->
+            <!--border-radius: 3px;-->
+            <!--text-align: center;-->
+            <!--text-decoration: none;-->
+            <!--color: #E27272;-->
+        <!--}-->
+        <!--.hover{-->
+            <!--background: green;-->
+            <!--color: #fff;-->
+        <!--}-->
+    <!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<ul id="ct">-->
+    <!--<li>内容1</li>-->
+    <!--<li>内容2</li>-->
+<!--</ul>-->
+<!--<a id="load-more" class="btn" href="#">加载更多</a>-->
+<!--</body>-->
+<!--<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>-->
+<!--<script>-->
+
+    <!--/*定义接口-->
+
+     <!--1) url:-->
+     <!--2) 入参: { start: 2, len: 6 }-->
+     <!--3) 回参:-->
+     <!--{-->
+     <!--status: 1, //1代表正常，0代表出错-->
+     <!--data: [2,3,4,5,6,7]-->
+     <!--}-->
+     <!--*/-->
+
+    <!--var $loadMoreBtn = $('#load-more'),-->
+            <!--$ct = $('#ct');-->
+
+    <!--var cur = 2;-->
+    <!--var clock;-->
+
+    <!--load();  //开始的时候先执行一次加载，否则用户在未滚动前获取不到数据-->
+
+    <!--//鼠标放置上去和移除的样式， 这里由于 Li是动态添加的，所以必须要事件代理-->
+    <!--$ct.on('mouseenter','li', function(){-->
+        <!--$(this).addClass('hover');-->
+    <!--}).on('mouseleave', 'li', function(){-->
+        <!--$(this).removeClass('hover');-->
+    <!--});-->
+
+
+    <!--$(window).on('scroll', function(e){-->
+        <!--/*-->
+         <!--if(!isVisible($loadMoreBtn)) return;  //如果加载更多按钮没看到，直接退出-->
+         <!--load();-->
+         <!--*/-->
+        <!--//上面的代码用起来没问题，但执行看网络请求会发现，每次滚动当按钮出现可视范围后竟然连续执行了多次 load。-->
+
+        <!--// 使用下面的方法可以让多次变为1次,想想为什么?-->
+        <!--if(clock) clearTimeout(clock);-->
+        <!--clock = setTimeout(function(){-->
+            <!--if(!isVisible($loadMoreBtn)) return;-->
+            <!--load();-->
+        <!--}, 100);-->
+    <!--});-->
+
+    <!--function load(){-->
+        <!--$.ajax({-->
+            <!--url: '2.php',-->
+            <!--dataType: 'json',-->
+            <!--type: 'get',-->
+            <!--data: {-->
+                <!--start: cur,-->
+                <!--len: 20-->
+            <!--},-->
+            <!--success: function(json){-->
+                <!--onSuccess(json);-->
+            <!--},-->
+            <!--error: function(){-->
+                <!--onError();-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
+
+    <!--function onSuccess (json){-->
+        <!--console.log(json);-->
+        <!--if(json.status == 1){-->
+            <!--append(json.data);-->
+            <!--cur += 6;-->
+        <!--}else{-->
+            <!--alert('获取数据失败');-->
+        <!--}-->
+    <!--}-->
+
+    <!--function onError(){-->
+        <!--alert('系统异常');-->
+    <!--}-->
+
+    <!--function append(arr){-->
+        <!--for(var i = 0;i<arr.length;i++){-->
+            <!--$ct.append('<li>'+arr[i]+'</li>')-->
+        <!--}-->
+    <!--}-->
+
+    <!--function isVisible($node){-->
+        <!--var winH = $(window).height(),  //窗口高度-->
+                <!--offsetH = $node.offset().top,  //元素到根节点顶部距离-->
+                <!--scrollH = $(window).scrollTop(); //滚动的垂直距离-->
+        <!--if( (offsetH > scrollH)  && (offsetH < scrollH + winH ) ){-->
+            <!--return true;-->
+        <!--}-->
+        <!--return false;-->
+    <!--}-->
+
+
+<!--</script>-->
+
+
+
+<!--</html>-->

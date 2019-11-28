@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu26-4</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	#ipt {
+		outline: none;
+	}
+</style>
+</head>
+<body>
+<input id='ipt' type="text">
+<button>确定</button>
+<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js
+'></script>
+<script>
+	$('#ipt').on('focus', function(){
+		$(this).css({'border': '1px solid blue'});
+	});
+	$('#ipt').on('blur', function(){
+		$(this).css({'border': '1px solid #ccc'});
+		console.log($(this).val());
+	});
+	$('#ipt').on('keyup', function(){
+		$(this).val($(this).val().toUpperCase());
+	});
+</script>
+</body>
+</html>

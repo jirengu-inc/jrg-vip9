@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task19-1</title>
+</head>
+
+<body>
+  <div id="clock"></div>
+<script>
+function intv(){
+	setTimeout(function(){
+    {
+
+      var t = new Date();
+      var y =t.getFullYear();
+      var mo =t.getMonth()+1;
+      var d = t.getDay();
+      var h = t.getHours();
+      var mu = t.getMinutes();
+      var s = t.getSeconds();
+      if (h<10) {
+        h = "0" + h;
+      }
+      if (mu<10) {
+        mu = "0" + mu;
+      }
+      if (s<10) {
+        s = "0" + s;
+      }
+      document.getElementById("clock").innerHTML = y + "-" + mo + "-" + d + " " + h + ":" + mu + ":" + s;
+    }
+		intv();
+	},1000)
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 11-1</title>
+    <style>
+    html,
+    body,
+    div,
+    ul,
+    li,
+    a {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        color: #373737;
+    }
+    
+    .navbar {
+        height: 50px;
+        width: 600px;
+        font-size: 20px;
+        line-height: 50px;
+        background-color: #cbcbcb;
+    }
+    
+    .item>li {
+        float: left;
+        position: relative;
+        padding: 0 10px;
+    }
+    
+    .item:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .item>li:hover {
+        background-color: #aaa;
+    }
+    
+    .child {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border: 1px solid #ccc;
+    }
+    
+    .child>li:hover {
+        display: block;
+        /*       border: 1px solid ;
+        background: #ccc;*/
+    }
+    
+    .child>li {
+        padding: 0 10px;
+    }
+    
+    .item>li:hover .child {
+        display: block;
+    }
+    .child>li:hover{
+        background-color: #aaa;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="item">
+            <li>
+                <a href="#">前端</a>
+                <ul class="child">
+                    <li>Javascript</li>
+                    <li>CSS</li>
+                    <li>HTML</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">服务端</a>
+                <ul class="child">
+                    <li>NODE</li>
+                    <li>PHP</li>
+                    <li>JAVA</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">前端工具</a>
+                <ul class="child">
+                    <li>SUBLIME</li>
+                    <li>WEBSTORM</li>
+                    <li>GIT</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">HTML</a>
+            </li>
+            <li>
+                <a href="#">NODE</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

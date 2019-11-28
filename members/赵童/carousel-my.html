@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Tie's Carousel</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        ul,li,a,h3{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            color: white;
+        }
+        clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        body{
+            background-color: #2f3238;
+            margin: 0;
+            padding: 0;
+        }
+        .carousel{
+            width: 720px;
+            height: 306px;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-list>li>a>img{
+            width: 100%;
+        }
+        .img-list{
+            position: absolute;
+            width: 3600px;
+        }
+        .img-list>li{
+            float: left;
+            width: 720px;
+        }
+        .btn{
+            position: absolute;
+            display: block;
+            font-size: 18px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px black;
+            color: #31aade;
+            top: 50%;
+            margin-top: -18px;
+        }
+        .btn.previous{
+            left: 20px;
+        }
+        .btn.next{
+            right: 20px;
+        }
+        .indicator-ct{
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0;
+            height: 28px;
+            width: 100%;
+            text-align: center;
+        }
+        .indicator{
+            display: inline-block;
+        }
+        .indicator>li{
+            width: 60px;
+            height: 4px;
+            background-color: white;
+            float: left;
+            margin: 12px 4px;
+            cursor: pointer;
+        }
+        .indicator .active{
+            background-color: #31aade;
+        }
+        .carousel .tab{
+            position: absolute;
+            left: 80px;
+        }
+        .carousel .tab h3{
+            text-align: center;
+            font-size: 1.5rem;
+            color: #2f3238;
+            float: left;
+            width: 100px;
+            height: 60px;
+            line-height: 60px;
+            display: block;
+            background-color: #f8f813;
+            border-radius: 0 0 3px 3px;
+            box-shadow: 1px 1px 5px black;
+        }
+        .tab .tab-slide{
+            margin-left: 20px;
+            float: left;
+
+        }
+        .tab .tab-slide>li{
+            float: left;
+            margin-top: -45px;
+        }
+        .tab .tab-slide>li>a{
+            display: block;
+            width: 40px;
+            height: 80px;
+            background-color: #f8f813;
+            margin: 0 1px;
+            text-align: center;
+            line-height: 40px;
+            color: #2f3238;
+            color: #31aade;
+            font-style: oblique;
+            border-radius: 0 0 3px 3px;
+            box-shadow: 1px 1px 5px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <ul class="img-list clearfix">
+            <li data-index="0"><a href="JavaScript:"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwZzBtU25lbkYxWmJtMlIrd3hrY1JjL29aNHRqWWZCRHJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="1"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwbEw1Z2EwdjNHVFBQVkFTNnhPOE91V3l6UU9uZGVWbTlnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="2"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcGhPd1lSaHNGaitUcTMxOExmYlJKZlVEVG1tWjc3UzNBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="3"><a href="JavaScript:"><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwc3dyMzVIQW5nd3JzaEFNSFZhMXFDaGNVMXVYbThvWG5RPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+            <li data-index="4"><a href="JavaScript:"><img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaWFlRlJvMkdyOU0vbjBrTGRBYXcxL1FweHlieUpBQ1ZRPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg" alt=""></a></li>
+        </ul>
+        <div class="tab clearfix">
+            <h3>Tie's</h3>
+            <ul class="tab-slide clearfix">
+                <li><a href="javascript:">角<br/>色</a></li>
+                <li><a href="javascript:">重<br/>庆</a></li>
+                <li><a href="javascript:">稻<br/>城</a></li>
+            </ul>
+
+        </div>
+        
+        <a class="btn previous" href="JavaScript:">&lt;</a>
+        <a class="btn next" href="JavaScript:">&gt;</a>
+        <div class="indicator-ct">
+            <ul class="indicator clearfix">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+<script>
+    var $imgList = $('.img-list'),
+        $btnPre = $('.btn.previous'),
+        $btnNext = $('.btn.next'),
+        $indicator = $('.indicator');
+
+    var $imgLength = $imgList.children('li').length,
+        lock = false,
+        imgIndex = 0,
+        pageIndex = 0,
+        $width = window.innerWidth;
+    
+    setWidth();
+
+    $(window).resize(function(){
+        $width = window.innerWidth;
+        setWidth();
+    })
+
+    $imgList.append($imgList.children('li').eq(0).clone());
+    $imgList.prepend($imgList.children('li').eq($imgLength - 1).clone());
+    // $imgList.css('width',($imgLength+2)*$width);
+    $imgList.css('left',-$width);
+
+    $btnPre.on('click',function(){
+        clearInterval(timer);
+        playPre();
+    });
+    $btnNext.on('click',function(){
+        clearInterval(timer);
+        playNext();
+    });
+    $indicator.on('click','li',function(){
+        jumpPage($(this).index()+1);
+    })
+
+
+    var $tab = $('.tab .tab-slide'),
+        $tabLi = $tab.children('li');
+    $tabLi.on('mouseover',function(){
+        $(this).stop();
+        $(this).animate({'margin-top': 0});
+    })
+    $tabLi.on('mouseout',function(){
+        $(this).stop();
+        $(this).animate({'margin-top': '-45px'});
+    })
+    $tabLi.on('click',function(){
+        var num = $(this).index();
+        switchPage(num);
+    })
+
+    var imgSrc = [
+        "http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwZzBtU25lbkYxWmJtMlIrd3hrY1JjL29aNHRqWWZCRHJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwbEw1Z2EwdjNHVFBQVkFTNnhPOE91V3l6UU9uZGVWbTlnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcGhPd1lSaHNGaitUcTMxOExmYlJKZlVEVG1tWjc3UzNBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwc3dyMzVIQW5nd3JzaEFNSFZhMXFDaGNVMXVYbThvWG5RPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaWFlRlJvMkdyOU0vbjBrTGRBYXcxL1FweHlieUpBQ1ZRPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg",
+        "http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwckZjc0VLNytvVngwSCtRRmx6T1NheEV4cGN4V2poZGJnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcm5YOU9DV0h5SmFDTE5NUktjTkc0RGkvRzA5VG0zSytBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcTJHK3d2SVlhRFZrenB1UmI1bW1wNnZ0VGlqaTF6YmJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwc3ZYNUtwcFlXT2xaemhTQXB6a3gyRXI5OHgrUnZLN1dBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwajBqamdUbGVsN25QeTlxeFpUNktBVjcwaVVqZDM0S3NRPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg",
+        "http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaGZVR2p0L1NIRmVxRmN4VjhRczUwajkzaHVqS1gzM3dBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwaDNha0w0WmpGK0FqeGdvSXhtUWVVZmRaaktKeXk2eGZnPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwb05OSHF2bDF4ZS8zK0VQa0RJdFVCZ25UT2FLa2dKUTN3PT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwdkFyKzRLUDdmRTZNMGxJeGxMWHV6Rk9YV21COGJIczJ3PT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg","http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwclFNUWlzVGJVekpiMFBTODhTbW1jZUliM1FyUDhSVU93PT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg"
+    ];
+
+    var timer = setInterval(function(){
+        playNext();
+    },1500)
+
+    function switchPage(num){
+        // var index = num+1;
+        $imgList.fadeOut(function(){
+            $imgList.children('li').eq(0).remove();
+            $imgList.children('li').eq($imgList.children('li').length-1).remove();
+            for(var i = 0;i < 5;i++){
+                $imgList.find('img').eq(i).attr('src',imgSrc[num*5+i])
+            }
+            $imgList.append($imgList.children('li').eq(0).clone());
+            $imgList.prepend($imgList.children('li').eq($imgLength - 1).clone());
+            $imgList.fadeIn();
+        })
+    }
+
+    function setWidth(){
+
+        $imgList.parent('.carousel').css('width',$width);
+        $imgList.parent('.carousel').css('height',$width*0.425);
+        $imgList.children('li').css('width',$width);
+        $imgList.children('li').css('height',$width*0.425);
+        $imgList.css('width',($imgLength+2)*$width);
+        if(imgIndex>0){
+            $imgList.css('left',-($width*(imgIndex+1)));
+        }else{
+            $imgList.css('left',-$width);
+        }
+        
+    }
+
+    function jumpPage(i){
+        if(lock == false){
+            lock = true;
+            $imgList.animate({
+                left: -($width*i)
+            },function(){
+                imgIndex = i-1;
+                $indicator.children('li').removeClass('active');
+                $indicator.children('li').eq(imgIndex).addClass('active');
+                lock = false;
+            });
+        }
+    }
+
+    function playNext(){
+        if(lock == false){
+            lock = true;
+            $imgList.animate({
+                left: '-='+$width
+            },function(){
+                imgIndex++;
+                if(imgIndex === $imgLength){
+                    $imgList.css('left',-$width);
+                    imgIndex = 0;
+                };
+                $indicator.children('li').removeClass('active');
+                $indicator.children('li').eq(imgIndex).addClass('active');
+                lock = false;
+            });
+        }
+        
+    }
+
+    function playPre(){
+        if(lock == false){
+            lock = true;
+            $imgList.animate({
+                left: '+='+$width
+            },function(){
+                imgIndex--;
+                if(imgIndex === -1){
+                    $imgList.css('left',-($imgLength*$width));
+                    imgIndex = $imgLength-1;
+                };
+                $indicator.children('li').removeClass('active');
+                $indicator.children('li').eq(imgIndex).addClass('active');
+                lock = false;
+            });
+        }
+    }
+
+</script>
+</body>
+</html>

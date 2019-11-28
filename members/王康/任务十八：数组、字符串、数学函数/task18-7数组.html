@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-7</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      arr = ["a", "b"];
+      arr.push( function() { alert(console.log('hello hunger valley')) } );// 此时arr变为["a","b",function(){...}]
+      arr[arr.length-1]()  // 调用函数，故输出'hello hunger valley'，弹窗undefined
+    </script>
+  </body>
+</html>

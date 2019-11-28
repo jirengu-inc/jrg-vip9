@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style>
+body,html,ul,li{
+  margin:0;
+  padding:0;
+}
+
+li{
+  list-style:none;
+}
+.nav{
+  width:500px;
+  height:50px;
+  background:#ccc;
+  line-height:50px;
+  clear:both;
+}
+.nav>li{
+  float:left;
+  padding:0 10px;
+  position:relative;
+}
+.nav>li a>ul{
+  display:none;
+}
+.nav>li:hover a>ul{
+  display:block;
+  position:absolute;
+  left:0;
+  top:100%;
+  border:1px solid #ccc;
+}
+.nav>li:hover{
+  background:gray;
+}
+.nav>li a>ul>li:hover{
+  background:gray;
+}
+a{
+  text-decoration:none;
+  color:#5B5B5B;
+}
+a:hover{
+   cusor:pointer;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <ul class="nav">
+    <li><a href="">前端<ul>
+      <li>javascript</li>
+      <li>css</li>
+      <li>html</li>
+    </ul></a></li>
+    <li><a href="">服务端<ul>
+      <li>php</li>
+      <li>java</li>
+      <li>node</li>
+    </ul></a></li>
+    <li><a href="">前端工具<ul>
+      <li>sublime</li>
+      <li>webstorm</li>
+      <li>git</li>
+    </ul></a></li>
+    <li><a href="">html</a></li>
+    <li><a href="">node</a></li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab-switch</title>
+</head>
+<style>
+    body,ul,li,p{
+        margin: 0;
+        padding: 0;
+        font-family: '微软雅黑';
+    }    
+    #container{
+        width: 600px;
+        margin: auto;
+        margin-top: 30px;
+        border: 1px solid silver;
+    }
+    .tab li{
+        border-right: 1px solid silver;
+        border-bottom: 1px solid silver;
+        list-style: none;
+        float: left;
+        width: 200px;
+        height: 30px;
+        box-sizing: border-box;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .tab > li:nth-child(3){
+        border-right-width: 0;
+    }
+    .content{
+        width: 598px;
+        height: 300px;
+        padding: 15px 20px;
+        display: none;
+    }
+    .active-content{
+        display: block;
+    }
+    .clearfix:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .active{
+        background: #eee;
+    }
+</style>
+<body>
+    <div id="container">
+        <ul class="clearfix tab">
+            <li class='active'>tab1</li>
+            <li class=''>tab2</li>
+            <li class=''>tab3</li>
+        </ul>
+        <div class="wrap">
+            <p class="active-content content">这里是</p>    
+            <p class="content">tab切换</p>    
+            <p class="content">演示</p>    
+        </div>
+    </div>
+    <script>
+        function hasClass(obj , cls) {
+            var match = new RegExp('\\b' +cls + '\\b' , 'g')
+            return match.test(obj.className)
+        }
+        function addClass(obj , cls) {
+            if(!hasClass(obj , cls)) {
+                obj.className += ' ' + cls
+            }
+        }
+        function removeClass(obj , cls) {
+            if(hasClass(obj , cls)) {
+                var match = new RegExp('\\b' + cls +'\\b' , 'g')
+                obj.className = obj.className.replace(match , '')
+            }
+        }
+//===========================================//
+        var ct = document.getElementsByClassName('tab')[0]
+        var childrenCt = ct.children
+        var wrap = document.getElementsByClassName('wrap')[0]
+        var childrenWrap = wrap.children
+        ct.addEventListener('click' , function(e) {
+            for (var i = 0 ; i < 3 ; i ++) {
+                removeClass(childrenCt[i] , 'active')
+                removeClass(childrenWrap[i] , 'active-content')
+            }
+            addClass(e.target , 'active')
+            var j = 3
+            while(j --) {
+                if(hasClass(childrenCt[j] , 'active')) {
+                    var k = j
+                }
+            }
+            addClass(childrenWrap[k] , 'active-content')
+        })
+    </script>
+</body>
+</html>
+
+

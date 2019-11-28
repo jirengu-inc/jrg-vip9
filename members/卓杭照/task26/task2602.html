@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2602</title>
+</head>
+	<style>
+
+		.div{
+			padding: 5px;
+		}
+		.scroll{
+			border: 1px solid #ccc;
+		}
+	</style>
+<body>
+	<button class="btn">变色</button>
+	<div class="scroll">
+		<p>scrollleft:<span class="left-length"></span></p>
+		<p>scrolltop:<span class="top-length"></span></p>
+	</div>
+	<div class="div">你好</div>
+	<input type="text" class="ipt">
+
+	<div class="">
+	<select name="" class="select">
+		<option value="benz">benz</option>
+		<option value="audi">audi</option>
+		<option value="bmw">bmw</option>
+	</select>
+	<p>获取内容:<span class="select-text"></span></p>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>	
+	<script>
+
+		// 鼠标点击
+			$('.btn').on('click',function(){
+				$(this).css({'background-color':'blue'})
+				setTimeout(function(){
+					$('.btn').css({'background-color':'red'})
+				},500)
+			})
+		// 鼠标滚动距离
+			$(window).on('scroll',function(){
+				$('.left-length').text($(window).scrollLeft())
+				$('.top-length').text($(window).scrollTop())
+			})
+		// 鼠标 放上 和 移开
+			$('.div').on('mouseenter',function(){
+				$(this).css({'background-color':'red'})
+			})
+			$('.div').on('mouseleave',function(){
+				$(this).css({'background-color':'white'})
+			})
+		// 输入框 input  边框颜色失去，输入内容大写，控制台获取输入内容
+			$('.ipt').on('focus',function(){
+				$(this).css({'border-corlor':'blue'})
+				$(this).css({'outline-style':'none'})
+			})
+			$('.ipt').on('change',function(){
+				var val = $(this).val()
+				$(this).val(val.toUpperCase())
+			})
+			$('.ipt').on('blur',function(){
+				$(this).css({'border-corlor':'initial'})
+				console.log($(this).val())
+			})
+		// 当选择 select 后，获取用户选择的内容
+			$('.select').on('click',function(){
+				$('.select-text').text($('.select option:selected').text())
+			})
+	</script>
+</body>
+</html>

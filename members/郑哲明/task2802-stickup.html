@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task2802-stickup</title>
+    <style>
+        .wrap{
+            width:900px;
+            margin: auto;
+        }
+        .header{
+            height:100px;
+            background: #f00;
+            margin:20px 0;
+        }
+        .nav{
+            height: 50px;
+            background: yellow;
+            border:1px solid;
+        }
+        .content{
+            background: white;
+            margin-bottom: 20px;
+        }
+        .content .aside{
+            height: 300px;
+            width:100px;
+            float: left;
+            background: pink;
+        }
+        .content .main{
+            height:300px;
+            margin-left: 120px;
+            background: #00f;
+        }
+        .footer{
+            height: 20px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">header</div>
+        <div class="nav nav1">nav1</div>
+        <div class="content">
+            <div class="aside">aside1</div>
+            <div class="main">main1</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="nav nav2">nav2</div>
+        <div class="content">
+            <div class="aside">aside2</div>
+            <div class="main">main2</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="nav nav3">nav3</div>
+        <div class="content">
+            <div class="aside">aside3</div>
+            <div class="main">main3</div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="nav nav4">nav4</div>
+        <div class="content">
+            <div class="aside">aside4</div>
+            <div class="main">main4</div>
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $.fn.stickup = function(){
+            var $cur = this,
+                isFixed = false,
+                $width = $cur.width(),
+                $height = $cur.height(),
+                $top = $cur.offset().top,
+                $copy = $cur.clone().insertBefore($cur).css({
+                    position:'fixed',
+                    top:0,
+                    display:'none'
+                })
+            $(window).on('scroll',function(){
+                var $scrTop = $(window).scrollTop()
+                if ($scrTop >= $top) {
+                    if(!isFixed) setFixed()
+                } else {
+                    if(isFixed) unsetFixed()
+                }
+            })
+            function setFixed() {
+                $cur.css({opacity:0})
+                var $left = $cur.offset().left
+                $copy.css({width:$width,left:$left}).show()
+                isFixed = true
+            }
+            function unsetFixed() {
+                $cur.css({opacity:1})
+                $copy.hide()
+                isFixed = false
+            }
+        }
+        $('.nav1').stickup()
+        $('.nav2').stickup()
+        $('.nav3').stickup()
+        $('.nav4').stickup()
+    </script>
+</body>
+</html>

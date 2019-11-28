@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul,li,div,a,img{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+			color: #333;
+		}
+		li{
+			margin: 10px;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		a{	
+			display: block;		
+			margin: 40px auto;
+			padding: 10px;
+			color: red;
+			width: 70px;
+			text-align: center;
+			border-radius: 4px;
+
+		}
+
+		.go-top{
+			position: fixed;
+			right: 10px;
+			bottom: 10px;
+			padding: 10px;
+			background-color: #000;
+			color: #fff;
+			display: none;
+		}
+	</style>
+
+</head>
+<body>
+<div class="ct">
+	<ul>
+		<li>内容1</li>
+		<li>内容2</li>
+		<li>内容3</li>
+		<li>内容4</li>
+		<li>内容5</li>
+		<li>内容6</li>
+		<li>内容7</li>
+		<li>内容8</li>
+		<li>内容9</li>
+		<li>内容10</li>
+		<li>内容11</li>
+		<li>内容12</li>
+		<li>内容13</li>
+		<li>内容14</li>
+		<li>内容15</li>
+		<li>内容16</li>
+		<li>内容17</li>
+		<li>内容18</li>
+		<li>内容19</li>
+		<li>内容20</li>
+	</ul>
+	<a href="#" class="go-top">回到顶部</a>
+	</div>
+
+
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+	<script>
+
+
+		// $(window).on('scroll', function(){
+		// 	var top = $(window).scrollTop();//窗口滚动的距离
+		// 	if (top>200) {
+		// 		$('.go-top').css('display', 'block')//当滚动距离大于200px，显示回到顶部
+		// 	}else{
+		// 		$('.go-top').css('display', 'none')
+		// 	}
+		// })
+		// //1* 方法是a链接直接#
+		// //2# 是$(window.scrollTop(0))
+		// $('.go-top').on('click', function(){
+		// 	$(window.scrollTop(0))
+		// })
+
+
+
+
+	//封装
+
+		function GoTop(ct,target){
+			this.ct = ct;//页面的容器
+			this.target = target;
+			this.bindEvent();
+			this.createNode();
+
+		}
+
+		GoTop.prototype.bindEvent =function() {
+			var _this = this;
+			$(window).on('scroll', function(){
+				var top = $(window).scrollTop();//窗口滚动的距离
+				if (top>200) {
+					_this.target.css('display', 'block')//当滚动距离大于200px，显示回到顶部
+				}else{
+					_this.target.css('display', 'none')
+				}
+			})
+
+		}
+		GoTop.prototype.createNode = function(){
+			this.target.on('click', function(){
+				$(window).scrollTop(0);
+			})
+		}
+
+		var $ct = $('.ct');
+		var $target = $('.go-top');
+		new GoTop($ct,$target)
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>侧导航栏</title>
+    <style media="screen">
+      ul,li{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      a{
+        text-decoration: none;
+      }
+      .aside{
+        width: 200px;
+      }
+      .aside>li{
+        background-color: #333;
+        color: white;
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+        position:relative;
+      }
+      .aside>li>a{
+        color: white;
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        padding-left: 20px;
+      }
+      .aside>li>span{
+        position: absolute;
+    		right: 10px;
+    		top: 10px;
+      }
+      .subnav{
+        position: absolute;
+  	    top: 0;
+  	    left: 200px;
+  	    background: #fff;
+  	    border: 1px solid #ccc;
+  	    width: 200px;
+  	    font-size: 12px;
+  	    display: none;
+      }
+      .subnav>li{
+        padding: 10px 20px;
+        float: left;
+        width: 59px;
+        border-left: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      }
+      .subnav>li>a{
+        color: black;
+        display: block;
+        text-align: center;
+        height: 20px;
+        line-height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ct">
+      <ul class="aside">
+        <li>
+          <a href="#">珠宝玉器</a>
+          <span>></span>
+          <ul class="subnav">
+            <li><a href="">翡翠</a></li>
+  					<li><a href="">玉石</a></li>
+  					<li><a href="">宝石</a></li>
+  					<li><a href="">水晶</a></li>
+  					<li><a href="">玛瑙</a></li>
+  					<li><a href="">珍珠</a></li>
+  					<li><a href="">钻石</a></li>
+  					<li><a href="">琥珀</a></li>
+  					<li><a href="">和田</a></li>
+  					<li><a href="">琥珀</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">珠宝玉器</a>
+          <span>></span>
+          <ul class="subnav">
+            <li><a href="">翡翠</a></li>
+  					<li><a href="">玉石</a></li>
+  					<li><a href="">宝石</a></li>
+  					<li><a href="">水晶</a></li>
+  					<li><a href="">玛瑙</a></li>
+  					<li><a href="">珍珠</a></li>
+  					<li><a href="">钻石</a></li>
+  					<li><a href="">琥珀</a></li>
+  					<li><a href="">和田</a></li>
+  					<li><a href="">琥珀</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">珠宝玉器</a>
+          <span>></span>
+          <ul class="subnav">
+            <li><a href="">翡翠</a></li>
+  					<li><a href="">玉石</a></li>
+  					<li><a href="">宝石</a></li>
+  					<li><a href="">水晶</a></li>
+  					<li><a href="">玛瑙</a></li>
+  					<li><a href="">珍珠</a></li>
+  					<li><a href="">钻石</a></li>
+  					<li><a href="">琥珀</a></li>
+  					<li><a href="">和田</a></li>
+  					<li><a href="">琥珀</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">珠宝玉器</a>
+          <span>></span>
+          <ul class="subnav">
+            <li><a href="">翡翠</a></li>
+  					<li><a href="">玉石</a></li>
+  					<li><a href="">宝石</a></li>
+  					<li><a href="">水晶</a></li>
+  					<li><a href="">玛瑙</a></li>
+  					<li><a href="">珍珠</a></li>
+  					<li><a href="">钻石</a></li>
+  					<li><a href="">琥珀</a></li>
+  					<li><a href="">和田</a></li>
+  					<li><a href="">琥珀</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">珠宝玉器</a>
+          <span>></span>
+          <ul class="subnav">
+            <li><a href="">翡翠</a></li>
+  					<li><a href="">玉石</a></li>
+  					<li><a href="">宝石</a></li>
+  					<li><a href="">水晶</a></li>
+  					<li><a href="">玛瑙</a></li>
+  					<li><a href="">珍珠</a></li>
+  					<li><a href="">钻石</a></li>
+  					<li><a href="">琥珀</a></li>
+  					<li><a href="">和田</a></li>
+  					<li><a href="">琥珀</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <script src="../jquery-3.1.0.min.js"></script>
+    <script>
+      var $aside = $(".aside"),
+          $subnav = $(".subnav");
+      $aside.on("mouseenter","li",function(){
+        $(this).find(".subnav").show();
+      })
+      $aside.on("mouseleave","li",function(){
+        $(this).find(".subnav").hide();
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="65-liulu">
+  <meta name="Keywords" content="饥人谷 任务">
+  <meta name="Description" content="饥人谷任务五">
+  <title>Document</title>
+  <style>
+  body,p,h3{margin:0;padding:0;}
+  body{font:normal 16px/24px "微软雅黑";color:#333;}/*设置body的字体为微软雅黑，字号16px， 行高1.5倍，字体颜色 #333*/
+  div{margin:0 auto;width:600px;border:1px solid #6699ff;border-radius:10px;background:#ccffff;}
+  p{text-indent:2em;line-height:1.5;color:#000;}/*设置段落颜色#000, 首行缩进两个字体宽度，1.5倍行高*/
+  h3{padding-left:229px;padding-top:20px;background:url(../img/pic.jpg) no-repeat 20px 20px;height:201px;line-height:201px;}
+  *{text-align:justify;}
+  </style>
+ </head>
+ <body>
+ <div>
+	  <h3>饥人谷任务五</h3>
+	  <p>1.问：样式有几种引入方式? link 和 @import有什么区别?</p>
+	  <p>答：引入外部样式表<!--<ink href="" rel="stylesheet">-->；内部样式表；内联样式表</p>
+	  <p>link 可以提高复用率，但有网络请求，共有样式</p>
+	  <p>link位于html文件内部,@import位于css文件内部或@import位于style一栏。</p>
+	  <p>此外，@import优先级最高，但一般不建议使用。</p>
+	  <p>2.问：文件路径../main.css 、./main.css、main.css有什么区别?</p>
+	  <p>答：../代表上一层文件下的文件，后两个代表当前路径下的main.css。</p>
+	  <p>3.问：console.log是做什么用的?</p>
+	  <p>答：调试，在控制台展示console.log(展示内容)</p>
+	  <p>4.问：text-align有几个值，分别有什么作用?</p>
+	  <ul>
+		<li>left，居左边缘；</li>
+		<li>center，水平居中；</li>
+		<li>right，居右边缘；</li>
+		<li>justify，拉伸，实现两端同时对齐</li>
+	  </ul>
+	  <p>5.问：px、em、rem分别是什么？有什么区别？如何使用?</p>
+	  <p>答:px:像素大小，是一个独立的数值</p>
+	  <p>em：相对父元素定义自身大小，是一个相对数值</p>
+      <p>rem：相对根节点html数值定义自身大小，是一个相对数值</p>
+	  <p>6.对chrome 审查元素的功能做个简单的截图介绍(见下方图片)</p>
+      <img src="../img/chrome.png" alt="chrome 审查元素的功能"/>
+	  <p style="text-align:left">text-align:left要理解原理，我们首先要搞清楚文本的两端对齐声明text-align:justify起作用的本质。首先，大家要知道，text-align:justify是专门为英文设计的，谁叫CSS是老外发明的呢，用来实现英文语句的两端对齐。注意这里的，是语句的对齐。大家应该都知道，英文语句是一个单词一个单词组合而成的，每个单词之前使用空格分隔。text-align:justify之所以可以让英文段落两端对齐，那是因为每个英文单词之前那个透明看不见的空格被拉伸了。注意，是空格被拉伸了，对，只有空格。因此，当我们写下一段洋洋洒洒中文内容的时候，text-align:justify是没有任何作用的，跟没设置没任何区别。为什么呢？很简单，因为中文是一个一个汉字，汉字之间是没有空格的，自然也就不能拉伸，自然也就不能两端对齐。</p>
+	  <hr/>
+	  <p style="text-align:center">text-align:center要理解原理，我们首先要搞清楚文本的两端对齐声明text-align:justify起作用的本质。首先，大家要知道，text-align:justify是专门为英文设计的，谁叫CSS是老外发明的呢，用来实现英文语句的两端对齐。注意这里的，是语句的对齐。大家应该都知道，英文语句是一个单词一个单词组合而成的，每个单词之前使用空格分隔。text-align:justify之所以可以让英文段落两端对齐，那是因为每个英文单词之前那个透明看不见的空格被拉伸了。注意，是空格被拉伸了，对，只有空格。因此，当我们写下一段洋洋洒洒中文内容的时候，text-align:justify是没有任何作用的，跟没设置没任何区别。为什么呢？很简单，因为中文是一个一个汉字，汉字之间是没有空格的，自然也就不能拉伸，自然也就不能两端对齐。</p>
+	  <hr/>
+	  <p style="text-align:right">text-align:right要理解原理，我们首先要搞清楚文本的两端对齐声明text-align:justify起作用的本质。首先，大家要知道，text-align:justify是专门为英文设计的，谁叫CSS是老外发明的呢，用来实现英文语句的两端对齐。注意这里的，是语句的对齐。大家应该都知道，英文语句是一个单词一个单词组合而成的，每个单词之前使用空格分隔。text-align:justify之所以可以让英文段落两端对齐，那是因为每个英文单词之前那个透明看不见的空格被拉伸了。注意，是空格被拉伸了，对，只有空格。因此，当我们写下一段洋洋洒洒中文内容的时候，text-align:justify是没有任何作用的，跟没设置没任何区别。为什么呢？很简单，因为中文是一个一个汉字，汉字之间是没有空格的，自然也就不能拉伸，自然也就不能两端对齐。</p>
+	  <hr/>
+	  <p style="text-align:justify">text-align:justify要理解原理，我们首先要搞清楚文本的两端对齐声明text-align:justify起作用的本质。首先，大家要知道，text-align:justify是专门为英文设计的，谁叫CSS是老外发明的呢，用来实现英文语句的两端对齐。注意这里的，是语句的对齐。大家应该都知道，英文语句是一个单词一个单词组合而成的，每个单词之前使用空格分隔。text-align:justify之所以可以让英文段落两端对齐，那是因为每个英文单词之前那个透明看不见的空格被拉伸了。注意，是空格被拉伸了，对，只有空格。因此，当我们写下一段洋洋洒洒中文内容的时候，text-align:justify是没有任何作用的，跟没设置没任何区别。为什么呢？很简单，因为中文是一个一个汉字，汉字之间是没有空格的，自然也就不能拉伸，自然也就不能两端对齐。</p>
+	  <p style="text-align:justify">To understand the principle, we first need to figure out the nature of text-align:justify's effect on both ends of the text. First of all, we should know that the text-align:justify is designed specifically for the English, who is called CSS is invented by foreigners, used to achieve the two ends of the English sentence alignment. Note that this is the alignment of the statement. We should all know that the English sentence is a word a combination of words, each word before the use of space separation. Text-align:justify is able to align the English passages at both ends of the English words, because the transparent invisible spaces are stretched out before the English word. Note that the space is stretched, right, only spaces. Therefore, when we write a voluminous Chinese content, text-align:justify is without any role in the with no set didn't make any difference. Why? Very simple, because the Chinese is a Chinese character, there is no space between the Chinese characters, naturally can not stretch, naturally can not be aligned at both ends.</p>
+  </div>
+ 
+ </body>
+</html>

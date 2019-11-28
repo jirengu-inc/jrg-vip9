@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task12-1</title>
+	<style>
+		html,body,div,ul,li {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			margin: 0 auto;
+		}
+		.box {
+			background: #ccc;
+			width: 900px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			overflow: auto;
+		} 
+		.box:after {
+             content: '';
+             display: block;
+             clear: both;
+		}
+		.content {
+			float: left;
+		}
+		.panels {
+			margin-left: -10px;
+		}
+		ul,li {
+			list-style: none;
+		}
+		li {
+			background: green;
+			width: 293px;
+			height: 100px;
+			float: left;
+			margin-left:10px; 
+			margin-bottom:10px; 
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<div class="content">
+	   <ul class="panels">
+	   	<li>1</li>
+	   	<li>2</li>
+	   	<li>3</li>
+	   	<li>4</li>
+	   	<li>5</li>
+	   	<li>6</li>
+	   </ul>
+	</div>
+	</div>
+</body>
+</html>

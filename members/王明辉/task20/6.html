@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6</title>
+</head>
+<body>
+<script>
+    // 6. 下面这段代码输出结果是? 为什么?
+    var flag = true;
+    setTimeout(function(){
+        flag = false;
+    },0)
+    while(flag){}// 这里flag是true,所以一直执行他.也就是一个死循环了,直到浏览器崩了,也不会执行setTimeout
+    console.log(flag);
+</script>
+</body>
+</html>

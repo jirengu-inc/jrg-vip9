@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>无线滚动全屏轮播</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        a {
+            text-decoration: none;
+            /*color: #fff;*/
+        }
+
+        html {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        html, body, ul, li, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel {
+            /*margin: 10px auto;*/
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+
+        .img-ct {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img-ct li {
+            float: left;
+            height: 100%;
+            position: relative;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            /*height: 30px;*/
+            /*margin-top: -15px;*/
+            /*line-height: 30px;*/
+            text-align: center;
+            background-color: #ccc;
+            color: #fff;
+            /*border-radius: 30px;*/
+            opacity: 0.3;
+        }
+
+        .pre {
+            left: 0px;
+        }
+
+        .next {
+            right: 0px;
+        }
+
+        .bullet {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            /*margin-left: -38px;*/
+        }
+
+        .bullet > li {
+            width: 32px;
+            height: 8px;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .bullet li.active {
+            background-color: #888;
+        }
+
+        .arrow:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            text-align: center;
+            /*margin: 0 auto;*/
+        }
+
+        .clearfix:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+        .cover {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            color: #333;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li class="items">
+            <a href="javascript:;"><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/960x600/1384835088908.jpg"
+                                        alt="111111111111111111111111111"></a>
+
+            <div class="cover">
+                <h1>first</h1>
+            </div>
+        </li>
+        <li class="items">
+            <a href="javascript:;"><img src="http://img2.3lian.com/2014/f6/146/d/89.jpg"
+                                        alt="2222222222222222222222222"></a>
+
+            <div class="cover">
+                <h1>second</h1>
+            </div>
+        </li>
+        <li class="items">
+            <a href="javascript:;"><img
+                    src="http://www.wallcoo.com/nature/apple_mac_os_x_lion_wallpapers/wallpapers/1600x900/lake.jpg"
+                    alt="333333333333333333333"></a>
+
+            <div class="cover">
+                <h1>third</h1>
+            </div>
+        </li>
+        <li class="items">
+            <a href="javascript:;"><img src="http://image78.360doc.com/DownloadImg/2014/09/2603/45611063_5.jpg"
+                                        alt="4444444444444444444444"></a>
+
+            <div class="cover">
+                <h1>fourth</h1>
+            </div>
+        </li>
+    </ul>
+    <a href="javascript:;" class="pre arrow"></a>
+    <a href="javascript:;" class="next arrow"></a>
+    <ul class="bullet">
+        <!-- <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li> -->
+    </ul>
+</div>
+<script>
+
+    (function ($) {
+        $.fn.carousel = function () {
+            var $this = $(this),
+                    $ct = $this.find('.img-ct'),
+                    $items = $ct.children(),
+                    imgCount = $items.size(),
+                    imgWidth = window.outerWidth,
+                    $bullet = $this.find('.bullet'),
+                    $next = $this.find('.next'),
+                    $pre = $this.find('.pre'),
+                    clock,
+                    curIdx = 0,
+                    isAnimate = false;
+            setBg();
+            function setBg() {
+                for (var i = 0; i < imgCount; i++) {
+                    $items.eq(i).find('img').css({
+                        width:imgWidth
+                    });
+                }
+            }
+
+            autoPlay();
+            bullet();
+            $ct.prepend($items.last().clone());
+            $ct.append($items.first().clone());
+            imgRealCount = $ct.children().size();
+            $ct.css({left: 0 - imgWidth, width: imgRealCount * imgWidth});
+
+            $next.on('click', function () {
+                playNext();
+            });
+            $pre.on('click', function () {
+                playPre();
+            });
+            $bullet.on('click', 'li', function () {
+                var idx = $(this).index();
+                if (idx > curIdx) {
+                    playNext(idx - curIdx);
+                } else if (idx < curIdx) {
+                    playPre(curIdx - idx);
+                }
+            });
+            function playNext(skip) {
+                var skip = skip || 1;
+                if (!isAnimate) {
+                    isAnimate = true;
+                    $ct.animate({left: '-=' + (imgWidth * skip)}, function () {
+                        curIdx = (curIdx + skip) % imgCount;
+                        if (curIdx == 0) {
+                            $ct.css({left: 0 - imgWidth});
+                        }
+                        isAnimate = false;
+                        setBullet();
+                    })
+
+                }
+            }
+
+            function playPre(skip) {
+                var skip = skip || 1;
+                if (!isAnimate) {
+                    isAnimate = true;
+                    $ct.animate({left: '+=' + (imgWidth * skip)}, function () {
+                        curIdx = (imgCount + curIdx - skip) % imgCount;
+                        if (curIdx == (imgCount - 1)) {
+                            $ct.css({left: 0 - imgWidth * imgCount});
+                        }
+                        isAnimate = false;
+                        setBullet();
+                    })
+                }
+            }
+
+            function setBullet() {
+                $bullet.children().removeClass('active')
+                        .eq(curIdx).addClass('active');
+            }
+
+            function stopAuto() {
+                clearInterval(clock);
+            }
+
+            function autoPlay() {
+                clock = setInterval(function () {
+                    playNext();
+                }, 3000);
+            }
+
+            function bullet() {
+                for (var i = 0; i < imgCount; i++) {
+                    $bullet.append('<li></li>');
+                }
+                $bullet.children().first().addClass('active');
+            }
+
+        }
+    })(jQuery)
+    $('.carousel').each(function () {
+        $(this).carousel();
+    })
+</script>
+</body>
+</html>

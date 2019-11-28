@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style type="text/css">
+.box{
+  display: none;
+ }
+
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.4;
+}
+
+
+.sq{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border-radius: 3px;
+  background: #fff;
+  z-index: 100;
+}
+
+
+.close{
+  	position: absolute;
+  	top: 0;
+  	right: 0;
+}
+
+.footer{
+	float: right;
+}
+
+</style>
+<body>
+<button id='btn'>点我</button>
+<div class="box">
+	<div class="cover"></div>
+	<div class='sq'>
+    <div class="header">
+        <h3>我是标题1</h3>
+        <a class="close" href="#">×</a>
+    </div>
+    <div class="content">
+        <p>我是内容1</p>
+        <p>我是内容1</p>
+    </div>
+    <div class="footer">
+        <a class="btn btn-confirm" href="#">确定</a>
+        <a class="btn btn-cancel" href="#">取消</a>
+    </div>
+    </div>
+</div>
+<script type="text/javascript">
+function $(str){
+    	return document.querySelector(str);
+    }
+function $$(str){
+    	return document.querySelectorAll(str);
+    } 
+
+
+function showModal(modal){
+    modal.style.display = 'block';
+}
+function hideModal(modal){
+    modal.style.display = 'none';
+}
+
+
+var btn = $('#btn');
+var box = $('.box');
+var close =$('.close');
+var cancel = $('.btn-cancel');
+var sq =$('.sq');
+btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    showModal(box);
+
+})
+
+sq.addEventListener('click',function(e){
+    e.stopPropagation();
+})
+
+close.addEventListener('click',function(){
+    hideModal(box);
+
+})
+
+cancel.addEventListener('click',function(){
+    hideModal(box);
+
+})
+
+window.addEventListener('click',function(){
+	hideModal(box);
+})
+
+
+</script>
+    
+</body>
+</html>

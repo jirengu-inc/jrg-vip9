@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task22-3</title>
+</head>
+<body>
+	<ul class="ct">
+		<li data-img="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg">鼠标放置查看图片1</li>
+		<li data-img="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg">鼠标放置查看图片2</li>
+		<li data-img="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg">鼠标放置查看图片3</li>
+	</ul>
+	<div class="img-preview"></div>
+	<script>
+		var oImg=null;
+		var oUl=document.querySelector(".ct")
+		var oDiv=document.querySelector(".img-preview")
+		oUl.addEventListener("mouseover",function(e){
+			if(e.target.tagName.toLowerCase() === 'li'){
+				if (oImg!==null) {
+					oDiv.removeChild(oImg);
+				}	
+				oImg=document.createElement("img");
+				var dataImg=e.target.getAttribute("data-img")
+				oImg.setAttribute("src",dataImg);
+				oDiv.appendChild(oImg)
+			}})
+		</script>
+	</body>
+	</html>
+
+

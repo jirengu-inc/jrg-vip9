@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task25-3 商品展示与加载</title>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <style>
+        body *{
+            font-family: "微软雅黑";
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        ul,li{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .btn {
+            border: solid 2px red;
+            border-radius: 3px;
+            color: red;
+            display: inline-block;
+            background: #fff;
+            padding: 5px 10px;
+            outline: 0;
+            overflow: hidden;
+            text-decoration: none !important;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        .clearfix::after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .show-ct{
+            margin-bottom:20px;
+        }
+        .show-ct .tags-ul{
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border:1px #999 solid;
+            border-bottom: none;
+            width: 300px;
+        }
+        .show-ct .tags-ul li{
+            float: left;
+            padding: 5px 10px;
+            padding-right: 0;
+        }
+        .show-ct .tags-ul .active{
+            color: red;
+            background-color: #ccc;
+        }
+        .show-ct .tags-ul li a{
+            color: #333;
+            border-right: 1px solid #999;
+            padding-right: 10px;
+            font-size: 0.8rem;
+        }
+        .show-ct .content-ul {
+            border:1px solid #999;
+            padding:5px;
+        }
+        .show-ct .content-ul li{
+            border:solid 1px #aaa;
+            float: left;
+            margin:5px;
+            padding:10px;
+            width:220px;
+            font-size: 0.8rem;
+            position: relative;
+            display: table;
+        }
+        .show-ct .content-ul li h3{
+            color: red;
+            /*font-size: 1.2rem;*/
+            /*margin: 15px 10px;*/
+        }
+        .show-ct .content-ul li p{
+            height: 2rem;
+            overflow: hidden;
+        }
+        .show-ct .content-ul li .img-div{
+            text-align: center;
+        }
+        .show-ct .content-ul li .active{
+            background: rgba(0,0,0,0.3);
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            text-align: center;
+            display: block;
+        }
+        .show-ct .content-ul li .active .btn-buy{
+
+            border: solid 2px red;
+            border-radius: 3px;
+            color: red;
+            display: inline-block;
+            background: #fff;
+            padding: 10px 20px;
+            outline: 0;
+            overflow: hidden;
+            text-decoration: none !important;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+            font-weight: bold;
+            position: relative;
+            top: 130px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="show-ct">
+    <ul class="tags-ul clearfix">
+        <li><a href="#">智能手机</a></li>
+        <li><a href="#">计算机</a></li>
+        <li><a href="#">智能设备</a></li>
+    </ul>
+    <ul class="content-ul clearfix"></ul>
+    <button class="btn">点我加载</button>
+</div>
+
+<div class="show-ct">
+    <ul class="tags-ul clearfix">
+        <li><a href="#">智能手机</a></li>
+        <li><a href="#">计算机</a></li>
+        <li><a href="#">智能设备</a></li>
+    </ul>
+    <ul class="content-ul clearfix"></ul>
+    <button class="btn">点我加载</button>
+</div>
+
+
+<script>
+    var products= [
+        [//手机
+            {
+                img:"http://img11.360buyimg.com/n7/jfs/t2416/193/2650364574/135020/3baa6de9/56ea727fN841342a5.jpg",
+                name:"三星 Galaxy S7（G9300）32G版 星钻黑 移动联通电信4G手机 双卡双待 骁龙820",
+                price: '¥3888.00',
+                link: "http://item.jd.com/2384566.html"
+            },
+            {
+                img:"http://img13.360buyimg.com/n7/jfs/t2302/16/135479564/94882/c76da045/55f0e877N3c24faa3.jpg",
+                name:"Apple iPhone 6s Plus (A1699) 64G 玫瑰金色 移动联通电信4G手机 ",
+                price:"¥5999.00",
+                link:"http://item.jd.com/1861097.html"
+            },
+            {
+                img:"http://img11.360buyimg.com/n7/jfs/t2902/52/3628855949/403653/b5d6a940/5795828dN8fcea028.jpg",
+                name:"一加手机3(A3000) 6GB+64GB 薄荷金版 全网通 双卡双待 移动联通电信4G手机",
+                price: '¥2499.00',
+                link: "http://item.jd.com/3104032.html"
+            },
+            {
+                img:"http://oawio13k4.bkt.clouddn.com/Samsung-Galaxy-Note7-1.jpg",
+                name:"三星 Galaxy Note7 4G+64G 珊瑚蓝 全网通 双卡双待 防水旗舰 2048级手写笔",
+                price:"¥5999.00",
+                link:"http://cn.bing.com/search?q=note7"
+            }
+        ],
+        [//电脑
+            {
+                img:"http://img12.360buyimg.com/n7/jfs/t2026/53/1969274075/133682/a771634c/56848c45N2415db3e.jpg",
+                name:"微软（Microsoft）Surface Book 笔记本平板二合一 13.5英寸（Intel i5 8G内存 ",
+                price: '¥14088.00',
+                link: "http://item.jd.com/1997747.html"
+            },
+            {
+                img:"http://img13.360buyimg.com/n7/jfs/t2257/177/1123017414/143066/52c5344a/5641e6e7Nc88a5347.jpg",
+                name:"微软（Microsoft）Surface Pro 4 平板电脑 12.3英寸（Intel i5 8G内存 256G存储 ",
+                price:"¥8988.00",
+                link:"http://item.jd.com/2142993.html"
+            },
+            {
+                img:"http://img12.360buyimg.com/n7/jfs/t2512/46/13480651/105842/413f9b3d/5631d2afNe62b1eaf.jpg",
+                name:"Apple MacBook Pro 13.3英寸笔记本电脑 银色(Core i5 处理器/8GB内存/512GB ",
+                price: '¥12898.00',
+                link: "http://item.jd.com/1378542.html"
+            },
+            {
+                img:"http://img14.360buyimg.com/n7/jfs/t1942/254/914720137/128958/d6ecc257/5631d31eN50010b03.jpg",
+                name:"Apple iMac 27英寸一体机（3.2Ghz Core i5 处理器/8GB内存/1TB存储/2GB独显/Retina 5K屏 MK462CH）",
+                price: '¥13488.00',
+                link: "http://item.jd.com/2060604.html"
+            }
+
+        ],
+        [//手表
+            {
+                img:"http://img12.360buyimg.com/n7/jfs/t2197/270/2400243521/146137/6dd01134/570639acNeb73896e.jpg",
+                name:"Apple Watch Sport 智能手表(42毫米深空",
+                price: '¥2699.00',
+                link: "http://item.jd.com/1548547.html"
+            },
+            {
+                img:"http://img13.360buyimg.com/n7/jfs/t1972/37/642121156/78282/3705d666/5620bd38N93e0d2ea.jpg",
+                name:"三星（SAMSUNG）GALAXY GEAR S2 ",
+                price:"¥2398.00",
+                link:"http://item.jd.com/2028338.html"
+            },
+            {
+                img:"http://img10.360buyimg.com/n7/jfs/t2872/122/335252183/277949/b6a1cc49/570e296aNc6a31829.jpg",
+                name:"Ticwatch 智能手表语音运动触摸定位出门问问ticwear蓝牙电话穿戴男女圆形手环手",
+                price: '¥999.00',
+                link: "http://item.jd.com/1654679.html"
+            },
+            {
+                img:"http://img10.360buyimg.com/n7/jfs/t2605/21/1864806927/90852/3958d9cb/574ff2e5N4c42db5d.jpg",
+                name:"小米（MI） 手环2代 心率监测 智能运动计步器 来电提醒防水腕带 小米手环2-黑色现货(现货当天发) 官方标配",
+                price: '¥225.00',
+                link: "http://item.jd.com/2857483.html"
+            }
+        ]
+    ];
+
+    function addLi(ele ,produceList){  //添加商品列表函数
+        for(var i in produceList){
+            $(ele).append($("<li></li>").html(
+                    '<img src = ' + produceList[i].img + ' width="200" ' + ' height="200">'
+                    +'<h3>'+ produceList[i].price + '</h3>'
+                    +'<p>' + produceList[i].name  + '</p>'
+                    +'<div class="active" style="display: none;">'
+                    +'<a class="btn-buy" href=' + produceList[i].link + '>立即抢购</a>'
+                    +'</div>'
+            ));
+        }
+    }
+    function removeLi(ele){//移除所有商品列表
+        $(ele).html('');
+    }
+
+
+
+    $('.tags-ul li').click(function(e){
+        e.preventDefault();//清除默认行为
+        e.stopPropagation();//清除冒泡
+        var $cur = $(this);
+        var idx = $cur.index();
+        console.log(idx);
+        $cur.siblings().removeClass('active');//移除其他的active
+        $cur.addClass('active');
+
+        removeLi($(this).parents('.show-ct').find('.content-ul'));
+        addLi($(this).parents('.show-ct').find('.content-ul'),products[idx]);//清除和重新载入商品
+
+
+        $('.content-ul li').on('mouseenter',function(){
+            $(this).find('.active').css('display','block');//再为每个商品绑定鼠标移动上去的样式
+        });
+        $('.content-ul li').on('mouseleave',function(){
+            $(this).find('.active').css('display','none');
+        });
+
+        $('.show-ct button').off('click');
+        $('.show-ct button').on('click',function(){
+            addLi($(this).parents('.show-ct').find('.content-ul'),products[idx]);//为button绑定要添加的内容
+            $('.content-ul li').on('mouseenter',function(){
+                $(this).find('.active').css('display','block');//再为每个商品绑定鼠标移动上去的样式
+            });
+            $('.content-ul li').on('mouseleave',function(){
+                $(this).find('.active').css('display','none');
+            });
+        });
+    });
+
+    $('.tags-ul').each(function () {
+        $(this).find('li').eq(0).click();
+    });//网页加载的时候先出发第一个tag的click事件
+
+
+</script>
+</body>
+</html>

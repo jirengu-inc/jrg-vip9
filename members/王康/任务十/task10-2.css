@@ -1,0 +1,47 @@
+.main {
+	width:200px;
+	height:100px;
+	border:1px solid #aaa;
+	margin:60px;
+}
+.div1 {
+	width:0;
+	height:0;
+	border-left:20px solid #fff;
+	border-right:20px solid #fff;
+	border-top:20px solid #fff;
+	border-bottom:20px solid #aaa;
+	position:relative;
+	top:-40px;
+	left:10px;
+}
+.div2 {
+	width:0;
+	height:0;
+	border-right:20px solid #f00;
+	border-bottom:20px solid #fff;
+	position:relative;
+	right:-180px;
+}
+.div3 {
+	width:0;
+	height:0;
+	border-left:20px solid #fff;
+	border-right:20px solid #fff;
+	border-top:20px solid #fff;
+	border-bottom:20px solid #aaa;
+	position:relative;
+	top:-40px;
+	left:10px;
+}
+.div4 {
+	width:0;
+	height:0;
+	border-left:20px solid rgba(255,255,255,0);
+	border-right:20px solid rgba(255,255,255,0);
+	border-top:20px solid rgba(255,255,255,0);
+	border-bottom:20px solid #fff;
+	position:relative;
+	top:-78px;
+	left:10px;
+}

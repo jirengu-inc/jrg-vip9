@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task19-5</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var traverse = (function f(num){
+            if (num == 1){
+              return 1;
+            }else if(num == 2){
+              return 2;
+            }else {
+              return f(num-1) + f(num-2);
+            }
+        })
+        console.log(traverse(200));
+    </script>
+<!-- 命名函数表达式f（）在严格/非严格模式下都可以确保递归函数一定正确执行，而不会因为重复命名导致的报错情况
+考虑到：
+var traverse(num){
+  if(num == 1){
+    return 1;
+  }else{
+    return num * traverse(num-1);
+  }
+}
+var anotherTraverse = traverse;
+traverse = null;
+alert(anotherTraverse(4));出错！
+先将函数变量保存到anotherTraverse中，再把traverse变量设置为Null,则此时指向原始函数的引用只剩下一个，再调用anotherTraverse()时，由于必须执行traverse（），而traverse已经不是函数，就会导致错误。-->
+</body>
+
+</html>

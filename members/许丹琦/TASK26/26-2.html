@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JQ操作</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+#layout{
+	width: 300px;
+	margin:  50px auto;
+}
+.Div{
+	margin-top: 30px;
+}
+
+.btn{
+	width: 80px;
+	height: 50px;
+}
+
+.box1{
+	border: 1px solid #ccc;
+	height: 200px;
+	width: 200px;
+
+}
+.scroll{
+	overflow: scroll;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ccc;
+}
+span{
+	padding: 5px;
+}
+
+</style>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="layout">
+	<div class="Div"><button class="btn">点我</button></div>
+	<div class="Div scrollDiv">
+		<div class="scroll">
+			<p>texttexttexttexttexttexttexttexttexttextetextextetext</p>
+			texttexttexttexttexttexttexttexttexttextetextextetext
+			texttexttexttexttexttexttexttexttexttextetextextetext
+			texttexttexttexttexttexttexttexttexttextetextextetext
+			texttexttexttexttexttexttexttexttexttextetextextetext</p>
+			<p>texttexttexttexttexttexttexttexttexttextetextextetext</p>
+			texttexttexttexttexttexttexttexttexttextetextextetext
+			texttexttexttexttexttexttexttexttexttextetextextetext
+			texttexttexttexttexttexttexttexttexttextetextextetext
+			texttexttexttexttexttexttexttexttexttextetextextetext</p>
+		</div>
+		<p>scrollTop:<span></span>  scrollLeft:<span></span></p>
+	</div>
+	<div class="box1 Div"></div>
+	<div class="Div inputDiv">
+		<input class="input">
+		<select name="select" id="select">
+			<option>opt1</option>
+			<option>opt2</option>
+			<option>opt3</option>
+		</select>
+		<p>输入：<span></span> 选择：<span></span></p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$('.btn').on('click',function(){
+		$('.btn').css('background-color','red');
+		setTimeout(function(){
+			$('.btn').css('background-color','blue')
+		},1000)
+	})
+
+	 $('.box1').on('mouseenter',function(){
+	 	$('.box1').css('background-color','red');
+	 })
+	 $('.box1').on('mouseleave',function(){
+	 	$('.box1').css('background-color','#fff');
+	 })
+
+	 $('.input').on('focuse',function(){
+	 	$(this).css('border-color','blue')
+	 })
+
+	 $('.input').on('keyup',function(){
+	 	$('.input').val($(this).val().toUpperCase());
+	 })
+
+	 $('.input').on('blur',function(){
+	 	var inputText = $('.inputDiv p span').eq(0),
+	 		value1 = $('.input').val();
+	 		inputText.text(value1);
+	 		// console.log($('.input').val())
+	 })
+
+	 $('#select').on('change',function(){
+		var selectText = $('.inputDiv p span').eq(1),
+		value2 = $('#select option:selected').val();
+		selectText.text(value2);
+	 	// console.log($('#select option:selected').val())
+	 })
+
+
+	 $('.scroll').scroll(function(){
+	 	var numTop = $(this).scrollTop(),
+	 		numLeft = $(this).scrollLeft(),
+	 		textTop = $('.scrollDiv p span').eq(0),
+	 		textLeft =  $('.scrollDiv p span').eq(1);
+	 	textTop.text(numTop);
+	 	textLeft.text(numLeft);
+
+	 })
+
+	 
+	 
+
+
+
+
+</script>
+    
+</body>
+</html>

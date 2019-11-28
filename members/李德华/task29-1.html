@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" http-equiv="content-language" content="zh-CN">
+    <title></title>
+    <style>
+      p {
+        line-height: 50px;
+      }
+      .back-top {
+        text-decoration: none;
+        color: black;
+        border: 1px solid red;
+        display: inline-block;
+        padding: 10px 5px;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+    <p>内容4</p>
+    <p>内容5</p>
+    <p>内容6</p>
+    <p>内容7</p>
+    <p>内容8</p>
+    <p>内容9</p>
+    <p>内容10</p>
+    <p>内容11</p>
+    <p>内容12</p>
+    <p>内容13</p>
+    <p>内容14</p>
+    <p>内容15</p>
+    <p>内容16</p>
+    <p>内容17</p>
+    <p>内容18</p>
+    <a class="back-top" href="#">回到顶部</a>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script>
+      $('.back-top').hide().on('click', function(e) {
+        e.preventDefault();
+        $(window).scrollTop(0);
+      });
+      $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 100)
+          $('.back-top').show();
+        else
+          $('.back-top').hide();
+      });
+    </script>
+  </body>
+</html>

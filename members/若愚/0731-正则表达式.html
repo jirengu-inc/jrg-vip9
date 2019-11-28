@@ -1,0 +1,84 @@
+<script>
+	var str = '123helloffLddlse456'
+	var str2 = str.replace(/l/ig, '-')
+	console.log(str2);
+
+	var str3 = str.replace(/[a-z]/g, '-')
+	console.log(str3);
+
+	var str3 = str.replace(/[^a-z]/g, '-')
+	console.log(str3);
+
+	var str3 = str.replace(/[0-9a-zA-Z_]/g, '-')
+	console.log(str3);
+
+
+	var reg = /hunger\d/g
+	var str4 = 'hunger30 hunger9 hunger4'
+	console.log( str4.match(reg) );
+
+
+	// |
+	var reg1 = /[hH]unger/
+	var reg2 = /h|Hunger/ 
+	var reg3 = /hunger|Hunger/
+	var reg4 = /(h|H)hunger/
+	var reg5 = /h(el)?lo/
+
+	function isValidUsername(str){
+		var reg = /[^a-zA-Z0-9_]/g;
+		if( reg.test(str)){
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	function isMyStr(str){
+		var reg = /^hunger\d$/;
+		return reg.test(str);
+	}
+
+	function trimLeft(str){
+		return str.replace(/^\s+/, '');
+	}
+	function trimRight(str){
+		return str.replace(/\s+$/, '');
+	}
+	function trim(str){
+		return str.replace(/^\s+|\s+$/g, '');
+	}
+
+	var className = 'active container    active-panel clearfix'
+	var cls = 'active';
+	console.log('-----');
+	//var reg6 = /(^|\s+)active($|\s+)/;
+	var reg7 = new RegExp('(^|\\s+)'+cls+'($|\\s+)');
+	console.log( reg7.test(className) ) ;
+
+
+
+	hasClass(cls, className);
+
+	function hasClass(cls, className){
+		var reg = new RegExp('(^|\\s+)'+cls+'($|\\s+)');
+		return reg.test(className);
+	}
+
+	function isValidPssword(str){
+		if(str.length<6||str.length>20||/\W/.test(str)) return false;
+		var cond = 0;
+		if(/[A-Z]/.test(str)) cond++;
+		if(/[a-z]/.test(str)) cond++;
+		if(/[0-9]/.test(str)) cond++;
+		if(/_/.test(str)) cond++;
+		if(cond >=2) {
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+
+
+</script>

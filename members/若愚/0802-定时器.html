@@ -1,0 +1,81 @@
+<script>
+	
+	/*
+	console.log('start...');
+	var clock1 = setTimeout('console.log(2)', 0);
+	var clock2 = setTimeout(doSomething, 2000);
+	console.log('end ...')
+
+	function doSomething(){
+		console.log('hello');
+		console.log('world');
+	}
+
+	var clock3 = setTimeout(function(){
+		console.log('jirengu')
+	}, 3000)
+
+	
+
+
+	clearTimeout(clock3)
+
+	for(var i = 0; i < 50; i++){
+		var clock = setTimeout(function(){}, 10);
+		console.log(clock);
+	}
+	
+
+	var intv = setInterval(function(){
+		console.log(new Date());
+	}, 1000)
+	*/
+	// clearInterval(intv);
+	
+/*
+	setTimeout(function(){
+		console.log('延时0s')
+	}, 11)// 20
+
+	setTimeout(function(){
+		console.log('延时4s');	
+	}, 4000)  
+	setTimeout(function(){
+		console.log('延时3s');	
+	}, 3000)  
+	var start = +new Date();
+	for(var i=0; i<10000; i++){
+		console.log(1);
+	}
+	var end = +new Date();
+	console.log('use:', end-start, 'ms');
+*/
+var a = 1;
+setTimeout(function(){
+    a = 2;
+    console.log(a);
+}, 0);
+var a ;
+console.log(a);
+a = 3;
+console.log(a);
+
+
+var start = +new Date();
+setTimeout(function(){
+	var end = +new Date();
+	console.log('use ',end-start, ' ms' )
+},1000)
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

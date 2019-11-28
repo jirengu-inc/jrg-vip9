@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>两栏布局</title>
+    <style type="text/css">
+      body,p,h1,ul,li{
+        padding: 0;
+        margin: 0;
+      }
+      a{
+        color: #333;
+        text-decoration: none;
+      }
+      ul,li{
+        list-style: none;
+      }
+      body{
+        font: 14px/1.5 "Microsoft YaHei","微软雅黑",sans-serif;
+    		color: #656565;
+      }
+      .container{
+        width: 900px;
+        margin: 0 auto;
+      }
+      #header{
+        height: 50px;
+        background: #333;
+      }
+      .navigation{
+        float: right;
+        padding-right: 10px;
+      }
+      .logo img{
+        padding-left: 10px;
+        height: 40px;
+        float: left;
+      }
+      .navigation li{
+        float: left;
+        margin-left: 15px;
+      }
+      .navigation li a{
+        color: #FFF;
+        display: block;
+        line-height: 50px;
+        height: 50px;
+        padding: 0 10px;
+        font-size:  16px;
+      }
+      .navigation li a:hover{
+        background-color: #FFF;
+        color: #333;
+
+      }
+
+      /*侧边栏*/
+      #content{
+        margin-top: 10px;
+      }
+      #content:after{
+        content: '';
+        display: table;
+        clear: both;
+      }
+      #content .aside{
+        float: left;
+        width: 200px;
+        height: 500px;
+        background-color: #eee;
+      }
+
+      #content .main{
+        margin-left: 210px;
+        padding:20px 10px;
+        background-color: #eee;
+      }
+      .main h1{
+        padding: 20px 0;
+      }
+      #footer{
+
+        background-color: #333;
+        padding: 10px 0;
+
+      }
+      #footer:after{
+    		content: '';
+    		display: table;
+    		clear: both;
+    	}
+      #footer li{
+        float: left;
+        margin-left: 10px;
+      }
+      #footer li a{
+        color:#fff;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="container">
+        <a class=logo href="#">
+          <img src="logo-tiny.png" alt="jirengu" />
+        </a>
+        <ul class="navigation">
+          <li><a href="#">技能</a></li>
+          <li><a href="#">经历</a></li>
+          <li><a href="#">作品</a></li>
+          <li><a href="#">关于</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div id="content">
+      <div class="container">
+        <div class="aside">
+
+        </div>
+        <div class="main">
+          <h1>我的作品</h1>
+          <p>生活很美好</p>
+          <p>心情不错</p>
+          <p>代码写的很漂亮</p>
+        </div>
+
+      </div>
+
+    </div>
+    <div id="footer">
+      <ul class="container">
+        <li><a href="http://jirengu.com">饥人谷</a></li>
+        <li><a href="http://jscode.me">JSCODE</a></li>
+        <li><a href="http://js.jirengu.com">JSBIN</a></li>
+      </ul>
+    </div>
+
+
+  </body>
+</html>

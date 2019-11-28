@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wrap{
+            position:relative;
+            padding:30px;
+        }
+        .box{
+            position:absolute;
+            right:20px;
+            top:20px;
+            width:80px;
+            height:50px;
+            background:#222;
+            color:#fff;
+            line-height:50px;
+            text-align:center;
+        }
+        .node.active{
+            background:#ccc;
+        }
+        #ct{
+            border:1px solid;
+        }
+        .node-img{
+            width:300px;
+            height:300px;
+        }
+        .text-play{
+            font-size:24px;
+            line-height:30px;
+            padding-left:20px;
+            margin:10px 0;
+            width:280px;
+            height:30px;
+            background:deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">T1~T2</div>
+        <div class="node">给元素 $node 添加 class active，给元素 $noed 删除 class active</div>
+        <button class="btn1">点我addClass</button>
+        <button class="btn2">点我removeClass</button>
+        <button class="btn3">点我toggleClass</button>
+        <button class="node-hide">点我隐藏</button>
+        <button class="node-show">点我出现</button>
+        <hr/>
+    </div>
+    <div class="wrap">
+        <div class="box">T3~T4</div>
+        <img id="node-img" class="node-img" src="haha.jpg" title="child">
+        <p></p>
+        <button class="btn4">点我查询src</button>
+        <button class="btn5">点我查询id</button>
+        <button class="btn6">点我查询title</button>
+        <div class="text-play"></div>
+        <input class="text-input" type="text" placeholder="请输入修改内容"/>
+        <button class="btn7">点我修改src</button>
+        <button class="btn8">点我修改id</button>
+        <button class="btn9">点我修改title</button>
+        <p></p>
+        <input class="text-key" type="text" placeholder="请输入修改属性"/>
+        <input class="text-valuer" type="text" placeholder="请输入修改值"/>
+        <button class="btn10">点我添加自定义属性</button>
+        <hr/>
+    </div>
+    <div class="wrap ct">
+        <div class="box">T5~T9</div>
+        <p></p>
+        <button class="ct-btn1">点我ct头部添加img</button>
+        <button class="ct-btn2">点我ct尾部添加img</button>
+        <button class="ct-btn3">点我删除img</button>
+        <button class="ct-btn4">点我清空ct</button>
+        <p></p>
+        <div class="new-ct">T9:在$ct 里设置 html---$ct.html('...')</div>
+    </div>
+    <hr/>
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+    //=========================T1~T2=================================
+    $('.btn1').on('click',function(){
+        $('.node').addClass('active');
+    });
+    $('.btn2').on('click',function(){
+        $('.node').removeClass('active');
+    });
+    $('.btn3').on('click',function(){
+        $('.node').toggleClass('active');
+    });
+    $('.node-hide').on('click',function(){
+        $('.node').hide(4000,'linear');
+    });
+    $('.node-show').on('click',function(){
+        $('.node').show(4000,'swing');
+    });
+    //=========================T3~T4=================================
+    $('.btn4').on('click',function(){
+        $('.text-play').text($('.node-img').attr('src'));
+    });
+    $('.btn5').on('click',function(){
+        $('.text-play').text($('.node-img').attr('id'));
+    });
+    $('.btn6').on('click',function(){
+        $('.text-play').text($('.node-img').attr('title'));
+    });
+    $('.btn7').on('click',function(){
+        $('.node-img').attr('src',$('.text-input').val());
+    });
+    $('.btn8').on('click',function(){
+        $('.node-img').attr('id',$('.text-input').val());
+    });
+    $('.btn9').on('click',function(){
+        $('.node-img').attr('title',$('.text-input').val());
+    });
+    $('.btn10').on('click',function(){
+        $('.node-img').attr($('.text-key').val(),$('.text-valuer').val());
+    });
+    //=========================T5~T9=================================
+    $('.ct-btn1').on('click',function(){
+        $(".wrap.ct").prepend(' <img class="img-new" src="haha.jpg" title="child">')
+    });
+    $('.ct-btn2').on('click',function(){
+        $(".wrap.ct").append(' <img class="img-new" src="haha.jpg" title="child">')
+    });
+    $('.ct-btn3').on('click',function(){
+        $(".img-new").remove();
+    });
+    $('.ct-btn4').on('click',function(){
+        $(".wrap.ct").empty();
+    })
+</script>
+</body>
+</html>

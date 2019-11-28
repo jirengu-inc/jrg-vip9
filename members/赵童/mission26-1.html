@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        body {
+            border: 1px solid #ccc;
+        }
+        
+        div {
+            height: 50px;
+            width: 100px;
+            border: 20px solid black;
+            padding: 30px;
+            margin: 40px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p id="p"></p>
+    <br/>
+    <button id="btn1">获取高度</button>
+    <button id="btn2">获取包括内边距高度</button>
+    <button id="btn3">获取包括边框高度</button>
+    <button id="btn4">获取包括外边距高度</button>
+    <br/>
+    <button id="btn9">设置高度200px</button>
+    <button id="btn10">设置包括内边距高度200px</button>
+    <button id="btn11">设置包括边框高度200px</button>
+    <button id="btn12">设置包括外边距高度200px</button>
+    <br/>
+    <button id="btn5">获取宽度</button>
+    <button id="btn6">设置包括内边距宽度</button>
+    <button id="btn7">设置包括边框宽度</button>
+    <button id="btn8">设置包括外边距宽度</button>
+    <br/>
+    <button id="btn13">设置宽度300px</button>
+    <button id="btn14">设置包括内边距宽度300px</button>
+    <button id="btn15">设置包括边框宽度300px</button>
+    <button id="btn16">设置包括外边距宽度300px</button>
+    <script>
+    var $div = $('div');
+    var $p = $('p');
+    $('#btn1').on('click',function(){
+        $p.text(getCss($div,'height'));
+    })
+    $('#btn2').on('click',function(){
+        $p.text(getCss($div,'height','padding'));
+    })
+    $('#btn3').on('click',function(){
+        $p.text(getCss($div,'height','border'));
+    })
+    $('#btn4').on('click',function(){
+        $p.text(getCss($div,'height','margin'));
+    })
+
+    $('#btn9').on('click',function(){
+        setCss($div,'height',200);
+    })
+    $('#btn10').on('click',function(){
+        setCss($div,'height',200,'padding');
+    })
+    $('#btn11').on('click',function(){
+        setCss($div,'height',200,'border');
+    })
+    $('#btn12').on('click',function(){
+        setCss($div,'height',200,'margin');
+    })
+
+    $('#btn5').on('click',function(){
+        $p.text(getCss($div,'width'));
+    })
+    $('#btn6').on('click',function(){
+        $p.text(getCss($div,'width','padding'));
+    })
+    $('#btn7').on('click',function(){
+        $p.text(getCss($div,'width','border'));
+    })
+    $('#btn8').on('click',function(){
+        $p.text(getCss($div,'width','margin'));
+    })
+
+    $('#btn13').on('click',function(){
+        setCss($div,'width',300);
+    })
+    $('#btn14').on('click',function(){
+        setCss($div,'width',300,'padding');
+    })
+    $('#btn15').on('click',function(){
+        setCss($div,'width',300,'border');
+    })
+    $('#btn16').on('click',function(){
+        setCss($div,'width',300,'margin');
+    })
+    function getCss(obj,type,opts){
+        if(type == 'height'){
+            var ini = 0;
+            var val = parseInt(obj.css('height'));
+            if(opts){
+                ini = checkHeight(obj,opts);
+            }
+            return val + ini +'px';
+        }
+        if(type == 'width'){
+            var ini = 0;
+            var val = parseInt(obj.css('width'));
+            if(opts){
+                ini = checkWidth(obj,opts);
+            }
+            return val + ini +'px';
+        }
+    };
+    function setCss(obj,type,value,opts){
+        if(type == 'height'){
+            var ini = 0;
+            var val = parseInt(value);
+            if(opts){
+                ini = checkHeight(obj,opts);
+            }
+            obj.css('height',(val - ini) +'px');
+        }
+        if(type == 'width'){
+            var ini = 0;
+            var val = parseInt(value);
+            if(opts){
+                ini = checkWidth(obj,opts);
+            }
+            obj.css('width',(val - ini) +'px');
+        }
+    }
+    function checkHeight(obj,agmt){
+        var i = 0;
+        if(agmt == 'padding'){
+            i += parseInt(obj.css('padding-top')) + parseInt(obj.css('padding-bottom'));
+        }
+        if(agmt == 'border'){
+            i += parseInt(obj.css('padding-top')) + parseInt(obj.css('padding-bottom'))+ parseInt(obj.css('border-top'))+ parseInt(obj.css('border-bottom'));
+        }
+        if(agmt == 'margin'){
+            i += parseInt(obj.css('padding-top')) + parseInt(obj.css('padding-bottom'))+ parseInt(obj.css('border-top'))+ parseInt(obj.css('border-bottom'))+ parseInt(obj.css('margin-top'))+ parseInt(obj.css('margin-bottom'));
+        }
+        return i;
+    }
+    function checkWidth(obj,agmt){
+        var i = 0;
+        if(agmt == 'padding'){
+            i += parseInt(obj.css('padding-left')) + parseInt(obj.css('padding-right'));
+        }
+        if(agmt == 'border'){
+            i += parseInt(obj.css('padding-left')) + parseInt(obj.css('padding-right'))+ parseInt(obj.css('border-left'))+ parseInt(obj.css('border-right'));
+        }
+        if(agmt == 'margin'){
+            i += parseInt(obj.css('padding-left')) + parseInt(obj.css('padding-right'))+ parseInt(obj.css('border-left'))+ parseInt(obj.css('border-right'))+ parseInt(obj.css('margin-left'))+ parseInt(obj.css('margin-right'));
+        }
+        return i;
+    }
+</script>
+</body>
+
+</html>

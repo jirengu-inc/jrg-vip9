@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task11-1</title>
+	<style>
+		/*重置默认样式*/
+		li{
+			list-style: none;
+		}
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		body,ul,li{
+			margin:0;
+			padding: 0;
+		}
+		/*重置默认样式*/
+		.navbar{
+			height: 40px;
+			background: #ccc;
+			font-size: 18px;
+			line-height: 40px;
+		}
+		.navbar>.item{
+			float: left;
+			padding-left: 20px;
+			padding-right: 20px;
+			position: relative;
+		}
+		.navbar>.item:hover{
+			background: #aaa;
+		}
+		.navbar .item ul{
+			display: none;
+		}
+		.navbar .item:hover ul{
+			display: block;
+			position: absolute;
+			background: white;
+			border:1px solid silver;
+			left: 0;
+			top: 100%;
+		}
+		.navbar .item li{
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+		.navbar .item li:hover{
+			background: #ccc;
+		}
+
+	</style>
+</head>
+<body>
+	<ul class="navbar">
+		<li class="item">
+			<a href="#">前端</a>
+			<ul>
+				<li><a href="#">javascript</a></li>
+				<li><a href="#">css</a></li>
+				<li><a href="#">html</a></li>
+			</ul>
+		</li>
+		<li class="item">
+			<a href="#">服务端</a>
+			<ul>
+				<li><a href="#">NODE</a></li>
+				<li><a href="#">PHP</a></li>
+				<li><a href="#">java</a></li>
+			</ul>
+		</li>
+		<li class="item">
+			<a href="#">前端工具</a>
+			<ul>
+				<li><a href="#">sublime</a></li>
+				<li><a href="#">webstorm</a></li>
+				<li><a href="#">Git</a></li>
+			</ul>
+		</li>
+		<li class="item">
+			<a href="#">HTML</a>
+		</li>
+		<li class="item">
+			<a href="#">NODE</a>
+		</li>
+	</ul>
+</body>
+</html>

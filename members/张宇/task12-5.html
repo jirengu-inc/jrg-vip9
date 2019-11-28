@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>双飞翼三栏布局</title>
+    <style>
+        * {
+            font: 30px/1.5 "微软雅黑";
+        }
+
+        body {
+            min-width: 900px;
+        }
+
+        #header,
+        #footer {
+            height: 40px;
+            background: #666;
+        }
+
+        #content {
+            background: #eee;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .main,
+        .aside,
+        .extra {
+            float: left;
+            min-height: 100px;
+        }
+
+        .aside,
+        .extra {
+            width: 200px;
+        }
+
+        .main {
+            width: 100%;
+        }
+
+        .wrap {
+            /*margin-left: 200px;*/
+            margin-right: 200px;
+            background: blue;
+            min-height: 100px;
+        }
+
+        .aside {
+            background: red;
+            margin-left: -100%;
+        }
+
+        .extra {
+            background: yellow;
+            margin-left: -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">Header</div>
+    <div id="content" class="clearfix">
+        <div class="main">
+            <div class="wrap">我是wrap</div>
+        </div>
+        <!-- <div class="aside">我是aside</div> -->
+        <div class="extra">我是extra</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+</html>

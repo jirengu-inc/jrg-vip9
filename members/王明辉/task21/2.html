@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+<div id="div1" class="box dd box-2 box3"></div>
+
+<script>
+    // 2. 使用实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)，使用正则
+
+    function addClass(el, cls){
+        var re = new RegExp('\\b'+ cls +'\\b','g');
+
+        if(!re.test(el.className)){
+            el.className += ' '+cls;
+        }
+        return el.className;
+    }
+
+    function removeClass(el, cls){
+        var re = new RegExp('\\b'+ cls +'\\b','g');
+
+        el.className = el.className.replace(re,'');
+
+        return el.className;
+    }
+
+    function hasClass(el, cls){
+        var re = new RegExp('\\b'+ cls +'\\b','g');
+        return re.test(el.className)
+    }
+
+    var div1 = document.getElementById('div1');
+    addClass(div1,'box1');
+    removeClass(div1,'box2');
+    removeClass(div1,'box1');
+</script>
+</body>
+</html>

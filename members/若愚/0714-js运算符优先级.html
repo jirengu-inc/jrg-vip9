@@ -1,0 +1,77 @@
+<script>
+	var a = 0;
+	var b = 3;
+	var c = 2;
+	var d = 4
+	var e = 1
+	var f = 5
+	var g = 7
+	console.log( typeof a+b );
+	w0 = a? b: c ? d : e? f : g
+	w1 = ((a? b: c) ? d : e)? f : g;
+	w2 = a? b: (c ? d : (e? f : g));
+	console.log(w0, w1, w2)
+
+
+	if(b>0){
+		console.log('b>0')
+	}else{
+		console.log('b<0')
+	}
+	var a2='123';
+	if( -a2 ){
+		console.log('a is true');
+	}else{
+		console.log('a is false');
+	}
+
+	var socre = 98;
+	if(socre >90){
+		console.log('优秀')
+	}else if(socre >85){
+		console.log('良好')
+	}else{
+		console.log('不错')
+	}
+
+
+	var name = 'hunger';
+
+	switch(name){
+		case 'valley':
+			// console.log('valley');
+			// console.log('hello valley');
+			// break;
+		case 'hunger':
+			console.log('hunger')
+			console.log('ok hunger');
+			break;
+		default:
+			console.log('nobody');
+
+	}
+
+	switch(true){
+		case socre>90:
+			console.log('>90')
+			break;
+		case socre>85:
+			console.log('>85')
+			break;
+		default:
+			console.log('不及格')
+	}
+
+	var isHungery = true;
+	var level = 0;
+	while(isHungery){
+		console.log('我要吃,我现在是'+level+'分饱');
+		level++;
+		if(level===10){
+			isHungery = false;
+		}
+	}
+
+
+
+</script>

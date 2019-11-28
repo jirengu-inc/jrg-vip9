@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var obj = {
+            className: 'open menu'
+        }
+
+        var saveArray = new Array();
+
+        function changeMo() {
+            saveArray = obj.className.split(" ");
+            for (var i = 0; i < saveArray.length; i++) {
+                return saveArray;
+            }
+        }
+        document.write(changeMo());
+        // function addClass(){
+        //
+        // }
+    </script>
+</body>
+
+</html>

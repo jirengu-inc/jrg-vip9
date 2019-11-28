@@ -1,0 +1,37 @@
+div {
+    width: 90px;
+    height: 27px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+
+    padding-top: 5px;
+}
+.button-first{
+  background: url(http://csssprites.com/results/0a07e46ac74e4e91fa1e67481ead2109/result.png) no-repeat;
+  background-position: -3px -5px;
+}
+.button-second{
+  background: url(http://csssprites.com/results/0a07e46ac74e4e91fa1e67481ead2109/result.png) no-repeat;
+  background-position: -3px -101px;
+}
+.button-third{
+  background: url(http://csssprites.com/results/0a07e46ac74e4e91fa1e67481ead2109/result.png) no-repeat;
+  background-position: -3px -185px;
+}
+.button-first:hover{
+  background: url(http://csssprites.com/results/0a07e46ac74e4e91fa1e67481ead2109/result.png) no-repeat;
+  background-position: -4px -51px;
+  color: #D78DC1;
+}
+.button-second:hover{
+  background: url(http://csssprites.com/results/0a07e46ac74e4e91fa1e67481ead2109/result.png) no-repeat;
+  background-position: 1px -143px;
+  color: #D78DC1;
+}
+.button-third:hover{
+  background: url(http://csssprites.com/results/0a07e46ac74e4e91fa1e67481ead2109/result.png) no-repeat;
+  background-position: -8px -231px;
+  color: #D78DC1;
+}

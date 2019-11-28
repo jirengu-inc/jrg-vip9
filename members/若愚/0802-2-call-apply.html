@@ -1,0 +1,69 @@
+<script>
+	
+var Person = {
+	name: 'jirengu',
+	sayName: function(){
+		console.log(this);
+		console.log('hello', this.name)
+		//console.log('hello jirengu')
+		var _this = this;
+		setTimeout(function(){
+			console.log(_this.name);
+		}, 1000)
+	},
+	setName: function(name){
+		this.name = name;
+
+	}
+}
+
+var Person2 = {
+	name: 'ruoyu',
+	sayName: function(){
+		console.log(this);
+		//console.log('hello', people.name)
+		//console.log('hello jirengu')
+	}
+}
+
+function sayHello(){
+	console.log(this);
+}
+
+
+// people.name
+// people.sayName()
+// 
+// 
+// 
+
+
+var student = {
+	name: 'ruoyu'
+}
+
+function getName(str1, str2){
+	console.log(str1, str2);
+	console.log(this.name)
+}
+getName();
+getName.call(student, 'hello','world');
+getName.apply(student, ['hello', 'jirnegu'])
+
+var arr = [1,2,3,-9]
+Math.max(2,-1,9,0)
+Math.max.apply({},arr)
+Math.max.apply(null, arr)
+
+Math.min.apply(null, arr)
+
+
+function fn(){
+	console.log(arguments);
+	[].sort.call(arguments)
+	console.log(arguments)
+
+}
+fn(5,2,3)
+
+</script>

@@ -1,0 +1,130 @@
+a {
+	text-decoration:none;
+	color:#000;
+}
+ul li {
+	float:left;
+	list-style:none;
+	margin-right:20px;
+}
+.ct1:after,.ct2:after {
+	content:'';
+	display:block;
+	clear:both;
+}
+
+/*******************  背景图片  *********************/
+.control li a {
+	display:inline-block;
+	padding-left:20px;
+	font-size:16px;
+}
+.control .li1 a {
+	background:url(image/task9.png)  -1px -53px no-repeat;
+	background-size:20px auto;
+}
+.control .li1 a:hover {
+	background:url(image/task9.png)  -1px -79px no-repeat;
+	background-size:20px auto;
+	color:#a561bd;
+}
+
+.control .li2 a {
+	background:url(image/task9.png)  0px -1px no-repeat;
+	background-size:20px auto;
+}
+.control .li2 a:hover {
+	background:url(image/task9.png)  -3px -27px no-repeat;
+	background-size:20px auto;
+	color:#a561bd;
+}
+.control .li3 a {
+	background:url(image/task9.png)  -2px -108px no-repeat;
+	background-size:20px auto;
+}
+.control .li3 a:hover {
+	background:url(image/task9.png)  0px -132px no-repeat;
+	background-size:20px auto;
+	color:#a561bd;
+}
+
+/*************  字体图标  ****************/
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1466750687'); /* IE9*/
+  src: url('iconfont.eot?t=1466750687#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1466750687') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1466750687') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1466750687#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont";
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-stop:before {
+    content: "\e8c2";
+}
+.icon-begin:before {
+    content: "\e61f";
+}
+.icon-go:before {
+    content: "\e62b";
+}
+.control2 a {
+	letter-spacing:2px;
+}
+.control2 a:hover {
+	color:#a561bd;
+}
+/************************  边框  ****************************/
+.border {
+	width:0;
+	height:0;
+	margin:50px;
+}
+.div1 {
+	border-top:50px solid blue;
+	border-right:50px solid yellow;
+	border-bottom:50px solid green;
+	border-left:50px solid red;
+}
+.div2 {
+	border-top:50px solid blue;
+	border-right:50px solid #fff;
+	border-bottom:50px solid #fff;
+	border-left:50px solid #fff;
+}
+.div3 {
+	border-top:50px solid #fff;
+	border-right:50px solid #fff;
+	border-bottom:50px solid #fff;
+	border-left:50px solid red;
+}
+.div4 {
+	border-top:50px solid #fff;
+	border-right:50px solid yellow;
+	border-bottom:50px solid #fff;
+	border-left:50px solid #fff;
+}
+.div5 {
+	border-top:50px solid #fff;
+	border-right:50px solid #fff;
+	border-bottom:50px solid green;
+	border-left:50px solid #fff;
+}
+.div6 {
+	border-top:50px solid #fff;
+	border-right:50px solid #fff;
+	/*border-bottom:50px solid green;*/
+	border-left:50px solid red;
+}
+.div7 {
+	border-top:50px solid #fff;
+	/*border-right:50px solid yellow;*/
+	border-bottom:50px solid green;
+	border-left:50px solid #fff;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu24-loadmore</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		list-style: none;
+		border: 1px solid black;
+		padding: 4px;
+		margin: 5px 0px;
+		height: 30px;
+		line-height: 30px;
+	}
+	li:hover {
+		background-color: green;
+	}
+	#btn {
+		text-decoration: none;
+		color: red;
+		border: 1px solid red;
+		display: block;
+		padding: 6px;
+        height: 16px;
+		width: 65px;
+		margin: 5px auto;
+	}
+
+</style>
+</head>
+<body>
+	<ul id="ct">
+		<li>内容1</li>
+		<li>内容2</li>
+	</ul>
+	<a href="#" id="btn">加载更多</a>
+    <script>
+    	function ajax(opts){
+    		var xmlhttp = new XMLHttpRequest();
+    		xmlhttp.onreadystatechange = function() {
+    			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    				var json = JSON.parse(xmlhttp.responseText);
+                    console.log(json);
+    				opts.success(json);
+    			}
+    			if (xmlhttp.readyState == 4 && xmlhttp.status == 404) {
+    				opts.error();
+    			}
+    		}
+    		var dataStr = '';
+    		for (var key in opts.data) {
+    			dataStr += key + '=' + opts.data[key] + '&';
+    		}
+    		dataStr = dataStr.substr(0, dataStr.length - 1);
+
+    		if (opts.type.toLowerCase() == 'post') {
+    			xmlhttp.open(opts.type, opts.url, true);
+    			xmlhttp.setRequestHeader('Content-type' , 'application/x-www-form-urlencoded');
+    			xmlhttp.send(dataStr);
+    		}
+    		if (opts.type.toLowerCase() == 'get') {
+    			xmlhttp.open(opts.type, opts.url + '?' + dataStr, true);
+    			xmlhttp.send();
+    		}
+    	}
+    	var btn = document.getElementById('btn');
+    	var ct = document.getElementById('ct');
+    	var flag = 0;
+    	var index = 2;
+    	btn.addEventListener('click', function(e){ 
+            btn.innerHTML = '<img src="img/loading.gif" />';
+            btn.style.border = 'none';
+    		e.preventDefault();
+    		if (flag) { return; }
+    		flag = 1;
+    		ajax({
+    			url: '/getMore.php',
+    			type: 'get',
+    			data: {
+    				start: index,
+    				len: index + 3
+    			},
+    			success: function(json){
+    				success(json);
+                    flag = 0;
+                    btn.innerHTML = '加载更多';
+                    btn.style.border = '1px solid red';
+    			},
+    			error: function(){
+    				console.log('出错');
+                    flag = 0;
+                    btn.innerHTML = '加载更多';
+                    btn.style.border = '1px solid red';
+    			}
+
+    		})
+    	});
+    	function success(json){
+            if (json.status == 1) {
+	            append(json.data);
+	            index += 3;
+            }
+    	}
+    	function  append(arr){
+	        for(var i = 0;i < arr.length;i++){
+	            var li = document.createElement('li');
+	            li.innerText = arr[i];
+	            ct.appendChild(li);
+	        }
+	    }
+    </script>
+</body>
+</html>

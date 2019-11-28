@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1466864547_9150589.css">
+    <style>
+        html,
+        body,
+        ul,
+        li,
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 80%;
+            color: black;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font: 1.4em/1.5 "微软雅黑";
+            text-align: center;
+        }
+        hr {
+            width: 100px;
+            opacity: 0.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            padding: 5px 15px;
+            display: inline-block;
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+
+        .btn-dark {
+            background: rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+
+        .btn-dark:hover {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        #header {
+            background: url(http://img.zcool.cn/community/018d6f575a85a90000018c1b4356bc.jpg) no-repeat center center;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            display: table;
+            color: white;
+        }
+
+        #header>.container {
+            height: 100%;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        h1 {
+            letter-spacing: 5px;
+        }
+
+        h3 {
+            letter-spacing: 2px;
+        }
+
+        #header>.container>p {
+            letter-spacing: 4px;
+        }
+
+        #introduce {
+            padding: 50px;
+        }
+
+        #skills {
+            background: #337ab7;
+            padding: 50px 0;
+            color: white;
+        }
+
+        .skills-list>li {
+            float: left;
+            display: inline-block;
+            width: 25%;
+            text-align: center;
+        }
+
+        .clearfix::after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        #skills .iconfont {
+            font-size: 2em;
+            color: #337ab7;
+            position: absolute;
+        }
+
+        #skills .icon-yuanxing {
+            font-size: 5em;
+            color: white;
+        }
+
+        .skill-icon-fix {
+            left: 30%;
+            top: 10%;
+        }
+
+        .fa-stack {
+            position: relative;
+            display: inline-block;
+            width: 5em;
+            height: 5em;
+            line-height: 5em;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        #slogan {
+            text-align: center;
+            padding: 100px 0;
+            background: url(http://img.zcool.cn/community/015ec2575a857d0000012e7e7f4643.jpg) no-repeat center center scroll;
+            background-size: cover;
+            color: white;
+        }
+
+        #projects {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        #projects .projects-list>li {
+            float: left;
+        }
+
+        #projects .projects-list>li>a {
+            display: inline-block;
+            width: 400px;
+            height: 300px;
+            background: #aaa;
+            margin: 25px;
+            overflow: hidden;
+        }
+
+        #projects .projects-list>li>a:hover {
+            opacity: 0.8;
+        }
+
+        #other {
+            background-color: #337ab7;
+            padding: 50px 0;
+            color: white;
+        }
+
+        #footer {
+            padding: 50px 0;
+        }
+
+        #footer h4 {
+            margin-bottom: 20px;
+        }
+
+        #footer .iconfont {
+            font-size: 1em;
+        }
+
+        #footer span {
+            font-size: 0.7em;
+        }
+
+        #footer p {
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        #footer a> .iconfont {
+            font-size: 2em;
+            color: #337ab7;
+            display: inline-block;
+            margin: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <h1>我是 张宇</h1>
+            <p>做一个繁华的人</p>
+            <a href="#introduce" class="btn btn-light">更多</a>
+        </div>
+    </div>
+    <div id="introduce">
+        <div class="container">
+            <div class="introduce">
+                <h2>一句话简介</h2>
+                <p>这里是我的简介，可以对自己做个简单的介绍。这里的背景图自己找个合适的，后期学完 js 可以做成轮播或者渐变，或者加入一些 CSS3的特效</p>
+            </div>
+        </div>
+    </div>
+    <div id="skills">
+        <div class="container clearfix">
+            <h2>我的技能</h2>
+            <hr>
+            <ul class="skills-list">
+                <li>
+                    <div class="fa-stack">
+                        <i class="iconfont icon-yuanxing"></i>
+                        <i class="iconfont icon-cloud skill-icon-fix"></i>
+                    </div>
+                    <h4>静态页面</h4>
+                    <p>这是一段说明文本</p>
+                    <a href="#" class="btn btn-light">More</a>
+                </li>
+                <li>
+                    <div class="fa-stack">
+                        <i class="iconfont icon-yuanxing"></i>
+                        <i class="iconfont icon-compass skill-icon-fix"></i>
+                    </div>
+                    <h4>JS组件插件</h4>
+                    <p>这是一段说明文本</p>
+                    <a href="#" class="btn btn-light">More</a>
+                </li>
+                <li>
+                    <div class="fa-stack">
+                        <i class="iconfont icon-yuanxing"></i>
+                        <i class="iconfont icon-shaoping skill-icon-fix"></i>
+                    </div>
+                    <h4>静态页面</h4>
+                    <p>这是一段说明文本</p>
+                    <a href="#" class="btn btn-light">More</a>
+                </li>
+                <li>
+                    <div class="fa-stack">
+                        <i class="iconfont icon-yuanxing"></i>
+                        <i class="iconfont icon-dunpai skill-icon-fix"></i>
+                    </div>
+                    <h4>静态页面</h4>
+                    <p>这是一段说明文本</p>
+                    <a href="#" class="btn btn-light">More</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="slogan">
+        <h1>一句有个性的话</h1>
+    </div>
+    <div id="projects">
+        <div class="container clearfix">
+            <h3>我的作品</h3>
+            <hr>
+            <ul class="projects-list clearfix">
+                <li>
+                    <a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/14/img/portfolio-4.jpg" alt=""></a>
+                </li>
+            </ul>
+            <a href="#" class="btn btn-dark">更多作品</a>
+        </div>
+    </div>
+    <div id="other">
+        <div class="container">
+            <h3>还有其他好东西</h3>
+            <br>
+            <div>
+                <a href="#" class="btn btn-light" style="margin-right:20px;">我的博客</a>
+                <a href="#" class="btn btn-dark">我的GitHub</a>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <h4>我的信息</h4>
+            <p>地址：山东省日照市东港区</p>
+            <p>
+                <i class="iconfont icon-dianhua"></i>
+                <span class="footer-msg">15615870000</span>
+            </p>
+            <p>
+                <i class="iconfont icon-youxiang"></i>
+                <a href="#" class="footer-msg">z51410206@hotmail.com</a>
+            </p>
+            <a href="#"><i class="iconfont icon-QQ"></i></a>
+            <a href="#"><i class="iconfont icon-github"></i></a>
+            <a href="#"><i class="iconfont icon-weibo"></i></a>
+            <hr>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

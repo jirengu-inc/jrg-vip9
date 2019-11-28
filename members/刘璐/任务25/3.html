@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-family: Tahoma,Arial,”Helvetica Neue“,”Hiragino Sans GB”,Simsun,sans-self;
+            font-size: 76%;
+            line-height: 1.5;
+        }
+        h1,h2,h3,h4,h5,h6,div,p,ul,li,body{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        .clearfix{
+            zoom:0;
+        }
+        .clearfix:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .wrap{
+            width:606px;
+            margin:100px;
+        }
+        h2{
+            font-size: 1.5em;
+            overflow: hidden;
+        }
+        .list-wrap{
+            margin-top: -30px;
+            margin-left: -30px;
+        }
+        .list{
+            width: 180px;
+            margin-top: 30px;
+            margin-left: 30px;
+            border: 1px solid #ccc;
+            position:relative;
+            float:left;
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.3);
+            display:none;
+        }
+        .hover .cover{
+            display:block;
+        }
+        .cover .btn{
+            width: 60px;
+            color: darkred;
+            font-size: 1em;
+            line-height: 3;
+            text-align: center;
+            display: block;
+            border: 1px solid darkred;
+            border-radius:3px;
+            margin:90px 60px;
+            background:#fff;
+        }
+        .list img{
+            width:180px;
+            height:180px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h2>珠宝饰品</h2>
+    <ul class="list-wrap clearfix">
+        <li class="list">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="#">
+                <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1999</p>
+            </a>
+        </li>
+        <li class="list">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="#">
+                <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1999</p>
+            </a>
+        </li>
+        <li class="list">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="#">
+                <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1999</p>
+            </a>
+        </li>
+        <li class="list">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="#">
+                <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1999</p>
+            </a>
+        </li>
+        <li class="list">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="#">
+                <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1999</p>
+            </a>
+        </li>
+        <li class="list">
+            <div class="cover"><a class="btn">立即抢购</a></div>
+            <a href="#">
+                <img src="https://img.alicdn.com/bao/uploaded/i3/TB18tDBMVXXXXbVXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg">
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1999</p>
+            </a>
+        </li>
+    </ul>
+    <button class="btn">更多</button>
+</div>
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+    var products = [
+        {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }
+    ];
+    function getProdHtml(add){
+        var html = "";
+        html    += '<li class="list">';
+        html    +=      '<div class="cover"><a class="btn">立即抢购</a></div>';
+        html    +=      '<a href="#">';
+        html    +=          '<img'+' '+'src='+'"'+add.img+'"';
+        html    +=          '<p>'+add.name+"</p>";
+        html    +=          '<p>'+add.price+"</p>";
+        html    +=       '</a>';
+        html    += '</li>';
+        return html;
+    }
+
+
+    $('.wrap>.btn').on('click', function(){
+        $.each(products, function(idx, prod){
+            var html = getProdHtml(prod);
+            $('.list-wrap').append(html);
+        });
+    });
+    $(".list-wrap").on("mouseenter","li",function(){
+        $(this).addClass("hover");
+    });
+    $(".list-wrap").on("mouseleave","li",function(){
+        $(this).removeClass("hover");
+    });
+</script>
+</body>
+</html>

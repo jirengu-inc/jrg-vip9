@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        #header, #body, #nav, #aside, #main, #footer {
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+        #header {
+            background: #22aaaa;
+            height: 100px;
+        }
+
+        #nav {
+            text-align: center;
+        }
+
+        #body {
+            background: #aaaaaa;
+        }
+
+        #aside {
+            background: #337ab7;
+            float: left;
+            width: 100px;
+            min-height: 500px;
+        }
+
+        #main {
+            background: #ffffff;
+            margin-left: 115px;
+            height: 1500px;
+        }
+
+        #footer {
+            background: #aaaaaa;
+        }
+
+        #goTop {
+            position: fixed;
+            right: 50px;
+            bottom: 30px;
+            padding: 10px 10px;
+            background: #22aaaa;
+            border: 1px solid #22aaaa;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 3px 3px 3px #333333;
+            color: white;
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <p>It's Header. </p>
+</div>
+
+<div id="nav" class="nav" style="background: #5ca2cf;">
+    <p>It's Nav. 我跟随浏览器窗口宽度。</p>
+</div>
+
+<div id="body" class="clearfix">
+    <div id="aside">
+        <p>I'm aside.</p>
+    </div>
+    <div id="main">
+        <p>I'm main.</p>
+    </div>
+</div>
+
+<div id="nav" class="nav" style="background: #57cf63;">
+    <p>It's Nav. 我跟随浏览器窗口宽度。</p>
+</div>
+
+<div id="body" class="clearfix">
+    <div id="aside">
+        <p>I'm aside.</p>
+    </div>
+    <div id="main">
+        <p>I'm main.</p>
+    </div>
+</div>
+
+<div id="nav" class="nav" style="background: #cf4f5d;">
+    <p>It's Nav. 我跟随浏览器窗口宽度。</p>
+</div>
+
+<div id="body" class="clearfix">
+    <div id="aside">
+        <p>I'm aside.</p>
+    </div>
+    <div id="main">
+        <p>I'm main.</p>
+    </div>
+</div>
+
+<div id="footer">
+    <p>It's Footer.</p>
+</div>
+
+<script>
+    /*    var clock;
+     var HTML = '';
+     HTML += '<div id="goTop">';
+     HTML += '<p><i class="fa fa-angle-up fa-lg"></i>返回顶部</p>';
+     HTML += '</div>';
+     $('body').append(HTML);
+
+     $('#goTop').on('click', function () {
+     $(window).scrollTop(0);
+     });
+
+     var HTMLDom = $('#goTop').detach();
+
+     $(window).on('scroll', function () {
+     var that = this;
+     clearTimeout(clock);
+     clock = setTimeout(function () {
+     console.log('in');
+     var scrollTop = $(that).scrollTop();
+     if (scrollTop >= 1000) {
+     if (!$('#goTop').length)
+     $('body').append(HTMLDom);
+     } else {
+     HTMLDom = $('#goTop').detach();
+     }
+
+     }, 300)
+     });*/
+
+    var goTopBtn = function(id,html) {
+        var clock;
+        var HTML = '';
+        var faded = false;
+        HTML += '<div id="'+ id +'">';
+        HTML += '<p><i class="fa fa-angle-up fa-lg"></i>返回顶部</p>';
+        HTML += '</div>';
+        $('body').append(HTML);
+        $goTop = $('#'+id);
+        $goTop.hide();
+        $goTop.on('click', function () {
+            $('body').animate({ scrollTop : 0 }, 120);
+        });
+
+        $(window).on('scroll', function () {
+            var that = this;
+            clearTimeout(clock);
+            clock = setTimeout(function () {
+                var scrollTop = $(that).scrollTop();
+                if (scrollTop >= 1000) {
+                    if(!faded) {
+                        $goTop.fadeIn(300);
+                        faded = true;
+                    }
+                } else {
+                    if(faded){
+                        $goTop.fadeOut(300);
+                        faded = false;
+                    }
+                }
+            }, 300)
+        });
+    };
+
+    goTopBtn('goTop');
+
+/*
+
+    var clock;
+    var HTML = '';
+    var faded = false;
+    HTML += '<div id="goTop">';
+    HTML += '<p><i class="fa fa-angle-up fa-lg"></i>返回顶部</p>';
+    HTML += '</div>';
+    $('body').append(HTML);
+    $goTop = $('#goTop');
+    $goTop.hide();
+    $goTop.on('click', function () {
+        $('body').animate({ scrollTop : 0 }, 120);
+    });
+
+    $(window).on('scroll', function () {
+        var that = this;
+        clearTimeout(clock);
+        clock = setTimeout(function () {
+            var scrollTop = $(that).scrollTop();
+            if (scrollTop >= 1000) {
+                if(!faded) {
+                    $goTop.fadeIn(300);
+                    faded = true;
+                }
+            } else {
+                if(faded){
+                    $goTop.fadeOut(300);
+                    faded = false;
+                }
+            }
+        }, 300)
+    });
+*/
+
+
+
+</script>
+<script>
+    $('.nav').each(function () {
+        fixNav($(this));
+    });
+
+    function fixNav(ele) {
+        var $nav = ele,
+                navH = $nav.height(),
+                navW = $nav.width(),
+                offsetTop = $nav.offset().top,
+                offsetLeft = $nav.offset().left;
+
+        var $navClone = $nav.clone()
+                .css({
+                    'position': 'fixed',
+                    'top': 0,
+                    'left': offsetLeft,
+                    'width': navW,
+                    'margin': 0,
+                    'z-index': 100
+                })
+                .hide()
+                .insertBefore($nav)
+                .data('data-fixed', false);
+
+
+        $(window).on('scroll', function () {
+            var scrollTop = $(this).scrollTop();
+
+            if (scrollTop >= offsetTop) {
+                if (!isFixed()) {
+                    setFix();
+                }
+            }
+            if (scrollTop < offsetTop) {
+                if (isFixed()) {
+                    stopFix();
+                }
+            }
+        });
+        $(window).on('resize', function () {
+            $navClone.css('width', $nav.width());
+        });
+
+
+        function setFix() {
+            $navClone.show();
+            $navClone.data('data-fixed', true);
+        }
+
+        function stopFix() {
+            $navClone.hide();
+            $navClone.data('data-fixed', false);
+        }
+
+        function isFixed() {
+            return $navClone.data('data-fixed');
+        }
+    }
+
+</script>
+</body>
+</html>

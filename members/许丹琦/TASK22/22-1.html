@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<p id="p">
+<span>这里是内容</span>
+</p>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<script type="text/javascript">
+function $(str){
+	return document.querySelector(str);
+}
+function $$(str){
+	return document.querySelectorAll(str);
+}
+
+var ct =$('.ct');
+ct.addEventListener('click',function(e){
+	console.log(e.target.innerText);
+})
+</script>
+    
+</body>
+</html>

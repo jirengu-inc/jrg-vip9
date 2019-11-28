@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html, body, h3, h5 {
+        padding: 0;
+        margin: 0;
+      }
+      .layout {
+        width: 856px;
+        position: relative;
+        margin: 10px auto;
+      }
+      .item-basic {
+        position: absolute;
+        border: 1px solid #ddd;
+        width: 250px;
+        padding: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        opacity: 0;
+      }
+      .item-basic>h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .item-basic>h5 {
+        margin-top: 10px;
+        color: #999;
+        font-weight: lighter;
+      }
+      .item-basic>.line {
+        height: 1px;
+        background: #ddd;
+      }
+      .item-basic>img {
+        width: 100%;
+      }
+      .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .loadTag {
+        height: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout"></div>
+    <div class="loadTag">加载中。。。。</div>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script src="SBFlowLayout.js"></script>
+    <script>
+      var currentIndex = 1;
+      var loadFinish = false;
+      var getPageData = function(){
+        $.getJSON('http://platform.sina.com.cn/slide/album_tech?jsoncallback=?&app_key=1271687855&num=9&page=' + currentIndex.toString(), function(data) {
+          var count = parseInt(data.count);
+          var str = '';
+          for (var i = 0; i < count; i++) {
+            str += domStringFromObject(data.data[i]);
+          }
+          var items = $(str);
+          $('.layout').append(items);
+          items.find('img').on('load', function() {
+            console.log('image loaded');
+            count--;
+            if (count === 0) {
+              $('.layout').sb_flowLayout(items, function() {
+                loadFinish = true;
+              });
+            }
+          });
+        })
+      };
+      getPageData();
+      var timer
+      $(window).on('scroll', function() {
+        if (timer) {
+          clearTimeout(timer);
+        }
+        if (isVisible($('.loadTag')) && loadFinish) {
+          timer = setTimeout(function() {
+            loadFinish = false;
+            currentIndex++;
+            getPageData();
+          }, 200);
+        }
+      });
+      function domStringFromObject(obj) {
+        return '<div class="item-basic"><img src="' +
+                obj.img_url +
+                '" alt="' + obj.name +
+                '"><h3>' + obj.short_name + '</h3>' +
+                '<div class="line"></div><h5>' + obj.short_intro + '</h5></div>';
+      }
+      function isVisible($node) {
+			  var windowWidth = $(window).width();
+			  var windowHeight = $(window).height();
+			  var topOffset = $(window).scrollTop();
+			  var leftOffset = $(window).scrollLeft();
+        var nodeTop = $node.offset().top;
+        var nodeLeft = $node.offset().left;
+        var nodeWidth = $node.width();
+        var nodeHeight = $node.height();
+			  if ((nodeTop >= topOffset && nodeTop <= topOffset + windowHeight) || (nodeTop + nodeHeight >= topOffset && nodeTop + nodeHeight <= topOffset + windowHeight)) {
+				  if ((nodeLeft >= leftOffset && nodeLeft <= leftOffset + windowWidth) || (nodeLeft + nodeWidth >= leftOffset && nodeLeft + nodeWidth <= leftOffset + windowWidth))
+						return true;
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

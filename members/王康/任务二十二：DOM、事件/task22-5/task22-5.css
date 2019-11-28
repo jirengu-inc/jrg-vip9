@@ -1,0 +1,74 @@
+div,p,h1,h2,h3,h4,h5,h6,a,button{
+  margin: 0;
+  padding: 0;
+  font-size: 16px
+}
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1471481907'); /* IE9*/
+  src: url('iconfont.eot?t=1471481907#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1471481907') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1471481907') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1471481907#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.icon-close {
+  font-family:"iconfont" ;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-close:before { content: "\e62d"; }
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.3)
+}
+.dialog-box {
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+.dialog-box .header {
+  border-bottom: 1px solid #aaa;
+}
+.dialog-box .header h1 {
+  line-height: 40px;
+  display: inline-block;
+  margin-left: 15px;
+}
+.dialog-box .header .close {
+  display: table-cell;
+  float: right;
+  line-height: 40px;
+  margin-right: 15px;
+}
+.dialog-box .contents {
+  padding:15px;
+  border-bottom: 1px solid #ccc;
+}
+.dialog-box .contents p {
+  line-height: 30px;
+}
+.dialog-box .footer .btn {
+  line-height: 40px;
+  float: right;
+  margin-right: 15px;
+}

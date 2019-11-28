@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+  .btn {
+    margin: 50px auto;
+    display: block;
+  }
+</style>
+</head>
+<body>
+<button class="btn">
+  jsonp
+</button>
+<script>
+document.querySelector('.btn').addEventListener('click', function(){
+  var script = document.createElement('script');
+  script.src = 'http://b.yangran.com:8080/jsonp?callback=fn';
+  document.head.appendChild(script);
+  document.head.removeChild(script);
+})
+  function fn(data) {
+    console.log('jsonp获得');
+    console.log(data);
+  }
+</script>
+</body>
+</html>

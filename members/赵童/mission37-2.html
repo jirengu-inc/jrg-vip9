@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>DatePicker</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        .picker{
+            width: 240px;
+            border: 1px solid #ccc;
+        }
+        .header{
+            background: lightcoral;
+            color: white;
+            font-size: 0.8rem;
+            line-height: 2rem;
+            text-align: center;
+        }
+        .caret-left{
+            display: block;
+            float: left;
+            border-left: 8px solid transparent;
+            border-top: 8px solid transparent;
+            border-right: 8px solid white;
+            border-bottom: 8px solid transparent;
+            margin-top: 6px;
+            cursor: pointer;
+        }
+        .caret-right{
+            display: block;
+            float: right;
+            border-left: 8px solid white;
+            border-top: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            margin-top: 6px;
+            cursor: pointer;
+        }
+        .content{
+            width: 100%;
+            text-align: center;
+        }
+        .content th{
+            line-height: 2rem;
+        }
+        .content td{
+            font-size: 0.8rem;
+            line-height: 1.5rem;
+        }
+        .current-month:hover{
+            cursor: pointer;
+            background: #ccc;
+        }
+        .other-month{
+            color: #ccc;
+        }
+        .today{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input id="input1" type="text">
+    <!--<div class="picker">
+        <div class="header">
+            <span class="caret-left"></span>
+            <span class="display">2016年12月</span>
+            <span class="caret-right"></span>
+        </div>
+        <table class="content">
+            <tr>
+                <th>日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th>六</th>
+            </tr>
+            <tr>
+                <td class="other-month">01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+                <td>05</td>
+                <td>06</td>
+                <td>07</td>
+            </tr>
+            <tr>
+                <td class="current-month">08</td>
+                <td>09</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+            </tr>
+        </table>
+    </div>-->
+
+<script>
+    function DatePicker($input){
+        this.$input = $input;
+        this.today = new Date();
+        this.init($input);
+        this.getDate();
+        this.setDate();
+        this.create();
+        this.bind();
+    }
+    DatePicker.prototype = {
+        init: function($input){
+            var tpl = '<div class="picker"><div class="header">'
+                    + '<span class="caret-left"></span>'
+                    + '<span class="display"></span>'
+                    + '<span class="caret-right"></span></div>'
+                    + '<table class="content">'
+                    + '<tr><th>日</th><th>一</th><th>二</th><th>三</th>'
+                    + '<th>四</th><th>五</th><th>六</th></tr></div>';
+            $input.after($(tpl));
+            this.$picker = this.$input.next('.picker');
+            this.$picker.hide();
+        },
+        getDate: function(){
+            this.firstDay = firstDay(this.today);
+            this.lastDay = lastDay(this.today);
+            function firstDay(date){
+                var newDate = new Date(date);
+                newDate.setDate(1);
+                return newDate;
+            }
+            function lastDay(date){
+                if(date.getMonth() > 11){
+                    var year = date.getFullYear();
+                    var nextDay = new Date(date);
+                    nextDay.setFullYear(year+1);
+                    nextDay.setMonth(0);
+                    nextDay.setDate(1);
+                    return new Date(nextDay - 60*60*24*1000);
+                }else{
+                    var month = date.getMonth();
+                    var nextDay = new Date(date);
+                    nextDay.setMonth(month+1);
+                    nextDay.setDate(1);
+                    return new Date(nextDay - 60*60*24*1000);
+                }
+            }
+        },
+        setDate: function(){
+            this.dateArr = [];
+            for(var i = this.firstDay.getDay();i > 0;i--){
+                var a = new Date(this.firstDay - 60*60*24*1000*i);
+                this.dateArr.push({type: 'previous',date:a});
+            };
+            for(var j = 1;j < this.lastDay.getDate()+1;j++){
+                var b = new Date(this.today);
+                b.setDate(j);
+                this.dateArr.push({type: 'current' , date: b});
+            };
+            for(var k = 0;k < 6 - this.lastDay.getDay();k++){
+                var c = new Date(this.lastDay);
+                if(this.lastDay.getMonth() > 10){
+                    c.setFullYear(this.lastDay.getFullYear() + 1);
+                    c.setMonth(0);
+                }else{
+                    c.setMonth(this.lastDay.getMonth() + 1);
+                }
+                c.setDate(k+1);
+                this.dateArr.push({type:'next',date:c});
+            }
+        },
+        create: function(){
+            var display = this.today.getFullYear() + '年' +(this.today.getMonth()+1) +'月';
+            var tpl = '';
+            for(var i = 0;i < this.dateArr.length;i++){
+                if(i%7 === 0){
+                    tpl += '<tr>';
+                }
+                tpl += '<td class="';
+                if(this.dateArr[i].type == 'current'){
+                    tpl += 'current-month';
+                }else{
+                    tpl += 'other-month';
+                }
+                if(this.dateArr[i].date.getDate() === this.today.getDate()){
+                    tpl += ' today';
+                }
+                tpl += '"';
+                tpl += 'data-date="' + getYYMMDD(this.dateArr[i].date) +'">';
+                tpl += this.dateArr[i].date.getDate() + '</td>';
+                if(i%7 === 6){
+                    tpl += '</tr>';
+                }
+                
+                function getYYMMDD(date){
+                    return (date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate());
+                }
+            }
+            this.$picker.find('.display').text(display);
+            this.$picker.find('.content').append($(tpl));
+        },
+        bind: function(){
+            var _this = this;
+            this.$display = this.$picker.find('.display');
+            this.$picker.find('.current-month').each(function(i,e){
+                $(this).on('click',function(){
+                    _this.$input.attr('value',$(this).data('date'));
+                    _this.$picker.hide();
+                })
+            })
+            this.$picker.find('.caret-left').on('click',function(){
+                event.stopPropagation();
+                _this.$picker.remove();
+                var oldToday = new Date(_this.today);
+                _this.today = previousMonth(oldToday);
+                _this.init(_this.$input);
+                _this.getDate();
+                _this.setDate();
+                _this.create();
+                _this.bind();
+                _this.$picker.show();
+            })
+            this.$picker.find('.caret-right').on('click',function(){
+                event.stopPropagation();
+                _this.$picker.remove();
+                var oldToday = new Date(_this.today);
+                _this.today = nextMonth(oldToday);
+                _this.init(_this.$input);
+                _this.getDate();
+                _this.setDate();
+                _this.create();
+                _this.bind();
+                _this.$picker.show();
+            })
+            this.$input.on('focus',function(){
+                _this.$picker.show();
+            })
+            this.$input.on('click',function(){
+                event.stopPropagation();
+            })
+            $('body').on('click',function(){
+                _this.$picker.hide();
+            })
+
+            function previousMonth(date){
+                if(date.getMonth() < 1){
+                    var newDate = new Date(date);
+                    newDate.setFullYear(date.getFullYear() - 1);
+                    newDate.setMonth(11);
+                    console.log()
+                    return newDate;
+                }else{
+                    var newDate = new Date(date);
+                    newDate.setMonth(date.getMonth()-1);
+                    return newDate;
+                }
+            }
+            function nextMonth(date){
+                if(date.getMonth() > 10){
+                    var newDate = new Date(date);
+                    newDate.setFullYear(date.getFullYear() + 1);
+                    newDate.setMonth(0);
+                    return newDate;
+                }else{
+                    var newDate = new Date(date);
+                    newDate.setMonth(date.getMonth()+1);
+                    return newDate;
+                }
+            }
+        }
+    }
+    new DatePicker($('#input1'));
+</script>
+</body>
+</html>

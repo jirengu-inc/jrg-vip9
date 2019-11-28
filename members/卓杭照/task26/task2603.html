@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2603</title>
+</head>
+<style>
+		ul,li{
+			margin: 0;
+			padding:0;
+			list-style-type: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.list>li{
+			height: 50px;
+			border: 1px solid #ccc;
+			margin: 5px;
+			line-height: 2;
+			cursor: pointer;
+		}
+		.list>li:hover{
+			background-color: green;
+		}
+		.btn{
+			text-align: center;
+		}
+		.btn>a{
+			padding: 10px 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			display: inline-block;
+			color: #f44336;
+		}
+		.btn>a:hover{
+			background-color: #339A67;
+		}
+	</style>
+<body>
+	<div class = "wrap">
+    	<ul class="list">
+    		<li>内容1</li>
+    		<li>内容2</li>
+    	</ul>
+    </div>
+    <div class="btn">
+    	<a href="#">加载更多</a>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    	var $btn = $('.btn')
+    	var $list = $('.list')
+
+    	var start = 2
+
+    	$list.on('mouseenter',"li",function(){
+    		$(this).addClass('hover')
+    	})
+		$list.on('mouseleave',"li",function(){
+    		$(this).removeClass('hover')
+    	})
+
+		var lock = false
+		$btn.on('click',function(e){
+			 e.preventDefault()
+			if(lock){
+				return
+			}
+			lock = true
+			$.ajax({
+				url:'task2603.php',
+				dataType:'json',
+				type : 'get',
+				data:{
+					start: 2,
+					len: 6
+				},
+				success:function(json){
+					onSuccess(json)
+					lock = false
+				},
+				error:function(json){
+					onError()
+					lock = false
+				}
+			})
+		})
+		function onSuccess(json){
+			var lock = false
+			console.log(json)
+			if(json.status===1){
+				append(json.data)
+				start += 6
+			}else{
+				alert('获取数据失败')
+			}
+		}
+		function onError(){
+			var lock = false
+			alert('系统异常')
+		}
+		function append(arr){
+			for(var i=0;i<arr.length;i++){
+				$list.append('<li>'+arr[i]+'</li>')
+			}
+		}
+    </script>
+</body>
+</html>

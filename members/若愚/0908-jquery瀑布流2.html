@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+		ul,li{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.ct{
+			position: relative;
+
+		}
+
+
+
+		.ct>ul>li{
+			/*float: left;*/
+			position: absolute;
+			width: 200px;
+			margin-right: 10px;
+			margin-top: 10px;
+/*			transition: all 1s;*/
+		}
+		.ct img{
+			width: 200px;
+		}
+
+		.h1{
+			height: 200px;
+			background-color: #f4b300;
+		}
+
+		.h2{
+			height: 300px;
+			background-color: #691BB8;
+		}
+
+		.h3{
+			height: 400px;
+			background-color: #006ac1;
+		}
+		.h4{
+			height: 500px;
+			background-color: #aabbcc;
+		}
+
+		</style>
+
+		<script>
+
+		</script>
+
+</head>
+<body>
+	<div class="ct">
+			<ul>
+				<li ><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" alt=""></li>
+				<li><img src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" alt=""></li>
+			</ul>
+	<div id="inner"></div>
+	</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+	var colHeightArr, boxWidth, colCount;
+	var $panels = $('.ct>ul>li');
+
+	init();
+	layout();
+
+
+	// $(window).on('resize', function(){
+	// 		init();
+	// 		layout();
+	// })
+
+
+	function init(){
+		colHeightArr = [];
+		boxWidth = $panels.outerWidth(true);
+		colCount = parseInt($('.ct').width() / boxWidth);
+
+		for(var i=0; i<colCount; i++){
+			colHeightArr.push(0);
+		}
+	}
+
+	function layout(){
+
+
+		var $imgs = $('.ct img')
+
+		$imgs.each(function() {
+				console.log(this.complete)
+		   if(this.complete){
+		   		setBox(this)
+		   }
+		});
+		$imgs.one("load", function() {
+		   setBox(this);
+		})
+	}
+	function setBox(img){
+			var $box = $(img).parent();
+			var minObject = getMin(colHeightArr),
+					minValue = minObject.minValue,
+					minIndex = minObject.minIndex;
+
+			$box.css({left: boxWidth*minIndex, top: minValue});
+			colHeightArr[minIndex] += $box.outerHeight(true);
+	}
+
+	// [20, 10, 50, 100]
+
+	function getMin(arr){
+		if(arr.length === 0) return;
+		var value = arr[0],
+				index = 0;
+		for(var i=0; i<arr.length; i++){
+			if(arr[i] < value){
+				value = arr[i];
+				index = i;
+			}
+		}
+
+		return {minValue: value, minIndex: index};
+	}
+
+
+</script>
+
+
+</body>

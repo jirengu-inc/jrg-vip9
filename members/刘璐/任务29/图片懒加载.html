@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片懒加载</title>
+    <style>
+        .img-ct{
+            width:1000px;
+            margin:0 auto;
+        }
+        .image{
+            width:480px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="img-ct">
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/17.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/18.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/19.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/20.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/21.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/22.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/27.jpg"/>
+        <img class="image" src="blank.png" data-src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg"/>
+    </div>
+
+
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+
+
+    var $image = $('.image');
+
+
+    $.each($image,function(){
+        var $this = $(this);
+        if($this.data('isLoading')){   //获取一个状态锁
+            return;
+        }
+        if(isVisible($this)){
+            console.log('true');
+            $this.data('isLoading', true);
+            show($this);
+        }
+    });
+
+
+
+    function isVisible($node){
+        var scrollTop = $(window).scrollTop();
+        var winH = $(window).height();
+        var offS =$node.offset().top;
+        var eleH =$node.outerHeight(true);
+        return (offS < scrollTop + winH)&&(scrollTop < offS + eleH);
+    }
+
+
+
+    function show($node){
+        var url = $node.attr('data-src');
+        $node.attr('src',url);
+    }
+
+
+
+    $(window).on('scroll',function(){
+
+        $.each($image,function(){
+            var $this = $(this);
+            if($this.data('isLoading')){   //获取一个状态锁
+                return;
+            }
+            if(isVisible($this)){
+                console.log('true');
+                $this.data('isLoading', true);
+                show($this);
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task10-2</title>
+	<style>
+		.box1,.box2,.box3,.box4{
+			width: 100px;
+			height: 50px;
+			border:1px solid silver;
+			margin-bottom: 20px;
+			font-size: 10px;
+		}
+		.decoration1{
+			width: 0;
+			border-bottom:8px solid #888;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+			margin-top:-8px;
+			margin-left: 5px;
+		
+		}
+		.decoration2{
+			width: 0;
+			border-bottom:8px solid transparent;
+			border-left:8px solid transparent;
+			border-right:8px solid red;
+			border-top:8px solid red;
+			margin-top:-1px;
+			margin-left: 85px;
+		}
+		.decoration3{
+			width: 0;
+			border-bottom:8px solid silver;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+			margin-top:-8px;
+			margin-left: 5px;
+		}
+		.decoration4{
+			width: 0;
+			border-bottom:8px solid #fff;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+			float:left;
+			margin-top:1px;
+			margin-left:-8px;
+		}
+		.decoration5{
+			width: 0;
+			border-bottom:8px solid #888;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+			position: relative;
+			right: -5px;
+			top: -8px;
+		}
+		.box4{
+			position: absolute;
+			right: 226px;
+			top: 8px;
+		}
+		p{
+			float: right;
+			margin-right: 15px;
+			margin-top: 18px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<p>用负margin定位</p>
+		<div class="decoration1">
+		</div>
+	</div>
+	<div class="box2">
+		<div class="decoration2"></div>
+	</div>
+	<div class="box3">
+		<div class="decoration3">
+			<div class="decoration4"></div>
+		</div>
+	</div>
+	<div class="box4">
+			<p>用positon定位</p>
+			<div class="decoration5"></div>
+		</div>
+</body>
+</html>

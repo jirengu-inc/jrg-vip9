@@ -1,0 +1,85 @@
+body,img,ul,li,a,h1,p{
+  margin: 0;
+  padding: 0;
+}
+body{
+		font: 14px/1.5 "Microsoft YaHei","微软雅黑",sans-serif;
+		color: #656565;
+	}
+img{
+  float: left;
+  height:50px;
+  margin-left: 10%;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+.header{
+  background-color: #333;
+  height: 50px;
+}
+.navbar{
+  float: right;
+  margin-right: 20%;
+}
+.navbar>li{
+  float: left;
+  line-height: 50px;
+}
+.navbar li a{
+  font-size: 16px;
+  padding: 17px 15px;
+  color: #fff;
+  font-weight:800;
+
+}
+.navbar li a:hover{
+  background-color: #fff;
+  color: #000;
+}
+.content{
+  width: 900px;
+  margin: 10px auto;
+}
+.aside{
+  float: left;
+  width: 180px;
+  min-height: 500px;
+  background-color: #eee;
+}
+.main{
+  float: left;
+  width: 700px;
+  margin-left: 10px;
+  background-color: #eee;
+}
+h1{
+  margin: 20px 10px;
+}
+p{
+  font:16px;
+  margin: 10px;
+}
+.clearfix{
+  clear: both;
+}
+.footer{
+  background-color: #333;
+  height: 40px;
+}
+.footer ul{
+  float: left;
+  margin-left: 10%;
+}
+.footer ul li{
+  float: left;
+  padding: 0 20px;
+}
+.footer ul li a{
+  line-height: 40px;
+  font-size: 18px;
+}

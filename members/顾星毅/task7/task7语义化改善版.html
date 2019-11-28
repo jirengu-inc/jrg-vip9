@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单练习</title>
+		<style media="screen">
+       .info dt,.info dd{
+       	float: left;
+       }
+			 .info dd{
+			 	margin-left: 5px;
+			 }
+			 .info{
+			 	overflow: auto;
+			 }
+			 .infomation{
+			 	margin: 20px;
+				font-family: "微软雅黑";
+			 }
+		</style>
+	</head>
+	<body>
+		<form class="infomation" action="index.html" method="post">
+			<dl class="info">
+				<dt>姓名:</dt>
+				<dd><input type="text" name="name" placeholder="用户名"></dd>
+			</dl>
+			<dl class="info">
+				<dt>密码:</dt>
+				<dd><input type="password" name="password"></dd>
+			</dl>
+			<dl class="info">
+				<dt>性别:</dt>
+				<dd><input type="radio" name="sex" value="male" checked="">男</dd>
+				<dd><input type="radio" name="sex" value="remale">女</dd>
+			</dl>
+			<dl class="info">
+				<dt>取向:</dt>
+				<dd><input type="radio" name="orientation" value="male">男</dd>
+				<dd><input type="radio" name="orientation" value="remale" checked="">女</dd>
+			</dl>
+			<dl class="info">
+				<dt>爱好:</dt>
+				<dd><input type="checkbox" name="hobby" value="dota">dota</dd>
+				<dd><input type="checkbox" name="hobby" value="travel" checked="">旅游</dd>
+				<dd><input type="checkbox" name="hobby" value="pets" checked="">宠物</dd>
+			</dl>
+			<dl class="info">
+				<dt>评论:</dt>
+				<dd><textarea name="maneywords" placeholder="请输入..." maxlength=100></textarea></dd>
+			</dl>
+			<dl class="info">
+				<dt>我的car:</dt>
+				<dd>
+					<select name="car">
+	        <option value="volvo">沃尔沃</option>
+	        <option value="saab" selected>萨博</option>
+	        <option value="honda">本田</option>
+	        <option value="toyota">丰田</option>
+	        </select>
+			  </dd>
+			</dl>
+			<dl class="info">
+					<dt><input type="submit" value="提交"></dt>
+			</dl>
+		</form>
+	</body>
+</html>

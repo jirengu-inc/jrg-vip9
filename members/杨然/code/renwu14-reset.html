@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>renwu14-1</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="font/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<style>
+			html, body, p, ul, li, img, h1, h2, h3, h4, a {
+				margin: 0;
+				padding: 0;
+			}
+			html, body {
+				font: 14px/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				height: 100%;
+			}
+			li {
+				list-style: none;
+			}
+			a {
+				text-decoration: none;
+			}
+			hr {
+				width: 75px;
+			}
+			img {
+				width: 465px;
+				height: 305px;
+			}
+			img:hover {
+				opacity: 0.7;
+			}
+			/*组件样式*/
+			.container {
+				width: 960px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			.btn:hover {
+				background-color: rgba(0, 0, 0, 0.7);
+			}
+			a.bigger-btn {
+				height: 50px;
+				line-height: 50px;
+			}
+			.btn {
+				color: #fff;
+				width: 140px;
+				height: 30px;
+				line-height: 30px;
+				display: inline-block;
+				background-color: rgba(0, 0, 0, 0.4);
+			}
+			.btn:hover {
+				background-color: rgba(0, 0, 0, 0.7);
+			}
+			.btn1 {
+				color: black;
+				width: 140px;
+				height: 30px;
+				line-height: 30px;
+				display: inline-block;
+				background-color: rgba(255, 255, 255, 1);
+			}
+			.btn1:hover {
+				background-color: rgba(255, 255, 255, 0.7);
+			}
+			.serbtn {
+				color: black;
+				width: 120px;
+				height: 30px;
+				line-height: 30px;
+				display: inline-block;
+				background-color: rgba(255, 255, 255, 1);
+			}
+			.serbtn:hover {
+				background-color: rgba(255, 255, 255, 0.8);
+			}
+			.clearfix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			/*header*/
+			#header {
+				color: #94deff;
+				line-height: 2;
+				height: 100%;
+				background: url(img/任务14/首页背景.png) no-repeat center center;
+				background-size: cover;
+			}
+			.table {
+				display: table;
+				height: 100%;
+			}
+			#header .centered {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+			/*content*/
+			/*about*/
+			#content .about {
+				padding: 55px 0;
+				line-height: 2;
+				text-align: center;
+			}
+			/*services*/
+			#content .services {
+				text-align: center;
+				color: #fff;
+				background-color: #337ab7;
+				line-height: 2;
+				padding: 75px 0;
+			}
+			#content .services h3 {
+				font-weight: normal;
+				font-size: 24px;
+			}
+			#content .services-order {
+				margin-left: -20px;
+			}
+			#content .services-order > li {
+				float: left;	
+				width: 225px;
+				margin-left: 20px;
+			}
+			/*callout*/
+			#content .callout {
+				background: url(img/任务14/插图.png) no-repeat center center;
+				background-size: cover;
+				text-align: center;
+				padding: 150px 0;
+				color: #fff;
+				font-size: 30px;
+				line-height: 2;
+			}
+			/*work*/
+			#content .work {
+				padding: 75px 0;
+				line-height: 2;
+			}
+			#content .work h2 {
+				font-weight: normal;
+			}
+			#content .work-order {
+				margin-left: -30px;
+			}
+			#content .work-order > li {
+				float: left;
+				margin: 15px 0 15px 30px;
+			}
+			/*extra*/
+			#content .extra {
+				padding: 75px 0;
+				color: #fff;
+				background-color: #337ab7;
+			}
+			#content .extra h3 {
+				margin: 15px 0;
+				font-weight: normal;
+				font-size: 24px;
+			}
+			/*footer*/
+			#footer {
+				padding: 50px;
+				line-height: 2;
+			}
+			#footer .call-icon {
+				padding: 0 10px;
+				color: #337ab7;
+			}
+			#footer .call-icon:hover {
+				color: #23527c;	
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="container table">
+				<div class="centered">
+					<h2>杨然</h2>
+					<p>一个爱健身的前端开发者</p>
+					<a href="#" class="btn  bigger-btn">Find Out More</a>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="about">
+				<div class="container">
+					<h3>Stylish Portfolio is the perfect theme for your next project!</h3>
+					<p>This theme features some wonderful photography courtesy of <a href="#">Death to Stock Photo.</a></p>
+				</div>
+			</div>
+			<div class="services" class="container">
+				<div class="container">
+					<h3>Our Services</h3>
+					<hr>
+					<ul class="services-order clearfix">
+						<li>
+							<i class="fa fa-cloud-download fa-5x"></i>
+							<h4>Service Name</h4>
+							<p>Lorem ipsum dolor sit amet,
+							consectetur adipisiciong elit.</p>
+							<a href="#" class="serbtn">Learn More</a>
+						</li>
+						<li>
+							<i class="fa fa-shopping-cart fa-5x"></i>
+							<h4>Service Name</h4>
+							<p>Lorem ipsum dolor sit amet,
+							consectetur adipisiciong elit.</p>
+							<a href="#" class="serbtn">Learn More</a>
+						</li>
+						<li>
+							<i class="fa fa-trophy fa-5x"></i>
+							<h4>Service Name</h4>
+							<p>Lorem ipsum dolor sit amet,
+							consectetur adipisiciong elit.</p>
+							<a href="#" class="serbtn">Learn More</a>
+						</li>
+						<li>
+							<i class="fa fa-leaf fa-5x"></i>
+							<h4>Service Name</h4>
+							<p>Lorem ipsum dolor sit amet,
+							consectetur adipisiciong elit.</p>
+							<a href="#" class="serbtn">Learn More</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="callout">
+				<div class="container">
+					<h1>Vertically Centered Text</h1>
+				</div>
+			</div>
+			<div class="work">
+				<div class="container">
+					<h2>Our Work</h2>
+					<hr>
+					<ul class="work-order clearfix">
+						<li><a href="#"><img src="img/任务14/桌面1.png" alt=""></a></li>
+						<li><a href="#"><img src="img/任务14/桌面2.png" alt=""></a></li>
+						<li><a href="#"><img src="img/任务14/桌面3.png" alt=""></a></li>
+						<li><a href="#"><img src="img/任务14/桌面4.png" alt=""></a></li>
+					</ul>
+					<a href="#" class="btn">View More Items</a>
+				</div>
+			</div>
+			<div class="extra">
+				<div class="container">
+					<h3>The buttons below are impossible to resist.</h3>
+					<a href="#" class="btn1 bigger-btn">Click Me!</a>
+					<a href="#" class="btn bigger-btn">Look at Me!</a>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="container">
+				<h4>Start Bootstrap</h4>
+				<p>3481 Melrose Place</p>
+				<p>Beverly Hills, CA 90210</p>
+				<p><i class="fa fa-phone"></i>(123)456-7890</p>
+				<p><i class="fa fa-envelope"></i><a href="#">name@example.com</a></p>
+				<a href="#" class="fa fa-github fa-3x call-icon"></a>
+				<a href="#" class="fa fa-twitter fa-3x call-icon"></a>
+				<a href="#" class="fa fa-coffee fa-3x call-icon"></a>
+				<hr>
+				<p>Copyright @ Your Website 2014</p>
+			</div>
+		</div>
+	</body>
+</html>

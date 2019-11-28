@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 26-2</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    
+    .ct {
+        margin: 0 auto;
+        width: 800px;
+        overflow: hidden;
+    }
+    
+    .scroll {
+        background-color: #ccc;
+        height: 30px;
+        width: 800px;
+        text-align: center;
+        position: fixed;
+
+    }
+    .btn{
+    	margin: 50px 20px 20px; 
+    	padding: 10px;
+    	border: 1px solid #ccc;
+    	border-radius: 3px;
+    	background-color: #f44336;
+    	cursor: pointer;
+    }
+    .div{
+    	margin-bottom: 20px;
+		width: 300px;
+		height: 300px;
+		border: 1px solid #ccc;
+    }
+    /*.change:focus{outline:blue} */
+
+    .change{
+    	margin: 10px 0 20px 0;
+    	width: 200px;
+    	height: 20px;
+
+    }
+    .footer{
+    	height: 600px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <div class="scroll">点我就告诉你距离顶部0像素</div>
+        <button class="btn">点我就变色给你看</button>
+        <div class="div">当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</div>
+        <p>输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写:</p>
+        <input type="text" class="change"><br>
+        <select name="color" class="color">
+            <option value="red">red</option>
+            <option value="green">green</option>
+            <option value="pink">pink</option>
+        </select>
+        <input type="text" class="answer">
+        <div class="footer"></div>
+    </div>
+</body>
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+//鼠标滚动显示
+$(window).scroll(function(){
+		$('.scroll').text('点我就告诉你距离顶部' + $(window).scrollTop() + '像素')
+})
+
+//点击按钮变色
+$('.btn').on('click',function(){
+	$('.btn').css('background-color','white')
+})
+
+//鼠标悬停状态变色
+$('.div').on('mouseenter', function(){
+	$(this).css('background-color','red')
+})
+$('.div').on('mouseleave', function(){
+
+	$(this).css('background-color','white')
+})
+
+
+//输入框变色，大写和输出
+$('.change').on('focus', function(){
+	$('.change').css('border','1px solid blue');
+	console.log($(this).val())
+})
+$('.change').on('blur', function(){
+	$('.change').css('border','1px solid #ccc');
+})
+$('.change').on('keyup', function(){
+	$(this).val($(this).val().toUpperCase());
+
+})
+$('.color').on('change', function(){
+	$('.answer').val($(this).val())
+})
+
+</script>
+
+</html>

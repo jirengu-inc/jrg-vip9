@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body,div{
+      margin:0;
+      padding: 0;
+    }
+    .box{
+      width: 200px;
+      height: 100px;
+      border: 1px solid #d3d3d3;
+      margin-top: 50px;
+      position: relative;
+    }
+    .triangel{
+      width: 0px;
+      height: 0px;
+    }
+    .triangel-gray{
+      border: 20px solid;
+      border-color: transparent transparent #d3d3d3 transparent;
+      position: absolute;
+      top:-41px;
+      left:10px;
+    }
+    .triangel-red{
+      border-left: 20px solid transparent;
+      border-top: 20px solid red;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    .triangel-transparent{
+      border: 20px solid;
+      border-color: transparent transparent #d3d3d3 transparent;
+      position: absolute;
+      top:-41px;
+      left:10px;
+      z-index: 1;
+    }
+    .triangel-transparent-cover{
+      border:20px solid;
+      border-color:transparent transparent #fff transparent;
+      position: absolute;
+      top:-40px;
+      left:10px;
+      z-index: 2;
+    }
+  </style>
+  <title>task10-1</title>
+</head>
+<body>
+      <div class="box">
+        <div class="triangel-gray triangel"></div>
+      </div>
+      <div class="box">
+        <div class="triangel-red triangel"></div>
+      </div>
+      <div class="box">
+        <div class="triangel-transparent triangel"></div>
+        <div class="triangel-transparent-cover triangel"></div>
+      </div>
+</body>
+</html>

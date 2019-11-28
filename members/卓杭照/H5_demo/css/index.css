@@ -1,0 +1,155 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.page,html,body{	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transition: 1s all;
+}
+
+/* page1 */
+.bg1{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+	background: url('../img/page1/bg1.png') no-repeat center center;
+	background-size: cover;
+}
+.p1_x{
+	background: url('../img/page1/p1_x.png') no-repeat;
+	background-size: cover;
+	height: 34vh;width: 100vw;
+	position: absolute;top:-4%;
+	z-index: 1;
+	animation: 3s p1_xiehou ease-out ;
+}
+.p1_qq{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: 1;
+	background: url('../img/page1/p1_qq.png') no-repeat center center;
+	background-size: cover;
+}
+.p1_star{width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top:-10%;
+	z-index: 1;
+	background: url('../img/page1/p1_star.png') no-repeat center center;
+	background-size: cover;
+	animation: 1s p1_star ease-out ;
+}
+@keyframes p1_star{
+	0%{transform: perspective(600px) rotateY(0deg)}
+	
+	100%{transform: perspective(600px) rotateY(360deg)}
+}
+
+
+.page2{
+	display: none;
+}
+.page3{
+	display: none;	
+	
+}
+.page4{
+	display: none;		
+}
+
+/* page2 */
+.p2_biaogan{
+	background: url('../img/p2_biaogan.png') no-repeat;
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	z-index: 1;
+}
+.p2_qq1{
+	background: url('../img/p2_qq1.png') no-repeat;
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	z-index: 1;
+}
+.p2_qq2{
+	background: url('../img/p2_qq2.png') no-repeat;
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	z-index: 1;
+}
+
+
+/* page3 */
+.bg3{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+	background: url('../img/bg3.png') no-repeat center center;
+	background-size: cover;
+}
+
+/* page4 */
+.bg{width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+	background: url('../img/star2.png') no-repeat center center;
+	background-size: cover;
+	animation: 1s star-bg linear alternate infinite;
+}
+@keyframes star-bg{
+	0% {background-image: url('../img/star.png')}
+	/* 50%{background-image: url('../img/star4.png'} */
+	100%{background-image: url('../img/star2.png')}
+
+}
+.p4_xiehou{background: url('../img/p1_xiehou.png') no-repeat;background-size: cover;height: 40vh;width: 100vw;position: absolute;top:-4%;z-index: 1;animation: 3s p1_xiehou ease-out ;
+}
+@keyframes p1_xiehou{
+	0%{top: -30%;}
+	25%{top: 0;}
+	50%{top: -10%}
+	100%{top: -4%;}
+}
+.p4_cloud4{background: url('../img/cloud1.png') no-repeat;background-size: cover;height: 100vh;width: 100vw;position: absolute;z-index: 1;
+}
+.p4_th{background: url('../img/p1_th.png') no-repeat;background-size: cover;height: 58vh;width: 86vw;position: absolute;left:7%;top:6%;z-index: 1;animation: 0.7s p1_th linear alternate infinite;
+}
+@keyframes p1_th{
+	0%{transform:scale(1.1,1.1)}
+	100%{transform:scale(1,1)}
+}
+.qq{background: url('../img/qq.png') no-repeat;background-size: cover;height: 100vh;width: 100vw;position: absolute;z-index: 1;
+}
+
+.cloud-bottom{background: url('../img/cloud2.png') no-repeat;background-size: cover;height: 100vh;width: 100vw;position: absolute;z-index: 1;
+}
+
+/* 翻页动画 */
+
+.fadeOut{
+	animation: 0.5s linear fadeOut forwards;
+}
+@keyframes fadeOut{
+	0%{transform: translate(0, 0%);}
+	100%{transform: translate(0, -100%);}
+}
+
+.fadeIn{
+	animation: 1s linear fadeIn forwards;
+	display: block;
+}
+@keyframes fadeIn{
+	0%{opacity: 0.2}
+	100%{opacity: 1}
+}

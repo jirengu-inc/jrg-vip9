@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5</title>
+</head>
+<body>
+<script>
+    // 5.下面这段代码输出结果是? 为什么?
+    var a = 1;
+    var a ;
+
+    setTimeout(function(){
+        a = 2;
+        console.log(a); // 2
+    }, 0);
+
+    console.log(a); // 1
+    a = 3;
+    console.log(a); // 3
+
+    // 312
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task18-6</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function camelize(str) {
+        var arr = str.split('-');
+        if (arr.length < 2) {
+          return;
+        }
+        for (var i = 1; i < arr.length; i++) {
+          arr[i] = arr[i].replace(arr[i][0], arr[i][0].toUpperCase());
+        }
+        return arr.join('');
+      }
+    </script>
+  </body>
+</html>

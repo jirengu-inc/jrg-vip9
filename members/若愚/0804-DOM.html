@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title>我的 DOM</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		hello
+		<a id="btn" hunger=123 href="http://jirengu.com">hunger <span>valley</span></a>
+		<h1 class="my-title">我是标题</h1>
+		<p class="my-title">我是段落</p>
+		<span>若愚</span>
+		<input type="password" name="ipt">
+
+		<script>
+		var btn = document.getElementById('btn');
+		var myTitle = document.getElementsByClassName('my-title');
+		var myName = document.getElementsByTagName('span');
+		var ipt = document.getElementsByName('pwd')[0];
+
+		var btn1 = document.querySelector('#btn');
+		document.querySelector('#btn span');
+		document.querySelector('.my-title');
+		document.querySelector('input[name=ipt]');
+
+		document.querySelectorAll('.my-title');
+
+
+		//
+		function $(str){
+			// if(str.length > 0 && str[0] === '#' ){
+			// 	return document.querySelector(str);
+			// }else{
+			// 	return document.querySelectorAll(str);
+			// }
+			return document.querySelector(str);
+		}
+		function $$(str){
+			return document.querySelectorAll(str);
+		}
+
+		// $('.my-title')
+		// $('#btn')
+		// 
+		// http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js
+
+		</script>
+
+	</body>
+</html>

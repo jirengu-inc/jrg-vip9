@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>圣杯两栏布局</title>
+    <style>
+        * {
+            font: 30px/1.5 "微软雅黑";
+        }
+        body{
+            min-width: 700px;
+        }
+        #header,
+        #footer {
+            min-height: 40px;
+            background: #666;
+        }
+
+        #content {
+            background: #eee;
+            padding-left: 200px ;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .main,
+        .aside {
+            float: left;
+            height: 100px;
+        }
+
+        .aside {
+            position: relative;
+            width: 200px;
+            background: red;
+            margin-left: -100%;
+            left: -200px;
+        }
+
+        .main {
+            background: blue;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="header">Header</div>
+    <div id="content" class="clearfix">
+        <div class="main">woshi main</div>
+        <div class="aside">woshi aside</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+</html>

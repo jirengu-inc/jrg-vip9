@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6</title>
+</head>
+<body>
+<script>
+    // 写一个camelize函数，把my-short-string形式的字符串转化成myShortString形式的字符串，如 (***)
+    camelize2("background-color") //'backgroundColor'
+    camelize2("list-style-image") //'listStyleImage'
+
+    function camelize(str){
+        // 方法1
+        str = str.replace(/-\w/g, function(item) {
+            return item.slice(1).toLocaleUpperCase();
+        });
+        return str;
+
+    }
+    function camelize2(str){
+        // 方法2
+        var arr = str.split("-");
+        // 如果str没有-就直接返回
+        if(arr.length === 1)return str;
+
+        for(var i = 1; i<arr.length; i++){
+            arr[i] = arr[i][0].toUpperCase()+arr[i].substring(1)
+        }
+
+        return arr.join('');
+    }
+
+
+</script>
+</body>
+</html>

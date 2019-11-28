@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task12-5</title>
+  <style>
+    body{
+      margin:0;
+    }
+    #header,#footer{
+      height: 30px;
+      background: silver;
+    }
+    .main{
+      width: 100%;
+      height: 150px;
+    }
+    .aside,.main{
+      float: left;
+    }
+    .aside{
+      width: 200px;
+      height:150px;
+      margin-left: -200px;
+      background: yellow;
+    }
+    .child{
+      height: 100%;
+      margin-right: 200px;
+      background: green;
+    }
+    #content:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">头部</div>
+  <div id="content">
+    <div class="main">
+      <div class="child">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae libero, possimus? Eaque quod adipisci minima reprehenderit hic, itaque officia numquam maiores aperiam architecto consequuntur accusamus laboriosam recusandae molestiae reiciendis, dolorem!</div>
+    </div>
+    <div class="aside">右侧边栏，宽度固定</div>
+  </div>
+  <div id="footer">尾部</div>
+</body>
+</html>

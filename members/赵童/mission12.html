@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>三栏布局</title>
+        <style media="screen">
+            div,ul,li,body{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            .clearfix:after{
+                content: " ";
+                display: block;
+                clear: both;
+            }
+            .one{
+                background-color: #ccc;
+                width: 900px;
+                margin: 0 auto;
+            }
+            .panels{
+                margin-left: -20px;
+                padding-bottom: 10px;
+            }
+            .panels> li{
+                float: left;
+                width: 286px;
+                height: 80px;
+                background: green;
+                margin-left: 20px;
+                margin-top: 10px;
+            }
+            /*以上是one的style*/
+            .grail .content{
+                padding-left: 200px;
+                min-width: 200px;
+            }
+            .grail .header{
+                margin-top: 10px;
+                background-color: #ccc;
+                height: 30px;
+            }
+            .grail .aside{
+                width: 200px;
+                height: 80px;
+                float: left;
+                background: red;
+                margin-left: -100%;
+                position: relative;;
+                left: -200px;
+            }
+            .grail .main{
+                float: left;
+                background-color: green;
+            }
+            .grail .ad{
+                float: left;
+                background: yellow;
+                width: 150px;
+                height: 80px;
+                margin-left: -150px;
+            }
+            .grail .footer{
+                margin-bottom: 10px;
+                background-color: #ccc;
+                height: 30px;
+            }
+            /*以上是圣杯*/
+            .wing .content{
+                min-width: 450px;
+            }
+            .wing .header{
+                margin-top: 10px;
+                background-color: #ccc;
+                height: 30px;
+            }
+            .wing .aside{
+                width: 200px;
+                height: 80px;
+                float: left;
+                background: red;
+                margin-left: -100%;
+                opacity: 1;
+            }
+            .wing .main{
+                float: left;
+            }
+            .wing .ad{
+                float: left;
+                background: yellow;
+                width: 150px;
+                height: 80px;
+                margin-left: -150px;
+            }
+            .wing .footer{
+                margin-bottom: 10px;
+                background-color: #ccc;
+                height: 30px;
+            }
+            .wing .wrap{
+                margin-left: 200px;
+                margin-right: 150px;
+            }
+            .wing .wrap2{
+                margin-left: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="one">
+            <ul class="panels clearfix">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </div>
+        <!-- 以上是one -->
+        <div class="grail">
+            <div class="header clearfix">圣杯3头部</div>
+            <div class="content clearfix">
+                <div class="main">内容我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main</div>
+                <div class="aside">左侧边栏</div>
+                <div class="ad">右侧边栏</div>
+            </div>
+            <div class="footer">尾部</div>
+        </div>
+        <!-- 以上是圣杯3栏 -->
+        <div class="grail">
+            <div class="header clearfix">圣杯2头部</div>
+            <div class="content clearfix">
+                <div class="main">内容我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main</div>
+                <div class="aside">左侧边栏</div>
+            </div>
+            <div class="footer">尾部</div>
+        </div>
+        <!-- 以上是圣杯2栏 -->
+        <div class="wing">
+            <div class="header clearfix">双飞翼3头部</div>
+            <div class="content clearfix">
+                <div class="main">
+                    <div class="wrap">
+                    内容我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main
+                    </div>
+                </div>
+                <div class="aside">左侧边栏</div>
+                <div class="ad">右侧边栏</div>
+            </div>
+            <div class="footer">尾部</div>
+        </div>
+        <!-- 以上是双飞翼3栏 -->
+        <div class="wing">
+            <div class="header clearfix">双飞翼3头部</div>
+            <div class="content clearfix">
+                <div class="main">
+                    <div class="wrap2">
+                    内容我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main
+                    </div>
+                </div>
+                <div class="aside">左侧边栏</div>
+            </div>
+            <div class="footer">尾部</div>
+        </div>
+    </body>
+</html>

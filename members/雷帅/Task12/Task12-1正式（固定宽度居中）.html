@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Task12-1正式（固定宽度居中）</title>
+<style>
+	html,body,ul,li{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	.ct{
+		background: #ddd;
+		margin: 0 auto;
+		margin-top: 40px;
+		padding: 10px 0;
+		width: 640px;
+	}
+	.container{
+		margin-left: -20px;
+	}
+	.container:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.container > li{
+		width: 200px;
+		height: 100px;
+		float: left;
+		background: #d9f;
+		margin-left: 20px;
+		margin-top: 10px;
+	}
+</style>
+</head>
+<body>
+    <div class="ct">
+    	<ul class="container">
+    		<li>1</li>
+    		<li>2</li>
+    		<li>3</li>
+    		<li>4</li>
+    		<li>5</li>
+    		<li>6</li>
+    	</ul>
+    </div>
+</body>
+</html>

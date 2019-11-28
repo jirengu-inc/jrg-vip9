@@ -1,0 +1,135 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.progress {
+    position: absolute;;
+    bottom:100px;
+    left: 14px;
+    width: 272px;
+    height: 14px;
+}
+
+.time {
+    position: absolute;
+    width: 26px;
+    height: 14px;
+    font-family: Arial;
+    line-height: 14px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.current-time {
+    text-align: right;
+    padding-right: 2px;
+}
+
+.full-time {
+    right: 0;
+    text-align: left;
+    padding-left: 2px;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 32px;
+    top: 3px;
+    width: 208px;
+    height: 8px;
+}
+
+.progress-bar .progress-pathway {
+    position: absolute;
+    top: 3px;
+    height: 2px;
+    width: 208px;
+    border-radius: 1px;
+    background-color: rgba(102, 102, 102, 0.6);
+}
+
+.progress-bar .progress-pathway .progress-line {
+    position: absolute;
+    left: 0px;
+    height: 2px;
+    width: 0px;
+    border-radius: 1px 0 0 1px;
+    background-color:#db4437;
+}
+
+.progress-bar .progress-pathway .progress-handle {
+    position: absolute;
+    float: left;
+    margin: -3px 0;
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 5px #fff;
+    cursor: pointer;
+}
+/* ----- 音量控制 -----*/
+
+.volume {
+    position: absolute;
+    bottom:130px;
+    left: 45px;
+    width: 150px;
+    height: 14px;
+}
+
+.volume-button {
+    height: 14px;
+    width: 14px;
+    line-height: 14px;
+    text-align: center;
+    font-family: 'iconfont';
+    font-size: 12px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.volume-bar {
+    position: absolute;
+    left: 21px;
+    top: 1px;
+    width: 106px;
+    height: 12px;
+}
+
+.volume-bar .volume-pathway {
+    position: absolute;
+    top: 5px;
+    height: 2px;
+    width: 106px;
+    border-radius: 1px;
+    background-color: rgba(102, 102, 102, 0.6);
+}
+
+.volume-bar .volume-pathway .volume-line {
+    float: left;
+    height: 2px;
+    width: 100px;
+    border-radius: 1px 0 0 1px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.volume-bar .volume-pathway .volume-handle {
+    position: relative;
+    float: right;
+    margin: -2px 0;
+    height: 6px;
+    width: 6px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="fontello.css" type="text/css">
+    <style>
+      /*reset style*/
+      html, body, ul, li, p, h1, h2, h3, h4, h5, h6 {
+        margin: 0px;
+        padding: 0px;
+      }
+      html, body {
+        height: 100%;
+        font-family: PingFangSC-Regular, "微软雅黑", SimHei
+      }
+      a {
+        text-decoration: none;
+      }
+      li {
+        list-style: none;
+      }
+      /*Common Class*/
+      .button-padding {
+        padding: 10px;
+      }
+      .normal-button-bg {
+        background: rgb(153, 153, 153);
+      }
+      .white-button-bg {
+        background: white;
+        color: black;
+      }
+      .clear-button-bg {
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .clear-button-bg, .normal-button-bg {
+        color: white;
+      }
+      .normal-bg {
+        background: rgb(55, 123, 181);
+      }
+      .normal-bg.normal-button-bg {
+        background: white;
+        color: black;
+      }
+      .normal-font-size {
+        font-size: 18px;
+      }
+      .title-font {
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 50px;
+        margin-bottom: 20px;
+      }
+      .light-font {
+        font-weight: lighter;
+      }
+      .offset {
+        height: 80px;
+      }
+      li.offset {
+        height: 40px;
+      }
+      .clear-merge {
+        padding-top: 1px;
+        padding-bottom: 1px;
+      }
+      .line {
+        align: center;
+        width: 80px;
+        color: white;
+      }
+      .max-length {
+        max-width: 250px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      /*title part*/
+      #title-part {
+        height: 100%;
+        width: 100%;
+        background-image: url(../Resources/bg.jpg);
+        background-position: center;
+        position: relative;
+      }
+      #title-part>.container {
+        color: white;
+        position: absolute;
+        bottom: 30%;
+        width: 100%;
+      }
+      #title-part>.container p {
+        font-size: 60px;
+      }
+      #title-part>.container h1 {
+        margin-top: 10px;
+        margin-bottom: 80px;
+      }
+      /*introduce part*/
+      #introduce-part h2 {
+        margin-bottom: 50px;
+      }
+      /*skill part*/
+      #skill-part h2:first-child {
+        color: white;
+      }
+      #skill-part>ul {
+        margin-top: 20px;
+        margin-bottom: 60px;
+      }
+      .skill-list>li {
+        display: inline-block;
+      }
+      .skill-list>li h3:first-of-type {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .skill-list>li h5:first-of-type {
+        margin-bottom: 20px;
+      }
+      .skill-list.text-center, .text-center.content {
+        color: white;
+      }
+      .icon-style {
+        font-size: 40px;
+        color: rgb(55, 123, 181);
+      }
+      .icon-style.icon-qq:hover, .icon-style.icon-github-circled:hover, .icon-weibo.icon-style:hover {
+        color: blue;
+      }
+      .icon-globe, .icon-cog-alt, .icon-wrench, .icon-html5 {
+        background: white;
+        line-height: 100px;
+        border-radius: 50px;
+        width: 100px;
+        margin: 0px auto;
+      }
+      /*specific part*/
+      #specific-part {
+        background-image: url(../Resources/callout.jpg);
+        background-position: center;
+      }
+      .word-style {
+        font-size: 60px;
+        margin-top: 150px;
+        margin-bottom: 150px;
+        color: white;
+      }
+      .works-list {
+        margin: 20px auto;
+      }
+      .works-list>li {
+        display: inline-block;
+        margin: 10px;
+      }
+      /*else part*/
+      #else-part {
+        background: rgb(55, 123, 181);
+      }
+      #else-part .content {
+        margin: 50px auto;
+      }
+      #else-part .content>ul {
+        margin: 30px;
+      }
+      #else-part .content>ul>li {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      /*info part*/
+      .info-list {
+        margin-top: 100px;
+      }
+      .info-list>li {
+        margin: 15px;
+      }
+      .info-list>li>ul>li {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="title-part" class="clear-merge">
+      <div class="container text-center">
+        <p>李德华</p>
+        <h1>做一个有思想的工程师</h1>
+        <a class="button-padding clear-button-bg normal-font-size" href="#">更多</a>
+      </div>
+    </div>
+    <div id="introduce-part" class="text-center clear-merge">
+      <p class="title-font">一句话简介</p>
+      <h2 class="light-font">一枚喜欢折腾的程序员，热爱新鲜科技和新奇技术，在尝试和摸索中前进</h2>
+    </div>
+    <div id="skill-part" class="normal-bg clear-merge">
+      <h2 class="text-center title-font">我的技能</h2>
+      <hr class="line">
+      <ul class="skill-list text-center">
+        <li>
+          <p class="icon-globe icon-style"></p>
+          <h3>静态页面</h3>
+          <h5 class="max-length">Lorem ipsum dolor sit amet, consectefur adipisicing elit.</h5>
+          <a class="button-padding normal-button-bg normal-bg" href="#">learn more</a>
+        </li>
+        <li>
+          <p class="icon-cog-alt icon-style"></p>
+          <h3>JS组件插件</h3>
+          <h5 class="max-length">Lorem ipsum dolor sit amet, consectefur adipisicing elit.</h5>
+          <a class="button-padding normal-button-bg normal-bg" href="#">learn more</a>
+        </li>
+        <li>
+          <p class="icon-wrench icon-style"></p>
+          <h3>工具构建</h3>
+          <h5 class="max-length">Lorem ipsum dolor sit amet, consectefur adipisicing elit.</h5>
+          <a class="button-padding normal-button-bg normal-bg" href="#">learn more</a>
+        </li>
+        <li>
+          <p class="icon-html5 icon-style"></p>
+          <h3>HTML5&CSS3</h3>
+          <h5 class="max-length">Lorem ipsum dolor sit amet, consectefur adipisicing elit.</h5>
+          <a class="button-padding normal-button-bg normal-bg" href="#">learn more</a>
+        </li>
+      </ul>
+    </div>
+    <div id="specific-part" class="clear-merge">
+      <p class="word-style text-center">这里换个背景图，写一句个性的话</p>
+    </div>
+    <div id="works-part">
+
+        <h2 class="text-center title-font">我的作品</h2>
+        <hr class="line">
+        <ul class="works-list text-center">
+          <li>
+            <a href="#">
+              <img src="../Resources/portfolio-1.jpg" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../Resources/portfolio-2.jpg" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../Resources/portfolio-3.jpg" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../Resources/portfolio-4.jpg" alt="" />
+            </a>
+          </li>
+        </ul>
+        <p class="text-center"><a class="button-padding normal-button-bg normal-font-size" href="#">更多作品</a></p>
+        <div class="offset"></div>
+
+    </div>
+    <div id="else-part" class="clear-merge">
+      <div class="content text-center">
+        <h2 class="title-font">还有其他好东西</h2>
+        <ul>
+          <li><a class="button-padding white-button-bg normal-font-size" href="http://lidee92805.github.io/">我的博客</a></li>
+          <li><a class="button-padding clear-button-bg normal-font-size" href="https://github.com/lidee92805">我的GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="info-part">
+      <ul class="info-list text-center">
+        <li><h3>我的信息</h3></li>
+        <li><h5>北京市东城区</h5></li>
+        <li><h5 class="icon-phone">15311492481</h5></li>
+        <li><h5 class="icon-mail">lidee92805@163.com</h5></li>
+        <li>
+          <ul>
+            <li><a class="icon-qq icon-style" href="#"></a></li>
+            <li><a class="icon-github-circled icon-style" href="https://github.com/lidee92805"></a></li>
+            <li><a class="icon-weibo icon-style" href="#"></a></li>
+          </ul>
+        </li>
+        <li><hr class="line"></li>
+        <li><h6>Copyright (c) 2016 lidee92805</h6></li>
+        <li><p class="offset"></p></li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+	<title>这是标题</title>
+	<style type="text/css">p{color: #000;text-indent: 2em;line-height: 1.5;color: #333}
+	body{font-family: Microsoft Yahei;font-size: 16px;line-height: 1.5;color: #333}
+	</style>
+</head>
+
+<body>
+<p>设置body的颜色为微软雅黑，字号16px，行高1.5倍，字体颜色 #333
+设置段落颜色#000，首行缩进两个字体宽度，1.5倍行高</p>
+</body>
+</html>

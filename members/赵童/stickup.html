@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>stickup</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        body,div,ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: #505050;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        a:visted{
+            color: inherit;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        body{
+            background-color: #ebebeb;
+        }
+        .head .head-img{
+            width:100%;
+            height: 200px;
+            background-image: url(http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcTJHK3d2SVlhRFZrenB1UmI1bW1wNnZ0VGlqaTF6YmJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg);
+            background-size: cover;
+        }
+        .head .cover{
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-color: black;
+            opacity: 0.4;
+        }
+        .navbar{
+            text-align: center;
+            box-shadow: 1px 1px 1px gray;
+            background-color: white;
+            position: relative;
+        }
+        .navbar>ul{
+            display: inline-block;
+        }
+        .navbar>ul>li{
+            float: left;
+            margin: 0 20px;
+            line-height: 50px;
+            font-size: 0.9rem;
+        }
+        .main{
+            float: left;
+            background-color: #ebebeb;
+            width: 60%;
+            text-align: center;
+        }
+        .main>ul>li{
+            display: inline-block;
+            background-color: white;
+            width: 80%;
+            height: 300px;
+            margin-top: 30px;
+        }
+        .aside{
+            float: right;
+            background-color: #ebebeb;
+            width: 40%;
+            text-align: center;
+        }
+        .aside>ul>li{
+            display: inline-block;
+            background-color: white;
+            width: 80%;
+            height: 150px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="head-img">
+            <div class="cover"></div>
+        </div>
+        <div class="navbar">
+            <ul class="clearfix">
+                <li><a href="">首页</a></li>
+                <li><a href="">作品</a></li>
+                <li><a href="">动态</a></li>
+                <li><a href="">关于</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <ul class="clearfix">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="aside">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+<script>
+    $.fn.stick = function(){
+        var $node = this,
+            nodeWidth = $node.width(),
+            nodeHeight = $node.height(),
+            offsetLeft = $node.offset().left,
+            offsetTop = $node.offset().top,
+            $clone = $node.clone().css('opacity',0).insertBefore($node).hide();
+        
+        $(window).resize(function(){
+            nodeWidth = $node.parent().width();
+            console.log(nodeWidth);
+            $node.css('width',nodeWidth);
+        })
+        $(window).scroll(function(){
+            var scrollTop = $(this).scrollTop();
+            if(scrollTop >= offsetTop){
+                setFixed($node);
+            }else{
+                unsetFixed($node);
+            }
+        })
+
+        function setFixed($node){
+            $node.css({
+                'position' : 'fixed',
+                'left':offsetLeft,
+                'top': 0,
+                'width': nodeWidth,
+                'margin': 0,
+                'z-index': 999
+            })
+            $clone.show();
+        }
+
+        function unsetFixed(){
+            $node.removeAttr('style');
+            $clone.hide();
+        }
+    }
+    $('.navbar').stick();
+</script>
+</body>
+</html>

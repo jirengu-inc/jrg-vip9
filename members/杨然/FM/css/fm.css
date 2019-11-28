@@ -1,0 +1,266 @@
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.fm-body {
+    font: 14px/1.2 "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    color: #52315b;
+	box-sizing: border-box;
+	border-radius: 10px;
+    position: fixed;
+    top: 60px;
+    left: 600px;
+    user-select: none;
+}
+.fm-bg {
+	position: relative;
+	border: 1px solid #ebebeb;
+	border-radius: 10px;
+	height: 200px;
+	width: 100%;
+	/*background: url('') center center / cover no-repeat;*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.model {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	overflow: hidden;
+}
+.bg-clear {
+	background-color: rgba(0, 0, 0, 0);
+}
+.list {
+	position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 1;
+}
+.list i {
+	color: #fff;
+}
+
+.lyric {
+	color: #ccc;
+	position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+.lyric > li {
+	font-size: 12px;
+	padding: 1px 0;
+	transition: all 1s;
+	white-space:nowrap;
+	min-height: 16px;
+	height: 16px;
+}
+.lyric > li.active {
+	font-size: 14px;
+	color: #fff;
+}
+.style-order {
+	position: absolute;
+    left: -72px;
+   	background: rgba(255, 255, 255, 0.8);
+    color: black;
+    height: 200px;
+    top: -10px;
+    overflow: auto;
+    padding: 4px;
+    font-size: 12px;
+    z-index: 1;
+}
+.style-order > li {
+	text-align: center;
+	padding: 2px 0;
+	cursor: pointer;
+}
+.style-order > li:hover {
+	color: #fff;
+	background-color: #888;
+}
+.fm-data {
+	padding: 10px 16px;
+}
+.fm-info {
+	cursor: default;
+    float: left;
+}
+.fm-title {
+    width: 200px;
+    overflow: hidden;
+    height: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.fm-shop {
+	float: right;
+}
+.fm-shop i,
+.fm-shop span {
+	cursor: pointer;
+}
+.fm-shop {
+    padding: 5px 0;
+}
+.fm-shop i:hover,
+.fm-shop span:hover {
+	color: red;
+}
+.fm-info h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+.fm-info p {
+	font-size: 12px;
+}
+.fm-progress {
+    padding: 10px 16px;
+    position: relative;
+}
+.fm-progress-bar {
+	height: 4px;
+    background: #fff;
+    width: 190px;
+    margin: 0 auto;
+	cursor: pointer;
+}
+.fm-progress-value {
+    width: 0%;
+    background: black;
+    height: 4px;
+    cursor: pointer;
+}
+.cur-time,
+.total-time  {
+	position: absolute;
+	font-size: 12px;
+}
+
+.cur-time {
+	top: 5px;
+}
+.total-time {
+	top: 5px;
+    right: 15px;
+}
+
+.control {
+    padding: 10px 16px;
+}
+
+.play-btn {
+	float: left;
+}
+.control-btn {
+	float: right;
+}
+.icon-zanting {
+	font-size: 40px !important;
+}
+.icon-kuaitui {
+	font-size: 30px !important;
+}
+.icon-bofang {
+	font-size: 40px !important;
+}
+.icon-kuaijin {
+	font-size: 24px !important;
+	vertical-align: super;
+}
+.control-btn {
+	padding-top: 16px;
+    position: relative;
+}
+.iconfont {
+	cursor: pointer;
+}
+.iconfont:hover {
+	color: red;
+}
+.fm-volume {
+    display: inline-block;
+    width: 18px;
+}
+.fm-volume-bg {
+	box-sizing: border-box;
+    position: absolute;
+    width: 20px;
+    height: 120px;
+    background: #ccc;
+    top: -110px;
+    left: 41px;
+    padding: 8px 0;
+}
+.horn {
+	border: 10px solid #ccc;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+.fm-volume-bar {
+    width: 4px;
+    height: 100px;
+    background: #aaa;
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.fm-volume-value {
+    width: 4px;
+    /*height: 20%;*/
+    background: #fff;
+    border-radius: 4px;
+}
+::-webkit-scrollbar
+{
+  width: 4px;  /* for vertical scrollbars */
+  height: 4px; /* for horizontal scrollbars */
+}
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+
+}
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+.icon {
+    width: 16px;
+    height: 16px;
+    color: #101b79;
+}
+.fm-body {
+
+}
+.fm-warp {
+    border-radius: 10px;
+    border: 1px solid #ebebeb;
+    background-color: #ebebeb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

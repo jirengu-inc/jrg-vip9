@@ -1,0 +1,142 @@
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+ul,
+li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+a {
+    /*color: white;*/
+    text-decoration: none;
+}
+
+a img {
+    width: 320px;
+    /60 height: 180px;
+    opacity: 0.8;
+}
+
+a img:hover {
+    opacity: 1;
+}
+
+.header_cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.header_cover-head{
+  font-size: 30px;
+  color:white;
+  text-align: center;
+  padding-top: 10%;
+  cursor: default;
+}
+
+.header_cover_left{
+    width: 20%;
+    height: 100%;
+    background: url(../Groupimg/MenuPng/MenuBg.png) no-repeat;
+    display: inline-block;
+    float: left;
+}
+
+/*左侧菜单管理栏*/
+.header_cover_right{
+    width: 970px;
+    height: 390px;
+    display: inline-block;
+    position: absolute;
+    margin: 160px 0 0 60px;
+}
+.header_cover-list {
+    /*border: 1px solid green;*/
+   /*width: 1020px;*/
+    /*height: 400px;*/
+    /*margin:0 auto;*/
+    position: absolute;
+    /*top: 50%;
+    left: 50%;
+    margin-left: -500px;
+    margin-top: -200px;*/
+}
+
+.header_cover-list:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header_cover-list li {
+    float: left;
+    width: 290px;
+    height: 195px;
+    text-align: center;
+    line-height: 180px;
+    opacity: 0.8;
+}
+
+.header_cover-list li:first-child {
+    /*border: 1px solid green;*/
+    background: url(../Groupimg/MenuPng/Top-Left.png);
+    background-size: cover;
+}
+
+.header_cover-list li:nth-child(2) {
+    /*border: 1px solid green;*/
+    background: url(../Groupimg/MenuPng/Top-Mid.png);
+    background-size: cover;
+}
+
+.header_cover-list li:nth-child(3) {
+    /*border: 1px solid green;*/
+    background: url(../Groupimg/MenuPng/Top-Right.png);
+    background-size: cover;
+}
+
+.header_cover-list li:nth-child(4) {
+    /*border: 1px solid green;*/
+    background: url(../Groupimg/MenuPng/Bottom-Left.png);
+    background-size: cover;
+}
+
+.header_cover-list li:nth-child(5) {
+    /*border: 1px solid green;*/
+    background: url(../Groupimg/MenuPng/Bottom-Mid.png);
+    background-size: cover;
+}
+
+.header_cover-list li:nth-child(6) {
+    /*border: 1px solid green;*/
+    background: url(../Groupimg/MenuPng/Bottom-Right.png);
+    background-size: cover;
+}
+
+.header_cover-list li:hover {
+    opacity: 1;
+}
+
+.header_cover-list-intro {
+    opacity: 0;
+}
+
+.header_cover-list-intro:hover {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    color: white;
+}

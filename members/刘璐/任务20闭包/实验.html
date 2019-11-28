@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var fnArr = [];
+//    for (var i = 0; i < 10; i ++) {
+//        fnArr[i] =(function(i){
+//            return function b() {
+//                return i;
+//            }
+//        })(i);
+//    }
+////    console.log( fnArr[3]());
+//var Car = (function(){
+//    var speed = 0;
+//    function setSpeed(a){
+//        speed = a ;
+//        return speed;
+//    }
+//    function getSpeed(){
+//        return speed;
+//    }
+//    function accelerate(){
+//        speed += 10;
+//        return speed;
+//    }
+//    function decelerate(){
+//        speed -= 10;
+//        return speed;
+//    }
+//    function getStatus(){
+//        if(speed > 0){
+//            return console.log("stop")
+//        }
+//        else{
+//            return console.log("running")
+//        }
+//    }
+//    return {
+//        setSpeed:setSpeed,
+//        getSpeed:getSpeed,
+//        accelerate:accelerate,
+//        decelerate:decelerate,
+//        getStatus:getStatus
+//    }
+//})();
+//console.log(Car.setSpeed(30));
+//console.log(Car.getSpeed()); //30
+//console.log(Car.accelerate());
+//console.log(Car.getSpeed()); //40;
+//console.log(Car.decelerate());
+//console.log(Car.decelerate());
+//console.log(Car.getSpeed()); //20
+//Car.getStatus(); // 'running';
+//console.log(Car.decelerate());
+//console.log(Car.decelerate());
+//Car.getStatus();  //'stop';
+////Car.speed;  //error
+//function mSetInterval(){
+//    setTimeout("console.log(0)",0);
+//    console.log(1);
+//    mSetInterval();
+//}
+//mSetInterval();
+
+
+//
+//var i = 0;
+//function inter(){
+//    setTimeout(function(){
+//        console.log(i);
+//        inter();
+//    },1000)
+//}
+//inter();
+
+
+
+
+
+//var flag = true;
+//setTimeout(function(){
+//    flag = false;
+//},0);
+//while(flag){}
+//console.log(flag);
+
+//for(var i=0;i<10;i++) {
+//    setTimeout(fn,0);
+//    function fn() {
+//        function g(i) {
+//            console.log(i);
+//        }
+//        return g(i);
+//    }
+//}
+
+
+
+
+
+
+//
+//for(var i =0;i<5;i++) {
+//    setTimeout(fn, 0);
+//    console.log(i);
+//    function fn() {
+//        function g(i) {
+//            console.log('delayer:' + i);
+//        }
+//
+//        return g(i);
+//    }
+//}
+
+
+
+
+var p ;
+for(var i =0;i<5;i++) {
+    setTimeout(p, 0);
+    p = (function fn(i) {
+        function g() {
+            console.log('delayer:' + i);
+        }
+        return g;
+    })(i);
+}
+</script>
+</body>
+</html>

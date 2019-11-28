@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>task7-1</title>
+</head>
+<body>
+<form method="post">
+<label for="姓名">姓名： 
+	<input type="text" id="姓名" name="姓名" placeholder="用户名" >
+</label></br>
+
+<label for="密码">密码：
+	<input type="password" id="密码" name="密码" placeholder="密码" >
+</label></br>
+
+<label>性别：
+    <input type="radio" id="sex-man" name="sex" value="男"  ><label for="性别-男">男</label>
+	<input type="radio" id="sex-woman"  name="sex" value="女" ><label for="性别-女">女</label>
+</label></br>
+
+<label>取向：
+	<input type="radio"  id="sexuality-man" name="sexuality" value="男"  ><label for="取向-男">男</label>
+	<input type="radio" id="sexuality-woman" name="sexuality" value="女"  ><label for="取向-女">女</label>
+</label> </br>
+
+<label id="label1">爱好：
+	<input id="dota" type="checkbox" name=hobby[] value="dota"><label for="dota">dota</label>   
+	<input id="tourism" type="checkbox" name=hobby[] value="旅游"><label for="tourism">旅游</label>    
+	<input id="pet" type="checkbox" name=hobby[] value="宠物"><label for="pet">宠物</label> 
+</label></br>
+
+
+<label for="comment">评论：</label><textarea placeholder="ddd"   name="comment" id="comment" cols="30" rows="10"></textarea></br>
+
+
+<label for="mycar">mycar：</label>
+	<select name="mycar" id="mycar" >
+	<option value="volvo">皮卡车</option>
+	<option value="saab">跑丁车</option>
+	<option value="fiat" selected="selected">萨博</option>
+	<option value="audi">f1赛车</option>
+	</select>
+
+<input type="submit"  name="submit">
+
+</form>
+<script type="text/javascript">
+var a=[1,2,3];
+var oLabl1=document.getElementById('label1');
+var oinput=document.getElementById("dota");
+var inputName=oLabl1.getElementsByTagName('input');
+alert(inputName.name);	
+alert(oinput.name);
+
+</script>
+
+</body>
+</html>	

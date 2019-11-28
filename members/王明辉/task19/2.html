@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+<script>
+    //2.把数字日期改成中文日期
+    var str = getChsDate('2015-01-08');
+    console.log(str);  // 二零一五年一月八日
+
+    function getChsDate(str){
+        var arrNum1 = '零一二三四五六七八九十'.split('');
+        var arrNum2 = '零壹贰叁肆伍陆柒捌玖拾'.split('');
+        var arrYMD = ['年','月','日'];
+
+        var arr = str.split('-');
+        var s = '';
+
+        for(var i=0; i<arr.length; i++){
+            var arrChild = arr[i].split('');
+            if(arrChild.length > 2){
+                for(var j=0; j<arrChild.length; j++){
+                    s += arrNum1[arrChild[j]];
+                }
+            }else{
+                for(var j=0; j<arrChild.length; j++){
+                    if(parseInt(arrChild[j]) !== 0){
+                        s += arrNum1[arrChild[j]];
+                    }
+                }
+            }
+            s += arrYMD[i]+' ';
+        }
+
+        return s;
+    }
+
+</script>
+</body>
+</html>

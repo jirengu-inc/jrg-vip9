@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>当点击每一个元素li时控制台展示该元素的文本内容</title>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端9班</li>
+    </ul>
+<script>
+//    var ct = document.querySelectorAll(".ct li");
+//    for(var i = 0 ;i<ct.length;i++){
+//        ct[i].addEventListener("click",(function(i){
+//            return function g(){
+//                console.log(ct[i].innerText)
+//            }
+//        })(i))
+//    }
+
+//    for(var i = 0 ;i<ct.length;i++){
+//        ct[i].addEventListener("click",function(e){
+//            console.log(e.target.innerText);
+//        })
+//    }
+var ct = document.querySelector('.ct');
+ct.addEventListener('click', function(e){
+    console.log(e.target.innerText);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>轮播 thumbnail</title>
+    <style>
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .carousel {
+        position: relative;
+        height: 600px;
+        width: 420px;
+        overflow: hidden;
+        /* 这是一个窗口，其他img需隐藏 */
+    }
+    
+    .carousel .img-ct {
+        position: absolute;
+        width: 1240px;
+        /*position: relative;*/
+    }
+    
+    .carousel .img-ct>li {
+        float: left;
+    }
+    
+    .carousel .img-ct img {
+        width: 420px;
+        height: 600px;
+    }
+    
+    .carousel .btn {
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 0.6;
+        text-decoration: none;
+        color: #333;
+        display: block;
+        /* a链接是行内元素 */
+        text-align: center;
+        line-height: 33px;
+        padding-left: font-size: 20px;
+    }
+    
+    .btn-pre {
+        left: 10px;
+        padding-right: 1px;
+    }
+    
+    .btn-next {
+        right: 10px;
+        padding-left: 1px;
+    }
+    
+    .bullet {
+        bottom: -30px;
+        position: fixed;
+        margin: 0 100px;
+    }
+    
+    .bullet li {
+        width: 40px;
+        height: 60px;
+        background: #fff;
+        float: left;
+        background-size: 100% 100%;
+        margin: 10px 4px;
+        cursor: pointer;
+    }
+    
+    .bullet img {
+        width: 40px;
+        height: 60px;
+    }
+    
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .bullet .active {
+        border: 2px solid blue;
+    }
+
+/*    .img-ct li{
+    	display: none;
+    }*/
+    .img-ct .active{
+    	display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <!-- 内容都是绝对定位，不能撑开高度 -->
+        <!-- 图片 -->
+        <ul class="img-ct clearfix">
+            <li data-index=0 class="active">
+                <a href=""><img src="images/1.jpeg" alt="1.jpeg"></a>
+            </li>
+            <li data-index=1>
+                <a href=""><img src="images/2.jpeg" alt="2.jpeg"></a>
+            </li>
+            <li data-index=2>
+                <a href=""><img src="images/3.jpeg" alt="3.jpeg"></a>
+            </li>
+            <li data-index=3>
+                <a href=""><img src="images/4.jpeg" alt="4,jpeg"></a>
+            </li>
+        </ul>
+        <!-- 左右切换 -->
+        <a class="btn btn-pre" href="#">&lt;</a>
+        <a class="btn btn-next" href="#">&gt;</a>
+        <!-- 位置显示 -->
+        <ul class="bullet clearfix">
+       
+                <li class="active"><img src="images/1.jpeg" alt=""></li>
+     
+    
+                <li><img src="images/2.jpeg" alt=""></li>
+   
+                <li><img src="images/3.jpeg" alt=""></li>
+       
+
+                <li><img src="images/4.jpeg" alt=""></li>
+       
+        </ul>
+    </div>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+    
+
+	
+// 	var $imgCt = $('.img-ct'),
+// 		$preBtn = $('.btn-pre'),
+// 		$nextBtn = $('.btn-next'),
+// 		$bullet = $('.bullet');
+//         $imgWidth = $('.img-ct').children().width()
+
+// 	var $firstImg = $imgCt.find('li').first(),
+// 		$lastImg = $imgCt.find('li').last();
+
+// 	var curPageIndex = 0;
+// 	var imgLength = $imgCt.children().length;
+// 	var isAnimate = false;
+// //必须在上面写，因为后面增加了两个元素
+
+
+// // 把最后一个img克隆复制到第一个
+// 	$imgCt.prepend($lastImg.clone())
+// 	$imgCt.append($firstImg.clone())
+
+// //增加图片同时ct也要相应更改
+// 	$imgCt.width($firstImg.width() * $imgCt.children().length)
+// 	$imgCt.css('left','-420px')
+
+// 	$preBtn.on('click', function(e){
+// 		e.preventDefault;
+
+// 		playPre();
+// 	})
+
+// 	$nextBtn.on('click', function(e){
+// 		e.preventDefault;
+// 		playNext();
+// 	})
+
+//     $bullet.find('li').on('click', function(){
+//     var idx = $(this).index();
+//     if(idx > curPageIndex){
+//         playNext(idx - curPageIndex);
+//     }else if(idx < curPageIndex){
+//         playPre(curPageIndex - idx);
+//     }
+
+//     });
+
+// //滚动到下一页
+// 	function playNext(idx){//添加参数n代表下面n页
+//         var idx = idx || 1;
+//         if (!isAnimate) {
+//             isAnimate = true;
+//             $imgCt.animate({left:'-='+($imgWidth*idx), function(){
+//                 curPageIndex = (curPageIndex + idx)%imgLength;
+//                 if (curPageIndex === 0) {
+//                     $imgCt.css({left:0-$imgWidth})
+//                 }
+//                 isAnimate = false;
+//                 setBullet();
+//             }})
+//         }     
+// 	}
+
+// //滚动到上一页
+// 	function playPre(idx){
+//         var idx = idx || 1;
+//         if (!isAnimate) {//如果目前没有执行动画，
+//             isAnimate = true;//干事情，让他去滚动
+//             $imgCt.animate({left:'+='+($imgWidth*idx), function(){
+//                 curPageIndex = (imgLength + curPageIndexv-idx)%imgLength;
+//                 if (curPageIndex === (imgLength - 1)) {
+//                     $imgCt.css({left: 0-$imgWidth*imgLength})
+//                 }
+//                 isAnimate = false;//执行完成之后在设置为false
+//                 setBullet();
+//             }
+
+//         })     
+// 	}
+
+
+// //下面的页码显示
+// 	function setBullet(){
+// 		$bullet.children()
+// 			   .removeClass('active')
+// 			   .eq(curPageIndex)
+// 			   .addClass('active')
+// 	}
+
+
+//     	//自动滚动
+//     	//autoPlay()
+//     	// function autoPlay(){
+//     	// 	clock = setInterval(function(){
+//     	// 		playNext();
+//     	// 	}, 2000)
+//     	// }
+
+//     	// //有个按钮点完不自动滚动
+//     	// function stopAuto(){
+//     	// 	clearInterval(clock)
+//     	// }
+
+            
+            var $ct = $('.img-ct'),
+                $items = $ct.children(),
+                $pre = $('.btn-pre'),
+                $next = $('.btn-next'),
+                $bullet = $('.bullet'),
+                imgWidth = $items.width(),
+                imgCount = $ct.children().length;
+
+            $ct.prepend($items.last().clone());
+            $ct.append($items.first().clone());
+            imgRealCount = $ct.children().length;
+            $ct.css({left: 0-imgWidth, width: imgRealCount*imgWidth})
+
+
+
+
+
+            var curIdx = 0;
+            var isAnimate = false;
+
+            $next.on('click', function(e){
+                e.preventDefault;
+                playNext();
+            });
+            $pre.on('click', function(e){
+                e.preventDefault;
+                playPre();
+            });
+            $bullet.find('li').on('click', function(){
+                var idx = $(this).index();
+                if(idx > curIdx){
+                    playNext(idx - curIdx);
+                }else if(idx < curIdx){
+                    playPre(curIdx - idx);
+                }
+            });
+
+            //autoPlay();
+
+            function stopAuto(){
+                clearInterval(clock);
+            }
+
+            function autoPlay(){
+                clock = setInterval(function(){
+                    playPre();
+                }, 3000);   
+            }
+
+
+            function playNext(idx){
+                var idx = idx || 1;
+                if(!isAnimate){
+                    isAnimate = true;
+                    $ct.animate({left: '-='+(imgWidth*idx)},function(){
+                        // curIdx = (curIdx + idx)%imgCount;
+                        // if(curIdx === 0){
+                        //  $ct.css({left: 0-imgWidth});;
+                        // }
+                        curIdx++;
+                        if(curIdx === imgCount){
+                            $ct.css({left: 0-imgWidth});;
+                            curIdx = 0;
+                        }
+                        isAnimate = false;
+                        setBullet();
+                    });
+                }
+            }
+
+
+
+
+            function playPre(idx){
+                var idx = idx || 1;
+                if(!isAnimate){
+                    isAnimate = true;
+                    $ct.animate({left: '+='+(imgWidth*idx)},function(){
+                        curIdx = (imgCount + curIdx - idx)%imgCount;
+                        if(curIdx === (imgCount - 1)){
+                            $ct.css({left: 0-imgWidth*imgCount});;
+                        }
+                        isAnimate = false;
+                        setBullet();
+                    });
+                }
+            }
+
+            function setBullet(){
+                $bullet.find('li').removeClass('active')
+                                  .eq(curIdx).addClass('active');
+            }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>level 10-1 </title>
+    <style>
+    html,
+    body,
+    li,
+    div,
+    img,
+    ul {
+        margin: 0;
+        padding: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial;
+    }
+    
+    .container {
+        width: 900px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    /*header start*/
+    
+    .header {
+        background-color: #333;
+        height: 50px;
+        color: white;
+    }
+    
+    .navbar {
+        float: right;
+    }
+    
+    img {
+        float: left;
+        width: 20%;
+    }
+    
+    li {
+        float: left;
+        margin-left: 20px;
+        list-style: none;
+        font-size: 20px;
+        line-height: 50px;
+    }
+    /*header end*/
+    /*content start*/
+    
+    .aside {
+        float: left;
+        width: 200px;
+        height: 500px;
+        margin-top: 10px;
+        background-color: #eee;
+    }
+    
+    .main {
+        float: left;
+        width: 690px;
+        height: 200px;
+        margin-left: 10px;
+        margin-top: 10px;
+        background-color: #eee;
+        /*clear: both;*/
+    }
+    
+    h1 {
+        margin: 20px;
+        font-weight: bold;
+    }
+    
+    p {
+        margin: 10px 20px;
+        font: 16px;
+        color: #656565;
+    }
+    /*content end*/
+    /*footer start*/
+    
+    .footer {
+        position: absolute;
+        top: 550px;
+        height: 50px;
+        width: 100%;
+        /*padding: 10px 0;*/
+        font-size: 16px;
+        color: white;
+        line-height: 50px;
+        background-color: #333;
+    }
+    /*footer end*/
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container clearfix">
+            <img src="http://cdn.jirengu.com/public/logo-tiny.png" alt="jirengu.com">
+            <div class="navbar">
+                <ul>
+                    <li>Skills</li>
+                    <li>Experience</li>
+                    <li>Profolio</li>
+                    <li>About Me</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content clearfix">
+        <div class="container">
+            <div class="aside"></div>
+            <div class="main">
+                <h1>My profolio</h1>
+                <p>Life is beautiful</p>
+                <p>Have a good mood</p>
+                <p>Coding perfect</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            Jirengu JSCODE JSBIN</div>
+    </div>
+</body>
+
+</html>

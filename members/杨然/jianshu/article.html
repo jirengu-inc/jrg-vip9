@@ -1,0 +1,999 @@
+<!DOCTYPE HTML>
+<html ng-app="jianshu">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<title>简书详情页</title>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/app.js"></script>
+<style>
+      *{margin:0;padding:0;list-style: none;}
+	  .navbar-jianshu{
+	  	position: fixed; width: 45px; z-index: 1049; overflow: visible; margin-bottom: 20px;
+   font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	  }
+	  .dropdown{
+	  	position: relative;
+	  }
+	  .navbar-jianshu a.logo{
+	  	font-size: 18px;/*color: white;*/
+	  }
+	   .navbar-jianshu a{
+	   	    display: block;/*padding: 10px;*/line-height: 25px;text-align: center;/*font-size: 16px;*/font-size: 18px;
+    display: inline-block;
+    height: 49px;
+    line-height: 49px;
+	   }
+	   .navbar-jianshu .dropdown-menu{
+	   	position: fixed;top: 8px; left: 55px;padding: 0;border: none;box-shadow: none;z-index: 1000;
+	   	margin-top: 10px;float:left;min-width: 160px;margin:2px 0 0;list-style: none;background-color:white ;
+	   	border-radius:6px;background-clip:padding-box;display: none;
+	   }
+	   .navbar-jianshu .dropdown-menu li{
+	   	/*display: list-item;text-align: -webkit-match-parent;line-height: 20px;*/
+	   }
+	   .navbar-jianshu .dropdown-menu li a{
+	   	    padding: 13px 13px 13px 15px;text-align: left; /*color: white;*/
+	   }
+	   .navbar-jianshu .dropdown-menu>li>a{
+	   	    display: block;clear: both;font-weight: normal; line-height: 20px;
+        	white-space: nowrap;
+	   }
+	   .navbar-jianshu i{
+	   	margin-right: 17px; width: 16px; display: inline-block;
+   text-align: center; line-height: 14px;font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit; text-rendering: auto;-webkit-font-smoothing: antialiased;transform: translate(0, 0);
+	   }
+      .shrink{
+      /*	display: none;*/
+      }
+      .navbar-user{
+      	    position: fixed; top: 10px;right: 0;margin-bottom: 0; z-index: 1010;
+      }
+      .navbar-user .login{
+    position: relative;top: 7px; float: right; padding: 0 2px;margin-right: 8px; 
+    font-size: 14px;font-family: "黑体";
+}
+.fa{
+	 display: inline-block;font: normal normal normal 14px/1 FontAwesome;font-size: inherit;
+    text-rendering: auto; -webkit-font-smoothing: antialiased;transform: translate(0, 0);
+    margin-right: 5px;
+}
+.navbar-user .set-view-mode {
+    position: relative; top: 11px; margin-right: 15px; display: none;
+        float: right;  
+}
+.expanded {
+    left: 0; top: 0; height: 100%; background: #2a2a2a; 
+}
+ .expanded .dropdown a.active {
+    background-color: #e78170;color: white; text-shadow: 0 1px 0 #de533a;
+}
+.expanded a.logo b{
+	    font-weight: normal;
+}
+.expanded a.logo i{
+	display: none;
+}
+.expanded .dropdown span{
+	display: none;
+}
+.expanded a {
+    color: #999999;text-shadow: 0 1px 0 black;
+}
+.navbar-jianshu i.fa-mobile {
+    position: relative; top: 3px; font-size: 26px;
+}
+.expanded .dropdown .ad-container {
+    position: absolute;left: 45px;top: 45px;text-align: center;display: none;    
+    /*left: 170px;*/
+}
+.expanded .dropdown .ad-container .ad-pop {
+    width: 260px;height: 460px;background: white; position: relative; left: 10px;
+    border-radius: 10px; box-shadow: 0 0 10px #9d9d9d;
+}
+img{
+	max-width: 100%;vertical-align: middle;height: auto;border: 0;
+}
+.ad-container .ad-logo{
+    width: 96px;height: 96px;margin: 55px 0 24px 0;
+    padding: 3px;border: 1px solid #d9d9d9; border-radius: 20px;
+}
+p {
+    margin: 0 0 10px;
+}
+.ad-container .ad-title{
+	    font-size: 24px;font-weight: bold; margin-bottom: 10px;
+}
+.ad-container .ad-subtitle {
+    font-size: 14px;
+}
+.ad-container .ad-qrcode {
+    width: 140px;height: 140px;
+}
+.ad-container .ad-link{
+	display: inline-block;color: #3dbcf5;text-shadow: none; 
+}
+.expanded .nav-user {
+	position: absolute;bottom: 0; width: 100%;padding-bottom: 5px;
+    display: none;
+}
+.expanded .nav-user a{
+	    position: relative; padding: 5px 10px;
+} 
+.expanded .nav-user span.title{
+	display: none;
+}
+.btn{
+	box-shadow:none;text-shadow:none;display: inline-block;margin-bottom: 0;text-align: center;
+    vertical-align: middle; cursor: pointer;border: 1px solid #cccccc; border-radius: 4px;padding: 4px 12px;
+    font-size: 14px; line-height: 20px;
+}
+.support-author .avatar-list {
+    display: inline-block;
+}
+a {
+    color: #555555;
+    text-decoration: none;
+}
+.imagebubble-container {
+    position: relative;
+}
+.post-bg .container {
+    width: 700px;margin-right: auto;margin-left: auto;
+    
+}
+.post-bg .related-avatar-group {
+    display: none;
+}
+.container .article {
+    padding: 80px 40px 10px;bottom: 0;
+}
+.container .author-info{
+	    padding-bottom: 15px;margin-bottom: 30px; border-bottom: 1px solid #eeeeee;
+    overflow: hidden;font-size: 12px; color: #999999; 
+}
+.container .author-info .follow{
+    float: right; margin-top: 10px;
+}
+.btn.follow{
+   border-radius: 50px;
+    font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 12px;font-weight: normal; line-height: 22px; 
+}
+.btn-success {
+    color: white; border-color: #49be38; background: #49be38;
+}
+.btn-small{
+	padding:2px 10px;
+}
+.btn-success.follow a {
+    color: white;
+}
+.btn.follow .fa+span{
+    padding-left: 7px; margin-left: 3px;border-left: 1px solid #d9d9d9;
+}
+.container .author-info .avatar {
+    float: left; width: 40px;  height: 40px; margin-right: 10px;border-radius: 50%;
+}
+.container .author-info .label {
+    background: none; border: 1px solid #e78170; color: #e78170;
+    text-shadow: none; font-size: 11px;font-weight: normal; line-height: 1;
+    border-radius: 3px;display: inline-block; padding: 2px 4px;vertical-align: baseline;
+    white-space: nowrap;
+}
+.container .author-info .author-name {
+    margin: 0 5px;
+}
+.blue-link {
+    color: #4094c7;
+}
+.container .author-info>div {
+    margin-top: 3px;
+}
+.article .preview .title {
+    word-break: break-all;font-size: 32px;font-weight: bold;line-height: 1.5;margin: 10px 0;
+    font-family: inherit;color: inherit;text-rendering: optimizelegibility;  
+}
+.container .meta-top {
+    margin: 20px 0;font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.container .meta-top span {
+    position: relative; top: 1px; margin-right: 10px;
+    font-size: 12px; color: #999999;
+}
+.container .article-share {
+    display: none; padding: 20px; margin: 0 -10px 45px;  border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9; text-align: center;   
+}
+.container .article-share .bookmark{
+margin-right: 15%;
+}
+.container .article-share a{
+    font-size: 16px; color: #3f3f3f; border: 1px solid red;
+}
+.container .article-share i {
+    margin-right: 6px;
+}
+.article-share .dropdown-menu{
+    margin-top: 10px;
+    border-color: #d9d9d9;position: absolute;top: 100%; left: 0; z-index: 1000; display: none;
+    float: left; min-width: 160px;padding: 5px 0; margin: 2px 0 0;  background-color: white;
+    list-style: none;background-color: white;background-clip: padding-box;    
+}
+.dropdown-menu>li>a {
+    display: block;padding: 3px 20px; clear: both;font-weight: normal;
+    line-height: 20px;white-space: nowrap;
+    }
+ .container .article .show-content{
+ 	    color: #2f2f2f;font-size: 16px;font-weight: normal; line-height: 1.7;
+    }
+    .image-package {
+    margin: 0 auto 20px;text-align: center;   
+}
+.imagebubble img {
+	cursor: -webkit-zoom-in;transition: all .25s ease-in-out;
+	transition: all .25s ease-in-out;
+}
+.image-package .image-caption {
+    min-width: 20%; min-height: 22px; display: inline-block; padding: 10px;
+    margin: 0 auto;border-bottom: 1px solid #d9d9d9; font-size: 13px;
+    color: #999999;font-style: italic;  line-height: 1.7;  
+}
+.container .article .show-content p{
+	text-align: justify;word-break: break-word;margin: 0 0 25px 0;
+}
+.container .article .show-content blockquote{
+	padding: 10px 15px;margin-bottom: 20px; background-color: whitesmoke;
+    border-left: 4px solid #999999;  word-break: break-word; font-size: 15px;
+    font-weight: normal; line-height: 30px;margin: 0 0 20px;    
+}
+    {
+    width: 620px; margin: 0 auto 50px;font-size: 12px;color: #d5d5d5; 
+}
+.visitor_edit .further-reading-line {
+    width: 40px;padding-top: 5px; margin: 15px 0; border-top: 1px solid #d9d9d9;  
+}
+ul.unstyled{
+    margin-left: 0;list-style: none;
+}
+ul{
+    padding: 0;margin: 0 0 10px 25px;
+}
+.visitor_edit a {
+    color: #999999;
+}
+.pull-right {
+    float: right;
+}
+.author-copyright {
+    margin: -20px 0 0 20px;
+}
+ .support-author{
+ 	width: 620px; margin-top: 0; margin-right: auto;margin-left: auto;
+ 	padding: 25px;margin-bottom: 40px; background-color: whitesmoke;
+    border-left: 4px solid #f57e42;box-sizing: border-box; box-shadow: 0 0 1px #d9d9d9;
+ 	}
+ 	.support-author p {
+    margin: 0 auto 10px; font-size: 17px;font-weight: bold;
+}
+.support-author .btn-pay {
+    margin: 10px 15px 10px 0;color: white; border-color: #f57e42;
+    background: #f57e42;
+}
+.meta-bottom {
+    margin-bottom: 40px;width: 620px; margin-top: 0;
+    margin-right: auto; margin-left: auto;
+}
+.meta-bottom .like {
+    float: left; width: 163px; height: 50px; line-height: 50px;
+    overflow: hidden; border: 1px solid #e78170;border-radius: 40px;
+    font-size: 18px;text-align: center;font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.meta-bottom .like .like-button {
+    position: relative; width: 60px;height: 50px; padding-right: 10px;
+    display: inline-block;
+}
+.meta-bottom .like a.like-content {
+    position: absolute;
+    left: 0;transition: all 0.2s cubic-bezier(0.35, 0.32, 0.4, 1.18);
+}
+.post .meta-bottom .like a{
+	color: #e78170;
+}
+.meta-bottom .like span {
+    position: relative; top: -19px;height: 20px;padding-left: 15px;
+    border-left: 1px solid; cursor: pointer;color: #e78170;
+}
+.meta-bottom .share-group {
+    margin-top: 16px;
+}
+.meta-bottom .share-group>a {
+    margin-right: 8px;font-size: 18px;
+    
+}
+.meta-bottom .share-group>a>span {
+    margin-left: 5px;
+    font-size: 14px;}
+ .meta-bottom .share-group .more {
+    position: relative;display: inline-block;
+}
+.meta-bottom .share-group .more .fa-caret-down {
+    margin-left: 5px;
+}
+.meta-bottom .share-group .more .dropdown-menu {
+    left: -64px;margin-top: 10px; border-color: #d9d9d9;position: absolute;
+    top: 100%;z-index: 1000; float: left; min-width: 160px;
+    padding: 5px 0; margin: 2px 0 0;  list-style: none; background-color: white;
+   border: 1px solid rgba(0,0,0,0.2);border-radius: 6px;box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+   background-clip: padding-box;display: none;
+}
+.dropdown-menu>li>a {
+    display: block; padding: 3px 20px; clear: both; font-weight: normal;
+    line-height: 20px; color: #3f3f3f;white-space: nowrap; 
+}
+.meta-bottom .share-group .more li {
+    text-align: left;
+}
+.meta-bottom .share-group .more .fa-arrow-circle-o-down {
+    margin-right: 7px; margin-left: 2px;
+}
+.modal.fade{
+	transition: opacity 0.3s linear, top 0.3s ease-out;top: -25%;
+}
+.share-weixin-modal{
+	    width: 360px;margin-left: -180px;   
+}
+.modal {
+    background-color: white;border: 1px solid #d9d9d9;font-size: 14px;
+    font-weight: normal; line-height: 20px;
+}
+.hide {
+    /*display: none;*/
+}
+.modal {
+    position: fixed;left: 50%;z-index: 1050;border-radius: 6px;box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    background-clip: padding-box;outline: none;
+}
+.fade {
+    opacity: 0;
+}
+.share-weixin-modal .modal-header{
+	border-bottom: none;padding: 20px;
+}
+.modal-header .close {
+    margin-top: -4px;
+}
+button.close {
+    padding: 0; cursor: pointer;background: transparent;
+    border: 0; -webkit-appearance: none;
+}
+.close {
+    float: right; font-size: 20px;font-weight: bold;line-height: 20px; color: black;
+    text-shadow: 0 1px 0 white; opacity: 0.2;
+}
+.share-weixin-modal .modal-body{
+	    text-align: center;padding-top: 0;padding: 30px;position: relative;
+    overflow-y: auto; max-height: 400px;
+}
+.share-weixin-modal .modal-body h5{
+	font-size: 13px;margin: 10px 0; font-family: inherit;font-weight: bold;
+    line-height: 20px;color: inherit; text-rendering: optimizelegibility;
+}
+.share-weixin-modal img{
+	margin: 0 auto;background-color: white; border: 1px solid #eeeeee;
+}
+.notebooks-menu.modal.fade {
+    top: 65px; left: 65px;width: 260px;margin-left: 0;
+    border-radius: 4px;
+}
+.notebooks-menu .loader-tiny{
+    display: block;margin: 25px auto;width: 17px;
+}
+.collection-menu.modal.fade {
+    left: 46px;top: 65px;width: 260px;
+    margin-left: 0; border-radius: 4px;
+}
+.collection-menu .loader-tiny {
+    display: block;
+    margin: 25px auto;width: 17px;
+}
+.fullscreen.modal {
+    background-color: transparent; border: none; box-shadow: none;
+    text-align: center;
+}
+.modal-dialog {
+    width: 600px; margin: 30px auto;position: relative;
+}
+.modal-content {
+    position: relative;background-clip: padding-box;
+}
+.modal-header {
+    padding: 20px;border-bottom: 1px solid #eee;
+}
+.modal-header h3 {
+    margin: 0;line-height: 30px;font-size: 24.5px;font-family: inherit;
+    font-weight: bold;color: inherit;text-rendering: optimizelegibility;
+}
+.support_list-modal .modal-body {
+    padding: 30px 10px;max-height: none;
+}
+.modal-body {
+    position: relative;
+    overflow-y: auto;
+}
+.support_list-modal li {
+    padding: 10px 0;border-bottom: 1px solid #eeeeee; overflow: hidden;
+    text-align: left;line-height: 17px;  
+}
+.support_list-modal .avatar {
+    width: 30px; height: 30px;display: inline-block;
+    margin-right: 5px;border: 1px solid #d9d9d9;
+}
+.avatar {
+    border-radius: 50%;
+}
+.support_list-modal .avatar img {
+    border: none;width: 100%;border-radius: 50%;
+    height: 100%;box-sizing: border-box;
+}
+.support_list-modal .time {
+    float: right; margin-top: 9px;color: #999999; font-size: 12px;
+}
+ .comment-list {
+    margin-bottom: 35px;width: 620px;margin-top: 0; margin-right: auto;margin-left: auto;
+}
+.comment-list .comment-head {
+    margin-bottom: 25px; border-top: 1px solid #eeeeee;border-bottom: 1px solid #eeeeee;
+    color: #999999;font-size: 12px; font-weight: normal;line-height: 52px;
+}
+.comment-list .comment-head a.active{
+	color: #555555;
+}
+.comment-list .comment-head a {
+    margin: 0 5px;color: #999999;
+}
+.comment-list .comment-head i {
+    margin-right: 6px;
+}
+.comment-list i {
+    position: relative; bottom: 1px; margin-right: 5px;
+}
+.comment-list .note-comment {
+    margin-bottom: 20px;border-bottom: 1px solid #eeeeee;font-size: 16px;
+    line-height: 1.5;
+}
+.comment-list .note-comment .meta-top {
+    padding-top: 10px;
+    margin: 0 0 10px;
+}
+.comment-list .note-comment .content p {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.comment-list .note-comment .meta-top>p {
+    margin: 0;line-height: 1;
+}
+.comment-list .note-comment .content .author-name {
+    font-size: 14px;
+    color: #4094c7;
+}
+.comment-list .note-comment .content .reply-time {
+    margin-top: 3px;font-size: 12px; color: #999999;
+}
+.note-comment .meta-top span {
+    position: relative;
+    top: 1px;
+    margin-right: 10px;
+}
+small {
+    font-size: 85%;
+}
+.comment-list .note-comment .content .reply-time a {
+    color: #b1b1b1;
+}
+.comment-list .comment-footer {
+    margin-bottom: 10px;text-align:right;
+}
+ .comment-list .comment-footer .like{
+ 	margin-top: 5px;
+ }
+  .comment-list .comment-footer>a{
+  	color: #999999;
+    font-size: 13px;
+  }
+  .pull-left {
+    float: left;
+}
+ .comment-list .comment-footer .reply{
+	margin-left: 14px;
+ }
+ .comment-list .child-comment-list {
+ 	 padding: 15px 0 15px 10px;  border-bottom: 1px dashed #d9d9d9;
+    padding-bottom: 30px; border-left: 3px solid #d9d9d9; font-size: 13px;
+    margin-top: 10px;
+    border-top: 1px dashed #eeeeee;
+}
+.comment-list .child-comment p{
+	margin-bottom:0;
+}
+.comment-list .note-comment .content p a {
+    color: #4094c7;
+}
+.text-right {
+    text-align: right;
+}
+.comment-list .child-comment-footer .reply {
+    margin-left: 14px;
+}
+.comment-list .child-comment-footer>a{
+	color: #999999;font-size: 13px;
+}
+.comment-list .note-comment .content .reply-time {
+    margin-top: 3px;font-size: 12px; color: #999999;
+}
+.pull-let {
+    float: left;}
+    .comment-list .note-comment .content .reply-time a {
+    color: #b1b1b1;
+}
+.comment-list .comment-toolbar {
+    padding: 20px 0 15px 10px;
+    border-left: 3px solid #d9d9d9;
+    border-bottom: 1px dashed #eeeeee;
+    font-size: 13px;
+    color: #999999;
+}
+  .comment-list .load-more {
+    padding: 10px 0;margin-bottom: 0; font-size: 12px;text-align: center;
+}
+.comment-list .signout-comment {
+    text-align: center;
+}
+.btn-info {
+    color: white;
+    border-color: #15a7f0;
+    background: #15a7f0;
+}
+.include-collection {
+    position: relative; border-top: 1px solid #d9d9d9; z-index: 2;
+    border-bottom: 1px solid whitesmoke;background-color: whitesmoke;
+   }
+   .include-collection .content {
+    margin-top: 40px;    width: 620px;
+  margin-right: auto; margin-left: auto;
+}
+.include-collection .content>h5 {
+    margin: 0 0 15px;font-size: 13px; font-weight: normal;  color: #999999;
+    font-family: inherit;line-height: 20px;text-rendering: optimizelegibility;
+}
+.collections-list li {
+    padding: 15px 0 10px;
+    border-bottom: 1px dashed #d9d9d9;
+}
+.collections-list .avatar {
+    float: left; width: 40px; height: 40px;
+}
+.collections-list .avatar img {
+    border: none;width: 100%; height: 100%;border-radius: 50%;
+    box-sizing: border-box;
+}
+.collections-list .collections-info {
+    position: relative; margin-left: 55px;
+}
+.collections-list .collections-info h5 {
+    margin: 0 0 3px;font-size: 14px;font-family: inherit;
+    font-weight: bold;line-height: 20px; color: inherit;
+    text-rendering: optimizelegibility;
+}
+.collections-list .btn {
+    position: absolute; right: 0; top: 50%;
+    padding: 2px 10px 0px; margin-top: -13px; 
+}
+.fa-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+.follow>span{
+	display: none;
+}
+.collections-list .description {
+    padding-right: 120px; margin-bottom: 3px; font-size: 12px;
+}
+.collections-list p {
+	color: #999999;margin-bottom: 0; font-size: 11px;
+}
+
+
+@media (max-width: 768px) {
+    .navbar.navbar-jianshu.expanded {
+        display: none;
+    }
+    .dropdown {
+        display: none;
+    }
+    .container .article .show-content blockquote{
+        width: 100%;
+    }
+    .support-author{
+        width: 100%;
+    }
+    .meta-bottom{
+        width: 100%;
+    }
+     .comment-list{
+        width: 100%;
+     }
+     .include-collection .content {
+        width: 100%;
+     }
+     .post-bg .container{
+        width: 100%;
+     }
+}
+     </style>
+</head>
+
+<body ng-controller="article">
+	<div class="navbar navbar-jianshu shrink">
+		<div class="dropdown">
+			<a href="" class="dropdown-toggle logo" id="dLabel" role="button" data-toggle="dropdown" data-target="#">简</a>
+			<ul class="dropdown-menu">
+				<li><a href=""><i class="fa fa-home"></i>首页</a></li>
+				<li><a href=""><i class="fa fa-home"></i>专题</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="navbar-user">
+		<a href="" class="login" data-signup-link="true" data-toggle="modal">
+			<i class="fa fa-user"></i>注册
+		</a>
+		<a href="" class="login" data-signup-link="true" data-toggle="modal">
+			<i class="fa fa-sign-in"></i>登陆
+		</a>
+		<a href="" class="daytime set-view-mode pull-right"><i class="fa fa-moon-o"></i></a>
+	</div>
+	<div class="navbar navbar-jianshu expanded">
+		<div class="dropdown">
+			<a href="" class="active logon" role="button" data-original-title="个人主页" data-container="div.expanded">
+				<b>简</b>
+				<i class="fa fa-home"></i>
+				<span class="title">首页</span>
+			</a>
+			<a href="" data-toggle="tooltip" data-placement="right" data-original-title="专题" data-container="div.expanded">
+				<i class="fa fa-th"></i>
+				<span class="title">专题</span>
+			</a>
+			<a href="" class="ad-selector">
+				<i class="fa fa-mobile"></i>
+				<span class="title">下载手机应用</span>
+			</a>
+			<div class="ad-container ">
+				<div class="ad-pop">
+					<!-- <img class="ad-logo" src="../image/114-8dae53b3bcea3f06bb139e329d1edab3.png" alt="114"> -->
+					<p class="ad-title">简书</p>
+					<p class="ad-subtitle">交流故事,沟通想法</p>
+					<!-- <img class="ad-qrcode" src="../image/download-app-qrcode-053849fa25f9b44573ef8dd3c118a20f.png" alt="Download app qrcode"/> -->
+					<div>
+						<a href="" class="ad-link">iOS</a>
+						<a href="" class="ad-link">Android</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav-user">
+			<a href="#view-mode-modal" data-toggle="modal">
+				<i class="fa fa-font"></i>
+				<span class="title">显示</span>
+			</a>
+			<a href="" class="signin" data-signin-link="true" data-toggle="modal" data-placement="right" data-original-title="登录" data-container="div.expanded">
+				<i class="fa fa-siga-in"></i>
+				<span class="title">登陆</span>
+			</a>
+		</div>
+	</div>
+	<div class="imagebubble-container imagebubble-mode-off" id="show-note-container">
+		<div class="post-bg" id="flag">
+			<div class="container">
+				<div class="related-avatar-group activities"></div>
+				<div class="article">
+					<div class="preview">
+						<div class="author-info">
+							<div class="btn btn-small btn-success follow">
+								<a href="" data-signin-link="true" data-toggle="modal">
+									<i class="fa fa-plus"></i>
+									<span>添加关注</span>
+								</a>
+							</div>
+							<!-- <a href="" class="avatar">
+								<img src=".../image/f79039f74f46.jpeg" alt=""/>
+							</a>
+ -->							<span class="label">作者</span>
+							<a href="" class="author-name blue-link">
+								<span>秋繁露</span>
+							</a>
+							<span data-toggle="tooltip" data-original-title="最后编辑于 2016.09.29 17:05">
+								2016.09.29 16:48*
+							</span>
+							<div>
+								<span>写了74677字</span>
+								<span>被21人关注</span>
+								<span>获得了72个喜欢</span>
+							</div>
+						</div>
+						<!-- <h1 class="title">告诉孩子：当年所浪费的时间，岁月会让你哭着还回去</h1> -->
+                        <h1 class="title">{{mainTitle}}</h1>
+						<div class="meta-top">
+							<span class="wordage">字数2754</span>
+							<span class="views-count">阅读783</span>
+							<span class="comments-count">评论19</span>
+							<span class="likes-count">喜欢28</span>
+						</div>
+						<div class="article-share">
+							<a href="" class="bookmark" data-signin-link="true" data-toggle="modal">
+								<i class="fa fa-bookmark-o"></i>
+								<span>收藏文章</span>
+							</a>
+							<span>
+								<a href="" data-toggle="dropdown">
+									<i class="fa fa-share-square-o"></i>
+									 分享
+								</a>
+								<ul class="dropdown-menu arrow-top">
+									<li>
+										<a href="">
+											<!-- <img src="../image/weibo.png"/> -->
+										</a>
+									</li>
+									<li>
+										<a href="">
+											<!-- <img src="../image/weibo.png"/> -->
+										</a>
+									</li>
+								</ul>
+							</span>
+						</div>
+						<div class="show-content">
+							<div class="image-package imagebubble" widget="ImageBubble">
+								<!-- <img src="../image/2997199-264266163beb2d2f.jpg" class="imagebubble-image"> -->
+                                <br>
+								<div class="image-caption">图片发自简书App</div>
+							</div>
+                            <p>{{main}}</p>
+							<!-- <p>多数时候我像条奋力往上游的鱼，在茫茫大海里没有目标，没有依靠，前路弥漫纷扰，看不到头在哪儿。每天心里充斥着担忧和迷茫，向上不知道路在哪里，又不甘沉落，所以日子过的异常苦痛。</p>
+							<p>每天被各种信息，文章刷屏，选择越多，方法越多，越不知该怎么选择，怎么努力。真不情愿过这种一眼望到死的生活了，晋升又遥遥无期，社会阶级固化严重，继续向上太难。错过了最好的时光，依然年轻，却不知该如何坚持下去。</p>
+							<h4>
+							其实农村有不少家长根本没有读过书，但是孩子成才的也不少，仔细观察他们都是一些态度平和的人，孩子反而能专心学习。我小时候就很羡慕那些不打人的家长。所以情绪稳定，性情平和的
+							</h4>
+							<p>而时间不管其原因，它只负责教训。</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="visitor_edit">
+					<div id="further-readings" data-user-slug data-user-nickname>
+						<div id="further-reading-line" class="hide further-reading-line"></div>
+						<ul id="further-readings-list" class="reading-list unstyled"></ul>
+							<div id="further-reading-new" class="reading-edit">
+								<a href="" data-signin-link="true" data-toggle="modal">
+									<i class="fa fa-plus-circle"></i> 推荐拓展阅读
+								</a>
+								<div id="further-reading-form"></div>
+							</div>
+					</div>
+					<div class="pull-right">
+						<div class="author-copyright pull-right" data-toggle="tooltip" data-html="true" title data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+							<a>
+								<i class="fa fa-copyright"></i>著作权归作者所有
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="support-author">
+					<p>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！</p>
+					<a href="" class="btn btn-pay" data-toggle="model">¥ 打赏支持</a>
+					<div class="avatar-list"></div>
+				</div>
+				<div class="meta-bottom clearfix">
+					<div class="like">
+						<div class="like-button">
+							<a href="/sign_in" id="like-note" class="like-content" data-signin-link="true" data-toggle="modal">
+								<i class="fa fa-heart-o"></i>喜欢
+							</a>
+						</div>
+						<span id="likes-count" data-toggle="tooltip" data-placement="right" title data-original-title="查看所有喜欢的用户">28</span>
+					</div>
+					<div class="share-group pull-right">
+						<a href="" data-name="weibo">
+							<i class="fa fa-weibo"></i>
+							<span>分享到微博</span>
+						</a>
+						<a href="" data-toggle="modal" data-name="weixin">
+							<i class="fa fa-weixin"></i>
+							<span>分享到微信</span>
+						</a>
+						<div class="more">
+							<a href="" data-toggle="dropdown">
+								更多分享
+								<i class="fa fa-caret-down"></i>
+							</a>
+							<ul class="dropdown-menu arrow-top">
+								<li>
+									<a href="" data-name="changweibo">
+										<i class="fa fa-arrow-circle-o-down"></i>
+										 下载长微博图片
+									</a>
+								</li>
+								<li>
+									<a href="" data-name="tweibo">
+									<!-- <img src="../image/tweibo.png"/> -->
+									分享到腾讯微博
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="share-weixin-modal" class="modal hide fade share-weixin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					</div>
+						<div class="modal-body">
+							<h5>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</h5>
+							<canvas width="170" height="170" style="display: none;">
+							<!-- <img src="../image/下载.png" style="display:block"> -->
+						</div>
+				</div>
+				<div id="notebooks-menu" class="panel notebooks-menu arrow-top modal hide fade">
+					<!-- <img src="../image/tiny.gif" class="loader-tiny"> -->
+				</div>
+				<div id="collection-menu" class="panel collection-menu arrow-top modal hide fade">
+					<!-- <img src="../image/tiny.gif" class="loader-tiny"/> -->
+				</div>
+				<div id="likes-modal" class="modal modal_new support_list-modal fullscreen hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+								<h3>喜欢的用户</h3>
+							</div>
+							<div class="modal-body">
+								<ul class="unstyled users">
+									<li data-user-id="2438590">
+										<a class="avatar" href="/users/ec086c4216b1">
+											<!-- <img src="../image/bfe80edab994.jpg"/> -->
+										</a>
+										<a class="blue-link" href="/users/ec086c4216b1">廖小小</a>
+										<span class="time">2016.09.30 14:31</span>
+									</li>
+									<li data-user-id="2438590">
+										<a class="avatar" href="/users/ec086c4216b1">
+											<!-- <img src="../image/bfe80edab994.jpg"/> -->
+										</a>
+										<a class="blue-link" href="/users/ec086c4216b1">自歌自舞自开怀</a>
+										<span class="time">2016.09.30 14:31</span>
+									</li>
+									<li data-user-id="2438590">
+										<a class="avatar" href="/users/ec086c4216b1">
+											<!-- <img src="../image/bfe80edab994.jpg"/> -->
+										</a>
+										<a class="blue-link" href="/users/ec086c4216b1">烦心的一夜</a>
+										<span class="time">2016.09.30 14:31</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="comments" class="comment-list clearfix">
+					<div class="comment-head clearfix">
+						19条评论
+						<span class="order">
+							(
+						<a href="" data-order="asc" class="active">按时间正序</a>
+						<a href="" data-order="desc" class="active">按时间倒序</a>
+						<a href="" data-order="likes_count" class="active">按喜欢排序</a>
+							)
+						</span>
+						<a href="" class="goto-comment pull-right" data-signin-link="true" data-toggle="modal">
+							<i class="fa fa-pencil"></i>
+							添加新评论
+						</a>
+					</div>
+					<div id="comment-list">
+						<div class="note-comment clearfix" id="comment-4498859">
+							<div class="content">
+								<div class="meta-top">
+									<a href="" class="avatar">
+										<!-- <img src="../image/83fe0b7d9b1d.jpeg"> -->
+									</a>
+									<p>
+										<a href="/users/b73fed01b9ce" class="author-name">微光222</a>
+									</p>
+									<span class="reply-time">
+										<small>3 楼 · </small>
+										<a href="">2016.10.03 15:24</a>
+									</span>
+								</div>
+								<p>说的好！</p>
+								<div class="comment-footer clearfix text-right">
+									<a data-id="4561647" class="like pull-left" href="javascript:void(0)">
+										<i class="fa fa-heart-o"></i>
+										喜欢
+										<span>(0)</span>
+									</a>
+									<a href="" data-id="4561647" data-nickname="微光222" class="reply">
+										回复
+									</a>
+								</div>
+								<div class="child-comment-list ">
+									<div class="child-comment" id="comment-4561761" data-id="4561761">
+										<p>
+											<a class="blue-link" href="">午后呓语</a>
+											<a href="" class="maleskine-author" target="_blank" data-user-slug="b73fed01b9ce">@微光222</a>
+										</p>
+										<div class="child-comment-footer text-right clearfix">
+											<a href="" data-id="4561647" data-nickname="午后呓语" class="reply">回复</a>
+											<span class="reply-time pull-left">
+												<a href="">2016.10.03 15:31</a>
+											</span>
+										</div>
+									</div>
+									<div data-state="remaining-child-comments"></div>
+									<div class="comment-toolbar clearfix">
+										<span class="pull-right">
+											<a data-id="4561647" class="reply" href="">
+												<i class="fa fa-pencil"></i>
+												 添加新回复
+											</a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="load-more">
+							<a href="" class="blue-link" data-type="html" data-action="load-comments" data-remote="true">
+								加载更多 
+								<i class="fa fa-arrow-down"></i>
+							</a>
+						</p>
+					</div>
+					<p class="signout-comment">
+						<a href=""class="btn btn-info" data-signin-link="true" data-toggle="modal">
+							
+      								登录后发表评论
+						</a>
+					</p>
+				</div>
+			</div>
+			<div class="include-collection">
+				<div class="content">
+					<h5>被以下专题收入，发现更多相似内容：</h5>
+					<ul id="all-collections" class="unstyled collections-list">
+						<li>
+							<a href="" class="avatar">
+								<!-- <img src="../image/上班这点事儿.jpeg" alt=""/> -->
+							</a>
+							<div class="collections-info">
+								<h5><a href="">上班这点事儿</a></h5>
+								<div class="btn btn-success follow">
+									<a href="" data-signin-link="true" data-toggle="modal">
+										<i class="fa fa-fw fa-plus"></i>
+										<span>添加关注</span>
+									</a>
+									<span>120.3K</span>
+								</div>
+								<p class="description">本专题仅收录求职、简历、换工作、职业规划、招聘、职场干货、上班感悟、管理提升、工作效率等与上班相关文章。专题投稿和推荐到首页等...</p>
+								<p>
+									<a href="" class="blue-link">7545篇文章</a>
+									 · 120378人关注8ab933d2
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+	ul,li{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	.ct>li{
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin: 10px;
+	}
+	.text{
+		margin: 10px;
+		padding: 10px;
+		background: yellow;
+	}
+
+	.go-top{
+		position: fixed;
+		right: 10px;
+		bottom: 10px;
+		padding: 10px;
+		background: #000;
+		color: #fff;
+		cursor: pointer;
+		display: none;
+	}
+
+
+
+</style>	
+
+</head>
+<body>
+	<ul class="ct">
+		<li>1-今天</li>
+		<li>1-天气</li>
+		<li>1-不错</li>
+		<li>啊啊啊</li>
+	</ul>
+	<button class="add">添加</button>
+	<div class="text"></div>
+
+
+	<div class="go-top">回到顶部</div>
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+
+
+	<script>
+/*
+	$('.ct>li').on('click', function(){
+		var str = $(this).text();
+		$('.text').text(str);
+	})
+
+*/
+	
+	// $('.ct>li').bind('click', function(){})
+	// $('.ct>li').unbind('click')
+
+	$('.ct').on('click', 'li', function(){
+		var str = $(this).text();
+		$('.text').text(str);
+	})
+	$('.ct').on('click.console', 'li', function(){
+		console.log($(this).text())
+	})
+
+	$('.ct').off('click.console')
+
+
+	$('.add').on('click', function(){
+		var str  = +new Date();
+		$('.ct').append('<li>'+str+'</li>');
+	})
+
+	$(window).on('resize', function(){
+		console.log($(window).width(), $(window).height())
+	})
+
+
+
+	$(window).on('scroll', function(){
+		var top = $(window).scrollTop();
+		if(top > 100){
+			$('.go-top').css('display', 'block');
+		}else{
+			$('.go-top').css('display', 'none');
+		}
+	})
+	$('.go-top').on('click', function(){
+		$(window).scrollTop(0)
+	})
+
+	var obj = {a:1, b:2};
+	$.each(obj, function(key, val){
+		console.log(key, val)
+	})
+
+
+	var $ctLis = $('.ct>li');
+	for(var i=0; i<$ctLis.length; i++){
+		var $node = $ctLis.eq(i);
+		if($node.text().indexOf('1-')>-1){
+			$node.addClass('on');
+		}
+	}
+
+	$ctLis.each(function(){
+		var $node = $(this);
+		if($node.text().indexOf('1-')>-1){
+			$node.addClass('on');
+		}
+	})
+
+
+	</script>
+</body>
+</html>

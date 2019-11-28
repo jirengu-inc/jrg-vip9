@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>IconFont</title>
+    <style type="text/css" media="screen">
+      @font-face {font-family: "iconfont";
+        src: url('iconfont.eot?t=1467032026'); /* IE9*/
+        src: url('iconfont.eot?t=1467032026#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('iconfont.woff?t=1467032026') format('woff'), /* chrome, firefox */
+        url('iconfont.ttf?t=1467032026') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('iconfont.svg?t=1467032026#iconfont') format('svg'); /* iOS 4.1- */
+      }
+
+      .icon-forward:before {
+         content: "\e601";
+         font-family:"iconfont";
+         font-style:normal;
+       }
+      .icon-stop:before {
+         content: "\e60c";
+         font-family:"iconfont";
+         font-style:normal;
+       }
+      .icon-start:before {
+         content: "\e7c3";
+         font-family:"iconfont";
+         font-style:normal;
+       }
+       li{
+         display: inline-block;
+       }
+       .icon{
+         font-size: 24px;
+       }
+       .icon:hover{
+         color: purple;
+         cursor: pointer;
+       }
+    </style>
+</head>
+<body>
+  <ul>
+    <li class="icon-forward icon"> 前进</li>
+    <li class="icon-start icon"> 开始</li>
+    <li class="icon-stop icon" > 停止</li>
+  </ul>
+
+</body>
+</html>

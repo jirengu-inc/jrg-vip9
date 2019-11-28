@@ -1,0 +1,49 @@
+html,body,div {
+	margin:0;
+	padding: 0;
+}
+#header {
+	background-color: #ccc;
+	height: 40px;
+}
+#container {
+	padding-left:200px;
+	padding-right:200px;
+}
+#container:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#container .main {
+     background-color: rgba(0,255,0,0.5);
+     width: 100%;
+     float: left;
+}
+#container .aside {
+	background-color:  rgba(255,0,0,0.5);;
+	width: 200px;
+	float: left;
+	height: 400px;
+	margin-left: -100%;
+	position: relative;
+	left:-200px;
+	}
+#container .ad {
+	background-color:  rgba(255,255,0,0.5);;
+	width: 200px;
+	float: left;
+	width: 200px;
+	height: 400px;
+	margin-left: -200px;
+	position: relative;
+	right:-200px;
+}
+#footer {
+	background-color: #ccc;
+	height: 40px;
+}
+body{
+	min-width: 600px;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mockjs</title>
+</head>
+<body>
+	<script src="scripts/require.js">
+		require.config({
+			paths:{
+				'mock':'mock-min.js'
+			}
+		})
+		
+		require(['mock'],function(Mock){
+			console.log(1)
+		})
+	</script>
+</body>
+</html>

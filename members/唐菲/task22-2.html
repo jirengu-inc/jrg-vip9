@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task22-2</title>
+</head>
+<body>
+	<ul class="ct">
+		<li>这里是</li>
+		<li>饥人谷</li>
+		<li>前端6班</li>
+	</ul>
+	<input class="ipt-add-content" placeholder="添加内容"/>
+	<button id="btn-add-start">开头添加</button>
+	<button id="btn-add-end">结尾添加</button>
+
+	<script>
+		var oUl=document.getElementsByClassName("ct")[0];
+		var oBtustart=document.getElementById("btn-add-start");
+		var oBtuend=document.getElementById("btn-add-end");
+		var aLi=document.getElementsByTagName('li');
+		var oIptAdd=document.getElementsByClassName('ipt-add-content')[0];
+
+		oUl.addEventListener("click",function(e){
+			console.log(e.target.innerText)
+		})
+		oBtuend.addEventListener("click",function(){
+			var addLi=document.createElement("li");
+			if (/\S+/.test(oIptAdd.value)) {
+				addLi.innerText=oIptAdd.value;
+				oUl.appendChild(addLi);
+
+			}
+			else{
+				oIptAdd.value=null;
+				oIptAdd.placeholder="对不起请输入有效信息"
+			}
+
+		})
+
+		oBtustart.addEventListener("click",function(){
+			var addLi=document.createElement("li");
+			if (/\S+/.test(oIptAdd.value)) {
+				addLi.innerText=oIptAdd.value;
+				oUl.insertBefore(addLi,aLi[0]);
+			}
+			else{
+				oIptAdd.value=null;
+				oIptAdd.placeholder="对不起请输入有效信息"
+			}
+
+		})
+
+	</script>
+</body>
+</html>

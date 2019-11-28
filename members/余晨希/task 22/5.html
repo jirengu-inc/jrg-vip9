@@ -1,0 +1,112 @@
+<html>
+    <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>task 22 q5</title>
+</head>
+<body>
+    <div class="wrap">
+        <button id="clickMe">点我</button>
+        <div id="cover" ></div>
+        <div class="box">
+            <div class="title clearfix">
+                <h3>我是标题</h3>
+                <a href="#" class="close">x</a>
+            </div>
+            <div class="content">
+                <p>我是内容</p>
+                <p>我是内容</p>
+            </div>
+            <div class="footer clearfix">
+                <a href="#" class="btn confirm">确定</a>
+                <a href="#" class="btn cancel">取消</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var clickMe = document.getElementById('clickMe');
+        var box = document.querySelector('.box');
+        var confirm = document.querySelector('.btn.confirm');
+        clickMe.addEventListener('click', function(e){
+            e.stopPropagation();
+            document.querySelector('.box').classList.add('active');
+            document.getElementById('cover').classList.add('cover');
+        })
+        document.body.addEventListener('click', function(e){
+            document.querySelector('.box').classList.remove('active');
+            document.getElementById('cover').classList.remove('cover');
+        })
+        box.addEventListener('click', function(e){
+            e.stopPropagation();
+            if( e.target.classList.contains('close') || e.target.classList.contains('cancel') ) {
+                document.querySelector('.box').classList.remove('active');
+                document.getElementById('cover').classList.remove('cover');
+            }
+        })
+        confirm.addEventListener('click', function(e){
+            document.querySelector('.box').classList.add('active');
+        })
+    </script>
+</body>
+<style>
+    body,h3,p {
+        margin: 0;
+    }
+    a{
+        text-decoration: none;
+        color: #333;
+    }
+    h3 {
+        display: inline;
+    }
+    .wrap {
+        padding: 10px 20px;
+    }
+    .box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -150px;
+        width: 300px;
+        height: 300px;
+        z-index: 1;
+        box-shadow: 0 0 4px 0px #000;
+        display: none;
+        background: white;
+    }
+    .title,.content {
+        padding: 10px 20px;
+        border-bottom: 1px solid #ccc;
+    }
+    .content {
+        height: 200px;
+    }
+    .footer {
+        padding: 5px 10px;
+        float: right;
+    }
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .close {
+        float: right;
+        font-size: 20px;
+    }
+    .active {
+        display: block;
+    }
+    .cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;   
+        bottom: 0;
+        background-color: #000;
+        opacity: 0.4;  
+    }
+</style>
+</html>

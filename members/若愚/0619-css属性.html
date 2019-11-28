@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			body{
+				/*font: bold 40px/1em Arial;*/
+				font-size: 20px;
+				line-height: 2em;
+			}
+			body,html{
+				margin:0;
+				height: 100%;
+			}
+			.head{
+				height: 100%;
+				background: url(http://cdn.jirengu.com/book.jirengu.com/img/5.jpg) 0 0 no-repeat;
+				background-position: center center;
+				background-size: cover;
+			}
+
+			.header{
+				font-size: 60px;
+			}
+			h1{
+				font-size: 20px;
+				text-transform: lowercase;
+			}
+			p{
+				width: 300px;
+				border: 1px solid black;
+				white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+
+			.box{
+				font-size: 20px;
+			}
+
+			.box ,.box2{
+				border: 1px solid red;
+			}
+
+			.trangle{
+				width: 10px;
+				height: 10px;
+				background: black;
+				border-top: 50px solid red;
+				border-right: 50px solid blue;
+				border-left: 50px solid yellow;
+				border-bottom: 50px solid pink;
+			}
+				.img-box{
+				height: 200px;
+				width: 400px;
+				border: 6px solid #ccc;
+				background: url(http://cdn.jirengu.com/book.jirengu.com/img/5.jpg) 0 0 no-repeat;
+				background-position: center center;
+				background-size: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head"></div>
+		<div class="test1">hello</div>
+		<div class="header">
+			<h1>hunGer valley</h1>
+		</div>
+		
+		<pre>
+		var a =1;
+		var b = 2;	
+		</pre>
+		<p>但这两个属性并不是所有的元素都生效
+
+对于p、div等独占一行的块元素是可以随意
+使用的，但是对于span等行内元素是不生效的，行内元素空间靠内容
+撑开
+
+</p>
+
+		<div class="trangle"></div>
+		<div class="img-box">hunger valley</div>
+
+
+	</body>
+</html>

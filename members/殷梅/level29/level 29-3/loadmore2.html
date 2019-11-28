@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul,li,div,a,img{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+			color: #333;
+		}
+		li{
+			margin: 10px;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		a{	
+			display: block;		
+			margin: 40px auto;
+			padding: 10px;
+			color: red;
+			border: 1px solid red;
+			width: 70px;
+			text-align: center;
+			border-radius: 4px;
+
+		}
+		img{
+			width:16px;
+		}
+		.hover{
+			background-color: green;
+		}
+/*		.load-more{
+			visibility: 
+		}*/
+	</style>
+
+</head>
+<body>
+	<ul class="ct">
+		<li>内容1</li>
+		<li>内容2</li>
+	</ul>
+	<a href="#" class="load-more">加载更多</a>
+
+
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+	<script>
+//1*定义接口
+//
+//url;
+//入参：{start:2, len:6}
+//回参：后台给的响应是这种格式{
+//	status: 0 //0代表正常 1代表出错
+//	data:[2,3,4,5,6,7]
+//}
+
+		var $loadMore = $('.load-more'),
+			$ct = $('.ct');
+		var cur =3;
+		var clock;
+
+
+		load();
+
+
+//鼠标放置上去移除的样式，这里由于li是动态添加的，所以用事件代理
+		$ct.on('mouseenter','li',function(){
+			$(this).addClass('hover');
+		}).on('mouseleave','li', function(){
+			$(this).removeClass('hover');
+		});
+
+
+
+		$(window).on('scroll', function(){
+			if (clock) clearTimeout(clock);//当滚动一次，这里面的函数执行了10次，看clock存在吗，开始时不存在
+			clock = setTimeout(function(){//开始执行这句话，设定一个延时器，过100毫秒在执行这个函数
+				if (!isShow($loadMore)) return;//过了2毫秒看clock在不在，在的话清除掉，直到最后一个clock，把上面的取消在加上延时
+				load()
+			},100)
+
+		});
+
+
+
+		//稍微滚动一下，isShow函数执行很多次，动了一下算一次。
+		//
+		
+		// $(window).on('scroll', function(){
+		// 	if (isShow($loadMore )) {
+		// 		load()
+		// 	}
+		// })
+
+		function load(){
+		
+						$.ajax({
+				url: 'loadmore.php',
+				dataType: 'json',
+				type :'get',
+				data :{
+					start: cur,
+					len: 20
+				},
+				success: function(json){
+					onSuccess(json);
+				},
+				error: function(json){
+					onError;
+				}
+			});
+					
+		}
+
+
+		function onSuccess (json){
+			$loadMore.data('isLoading', false)
+					 .text('加载更多'); //链式调用
+			console.log(json);
+			if (json.status === 1) {
+				append(json.data);
+				cur += 4;
+			}else{
+				alert('获取数据失败');
+			}
+		}
+		function onError(){
+			$loadMore.data('isLoading', false)
+					 .text('加载更多')//链式调用
+			alert('系统异常')
+		}
+		function append(arr){
+			for (var i = 0; i < arr.length; i++) {
+				$ct.append('<li>' + arr[i] + '</li>')
+			}
+		}
+
+
+
+		function isShow($node){
+			var windowHeight = $(window).height();
+			var scrollTop = $(window).scrollTop();
+			var offsetTop = $node.offset().top;
+			var nodeHeight = $node.height();//包括margin等等
+
+			if (windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+	</script>
+	
+</body>
+</html>

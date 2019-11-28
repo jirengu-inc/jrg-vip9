@@ -1,0 +1,87 @@
+<script>
+	
+/*
+function Person(nick, age){
+    this.nick = nick;
+    this.age = age;
+}
+Person.prototype.sayName = function(){
+    console.log(this.nick);
+}
+
+var p1 = new Person();
+p1.sayName();
+
+console.log( p1 instanceof Person )
+console.log( p1 instanceof Object )
+
+console.log( p1.__proto__ === Array.prototype )
+
+console.log( p1.__proto__ === Object.prototype )
+
+console.log( p1.__proto__.__proto__ === Object.prototype )
+
+
+function isInstanceOf(obj, fn){
+	var oldProto = obj.__proto__;
+	do{
+		if( oldProto === fn.prototype) {
+			return true;
+		}else{
+			oldProto = oldProto.__proto__;
+		}
+	}while(oldProto)
+	return false;
+}
+
+*/
+
+/*
+Function  是函数 Function -> Function  Function->Object
+     Function.prototype === Function.__proto__
+     Function.prototype === Object.__proto__
+Function  是一个对象 
+
+Function.prototype 是对象   Object->Function.prototype
+     Object.prototype === Function.prototype.__proto__
+
+Object.prototype 是个对象 Object->Object.prototype
+      Object.prototype.__proto__ === null
+ 
+*/
+
+
+
+
+function Person(name, sex){
+    this.name = name;
+    this.sex = sex;
+}
+
+Person.prototype.printName = function(){
+    console.log(this.name);
+};
+
+function Man(name, sex, age){
+		//Person(name, sex); 函数里面的 this 就是 m
+		Person.call(this, name, sex);
+    this.age = age;
+}
+
+// Man.prototype = Person.prototype;
+//Man.prototype = Object.create(Person.prototype);
+Man.prototype =  new Person()
+
+
+Man.prototype.constructor = Man;
+Man.prototype.printAge = function(){
+    console.log(this.age);
+};
+var p = new Person('jirengu', '男');
+
+var m = new Man('jirengu', '男',10)
+
+
+
+
+</script>

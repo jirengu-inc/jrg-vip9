@@ -1,0 +1,64 @@
+<script>
+
+
+var arr = [2, ,1,];
+
+for(var i =0; i< arr.length; i++){
+	//console.log(arr[i])
+}
+console.log('--------')
+for(var i in arr){
+	//console.log(arr[i])
+}
+	
+
+var arr2 = arr;
+arr.length = 0;
+//arr = [];
+//
+
+var arr3 = [3,8,0,-1]
+
+var tpl = [];
+tpl.push( '<div class="container>\n'  );
+tpl.push( '  <div class="child"></div>' );
+tpl.push( '</div>'  );
+tpl.join('')
+
+var arr = [-1, 10, 3, 21, 15]
+arr.sort(function(a,b){
+	return b-a;
+})
+console.log(arr)
+
+var students = [
+	{name: 'hunger', age: 10}, 
+	{name: 'valley', age: 8},
+	{name: 'jirengu', age: 25},
+	{name: 'ruoyu', age: 21}
+]
+
+students.sort(function(s1, s2){
+	return s2.name > s1.name
+})
+console.log(students);
+
+students.sort(function(s1, s2){
+	return s2.age > s1.age
+})
+console.log(students);
+
+
+var str = 'hello jirengu, hello world ruoyu';
+str2 = str.split('').reverse().join('');
+
+var strArr = str.split(' ');
+strArr.sort()
+str3 = strArr.join(' ')
+
+
+
+
+
+
+</script>

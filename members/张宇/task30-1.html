@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+    <style type="text/css">
+        .ct {
+            position: relative;
+            margin: 0 auto;
+            transition: all 0.5s;
+            background: #aaaaaa;
+        }
+
+        .img {
+            width: 200px;
+            position: absolute;
+            margin-top: 5px;
+            margin-left: 5px;
+            transition: all 1s;
+        }
+
+        .img1 {
+            height: 150px;
+            background: #5ca2cf;
+        }
+
+        .img2 {
+            height: 300px;
+            background: #f55b6b;
+        }
+
+        .img3 {
+            height: 200px;
+            background: #4ed452;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="img img1">
+        <p>容器宽度和高度, 跟随瀑布流改变</p>
+    </div>
+    <div class="img img2">
+        <p>容器居中显示</p>
+    </div>
+    <div class="img img3"></div>
+    <div class="img img3"></div>
+    <div class="img img2"></div>
+    <div class="img img2"></div>
+    <div class="img img1"></div>
+    <div class="img img1"></div>
+    <div class="img img2"></div>
+    <div class="img img1"></div>
+    <div class="img img1"></div>
+    <div class="img img3"></div>
+    <div class="img img3"></div>
+    <div class="img img2"></div>
+    <div class="img img1"></div>
+    <div class="img img2"></div>
+    <div class="img img3"></div>
+    <div class="img img3"></div>
+
+</div>
+
+
+<script type="text/javascript">
+
+    WaterFall = function ($ct) {
+
+        var $ct = $($ct),
+            $items = $ct.find('.img'),
+            nodeWidth = $items.outerWidth(true),
+            border = nodeWidth-$items.outerWidth(),
+            colNum = parseInt( $ct.parent().width() / nodeWidth ),
+            colSumHeight = [];
+
+        for (var i = 0; i < colNum; i++) colSumHeight.push(0);
+
+        $items.each(function () {
+            $that = $(this);
+
+            var idx = 0,
+                    minHeight = colSumHeight[0];
+
+            for (var i in colSumHeight) {
+                if (colSumHeight[i] < minHeight) {
+                    idx = i;
+                    minHeight = colSumHeight[i];
+                }
+            }
+
+            var coorX = idx * nodeWidth,
+                coorY = minHeight;
+
+            $that.css({top: coorY, left: coorX});
+            colSumHeight[idx] += $that.outerHeight(true);
+
+        });
+
+//        $ct.height(Math.max.apply(null, colSumHeight));
+        $ct.css({
+            height: Math.max.apply(null, colSumHeight)+border,
+            width: nodeWidth * colNum+border
+        });
+    };
+
+    WaterFall($('.ct'));
+
+    var clock;
+
+    $(window).on('resize', function () {
+        clearTimeout(clock);
+        clock = setTimeout(function () {
+            WaterFall($('.ct'));
+        },50);
+    });
+
+
+    /*
+     var nodeWidth = $('.img').outerWidth(true);
+     var colNum = parseInt($('.ct').width()/nodeWidth);
+     var colSumHeight = [];
+     for(var i=0;i<colNum;i++) colSumHeight.push(0);
+     $('.img').each(function () {
+     $that = $(this);
+
+     var idx = 0;
+     var minHeight = colSumHeight[0];
+
+     for(var i in colSumHeight){
+     if(colSumHeight[i] < minHeight){
+     idx = i;
+     minHeight = colSumHeight[i];
+     }
+     }
+
+     var coorX = idx * nodeWidth;
+     var coorY = minHeight;
+
+     $that.css({top:coorY,left:coorX});
+
+     colSumHeight[idx] += $that.outerHeight(true);
+     });
+     $('.ct').height(Math.max.apply(null,colSumHeight));
+     */
+
+</script>
+</body>
+</html>

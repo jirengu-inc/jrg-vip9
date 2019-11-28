@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .tab-bar>li {
+        list-style: none;
+        float: left;
+      }
+      .tab-bar>li>a {
+        display: block;
+        padding: 10px 50px;
+        border: 1px solid #ddd;
+      }
+      .click {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="tab-bar">
+      <li>
+        <a href="#">one</a>
+      </li>
+      <li>
+        <a href="#">two</a>
+      </li>
+      <li>
+        <a href="#">three</a>
+      </li>
+    </ul>
+    <script src="jquery-3.0.0.min.js" charset="utf-8"></script>
+    <script>
+      function tabBar($node) {
+        var $this = this;
+        $node.on('click', 'li', function() {
+          $node.find('li').removeClass('click');
+          $(this).addClass('click');
+          if ($this.itemClick)
+            $this.itemClick($(this));
+        });
+      }
+      var tabBar = new tabBar($('.tab-bar'));
+      tabBar.itemClick = function(item) {
+        console.log(item.find('a'));
+      }
+    </script>
+  </body>
+</html>

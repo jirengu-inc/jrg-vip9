@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>task12-4</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+  <style>
+     html,body,div{
+        margin: 0;
+        padding: 0;
+     }
+    #header,#footer{
+        background: #ccc;
+        width: 1200px;
+        height: 30px; 
+    }
+    #content{
+        width: 800px;
+        padding: 0 200px;
+    }
+
+    .main{
+        width: 100%;
+        height: 100px;
+        float: left;  
+    }
+     .main .wrap{
+        height: 100px;
+        background: #3e9c3e;
+    }
+    .aside{
+        background: red;
+        width: 200px;
+        height: 100px; 
+        float: left;
+        margin-left: -100%;
+        position: relative;
+        left: -200px;
+    }
+    .extra{
+        background: yellow;
+        width: 200px;
+        height: 100px;
+        float: left;
+        margin-left: -200px;
+        position: relative;
+        left: 200px;
+    }
+    #content:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+  </style>
+</head>
+<body>
+    <div id="header">头部</div>
+    <div id="content">
+        <div class="main">
+            <div class="wrap">dddd</div>
+        </div>
+        <div class="aside"></div>
+        <div class="extra"></div>
+    </div>
+    <div id="footer">尾部</div>   
+</body>
+</html>

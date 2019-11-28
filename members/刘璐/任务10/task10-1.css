@@ -1,0 +1,80 @@
+h1,div,body,ul,li,p{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+    color:#cecece;
+}
+/*清除默认样式*/
+.clear{
+    zoom:1;
+}
+.clear:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+/*清浮动*/
+body{font:14px/1.5 "微软雅黑","Microsoft YaHei","sans-serif" }
+/*设置整体样式*/
+#header{
+    background:rgb(51,51,51);
+    height:46px;
+}
+.wrap{
+    width:900px;
+    margin:0 auto
+}
+.wrap img{
+    float:left;
+    width:163px;
+    height:33px;
+}
+#header .wrap ul{
+    float:right;
+}
+#header ul li{
+    float:left;
+    padding:14px 10px 16px 10px;
+    margin-left:15px;
+}
+#header li a{
+    font-size:16px;
+}
+/*}头部到此完结*/
+#content{
+    width:900px;
+    padding-top:10px;
+    margin:0 auto;
+}
+.aside{
+    width:200px;
+    height:500px;
+    background:#eeeeee;
+    float:left;
+}
+.main{
+    width:678px;
+    background:#eeeeee;
+    float:right;
+    padding:21px 0 22px 12px;
+    color:#656565;
+}
+.main h1{
+    font-size:26px;
+    line-height:80px;
+}
+/*内容部分到此完结*/
+#footer{
+    background:rgb(51,51,51);
+    height:40px;
+}
+#footer ul li{
+    font-size:14px;
+    padding:13px 2px 13px 8px;
+    float:left;
+}

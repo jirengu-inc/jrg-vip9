@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>跨域的实现方式</title>
+    <style>
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+        iframe{
+            border:1px solid red;
+            width:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>postMessage</h1>
+        <input type="text" placeholder="a.jirengu.com:8080">
+        <iframe src="//b.jirengu.com:8080/b.html" frameborder="0"></iframe>
+    <div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script>
+        $('.container input').on('input',function() {
+            console.log('使用postMessage跨源通信')
+            window.frames[0].postMessage(this.value,'http://b.jirengu.com:8080')
+        })
+        $(window).on('message',function(e) {
+            var data = e.originalEvent.data
+            $('.container input').val(data)
+        })
+    </script>
+</body>
+
+</html>

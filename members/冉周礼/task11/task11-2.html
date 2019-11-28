@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BFC</title>
+    <style type="text/css">
+      #header{
+        height: 40px;
+        background-color: red;
+      }
+      #content .aside{
+        height: 20px;
+        width: 100px;
+        background-color: rgb(147, 147, 221);
+        float: left;
+      }
+      #content .main{
+        overflow: auto;
+        background-color: rgb(149, 215, 104);
+      }
+      #footer{
+        height: 40px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">header</div>
+    <div id="content">
+      <div class="aside">aside</div>
+      <div class="main">
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+         我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,我是main,
+      </div>
+    </div>
+    <div id="footer"></div>
+  </body>
+</html>

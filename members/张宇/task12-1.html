@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task12-1</title>
+  <style>
+    body,html,ul,li{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    .layout{
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    #content .main{
+      padding: 10px 0;
+      background: #ccc;
+    }
+
+    .clearfix::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    #content .boxs{
+      margin-left: -20px;
+      margin-top: -10px;
+    }
+
+    #content .boxs > li{
+      float: left;
+      margin-left: 20px;
+      margin-top: 10px;
+      width: 253px;
+      height: 80px;
+      background: green;
+      color:white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="content" class="layout">
+    <div class="main clearfix">
+      <ul class="boxs">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>task25-1</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        body,div,ul,li,a{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        a:link{
+            color: inherit;
+        }
+        a:visited{
+            color: inherit;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .navigation{
+            
+        }
+        .category{
+            color: white;
+            background: steelblue;
+            width: 200px;
+            position: relative;
+        }
+        .category-title{
+            width: 180px;
+            margin-left: 10px;
+            display: inline-block;
+            padding: 10px 0;
+            border-bottom: 0.2px dotted;
+        }
+        .category-icon{
+            padding: 10px 0;
+            margin-left: -10px;
+        }
+        .child-panel{
+            display: none;
+            width: 200px;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            color: black;
+            border: 1px solid #ccc;
+        }
+        .child-panel>li{
+            float: left;
+            width: 70px;
+            padding-left: 30px;
+            line-height: 30px;
+        }
+        .hover{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navigation">
+        <li class="category">
+            <a class="category-title" href="">珠宝玉器</a>
+            <span class="category-icon">></span>
+            <ul class="child-panel clearfix">
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+                <li><a href="">宝石</a></li>
+                <li><a href="">水晶</a></li>
+                <li><a href="">玛瑙</a></li>
+                <li><a href="">珍珠</a></li>
+                <li><a href="">钻石</a></li>
+                <li><a href="">琥珀</a></li>
+                <li><a href="">和田</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a class="category-title" href="">珠宝玉器</a>
+            <span class="category-icon">></span>
+            <ul class="child-panel">
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+                <li><a href="">宝石</a></li>
+                <li><a href="">水晶</a></li>
+                <li><a href="">玛瑙</a></li>
+                <li><a href="">珍珠</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a class="category-title" href="">珠宝玉器</a>
+            <span class="category-icon">></span>
+            <ul class="child-panel">
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+                <li><a href="">宝石</a></li>
+                <li><a href="">水晶</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a class="category-title" href="">珠宝玉器</a>
+            <span class="category-icon">></span>
+            <ul class="child-panel">
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+                <li><a href="">宝石</a></li>
+                <li><a href="">水晶</a></li>
+                <li><a href="">玛瑙</a></li>
+                <li><a href="">珍珠</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a class="category-title" href="">珠宝玉器</a>
+            <span class="category-icon">></span>
+            <ul class="child-panel">
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+                <li><a href="">宝石</a></li>
+                <li><a href="">水晶</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $('.category').on('mouseover',function(){
+            $(this).children('.child-panel').addClass('hover');
+        });
+        $('.category').on('mouseout',function(){
+            $(this).children('.child-panel').removeClass('hover');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFC两栏布局</title>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #footer,#header{
+            height: 50px;
+            background: red;
+        }
+        #content{
+            overflow: hidden;
+        }
+        #content>.aside {
+            background-color: blue;
+            float: left;
+            width: 200px;
+        }
+        #content>.main {
+            background: pink;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="content">
+        <div class="aside">aside</br>aside</br>aside</div>
+        <div class="main">
+            我是main
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...我是main 我是main 我是main 我是main 我
+        </div>
+    </div>
+    <div id="footer"></div>
+
+</body>
+</html>

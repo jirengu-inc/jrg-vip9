@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	p{
+		border: 1px solid #ccc;
+		width: 100px;
+		margin: 400px auto;
+	}
+</style>
+</head>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<body>
+<p>HEllO</p>
+<p>HEllO</p>
+<p>HEllO</p>
+<p>HEllO</p>
+<p>HEllO</p>
+<p>HEllO</p>
+<p>HEllO</p>
+
+
+
+
+<script type="text/javascript">
+	function isVisible($node){
+		var windowHeight = $(window).height(), //窗口的高度
+			scrollTop = $(window).scrollTop(), //窗口的滚动距离
+			nodeHeight = $node.outerHeight(true), //元素的高度
+			nodeOffset = $node.offset().top;  //元素到页面顶部的距离
+		if(scrollTop+windowHeight>nodeOffset && scrollTop<nodeOffset+nodeHeight){
+			// $node.addClass('ok');
+			return true
+		}else{return false}
+
+	}
+
+	$(window).on('scroll',function(){
+		if(isVisible($('p'))){
+			console.log(true);
+		}
+	})
+
+
+
+	$(window).on('scroll',function(){
+		$('p').not('.ok').each(function(){
+			if(isVisible($(this))){
+				console.log(true)
+			}
+		})
+	})
+</script>
+    
+</body>
+</html>

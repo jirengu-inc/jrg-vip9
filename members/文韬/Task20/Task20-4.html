@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task20-4</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var i = 0;
+        var startTime = Date.now();
+
+        function simulation() {
+            if (i === 2000) {
+                var endTime = Date.now();
+                var n = (endTime - startTime) / i;
+                console.log(n);
+            }
+            i++;
+            setTimeout(function() {
+                return simulation()
+            }, 0);
+        }
+    </script>
+</body>
+
+</html>

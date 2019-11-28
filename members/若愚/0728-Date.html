@@ -1,0 +1,31 @@
+<script>
+	var start = Date.now();
+	for(var i=0;i<1000;i++){
+		console.log(1);
+	}
+	var end = Date.now();
+	console.log(end - start)
+
+	function getIntv(timeStr){
+		var timeEnd = new Date(timeStr).getTime();
+		var timeStart = new Date().getTime();
+		var offsetTime = timeEnd - timeStart;
+		var days = parseInt(offsetTime / (1000*60*60*24));
+		var hours = parseInt( (offsetTime % (1000*60*60*24)) / (1000*60*60) )
+	}
+
+
+	{"0": "零", "9": "九"}
+
+	function getChsDate(str){
+		var dateArr = str.split('-'),
+			yearStr = dateArr[0],  // '2016'
+			monthStr = dateArr[1], // '11'
+			dayStr = dateArr[2];   //'08'
+		var dict = {'0': '零', '1': '一', '9': '九','10': '十', '11': '十一'}
+
+		var chYearStr = dict[yearStr[0]] + dict[yearStr[1]] + dict[yearStr[2]] + dict[yearStr[3]];
+		var chMonthStr = 
+	}
+
+</script>

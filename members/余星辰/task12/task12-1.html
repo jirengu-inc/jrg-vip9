@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+          list-style: none;
+        }
+        .content{
+          background-color: #eee;
+          width: 400px;
+          margin: 0 auto;
+        }
+        .box{
+          overflow: hidden;
+        }
+        .panels {
+            width: 100px;
+            height: 75px;
+            background-color: green;
+            border: 1px solid black;
+            float: left;
+            margin: 10px;
+        }
+        .panels::after{
+          content: "";
+          display: block;
+          clear: both;
+        }
+    </style>
+    <title>task12-1</title>
+</head>
+
+<body>
+  <div class="yu">
+    <div class="content">
+        <ul class="box">
+            <li class="panels">1</li>
+            <li class="panels">2</li>
+            <li class="panels">3</li>
+            <li class="panels">4</li>
+            <li class="panels">5</li>
+            <li class="panels">6</li>
+        </ul>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 500px;
+            height: 350px;
+        }
+        .container{
+            width: 1120px;
+            margin: 0 auto;
+        }
+        .container>li{
+            list-style-type: none;
+            float: left;
+            margin: 10px 30px;
+        }
+        .container:after{
+            content: ''; 
+            display: block;
+            clear: both;
+        }
+</style>
+<body>
+    <ul class="container">
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img05.tooopen.com/images/20150417/tooopen_sy_118991238222.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img05.tooopen.com/images/20150419/tooopen_sy_119257626434.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20150227/tooopen_sy_111434911259.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20150806/tooopen_sy_136927663518.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img03.tooopen.com/images/20160706/tooopen_sy_169305625518.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20160609/tooopen_sy_164617453881.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20160418/tooopen_sy_159734587882.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img05.tooopen.com/images/20160121/tooopen_sy_155168162826.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20150727/tooopen_sy_135544298879.jpg" alt=""></a></li>
+    	<li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img05.tooopen.com/images/20160108/tooopen_sy_153774066785.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20160328/tooopen_sy_157588914468.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20160423/tooopen_sy_160280513178.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20150227/tooopen_sy_81201942789.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img05.tooopen.com/images/20151110/tooopen_sy_148270856324.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img02.tooopen.com/images/20150227/tooopen_sy_111441734199.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://www.jcpeixun.com/images/logo_lazy.gif" data-src="http://img05.tooopen.com/images/20150419/tooopen_sy_119258549424.jpg" alt=""></a></li>
+        
+        
+    </ul>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+    
+        check();
+        
+        $(window).on('scroll', check)
+
+        function check(){
+            $('.container img').not('.load').each(function(){
+                if(isShow($(this))){
+                    showImg($(this))
+                }
+             })
+        }
+
+        function showImg($img){
+            $img.each(function(){
+                var imgUrl = $(this).attr('data-src');
+                $(this).attr('src',imgUrl);
+                $(this).addClass('load');
+            })
+
+        }
+// windowHeight 浏览器窗口的高度，scrollTop 滚动的距离，offsetTop 元素到body的距离，nodeHeight 元素高度    
+//条件 windowHeight + scrollTop = offsetTop  
+       function isShow($node){
+            var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                offsetTop = $node.offset().top,
+                nodeHeight = $node.height();
+            if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+                return true;
+            }else{
+                return false;
+            }
+       } 
+
+    </script>
+</body>
+</html>

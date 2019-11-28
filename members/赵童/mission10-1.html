@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>作业10-1</title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .clearfix{
+                clear: both;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            a:link{
+                color: white;
+            }
+            a:visited{
+                color: white;
+            }
+            .navbar, .footer{
+                background: #333;
+            }
+            .navbar> ul{
+                margin-right: 200px;
+            }
+            .navbar> ul> li{
+                float: right;
+
+            }
+            .navbar> ul> li> a{
+                display: block;
+                padding: 0.5rem;
+            }
+            .navbar>ul>a{
+                padding: 1rem 4rem;
+                display: block;
+                float: left;
+                margin-left: 200px;
+                background-image: url(http://cdn.jirengu.com/public/logo-tiny.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            /*.navbar: after{
+                content: ""
+                display:block;
+                clear: both;
+            }*/
+            .aside{
+                float: left;
+                background-color: #eee;
+                width: 200px;
+                height: 700px;
+                margin-left: 200px;
+                margin-top: 10px;
+            }
+            .main{
+                float: left;
+                background-color: #eee;
+                width: 700px;
+                height: 200px;
+                margin: 10px;
+            }
+            .text{
+                margin: 10px;
+                color: #656565;
+            }
+            .text h1{
+                padding: 2rem 0;
+            }
+            .footer>ul{
+                margin-left: 200px;
+            }
+            .footer>ul>li{
+                float: left;
+                padding:0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <ul>
+                <li><a href="#">关于</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">经历</a></li>
+                <li><a href="#">技能</a></li>
+                <a href="#"></a>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="aside">
+        </div>
+        <div class="main">
+            <div class="text">
+                <h1>我的作品</h1>
+                <p>生活很美好</p>
+                <p>心情不错</p>
+                <p>代码写的很漂亮</p>
+            </div>
+        </div>
+        <div class="footer clearfix">
+            <ul>
+                <li><a href="#">饥人谷</a></li>
+                <li><a href="#">JSCODE</a></li>
+                <li><a href="#">JSBIN</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </body>
+</html>

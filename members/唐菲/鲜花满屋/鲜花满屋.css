@@ -1,0 +1,193 @@
+body{
+    background-color: #ffaf95;
+        font-family: Arial;
+	    font-size: 12px;
+	        text-align: center;
+		    margin: 1px 0px 0px 0px;
+		        padding: 0px;
+			}
+			#container{
+			    position: relative;
+			        text-align: left;
+				    width: 700px;
+				        margin: 0px auto 0px auto;
+					}
+					#dblink{
+					    margin: 0px;
+					        padding: 0px;
+						}
+						#dblink ul{
+						    list-style: none;
+						        margin: 0px;padding: 0px;
+							}
+							#dblink li{
+							    float: left;
+							        text-align: center;
+								    width: 100px;
+
+								    }
+								    #dblink a{
+								        display: block;
+									    background: url("button1.jpg")no-repeat;
+									        line-height: 30px;
+										}
+										#dblink li a:link,#dblink li a:visited{
+										    text-decoration: none;
+										        color: black;
+											}
+											#dblink li a:hover,#dblink li a:active{
+											    text-decoration: none;
+											        color: #6b74ff;
+												    background: url("button1_bg.jpg") no-repeat;
+												    }
+												    #left{
+												        width: 180px;
+													    float: left;
+													        background: #ffffff url("leftbottom.jpg") no-repeat bottom;
+														    margin: 4px 0px 0px 0px;
+														    }
+														    #left_1{
+														        background: url("login.jpg") no-repeat;
+															    padding: 55px 0px 10px 0px;
+															    }
+															    #left_1 form{
+															        padding: 0px; margin: 0px;
+																}
+																#left_1 p{
+																    margin: 0px; text-align: left;
+																        padding: 5px 0px 0px 25px;
+																	}
+																	#left_1 p input{
+																	    font-family: Arial;
+																	        font-size: 12px;
+																		}
+																		#left_1 form input.text{
+																		    border-bottom: 1px solid #000000;
+																		        border-top: none;border-right: none;
+																			    border-left: none;
+																			        padding: 0px; width: 90px;
+																				}
+																				#left_1 form input.btn{
+																				    border: 1px solid #000000;
+																				        background-color: lightgray;
+																					    height: 17px;padding: 0px;
+																					    }
+																					    #left_1 a:link,#left_1 a:visited{
+																					        padding-left: 2px;
+																						    text-decoration: none;
+																						        color: #ff65f9;
+																							}
+																							#left_1 a:hover{
+																							    text-decoration: underline;
+																							        color: #5d60ff;
+																								}
+																								#left_2 {
+																								    background: url("category.jpg") no-repeat;
+																								        padding: 55px 0px 40px 0px;
+																									}
+																									#left_2 h4{
+																									    margin: 0px 18px;
+																									        padding: 3px 0px 1px 5px;
+																										    background-color: #ffd1d1;
+																										        font-size: 12px;
+																											}
+																											#left_2 ul{
+																											    list-style: none;
+																											        margin: 0px;
+																												    padding: 5px 22px 15px 22px;
+																												    }
+																												    #left_2 ul li{
+																												        background: url("icon1.gif") no-repeat 5px 7px;
+																													    padding: 3px 14px ;
+																													        border-bottom: 1px dashed lightgray;
+																														}
+
+																														#left_2 a:link,#left_2 a:visited{
+																														    text-decoration: none;
+																														        color: black;
+																															}
+																															#left_2 a:active,#left_2 a:hover{
+																															    text-decoration: underline;
+																															        color: gray;
+																																}
+																																#right{
+																																    float: left;
+																																        width: 518px;
+																																	    margin: 4px 0px 0px 2px;
+																																	    }
+																																	    #right #right_1{
+																																	        background: url("latest.jpg") no-repeat;
+																																		    padding: 35px 0px 0px 0px;
+																																		    }
+																																		    #right #right_1 img{
+																																		        border: none;
+																																			    margin-left: 1px;
+																																			    }
+																																			    #right #right_2 {
+																																			        background: url("recommend.jpg") no-repeat;
+																																				    padding: 35px 0px 0px 0px;
+																																				        margin: 5px 0px 0px 0px;
+																																					    background-color: white;
+																																					    }
+																																					    #right_2 br,#right_3 br,#right_4 br{
+																																					        display: block;
+																																						    clear: both;
+																																						        margin: 0px; padding: 0px;
+																																							}
+																																							#right_2 ul,#right_3 ul{
+																																							    list-style: none;
+																																							        margin: 0px;
+																																								    padding: 5px 5px 5px 8px;
+																																								    }
+																																								    #right_2 ul li,#right_3 ul li{
+																																								        text-align: center;
+																																									    float: left;
+																																									        width: 125px;
+																																										}
+																																										#right_2 ul li img,#right_3  ul li img{
+																																										    border: none;
+																																										        margin: 5px 0px 3px 0px;
+																																											    padding: 0px;
+																																											    }
+																																											    #right_2 ul li a:link,#right_2 ul li a:visited,#right_3 ul li a:link,#right_3 ul li a:visited{
+																																											        text-decoration: none;
+																																												    color: #6b74ff;
+																																												    }
+																																												    #right_2 ul li a:hover,#right_3 ul li a:hover{
+																																												        text-decoration: underline;
+																																													    color: black;
+																																													    }
+																																													    #right_3 {
+																																													        border: none;
+																																														    padding: 35px 0px 0px 0px;
+																																														        background: url("new.jpg") no-repeat;
+																																															    background-color: #ffffff;
+																																															        margin: 5px 0px 0px 0px;
+																																																}
+																																																#right_4{
+																																																    border: none;
+																																																        padding: 35px 0px 0px 0px;
+																																																	    background: url("tips.jpg") no-repeat;
+																																																	        background-color: white;
+																																																		    margin: 5px 0px 0px 0px;
+																																																		        height: 116px;
+																																																			}
+																																																			#right_4 ul{
+																																																			    list-style: none;
+																																																			        padding: 5px 5px 5px 30px;
+																																																				    margin: 0px;
+																																																				    }
+																																																				    #right_4 ul li{
+																																																				        float: left;
+																																																					    width: 220px;
+																																																					        padding: 1px 5px 0px 15px;
+																																																						    background: url("icon2.gif") no-repeat 5px 6px;
+																																																						    }
+																																																						    #right_4 ul li a:link,#right_4 ul li a:visited{
+																																																						        text-decoration: none;
+																																																							    color: blue;
+																																																							    }
+																																																							    #right_4 ul li a:hover{
+																																																							        text-decoration: underline;
+																																																								    color: black;
+																																																								    }

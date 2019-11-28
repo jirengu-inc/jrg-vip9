@@ -1,0 +1,193 @@
+/*================清除重置样式==================*/
+body,html,ol,ul,dd,dl,dt,
+p,h1,h2,h3{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration:none;
+}
+img{
+    overflow:hidden;
+    border:none;
+}
+li,dt,dd{
+    list-style:none
+}
+body,html{
+    height:100%
+}
+body{
+    font-family: "宋体", Arial, Helvetica, sans-serif;
+    color:#f5f5f5;
+    line-height:1.5;
+    background:#181818;
+}
+h2{
+font-size:36px;
+}
+/***************自定义字体声明******************/
+@font-face {font-family: "iconfont";
+    src: url('iconfont.eot?t=1467624431'); /* IE9*/
+    src: url('iconfont.eot?t=1467624431#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff?t=1467624431') format('woff'), /* chrome, firefox */
+    url('iconfont.ttf?t=1467624431') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1467624431#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family:"iconfont";
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-QQ:before { content: "\e600"; }
+.icon-weibo:before { content: "\e601"; }
+.icon-tel:before { content: "\e602"; }
+.icon-duanxin:before { content: "\e603"; }
+.icon-github:before { content: "\e604"; }
+.icon-huahua:before { content: "\e605"; }
+.icon-gongju:before { content: "\e606"; }
+.icon-html:before { content: "\e607"; }
+.icon-html5:before { content: "\e608"; }
+.icon-js:before { content: "\e609"; }
+.icon-huahua{font-size:36px;}
+/****************其他********************/
+.clear:after{
+    content:"";
+    clear:both;
+    display:block;
+}
+.clear{
+    *zoom:1;
+}
+.layout{
+    width:960px;
+    margin:0 auto;
+    text-align:center;
+}
+.btn{
+    display:inline-block;
+    padding:10px 18px;
+    font-size:16px;
+    color:#000;
+    background:orange;
+}
+.btn:hover{
+    background:#f5f5f5;
+}
+.line{
+    display:block;
+    width:120px;
+    height:2px;
+    font-size:0;
+    background:#f36e41;
+    margin:10px auto;
+}
+/***************头部样式****************/
+#header{
+    height:100%;
+    background:url(../img/bg.jpg)center center no-repeat;
+    background-size:cover;
+}
+#header .table{
+    height:100%;
+    display:table;
+}
+.vertical-center{
+    display:table-cell;
+    vertical-align:middle;
+}
+#header .table h1{
+    font-size:60px;
+}
+#header .table p{
+    font-size:24px;
+}
+#header .table a{
+    margin-top:20px;
+}
+/*****************content******************/
+#content{
+    background:#181818;
+}
+/***********content-introduction************/
+.introduction{
+    background:orange;
+    color:#000;
+    padding:100px;
+}
+/***********content-skill**************/
+.skill{
+    padding:60px;
+}
+.skill ul{
+    margin-left:-20px;
+}
+.skill li{
+    float:left;
+    width:225px;
+    margin-left:20px;
+    font-size:16px;
+}
+.skill li .round{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:orange;
+    margin:20px auto;
+}
+.skill i{
+    font-size:80px;
+}
+/*********content-pic*************/
+.pic{
+    padding:100px;
+    background:orange;
+}
+.pic h2{
+    color:#000;
+}
+/*********content-works************/
+.works{
+    padding:60px;
+}
+.works li{
+    padding:10px;
+    width:460px;
+    float:left;
+}
+.works li img{
+    width:460px;
+    height:360px;
+}
+/*********content-others***********/
+.others{
+    background:orange;
+    color:#000;
+    padding:60px;
+}
+.others .layout>a{
+    margin:10px 0;
+    background:#181818;
+    color:orange;
+}
+.others .layout>a:hover{
+    background:#f5f5f5;
+}
+/**********footer***********/
+#footer{
+    padding:60px 0;
+}
+#footer a i{
+    font-size:42px;
+    color:orange;
+}
+#footer span{
+    background:#aaa;
+}
+.copyright{
+    color:#aaa;
+}

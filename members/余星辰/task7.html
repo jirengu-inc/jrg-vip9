@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style media="screen">
+    #comment{
+      height:100px;
+      width: 200px;
+    }
+    }
+  </style>
+  <title>task7</title>
+</head>
+<body>
+  <form class="" action="index.html" method="post">
+    <div>
+      <label for="user">姓名：</label>
+      <input type="text" id="user" name="password"  placeholder="用户名">
+    </div>
+    <div>
+      <label for="password">密码：</label>
+      <input type="password" id="password" name="password" placeholder="密码">
+    </div>
+    <div>
+      性别：
+      <label for="male">男</label>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="female">女</label>
+      <input type="radio" id="female" name="gender" value="female">
+    </div>
+    <div>
+      取向：
+      <label for="man">男</label>
+      <input type="radio" id="man" name="Sexual Orientation" value="man">
+      <label for="woman">女</label>
+      <input type="radio" id="woman" name="Sexual Orientation" value="woman">
+    </div>
+    <div>
+      爱好：
+      <label for="">DOTA</label>
+      <input id="hobby" type="checkbox" name="hobby[]" value="DOTA">
+      <label for="">旅游</label>
+      <input id="hobby" type="checkbox" name="hobby[]" value="旅游">
+      <label for="">宠物</label>
+      <input id="hobby" type="checkbox" name="hobby[]" value="宠物">
+    </div>
+    <div>
+      评论：
+      <textarea id="comment" name="comment" maxlengt="300" placeholder="ddd"></textarea>
+    </div>
+    <div>
+      我的Car：
+      <select name="car" id="car">
+        <option value="saab">萨博</option>
+        <option value="benz">奔驰</option>
+        <option value="bmw">宝马</option>
+        <option value="audi">奥迪</option>
+      </select>
+      <input type="submit" value="提交">
+    </div>
+  </form>
+</body>
+</html>

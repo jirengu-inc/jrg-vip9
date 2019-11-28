@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任务22DOM-事件4</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* { padding: 0; margin: 0; }
+	li {
+		list-style: none;
+	}
+	.mod-tab {
+		border: 1px solid #ccc;
+		width: 600px;
+	}
+	.mod-tab .tabs li {
+		text-align: center;
+		float: left;
+		width: 33.3%;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+	.mod-tab .tabs:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.panel {
+		width: 100%;
+		display: none;
+		height: 300px;
+	}
+	.active {
+		display: block;
+		background: red;
+	}
+</style>
+</head>
+<body>
+    <!-- 实现如下图Tab切换的功能 -->
+    <div class='mod-tab'>
+    	<ul class="tabs">
+    		<li class='active'>tab1</li>
+    		<li>tab2</li>
+    		<li>tab3</li>
+    	</ul>
+    	<div class="panel active">内容11111111111111111111111</div>
+    	<div class="panel">内容2222222222222222222222</div>
+    	<div class="panel">内容3333333333333333333333</div>
+    </div>
+    <script>
+    	function hasClass(el, cls) {
+			var reg = new RegExp("\\b" + cls + "\\b");
+			if (el.className.search(reg) === -1) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		function addClass(el, cls) {
+			if (!hasClass(el, cls)) {
+				el.className += " " + cls;
+				// console.log(cls);
+				
+			}
+			else {
+				return;
+				// console.log(cls + "已经存在");
+			}
+		}
+		function removeClass(el, cls) {
+			var reg = new RegExp("\\b" + cls + "\\b");
+			if (hasClass(el,cls)) {
+				el.className = el.className.replace(reg, "");
+				// console.log(cls + "已删除");
+			}
+			else {
+				return;
+				// console.log(cls + "未找到");
+			}
+		}
+    	var oTabs = document.querySelector('.tabs');
+    	var aLi = oTabs.querySelectorAll('li');
+    	var aPanel = document.querySelectorAll('.panel');
+
+    	oTabs.addEventListener('click', function(e){
+    		for (var i = 0; i < aLi.length; i++) {
+    			removeClass(aLi[i], 'active');
+    			removeClass(aPanel[i], 'active');
+    			if (aLi[i] == e.target) {
+    				var index = i;
+    			}
+    		}
+    		addClass(e.target, 'active');
+    		addClass(aPanel[index], 'active');
+    	})
+
+
+
+
+
+
+
+
+
+
+
+    	// for (var i = 0; i < aLi.length; i++) {
+    	// 	aLi[i].index = i;
+    	// 	aLi[i].addEventListener('mouseover', function(){
+    	// 		for (var i = 0; i < aLi.length; i++) {
+    	// 			removeClass(aLi[i], 'active');
+    	// 			removeClass(aPanel[aLi[i].index], 'active');
+    	// 		}
+    	// 		addClass(this, 'active');
+    	// 		addClass(aPanel[this.index], 'active');
+    	// 	});
+    	// }
+    </script>
+</body>
+</html>

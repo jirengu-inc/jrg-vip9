@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,li,ul{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+        }
+        .wrap{
+            width:900px;
+            margin:0 auto;
+            background:#ccc;
+            padding:20px 0;
+        }
+        .panels:after{
+            content:"";
+            clear:both;
+            display:block;
+        }
+        .panels>li{
+            width:285px;
+            height:83px;
+            background:rgb(0,66,16);
+            margin:5px 0;
+        }
+        .panels li:nth-child(1),
+        .panels li:nth-child(4){
+            float:left;
+            margin-right:22px;
+        }
+        .panels li:nth-child(2),
+        .panels li:nth-child(5){
+            float:left;
+        }
+        .panels li:nth-child(3),
+        .panels li:nth-child(6) {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="panels">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</body>
+</html>

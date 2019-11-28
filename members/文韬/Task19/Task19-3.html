@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task19-3</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function getLastNDays(n) {
+            var nowDate = new Date().getTime();
+            var lastDate = new Date(nowDate - n * 3600 * 1000 * 24);
+            var lastMonth = lastDate.getMonth() + 1;
+            return lastDate.getFullYear() + "-" + lastMonth + "-" + lastDate.getDate();
+        }
+        console.log(lastWeek = getLastNDays(7));
+        console.log(lastMonth = getLastNDays(31));
+    </script>
+</body>
+
+</html>

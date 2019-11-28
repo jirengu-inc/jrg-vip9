@@ -1,0 +1,78 @@
+<html>
+    <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>task 22 q4</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <div class="panel active">内容1</div>
+        <div class="panel">内容2</div>
+        <div class="panel">内容3</div>
+    </div>
+    <script>
+        var tabs = document.querySelector('.tabs');
+        var panels = document.querySelectorAll('.panel');
+        tabs.addEventListener('click',function(e){
+            for(var i = 0; i < tabs.children.length; i++){
+                tabs.children[i].classList.remove("active");
+                panels[i].classList.remove("active");
+            }
+            e.target.classList.add("active");
+            for(var i = 0; i < tabs.children.length; i++){
+                if(tabs.children[i].classList.contains("active")){
+                    panels[i].classList.add("active");
+                    break;
+                }
+            }
+            
+        })
+    </script>
+</body>
+<style>
+     ul, li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .container {
+        border: 1px solid #ccc;
+        width: 900px;
+    }
+    .tabs li {
+        float: left;
+        width: 33.25%;
+        height: 25px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        cursor: pointer;
+        line-height: 25px;
+    }
+    .tabs li:last-child {
+        border-right: none;
+    }
+    .tabs:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+    .tabs .active {
+        background-color: #eee;
+    }
+    .container .panel {
+        height: 200px;
+        padding: 25px;
+        display: none;
+    }
+    .container .active {
+        display: block;
+    }
+</style>
+</html>

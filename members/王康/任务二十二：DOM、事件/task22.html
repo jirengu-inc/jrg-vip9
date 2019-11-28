@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task22</title>
+    <style type="text/css">
+      #purchases .sale {
+        color:red;
+      }
+      .wrap {
+        height:100px;
+        width:100px;
+        background-color:red;
+        margin:50px;
+      }
+      .main {
+        height:70px;
+        width:70px;
+        background-color:yellow;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>What to buy</h1>
+    <p>Don't forget to buy this stuff.</p>
+    <ul id="purchases">
+      <li>A tin of beans</li>
+      <li class="sale">Cheese</li>
+      <li class="sale important">Milk</li>
+    </ul>
+    <button type="button" id = "btn">点我</button>
+
+    <div class="wrap">
+      <div class="main">
+        <a class="link" href="http://jirengu.com/">饥人谷</a>
+      </div>
+    </div>
+
+    </div>
+    <script type="text/javascript">
+      var newLi = document.createElement('li');             // 创建新的 li元素节点
+      var oldLi = document.querySelector('.important');     // 获取需要删除的元素节点
+      var newContent = document.createTextNode('Apple')     // 创建新的内容节点
+      var ul = document.getElementById('purchases');        // 获取需要添加位置的父元素节点
+      ul.removeChild(oldLi);                                // 从父节点上删除子节点
+      newLi.appendChild(newContent);                        // 将内容节点添加到新的 li节点上
+      newLi.setAttribute('class','sale');                   // 给新的 li节点添加 class属性
+      ul.appendChild(newLi);                                // 将 newLi添加到 HTML内
+
+      var btn = document.querySelector('#btn');
+      btn.onclick = function() {
+        console.log('DOM0');
+      }
+      btn.addEventListener('click', function(){
+        console.log('DOM2');
+      })
+
+
+      var wrap = document.querySelector('.wrap');
+      var main = document.querySelector('.main');
+      var link = document.querySelector('.link');
+      wrap.addEventListener('click', function(){
+        console.log('wrap');
+      })
+      main.addEventListener('click', function(){
+        console.log('main');
+      })
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        console.log('link');
+        e.stopPropagation();
+      })
+    </script>
+  </body>
+</html>

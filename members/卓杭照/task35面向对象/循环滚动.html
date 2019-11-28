@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<style>
+	ul,li{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.carousel{
+		position: relative;		
+		width: 300px;
+		height: 200px;
+		overflow: hidden;
+		box-shadow: 2px 2px 10px #252525;	
+	}
+	.carousel .img-ct{
+		width: 1200px;		
+		height: 200px;
+		position: absolute;
+	}
+	.carousel .img-ct img{
+		width: 300px;
+		height: 200px;
+	}
+	.carousel .img-ct>li{
+		float: left;
+
+	}
+	.clearfix:after{
+		content:" ";
+		display: block;
+		clear: both;
+	}
+	.btn{
+		width: 30px;
+    	height: 30px;
+    	display: block;
+    	background-color: #ccc;
+    	border-radius: 50%;
+    	text-align: center;
+   	 	line-height: 30px;
+    	font-size: 18px;
+    	opacity: 0.6;
+    	color: #766262;
+    	position: absolute;
+    	top: 50%;
+    	margin-top: -18px;
+	}
+	.pre-btn{
+		left: 5px;
+	}
+	.next-btn{
+		right: 5px;
+	}
+	.carousel .bullet>li{
+    	width: 20px;
+    	height: 5px;
+   	 	border-radius: 3px;
+    	float: left;
+    	margin-left: 5px;
+    	background-color: white;
+	}
+	.carousel .bullet{
+    	position: absolute;
+    	bottom: 10px;
+    	left: 98px;
+	}
+	.carousel .bullet .active{
+		background-color: #9f9b9b;
+	}
+</style>
+</head>
+<body>
+	<div class="carousel c1">
+		<ul class="img-ct clearfix">
+			<li data-index=0><a href=""><img src="http://img05.tooopen.com/images/20150417/tooopen_sy_118991238222.jpg" alt=""></a></li>
+			<li data-index=1><a href=""><img src="http://img05.tooopen.com/images/20150419/tooopen_sy_119257626434.jpg" alt=""></a></li>
+			<li data-index=2><a href=""><img src="http://img02.tooopen.com/images/20150227/tooopen_sy_111434911259.jpg" alt=""></a></li>
+			<li data-index=3><a href=""><img src="http://img02.tooopen.com/images/20150806/tooopen_sy_136927663518.jpg" alt=""></a></li>
+		</ul>
+		<a href="#" class=" btn pre-btn">&lt;</a>
+		<a href="#" class="btn next-btn">&gt;</a>
+		<ul class=" bullet ">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="carousel c2">
+		<ul class="img-ct clearfix">
+			<li data-index=0><a href=""><img src="http://img05.tooopen.com/images/20150417/tooopen_sy_118991238222.jpg" alt=""></a></li>
+			<li data-index=1><a href=""><img src="http://img05.tooopen.com/images/20150419/tooopen_sy_119257626434.jpg" alt=""></a></li>
+			<li data-index=2><a href=""><img src="http://img02.tooopen.com/images/20150227/tooopen_sy_111434911259.jpg" alt=""></a></li>
+			<li data-index=3><a href=""><img src="http://img02.tooopen.com/images/20150806/tooopen_sy_136927663518.jpg" alt=""></a></li>
+		</ul>
+		<a href="#" class=" btn pre-btn">&lt;</a>
+		<a href="#" class="btn next-btn">&gt;</a>
+		<ul class=" bullet ">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+	<script>
+			function Carousel($carousel){
+				this.$carousel = $carousel;
+				var $ct = this.$ct = $carousel.find('.img-ct');
+				this.$pre = $carousel.find('.pre-btn');
+				this.$next = $carousel.find('.next-btn');
+				this.imgWidth = $ct.find('li').width();
+				this.imgSize = $ct.find('li').size();
+
+				$ct.css('width',this.imgWidth*this.imgSize);
+				this.bind();
+			}
+
+			Carousel.prototype = {
+				bind:function(){
+					var _this = this;
+					this.$pre.on('click',function(){
+						_this.showPre();
+					});
+					this.$next.on('click',function(){
+						_this.showNext();
+					});
+				},
+
+				showPre: function(){
+					console.log(this.$ct)
+					this.$ct.prepend(this.$ct.children().last())
+					.css('left', 0-this.imgWidth)
+					.animate({'left': 0});
+				},
+
+				showNext: function(){
+					var $ct = this.$ct;
+					$ct.animate({'left': 0-this.imgWidth},function(){
+						$ct.append($ct.children().first())
+						.css('left', 0);
+					});
+				}
+			};
+
+		var c1 = new Carousel($(".carousel").eq(0));
+		var c2 = new Carousel($(".carousel").eq(1));
+
+
+
+	 	// 	var $imgCt = $('.img-ct')
+	 	// 	var	$preBtn = $('.pre-btn')
+	 	// 	var	$nextBtn = $('.next-btn')
+	 	// 	var	$bullet = $('.bullet')
+	 	// 	var $firstImg = $imgCt.find('li').first()
+	 	// 	var $lastImg = $imgCt.find('li').last()
+	 	// 	var $imgWidth = $firstImg.width()
+	 	// 	var curPageIndex = 0					// 默认第一张图片，下标初始值为 0 （范围0-3）
+	 	// 	var imgLength = $imgCt.children().length					// imgLength = 4
+	 	// 	var isAnimate = false										// 状态锁，重复点击无效
+
+	 	// 	$imgCt.append($firstImg.clone())
+	 	// 	$imgCt.prepend($lastImg.clone())
+
+	 	// 	var imgLaterLength = $imgCt.width($firstImg.width() * $imgCt.children().length) 		 // imgLength = 6
+			// $imgCt.css({left:0-$imgWidth,width:imgLaterLength}) // left 默认第一张图片，初始值为 -300
+
+
+	 	// 	$preBtn.on('click',function(e){
+	 	// 		e.preventDefault()
+	 	// 		playPre()		
+	 	// 	})
+	 	// 	$nextBtn.on('click',function(e){
+	 	// 		e.preventDefault()
+	 	// 		playNext()
+	 	// 	})
+	 	// 	$bullet.find('li').on('click',function(){	
+	 	// 		var idx = $(this).index()	// 点击bullet时候，获取 下标
+	 	// 		if(idx>curPageIndex){
+	 	// 			playNext(idx-curPageIndex)
+	 	// 		}else{
+	 	// 			playPre(curPageIndex-idx)
+	 	// 	}
+
+	 	// })
+	 		 
+
+	 	// 	function playNext(num){
+	 	// 		var num = num || 1		//	参数num是点击 bullet小图标格数，默认 1格
+	 	// 		if(isAnimate)return
+	 	// 		isAnimate = true
+	 			
+	 	// 		$imgCt.animate({
+	 	// 			left:"-="+$imgWidth*num
+	 	// 		},function(){
+	 	// 			// console.log(curPageIndex)
+	 	// 			curPageIndex=(curPageIndex+num)%imgLength   // imgLength 初始值 4，curPageIndex为当前展示的图片序号
+	 	// 			// console.log(imgLength)
+	 	// 			// console.log(curPageIndex)
+	 	// 			if(curPageIndex === 0){
+	 	// 				$imgCt.css({left:0-$imgWidth})
+	 	// 			 	curPageIndex = 0
+	 	// 			}
+	 	// 			isAnimate = false
+	 	// 			setBullet()
+	 	// 		})	
+	 	// 	}
+
+	 	// 	function playPre(num){
+	 	// 		if(isAnimate)return
+	 	// 		isAnimate = true
+	 	// 		var num = num || 1
+	 		
+	 	// 		$imgCt.animate({
+	 	// 			"left":'+='+$imgWidth*num
+	 	// 		},function(){
+	 	// 			curPageIndex = (curPageIndex-num+imgLength)%imgLength
+	 	// 			if(curPageIndex ===	imgLength-1){    //  图片下标是3时候
+	 	// 				$imgCt.css({left:0-(imgLength*$imgWidth*num)})
+	 	// 			}
+	 	// 			isAnimate = false
+	 	// 			setBullet()
+	 	// 		})					
+	 	// 	}
+
+	 	// 	function setBullet(){
+	 	// 		$bullet.children().removeClass('active').eq(curPageIndex).addClass('active')
+	 	// 	}
+
+	 	// 	autoPlay();
+	 	// 	function autoPlay(){
+	 	// 		clock = setInterval(function(){
+	 	// 			playNext();
+	 	// 		},2000)
+	 	// 	}
+	 	// 	function stopAuto(){
+			// 	clearInterval(clock);
+			// }
+	 </script>
+</body>
+</html>

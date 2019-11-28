@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>exposure</title>
+  <style>
+    .inst {
+      width: 200px;
+      /* color: #fff; */
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      margin: 20px
+    }
+    .inst.blue {
+      color: blue;
+    }
+    .inst.red {
+      color: red;
+    }
+
+    .block {
+      margin: 600px 0;
+    }
+    .exp.blue {
+      background: blue;
+      margin: 600px 0;
+    }
+    .exp.red {
+      background: red;
+    }
+    .exp {
+      height: 100px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="exposure">
+  <div class="inst blue">蓝色区域曝光重复执行</div>
+  <div class="inst red">红色区域曝光单次执行</div>
+  <div class="inst">向下滚动.....</div>
+</div>
+<div class="block">
+  <div class="exp blue"></div>
+  <div class="exp red"></div>
+</div>
+<script src="http://cdn.bootcss.com/jquery/1.10.0/jquery.js"></script>
+<script>
+  var Exposure = (function(){
+    var show = false;
+    var _Exposure = function(){
+
+    }
+    _Exposure.prototype = {
+      bind: function($node, callback){
+        var _this = this;
+        $(window).on('scroll', function(){
+          if(_this.isShow($node)){
+            // console.log($node)
+            callback.call($node);
+          }
+        })
+      },
+      one: function($node, callback){
+        var _this = this;
+        $(window).on('scroll', function(){
+          if(_this.isShow($node) && !show){
+            callback.call($node[0]);
+            show = true;
+          }
+        })
+      },
+      isShow: function($target){
+        var targetTop = $target.offset().top,
+            targetH = $target.height(),
+            winH = $(window).height(),
+            winScrTop = $(window).scrollTop();
+        return (targetTop < (winH + winScrTop)) && ((targetTop + targetH) > winScrTop);
+      }
+    }
+    //
+    // function bind($node, callback){
+    //   $(window).on('scroll', function(){
+    //     if(isShow($node)){
+    //       callback();
+    //     }
+    //   })
+    // }
+    // function one($node, callback){
+    //   $(window).on('scroll', function(){
+    //     if(isShow($node) && !show){
+    //       callback();
+    //       show = true;
+    //     }
+    //   })
+    // }
+    // function isShow($target){
+    //   var targetTop = $target.offset().top,
+    //       targetH = $target.height(),
+    //       winH = $(window).height(),
+    //       winScrTop = $(window).scrollTop();
+    //   return (targetTop < (winH + winScrTop)) && ((targetTop + targetH) > winScrTop);
+    // }
+    return {
+      bind: new _Exposure().bind,
+      one: new _Exposure().one,
+      isShow: new _Exposure().isShow
+    }
+  })()
+  var target1 = $('.exp.blue');
+  var target2 = $('.exp.red');
+
+  Exposure.bind(target1, function(){
+    console.log($(this));
+  })
+  Exposure.one(target2, function(){
+    console.log($(this));
+  })
+</script>
+</body>
+</html>

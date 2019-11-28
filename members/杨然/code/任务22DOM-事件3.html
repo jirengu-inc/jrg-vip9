@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任务22DOM-事件3</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <!-- 补全代码，要求：当鼠标放置在li元素上，会在img-preview里展示当前li元素的data-img对应的图片。 -->
+   	<ul class="ct">
+	    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
+	    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg">鼠标放置查看图片2</li>
+	    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg">鼠标放置查看图片3</li>
+	</ul>
+	<div class="img-preview"></div>
+	<script>
+		var oUl = document.querySelectorAll('.ct')[0];
+		var aLi = oUl.getElementsByTagName('li');
+		var oDiv = document.querySelectorAll('.img-preview')[0];
+		for (var i = 0; i < aLi.length; i++) {
+			aLi[i].addEventListener('mouseover', function(){
+				var dataImg = this.getAttribute('data-img');
+				oDiv.innerHTML = '<img src="' + dataImg + '">'
+			});
+		}
+		
+	</script>
+</body>
+</html>

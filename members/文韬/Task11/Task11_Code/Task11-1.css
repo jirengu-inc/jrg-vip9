@@ -1,0 +1,60 @@
+div,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 5px;
+}
+
+li {
+    list-style: none;
+}
+
+#content {
+    height: 60px;
+    background: #aaa;
+}
+.fir-ul:hover{
+  background-color: #ddd;
+}
+
+.fir-li {
+    float: left;
+    margin-left: 5px;
+    background-color: #aaa;
+    position: relative;
+    line-height: 50px;
+}
+.fir-li:hover{
+  background-color: #ddd;
+}
+.sec-ul {
+    background-color: #eee;
+    padding-top: 0px;
+    position: absolute;
+    border-top: none;
+    top: 100%;
+    display: none;
+}
+
+.sec-li {
+    font-size: 0.8em;
+    padding-top: 10px;
+}
+
+.fir-li:hover .sec-ul {
+    background-color: #ddd;
+    display: block;
+}
+
+.sec-li:hover {
+    display: block;
+    background-color: #eee;
+}

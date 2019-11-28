@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+<script>
+    // 1. 写一个函数getIntv，获取从当前时间到指定日期的间隔时间
+    var str = getIntv("2016-08-26");
+    console.log(str);  // 距除夕还有 20 天 15 小时 20 分 10 秒
+
+    function getIntv(str){
+        // str : 0000-00-00
+        var arrTime = str.split('-');
+        var targetDate = new Date(arrTime[0],(arrTime[1]-1),arrTime[2]).getTime();
+        var nowDate = new Date().getTime();
+
+        var timeDifference = (targetDate - nowDate) > 0 ? (targetDate - nowDate)/1000 : 0;
+
+        var day,hour,minute,second;
+
+        day = parseInt(timeDifference / (24*60*60));
+        timeDifference %= 24*60*60;
+        hour = parseInt(timeDifference / (60*60));
+        timeDifference %= 60*60;
+        minute = parseInt(timeDifference / (60));
+        timeDifference %= 60;
+        second = parseInt(timeDifference);
+
+        return day+'天'+hour+'时'+minute+'分'+second+'秒';
+    };
+
+</script>
+</body>
+</html>

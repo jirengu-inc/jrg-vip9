@@ -1,0 +1,36 @@
+div {
+    border: 40px solid rgba(255, 255, 255, 0);
+    width: 0;
+    height: 0;
+    margin-bottom: 20px;
+}
+
+.triangle1 {
+    border-color: blue yellow green red;
+}
+
+.triangle2 {
+    border-top-color: blue;
+}
+
+.triangle3 {
+    border-left-color: red;
+}
+
+.triangle4 {
+    border-right-color: yellow;
+}
+
+.triangle5 {
+    border-bottom-color: green;
+}
+
+.triangle6 {
+    border-left-color: red;
+    border-bottom-color: red;
+}
+
+.triangle7 {
+    border-right-color: green;
+    border-bottom-color: green;
+}

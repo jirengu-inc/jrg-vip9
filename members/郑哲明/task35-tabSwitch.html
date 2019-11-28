@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab-switch</title>
+</head>
+<style>
+    body,ul,li,p{
+        margin: 0;
+        padding: 0;
+        font-family: '微软雅黑';
+    }    
+    .tab-ct{
+        width: 600px;
+        margin: auto;
+        margin-top: 30px;
+        border: 1px solid silver;
+    }
+    .tab li{
+        border-right: 1px solid silver;
+        border-bottom: 1px solid silver;
+        list-style: none;
+        float: left;
+        width: 200px;
+        height: 30px;
+        box-sizing: border-box;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .tab > li:nth-child(3){
+        border-right-width: 0;
+    }
+    .content{
+        width: 598px;
+        height: 300px;
+        padding: 15px 20px;
+        display: none;
+    }
+    .active-content{
+        display: block;
+    }
+    .clearfix:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .active{
+        background: #eee;
+    }
+</style>
+<body>
+    <div class="tab-ct">
+        <ul class="clearfix tab">
+            <li class='active'>tab1</li>
+            <li class=''>tab2</li>
+            <li class=''>tab3</li>
+        </ul>
+        <div class="text-ct">
+            <p class="active-content content">这里是</p>    
+            <p class="content">tab切换</p>    
+            <p class="content">演示</p>    
+        </div>
+    </div>
+     <div class="tab-ct">
+        <ul class="clearfix tab">
+            <li class='active'>tab1</li>
+            <li class=''>tab2</li>
+            <li class=''>tab3</li>
+        </ul>
+        <div class="text-ct">
+            <p class="active-content content">这里是</p>    
+            <p class="content">tab切换</p>    
+            <p class="content">演示</p>    
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        
+        function TabSwitch($ct) {
+            var $node = $ct.find('.tab li')
+            $node.on('click',function(e) {
+                $ct.find('.tab').children().removeClass('active')
+                $ct.find('.text-ct').children().removeClass('active-content')
+                var idx = $(e.target).index()
+                $ct.find('.tab').children().eq(idx).addClass('active')
+                $ct.find('.text-ct').children().eq(idx).addClass('active-content')
+            })
+        }
+        
+        $('.tab-ct').each(function(){
+            new TabSwitch($(this))
+        })
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul class="ct">
+        <li data-img="1.png">鼠标放置查看图片1</li>
+        <li data-img="2.png">鼠标放置查看图片2</li>
+        <li data-img="3.png">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+//        var ct = document.querySelector(".ct");
+//        var preview = document.querySelector(".img-preview");
+//        ct.addEventListener("click",function(e){
+//            var newImg = document.createElement('img');
+//            var src = e.target.getAttribute("data-img");
+//            newImg.setAttribute("src",src);
+//            preview.appendChild(newImg);
+//        })
+        var preview = document.querySelector(".img-preview");
+        var li = document.querySelectorAll("li");
+        for(var i = 0;i<li.length;i++){
+            li[i].addEventListener("click",function(){
+                var newImg = document.createElement("img");
+                var src = this.getAttribute("data-img");
+                newImg.setAttribute("src",src);
+                preview.appendChild(newImg);
+            });
+        }
+//        for(var i=0; i<li.length; i++){
+//            li[i].addEventListener('click', function(){
+//                var src = this.getAttribute('data-img');
+//                preview.innerHTML = '<img src="' + src + '">'
+//            });
+//        }
+    </script>
+</body>
+</html>

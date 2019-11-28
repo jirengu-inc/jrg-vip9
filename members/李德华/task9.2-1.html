@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .ul-style li {
+        display: inline;
+        list-style: none;
+        background-image: url(T9-CSS-Sprite.png);
+        height: 16px;
+        padding-left: 16px;
+        background-repeat: no-repeat;
+        background-size: 16px;
+      }
+      .ul-style li:hover {
+        color: rgb(171, 113, 193);
+      }
+      .forward {
+        background-position: 0px 0px;
+      }
+      .forward:hover {
+        background-position: 0px -61px;
+      }
+      .start {
+        background-position: 2px -41px;
+      }
+      .start:hover {
+        background-position: 0px -103px;
+      }
+      .stop {
+        background-position: 0px -21px;
+      }
+      .stop:hover {
+        background-position: 2px -82px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ul-style">
+      <li class="forward">前进</li>
+      <li class="start">开始</li>
+      <li class="stop">停止</li>
+    </ul>
+  </body>
+</html>

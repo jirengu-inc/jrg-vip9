@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任务7 杜宪</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	body{font-family: "微软雅黑";font-size: 18px;}
+	body,form,ul{margin: 0;padding: 0;}
+	li{list-style: none; margin-top: 10px;}
+	.form_box{margin: 50px;}
+	textarea{width: 240px; height: 100px}
+</style>
+</head>
+<body>
+    <form class="form_box" name="questionnaire">
+    	<ul>
+    		<li class="li_name"><span>姓名：</span><input type="text" name="name" value="" placeholder="用户名" /></li>
+    		<li class="li_name"><span>密码：</span><input type="password" name="password" value=""  /></li>
+    		<li class="li_sex">
+    			<span>性别：</span>
+    			<input type="radio" name="sex" value="男" id="sex0" checked="ture" /><label for="sex0">男</label>
+    			<input type="radio" name="sex" value="女" id="sex1" /><label for="sex1">女</label>
+    		</li>
+    		<li class="li_sex">
+    			<span>取向：</span>
+    			<input type="radio" name="sex_orient" value="男" id="sex_orient0" /><label for="sex_orient0">男</label>
+    			<input type="radio" name="sex_orient" value="女" id="sex_orient1" checked="ture" /><label for="sex_orient1">女</label>
+    		</li>
+    		<li class="li_hobby">
+    			<span>爱好：</span>
+    			<input type="checkbox" name="sex_orient" value="旅游" id="hobby0" /><label for="hobby0">旅游</label>
+    			<input type="checkbox" name="sex_orient" value="游戏" id="hobby1" /><label for="hobby1">游戏</label>
+    			<input type="checkbox" name="sex_orient" value="看书" id="hobby2" /><label for="hobby2">看书</label>
+    			<input type="checkbox" name="sex_orient" value="运动" id="hobby3" /><label for="hobby3">运动</label>
+    		</li>
+    		<li class="li_comment"><span>评论：</span><textarea name="comment"></textarea></li>
+    		<li class="li_car"><span>我的car：</span>
+    			<select>
+    				<option value="法拉利">法拉利</option>
+    				<option value="布加迪">布加迪</option>
+    				<option value="阿斯顿马丁">阿斯顿马丁</option>
+    				<option value="兰博基尼">兰博基尼</option>
+    				<option value="保时捷">保时捷</option>
+    			</select>
+    			<input type="submit" value="提交"/>
+    		</li>
+    	</ul>
+    </form>
+</body>
+</html>

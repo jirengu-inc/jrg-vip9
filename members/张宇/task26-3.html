@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点击加载显示更多</title>
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+    <style>
+        body * {
+            font-family: '微软雅黑';
+        }
+
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .btn {
+            border: none;
+            display: inline-block;
+            outline: 0;
+            padding: 6px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none!important;
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn {
+            transition: background-color .3s, color .15s, box-shadow .3s, opacity 0.3s;
+        }
+
+        .content-ul,
+        .btn-ct {
+            text-align: center;
+        }
+
+        .content-ul li {
+            border: 1px solid #222222;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .content-ul li:hover {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<ul class="content-ul">
+    <li>
+        <p>内容1</p>
+    </li>
+    <li>
+        <p>内容2</p>
+    </li>
+</ul>
+<div class="btn-ct">
+    <a class="btn" href="#">
+        <i class="fa fa-angle-double-down"></i> 加载更多
+    </a>
+</div>
+
+<script>
+    $btn = $('.btn');
+    $ct = $('.content-ul');
+    var index = 3;
+    var len = 6;
+    var flag = true;
+
+    $btn.on('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if (flag) {
+            flag = false;
+            var btnA = $(this).html();
+            $(this).html('<i class="fa fa-refresh fa-spin"></i>');
+            var that = this;
+            $.ajax({
+                url: 'Task2603.php',
+                method: 'GET',
+                dataType: 'json',
+                data: {
+                    start: index,
+                    len: len
+                },
+                success: function(result) {
+                    index += len;
+                    if (result.status) {
+                        var html = '';
+                        for (x in result.data) {
+                            html += '<li><p>' + result.data[x] + '</p></li>'
+                        }
+                        $('.content-ul').append(html);
+                    }
+                },
+                error: function(e) {
+                    console.log(e);
+                },
+                complete: function() {
+                    $(that).html(btnA);
+                    flag = true;
+                }
+            })
+        }
+    });
+</script>
+
+</body>
+
+</html>

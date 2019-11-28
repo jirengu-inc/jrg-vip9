@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      /*.dialog {
+        width: 350px;
+        background: rgba(238, 238, 238, 0.8);
+        padding-bottom: 20px;
+        padding-top: 0;
+        border-radius: 5px;
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -175px;
+      }
+      .dialog>a {
+        text-decoration: none;
+        color: white;
+        float: right;
+        line-height: 30px;
+        margin-right: 10px;
+      }
+      .dialog>p:first-of-type {
+        background: rgb(102, 102, 102);
+        color: white;
+        font-weight: bold;
+        line-height: 30px;
+        margin-top: 0;
+        padding-left: 5px;
+      }
+      .dialog>p:nth-of-type(2) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 11px;
+        color: #999;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .dialog>div {
+        text-align: center;
+      }
+      .dialog>div>a {
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        display: inline-block;
+        padding: 5px 10px;
+        background: rgb(227, 49, 0);
+        margin: 3px;
+        border-radius: 5px;
+      }*/
+    </style>
+  </head>
+  <body>
+    <!-- <div class="dialog">
+      <a href="#">X</a>
+      <p>欢迎来到饥人谷</p>
+      <p>hello</p>
+      <div>
+        <a href="#">取消</a>
+        <a href="#">确定</a>
+      </div>
+    </div> -->
+    <button type="button">按钮1</button>
+    <button type="button">按钮2</button>
+    <button type="button">按钮3</button>
+    <button type="button">按钮4</button>
+    <button type="button">按钮5</button>
+    <script src="jquery-3.0.0.min.js" charset="utf-8"></script>
+    <script>
+      function Dialog() {
+        this.$content = function() {
+          var dia = this;
+          this.moveFun = function(e) {
+            dia.$content.css({
+              'left': function() {
+                return e.screenX - dia.point.mouseLeft + dia.point.left;
+              },
+              'top': function() {
+                return e.screenY - dia.point.mouseTop + dia.point.top;
+              }
+            })
+          };
+          var content = $('<div></div>');
+          content.on('mousedown', function(e) {
+            dia.point = {
+              left: dia.$content.position().left,
+              top: dia.$content.position().top,
+              mouseLeft: e.screenX,
+              mouseTop: e.screenY
+            }
+            $(window).on('mousemove', dia.moveFun);
+          });
+          $(window).on('mouseup', function(e) {
+            console.log('mouseup');
+            $(window).off('mousemove', dia.moveFun);
+          })
+          return content;
+        }.call(this);
+      }
+      Dialog.prototype.open = function (property) {
+        var elements = [];
+        if (property['isShowCloseBtn']) {
+          var close = $('<a href="#">X</a>');
+          close.css(this.parseCssStrToObj("text-decoration:none;\
+          color:white;\
+          float:right;\
+          line-height:30px;\
+          margin-right: 10px;"));
+          elements.push(close);
+          if (property['onClose'] !== undefined) {
+            this.onClose = property['onClose'];
+            var dialog = this;
+            close.on('click', function() {
+              dialog.$content.remove();
+              dialog.onClose();
+            });
+          }
+        }
+        if (property['title'] !== undefined) {
+          var title = $('<p>' + property['title'] + '</p>');
+          title.css(this.parseCssStrToObj('background: rgb(102, 102, 102);\
+          color: white;\
+          font-weight: bold;\
+          line-height: 30px;\
+          margin-top: 0;\
+          padding-left: 5px;'));
+          elements.push(title);
+        }
+        if (property['message'] !== undefined) {
+          var message = $(property['message']);
+          message.css(this.parseCssStrToObj('margin-top: 20px;\
+          margin-bottom: 20px;\
+          font-size: 11px;\
+          color: #999;\
+          margin-left: 20px;\
+          margin-right: 20px;'));
+          elements.push(message);
+        }
+        if (property['isShowConfirmBtn'] || property['isShowCancelBtn']) {
+          var $footer = $('<div></div>');
+          if (property['isShowCancelBtn']) {
+            var btn = $('<a href="#">取消</a>');
+            $footer.append(btn);
+            if (property['onCancel'] !== undefined) {
+              this.onCancel = property['onCancel'];
+              btn.on('click', this.onCancel);
+            }
+          }
+          if (property['isShowConfirmBtn']) {
+            var btn = $('<a href="#">确定</a>');
+            $footer.append(btn);
+            if (property['onCancel'] !== undefined) {
+              this.onCancel = property['onCancel'];
+              btn.on('click', this.onCancel);
+            }
+          }
+          $footer.css({'text-align': 'center'}).find('a').css(this.parseCssStrToObj('text-decoration: none;\
+          color: white;\
+          font-size: 14px;\
+          display: inline-block;\
+          padding: 5px 10px;\
+          background: rgb(227, 49, 0);\
+          margin: 3px;\
+          border-radius: 5px;'));
+          elements.push($footer);
+        }
+        this.$content.append(elements);
+        this.$content.css(this.parseCssStrToObj('width: 350px;\
+          background: rgba(238, 238, 238, 0.8);\
+          padding-bottom: 20px;\
+          padding-top: 0;\
+          border-radius: 5px;\
+          overflow: hidden;\
+          position: absolute;\
+          left: 50%;\
+          top: 50%;\
+          margin-left: -175px;'));
+        $('body').append(this.$content);
+        var content = this.$content;
+        this.$content.css({
+          'margin-top': function() {
+            return -content.outerHeight(true)/2;
+          }
+        });
+      };
+      Dialog.prototype.parseCssStrToObj = function (str) {
+        var arr = str.split(';');
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+          var style = arr[i].split(':');
+          if (style.length === 2) {
+            var first = style[0];
+            var second = style[1];
+            obj[first.trim()] = second.trim();
+          }
+        }
+        return obj;
+      };
+      $('button').on('click', function() {
+        var index = $('button').index($(this));
+        var tpl;
+        var prop;
+        switch (index) {
+          case 0:
+            tpl = '<p>hello,这里是饥人谷</p>';
+            prop = {
+              message: tpl,
+              isShowCancelBtn: true,
+              onCancel: function() {
+                alert('取消');
+              }
+            };
+            break;
+          case 1:
+            tpl = '<div><a>饥人谷</a></div>';
+            prop = {
+              message: tpl,
+              isShowCancelBtn: true,
+              onCancel: function() {
+                alert('取消');
+              }
+            };
+            break;
+          case 2:
+            tpl = '<p>hello</p>';
+            prop = {
+              title: '欢迎来到饥人谷',
+              message: tpl,
+              isShowCancelBtn: true,
+              isShowConfirmBtn: true,
+              isShowCloseBtn: true,
+              onClose: function() {
+                alert('关闭');
+              },
+              onConfirm: function() {
+                alert('确定');
+              },
+              onCancel: function() {
+                alert('取消');
+              }
+            };
+            break;
+          case 3:
+            tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+            prop = {
+              title: '欢迎来到饥人谷',
+              message: tpl,
+              isShowCloseBtn: true,
+              isShowConfirmBtn: true,
+              onClose: function(){
+                alert('close')
+              },
+              onConfirm: function(){
+                alert('确定');
+              }
+            };
+            break;
+          case 4:
+            tpl = '<p>hello</p>';
+            prop = {
+              title: '欢迎来到饥人谷',
+              message: tpl,
+              isShowCloseBtn: true,
+              onClose: function(){
+                alert('close')
+              },
+            };
+            break;
+        }
+        var dialog = new Dialog();
+        dialog.open(prop);
+      });
+      // var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+      // var dialog4 = new Dialog();
+      // dialog4.open({
+
+      // });
+    </script>
+  </body>
+</html>

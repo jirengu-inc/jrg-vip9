@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .wrap{
+		font-size: 24px;
+    }
+    .icon {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        /*line-height: 40px;*/
+        margin-bottom: -4px;
+        background-size: 50%;
+        
+        background: url(result.png) 0 0 no-repeat;
+    }
+    
+    .s1 {
+        background-position: 0px -2px
+    }
+    .s1:hover{
+    	background-position: -1px -136px
+    }
+    
+    .s2 {
+        background-position: 2px -45px
+    }
+    .s2:hover{
+    	background-position: -3px -185px
+    }
+    .s3 {
+        background-position: -2px -92px
+    }
+    .s3:hover{
+    	background-position: 2px -229px
+    }
+    span{
+    	padding-left: 2px;
+    	padding-right: 7px;
+
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="icon s1"></div><span>前进</span>
+        <div class="icon s2"></div><span>开始</span>
+        <div class="icon s3"></div><span>停止</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>waterfall</title>
+    <style type="text/css">
+        .item{
+            position: absolute;
+            width: 190px;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 1s;
+        }
+        .h1{
+            height: 200px;
+            background: #33B5E5;
+        }
+        .h2{
+            height: 350px;
+            background:	#0099CC;
+        }
+        .h3{
+            height: 250px;
+            background: #AA66CC;
+        }
+        .h4{
+            height: 320px;
+            background: #FFBB33;
+        }
+        .h5{
+            height: 190px;
+            background: #9933CC;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="item h1">1</div>
+    <div class="item h2">2</div>
+    <div class="item h5">3</div>
+    <div class="item h3">4</div>
+    <div class="item h5">5</div>
+    <div class="item h4">6</div>
+    <div class="item h3">7</div>
+    <div class="item h4">8</div>
+    <div class="item h2">9</div>
+    <div class="item h5">10</div>
+    <div class="item h1">11</div>
+    <div class="item h3">12</div>
+    <div class="item h5">13</div>
+    <div class="item h2">14</div>
+    <div class="item h1">15</div>
+    <div class="item h5">16</div>
+    <div class="item h1">17</div>
+    <div class="item h4">18</div>
+    <div class="item h2">19</div>
+    <div class="item h4">20</div>
+    <div class="item h3">21</div>
+    <div class="item h2">22</div>
+    <div class="item h4">23</div>
+    <div class="item h3">24</div>
+    <div class="item h4">25</div>
+    <div class="item h2">26</div>
+    <div class="item h1">27</div>
+    <div class="item h5">28</div>
+    <div class="item h3">29</div>
+    <div class="item h5">30</div>
+    <div class="item h2">31</div>
+    <div class="item h1">32</div>
+    <div class="item h5">33</div>
+    <div class="item h1">34</div>
+</div>
+<script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+<script type="text/javascript">
+    function render(){
+        var itemWidth=$('.item').outerWidth(true),
+                colNum=parseInt($(window).width()/itemWidth),
+                SumHeightArr=[];
+        for(var i=0;i<colNum;i++){
+            SumHeightArr.push(0);
+        }
+        $('.item').each(function(){
+            var $cur=$(this);
+            var idx=0,
+                    minHeight=SumHeightArr[0];
+            for(var i=0;i<SumHeightArr.length;i++){
+                if(SumHeightArr[i]<minHeight){
+                    idx=i;
+                    minHeight=SumHeightArr[i];
+                }
+            }
+            $cur.css({
+                left:itemWidth*idx,
+                top:minHeight
+            });
+            SumHeightArr[idx] += $cur.outerHeight(true);
+        });
+    }
+    render();
+    var clock;
+    $(window).on('resize',function(){
+        if(clock){
+            clearTimeout(clock);
+        }
+        clock=setTimeout(function(){
+            render();
+        },200);
+    })
+
+</script>
+</body>
+</html>

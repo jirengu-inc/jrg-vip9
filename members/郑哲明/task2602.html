@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task26</title>
+    <style>
+        *{
+            margin-bottom: 20px;
+        }
+        div{
+            height: 500px;
+        }
+        .scroll{
+            border: 1px solid green;
+            position: fixed;
+            top:50%;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+       <legend>1、当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</legend>
+        <button class="btn">点我</button>
+    </fieldset>
+    <p class='scroll'>窗口滚动的垂直距离：<span class='length'></span></p>
+    <fieldset>
+       <legend>2、当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</legend>
+        <div></div>
+    </fieldset>
+    <fieldset>
+        <legend>3、当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</legend>
+        <input type="text">
+    </fieldset>
+    <fieldset>
+        <legend>4、当选择 select 后，获取用户选择的内容</legend>
+        <select name="" id="">
+            <option value="baidu">baidu</option>
+            <option value="tencent">tencent</option>
+            <option value="alibaba">alibaba</option>
+        </select>
+        <p>获取用户选择的内容：<span class="select"></span></p>
+    </fieldset>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $('.btn').on('click',function() {
+            $(this).css({'background-color':'red'})
+            setTimeout(function() {
+                $('.btn').css({'background-color':'blue'})
+            },200)
+        })
+        $(window).on('scroll',function() {
+            $('.length').text($(window).scrollTop())
+        })
+        $('div').on('mouseenter',function(){
+            $(this).css({'background-color':'red'})
+        })
+        $('div').on('mouseleave',function(){
+            $(this).css({'background-color':'white'})
+        })
+        $('input').on('focus',function() {
+            $(this).css({'border-color':'blue'})
+            $(this).css({'outline-style':'none'})
+        })
+        $('input').on('blur',function() {
+            $(this).css({'border-color':'initial'})
+            console.log($(this).val())
+        })
+        $('input').on('change',function() {
+            var val = $(this).val()
+            $(this).val(val.toUpperCase())
+        })
+        $('select').on('click',function() {
+            $('.select').text($('select option:selected').text())
+        })
+    </script>
+</body>
+</html>

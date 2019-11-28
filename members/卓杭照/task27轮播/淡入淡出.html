@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+</head>
+<style>
+	ul,li{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.carousel{
+		position: relative;		
+		width: 300px;
+		height: 200px;
+		overflow: hidden;
+		box-shadow: 2px 2px 10px #252525;	
+	}
+	.carousel .img-ct{
+		width: 1200px;		
+		height: 200px;
+		position: absolute;
+	}
+	.carousel .img-ct img{
+		width: 300px;
+		height: 200px;
+	}
+	.carousel .img-ct>li{
+		float: left;
+
+	}
+	.clearfix:after{
+		content:" ";
+		display: block;
+		clear: both;
+	}
+	.btn{
+		width: 30px;
+    	height: 30px;
+    	display: block;
+    	background-color: #ccc;
+    	border-radius: 50%;
+    	text-align: center;
+   	 	line-height: 30px;
+    	font-size: 18px;
+    	opacity: 0.6;
+    	color: #766262;
+    	position: absolute;
+    	top: 50%;
+    	margin-top: -18px;
+	}
+	.pre-btn{
+		left: 5px;
+	}
+	.next-btn{
+		right: 5px;
+	}
+	.carousel .bullet>li{
+    	width: 20px;
+    	height: 5px;
+   	 	border-radius: 3px;
+    	float: left;
+    	margin-left: 5px;
+    	background-color: white;
+	}
+	.carousel .bullet{
+    	position: absolute;
+    	bottom: 10px;
+    	left: 98px;
+	}
+	.carousel .bullet .active{
+		background-color: #9f9b9b;
+	}
+</style>
+<body>
+	<div class="carousel">
+		<ul class="img-ct clearfix">
+			<li data-index=0><a href=""><img src="http://img05.tooopen.com/images/20150417/tooopen_sy_118991238222.jpg" alt=""></a></li>
+			<li data-index=1><a href=""><img src="http://img05.tooopen.com/images/20150419/tooopen_sy_119257626434.jpg" alt=""></a></li>
+			<li data-index=2><a href=""><img src="http://img02.tooopen.com/images/20150227/tooopen_sy_111434911259.jpg" alt=""></a></li>
+			<li data-index=3><a href=""><img src="http://img02.tooopen.com/images/20150806/tooopen_sy_136927663518.jpg" alt=""></a></li>
+		</ul>
+		<a href="#" class=" btn pre-btn">&lt;</a>
+		<a href="#" class="btn next-btn">&gt;</a>
+		<ul class=" bullet ">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	 <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+	 <script>
+	 	var $imgCt = $('.img-ct'),
+	 		$imgLi = $imgCt.children(),
+	 		$preBtn = $('.pre-btn'),
+	 		$nextBtn = $('.next-btn'),
+	 		$bullet = $('.bullet'),
+	 		imgLength = $imgCt.children().length;
+
+	 	var curPageIndex = 0,
+	 		isAnimate = false;
+
+	 		play(0);
+			autoPlay();
+
+	 	$preBtn.on('click',function(){
+	 		playPre();
+	 	})
+	 	$nextBtn.on('click',function(){
+	 		playNext();
+	 	})
+	 	$bullet.find('li').on('click',function(){
+	 		var idx = $(this).index();
+	 		play(idx);
+	 	})
+
+	 	function play(idx){
+	 		if(isAnimate) return;
+	 		isAnimate = true;
+	 		$imgLi.eq(curPageIndex).fadeOut(500);
+	 		$imgLi.eq(idx).fadeIn(500,function(){
+	 			isAnimate = false;
+	 		}) 
+	 		curPageIndex = idx;
+	 		setBullet();
+	 	}
+	 	function playPre(){
+	 		console.log(curPageIndex);
+	 		play((imgLength+curPageIndex-1)%imgLength);
+	 	}
+	 	function playNext(){
+	 		play((curPageIndex+1)%imgLength);
+	 	}
+	 	function setBullet(){
+	 		$bullet.find('li').removeClass('active').eq(curPageIndex).addClass('active');
+	 	}
+
+	 	
+	 	function autoPlay(){
+	 		clock = setInterval(function(){
+	 			playNext();
+	 		},2000)
+	 	}
+	 	function stopAuto(){
+			clearInterval(clock);
+		}
+
+	 </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+#header {
+    font-size: 25px;
+    color: black;
+    background-color: red;
+    height: 50px;
+}
+#content {
+    overflow: auto;
+}
+.aside {
+    color: blue;
+    background-color: yellow;
+    width: 25%;
+    display: inline-block;
+}
+.main {
+    font-size: 25px;
+    height: 300px;
+    width: 75%;
+    background-color: green;
+    float: right;
+    display: inline-block;
+}
+#footer {
+    background-color: red;
+    width: 100%;
+    height: 40px;
+}

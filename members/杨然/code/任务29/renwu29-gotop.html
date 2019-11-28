@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>renwu29-gotop</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.layout {
+		height: 500px;
+		background-color: #ccc;
+		margin-top: 10px;
+	}
+	.gotop {
+		color: #fff;
+		display: inline-block;
+		padding: 10px;
+		/*width: 30px;*/
+		height: 30px;
+		line-height: 30px;
+		text-decoration: none;
+		/*border: 1px solid red;*/
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		background-color: #19486f;
+	}
+</style>
+</head>
+<body>
+    <div class="layout">
+    	
+    </div>
+    <div class="layout">
+    	
+    </div>
+    <div class="layout">
+    	
+    </div>
+    <div class="layout">
+    	
+    </div>
+    <a class="gotop" href="javascript:;">回到顶部</a>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+    	var gotop = $('.gotop'),
+    		win = $(window),
+    		winH = $(window).height();
+		
+		gotop.hide();
+
+    	gotop.on('click', function(){
+    		win.scrollTop(0);
+    	});
+
+    	win.on('scroll', function(){
+    		if (win.scrollTop() >= winH) {
+    			gotop.fadeIn(500);
+    		} else {
+    			gotop.fadeOut(500);
+    		}
+    	});
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务16</title>
+</head>
+<body>
+<script>
+    // 1.判断一个变量是否是数字、字符串、布尔、函数 （难度*）
+
+    function isNumber(el){
+        return typeof el === 'number';
+    }
+
+    function isString(el){
+        return typeof el === 'string';
+    }
+
+    function isBoolean(el){
+        return typeof el === 'boolean';
+    }
+
+    function isFunction(el){
+        return typeof el === 'function';
+    }
+
+    // 测试
+    var a = 2,
+        b = "jirengu",
+        c = false;
+    console.log( isNumber(a) );  //true
+    console.log( isString(a) );  //false
+    console.log( isString(b) );  //true
+    console.log( isBoolean(c) ); //true
+    console.log( isFunction(a)); //false
+    console.log( isFunction( isNumber ) ); //true
+
+    console.log('---------- 2. 以下代码的输出结果是? -----------')
+    // 2. 以下代码的输出结果是?
+    console.log(1+1);           // 2
+    console.log("2"+"4");       // "24"
+    console.log(2+"4");         // "24"
+    console.log(+new Date());   // 1470723627370(好像是一个时间戳)
+    console.log(0+new Date());  // +new
+    console.log(+"4");          // "4"
+
+    console.log('---------- 3. 以下代码的输出结果是? -----------')
+    // 3. 以下代码的输出结果是?
+
+    var a = 1;
+    a+++a
+    console.log(typeof a+2); // number2
+
+    console.log('---------- 华丽的分割线 -----------')
+    // 4. 遍历数组，把数组里的打印数组每一项的平方 （难度**）
+
+    var arr = [3,4,5]
+
+    for(var i=0; i<arr.length; i++){
+        console.log(arr[i]*arr[i]);
+    }
+
+    console.log('---------- 华丽的分割线 -----------')
+    // 5. 遍历 JSON, 打印里面的值 （难度**）
+    var obj = {
+        name: 'hunger',
+        sex: 'male',
+        age: 28
+    }
+
+    for(var key in obj){
+        console.log(obj[key]);
+    }
+
+    // 6. 下面代码的输出是? 为什么 （难度***）
+    console.log(z);     // undefined
+    var z = 1;
+    console.log(z);     // 1
+    console.log(x);     // 报错 Uncaught ReferenceError: x is not defined
+</script>
+</body>
+</html>

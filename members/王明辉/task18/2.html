@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+
+
+
+<script>
+    // 2.使用数组拼接出如下字符串 （***）
+
+    var prod = {
+        name: '女装',
+        styles: ['短款', '冬季', '春装']
+    };
+    function getTplStr(data){
+        //todo...
+        var html = '';
+        html += '<dl class="product">';
+        html += '<dt>'+ data.name +'</dt>';
+
+        for(var i=0; i < data.styles.length; i++){
+            html += '<dd>'+ data.styles[i] +'</dd>';
+        }
+        html += '</dl>';
+
+        return html;
+
+    };
+    var result = getTplStr(prod);  //result为下面的字符串
+
+    console.log(result)
+    /*
+         <dl class="product">
+             <dt>女装</dt>
+             <dd>短款</dd>
+             <dd>冬季</dd>
+             <dd>春装</dd>
+         </dl>
+    */
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网格</title>
+</head>
+<style>
+
+	.Grid {
+	  display: flex;
+	}
+
+	.Grid-cell {
+	  flex: 1;
+	  border: 1px solid #ccc;
+	}
+	.Grid-cell.u-full {
+		  flex: 0 0 100%;
+		}
+
+		.Grid-cell.u-1of2 {
+		  flex: 0 0 50%;
+		}
+
+		.Grid-cell.u-1of3 {
+		  flex: 0 0 33.3333%;
+		}
+
+		.Grid-cell.u-1of4 {
+		  flex: 0 0 25%;
+	}
+</style>
+<body>
+	<div class="Grid">
+	  <div class="Grid-cell">1</div>
+	  <div class="Grid-cell">2</div>
+	  <div class="Grid-cell">3</div>
+	</div>
+	<div class="Grid">
+	  <div class="Grid-cell">4</div>
+	  <div class="Grid-cell">5</div>
+	</div>
+	<div class="Grid">
+	  <div class="Grid-cell">6</div>
+	  <div class="Grid-cell">7</div>
+	  <div class="Grid-cell">8</div>
+	  <div class="Grid-cell">9</div>
+	</div>
+	<div class="Grid">
+	  <div class="Grid-cell u-1of4">1/4</div>
+	  <div class="Grid-cell">auto</div>
+	  <div class="Grid-cell u-1of3">1/3</div>
+	</div>
+</body>
+</html>

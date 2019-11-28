@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>stickup-more</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        body,div,ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: #505050;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        a:visted{
+            color: inherit;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        body{
+            background-color: #ebebeb;
+        }
+        .head-img{
+            width:100%;
+            height: 200px;
+            background-image: url(http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2pBdWM3ejdqbGVwcTJHK3d2SVlhRFZrenB1UmI1bW1wNnZ0VGlqaTF6YmJBPT0.jpg?imageView&thumbnail=2000y850&type=jpg&quality=96&stripmeta=0&type=jpg);
+            background-size: cover;
+        }
+        .cover{
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-color: black;
+            opacity: 0.4;
+        }
+        .navbar{
+            text-align: center;
+            box-shadow: 1px 1px 1px gray;
+            background-color: white;
+            position: relative;
+        }
+        .navbar>h3{
+            display: inline-block;
+            margin: 0 20px;
+            line-height: 50px;
+            font-size: 0.9rem;
+        }
+        .main{
+            float: left;
+            background-color: #ebebeb;
+            width: 60%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .main>ul>li{
+            display: inline-block;
+            background-color: #3a3333;
+            width: 80%;
+            height: 400px;
+            margin-top: 30px;
+        }
+        .aside{
+            float: right;
+            background-color: #ebebeb;
+            width: 40%;
+            text-align: center;
+        }
+        .aside>ul>li{
+            display: inline-block;
+            background-color: #ff6e00;
+            width: 80%;
+            height: 150px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-img">
+        <div class="cover"></div>
+    </div>
+    <ul>
+        <li class="clearfix">
+            <div class="navbar clearfix">
+                <h3>首页</h3>
+            </div>
+            <div class="main">
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="aside">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </li>
+        <li class="clearfix">
+            <div class="navbar clearfix">
+                <h3>作品</h3>
+            </div>
+            <div class="main">
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="aside">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </li>
+        <li class="clearfix">
+            <div class="navbar clearfix">
+                <h3>关于</h3>
+            </div>
+            <div class="main">
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="aside">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+<script>
+
+    $.fn.stick = function(){
+        var $nodes = this,
+            length = $nodes.length,
+            data = [],
+            status = 0;
+        $nodes.each(function(){
+            var $node = $(this);
+            data.push({
+                nodeWidth: $node.width(),
+                nodeHeight : $node.height(),
+                offsetLeft: $node.offset().left,
+                offsetTop : $node.offset().top
+            })
+            $node.clone().css('opacity',0).insertBefore($node).hide().addClass('clone');
+        })
+        $(window).resize(function(){
+            var nodeWidth = $nodes.eq(0).parent().width();
+            for(var i=0;i<data.length;i++){
+                data[i].nodeWidth = nodeWidth;
+            }
+            $nodes.each(function(){
+                $(this).css('width',nodeWidth);
+            })
+        })
+        $(window).scroll(function(){
+            var scrollTop = $(this).scrollTop();
+            if(scrollTop>=data[status].offsetTop){
+                if(status > 0){
+                    unsetFixed($nodes.eq(status-1));
+                }
+                setFixed($nodes.eq(status));
+                if(status < length-1){
+                    status++;
+                }
+            }
+            if(scrollTop < data[status].offsetTop){
+                unsetFixed($nodes.eq(status));
+                if(status > 0){
+                    status--;
+                }
+            }
+        })
+        function setFixed($node){
+            $node.css({
+                'position' : 'fixed',
+                'left':data[status].offsetLeft,
+                'top': 0,
+                'width': data[status].nodeWidth,
+                'margin': 0,
+                'z-index': 999
+            })
+            $node.prev().show();
+        }
+        function unsetFixed($node){
+            $node.removeAttr('style');
+            $node.prev().hide();
+        }
+    }
+    $('.navbar').stick();
+
+</script>
+</body>
+</html>

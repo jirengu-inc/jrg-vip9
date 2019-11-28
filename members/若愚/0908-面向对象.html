@@ -1,0 +1,41 @@
+<script>
+	
+
+var people = {
+	name: 'hunger',
+	age: 28,
+	sayHello: function(){
+		console.log('hello, ', this.name );
+	}
+}
+
+function getPeople(name, age){
+	var p = {
+		name: name,
+		age: age,
+		sayHello: function(){
+			console.log('hello, ', this.name );
+		}
+	}
+	return p;
+}
+
+var p1 = getPeople('hunger', 100);
+var p2 = getPeople('valley', 30)
+
+
+function People(name, age){
+	this.name = name;
+	this.age = age;
+	this.sayHello = function(){
+		console.log('hello, ', this.name );
+	}
+}
+new People();
+
+var p3 = new People('huner', 30);
+var p4 = new People('ruoyu', 28)
+
+
+
+</script>

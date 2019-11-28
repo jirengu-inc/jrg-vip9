@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task9-1</title>
+	<style type="text/css">
+	/*初始化和公共样式 */
+	html,body,div,ul,li,p{margin:0;padding: 0;color:#656565;font:16px/1.5 "Microsoft YaHei",sans-serif; }
+	.main{margin:0 auto;width: 900px;}
+	a{text-decoration: none;color: white;}
+	header{height: 50px;background:#333;margin-bottom:10px; }
+	li{list-style: none;display: inline-block;}
+	/*头部样式  */
+	header .logo{float: left;}
+	header .logo img{height: 40px;}
+	header .nav{float: right;}
+	header .nav li{padding:0 15px;height: 50px;line-height: 3.125;}
+	header .nav li:hover{background: white;color: black;}
+	header .nav li:hover a{color: black;}
+	/*中间部分的样式 */
+	main .left{float: left;width: 200px;min-height: 500px;background:#eee;}
+	main .right{margin-left:210px;  background:#eee;padding: 20px 10px;}
+	main:nth-child(2):after{content: "";display: block;clear: both;}
+    /*底部样式*/
+	footer{text-align: left;background: #333;height: 40px;}
+	footer a{font-size: 14px;line-height:40px;}
+	footer>div>span{padding-left: 10px;}
+
+
+	</style>
+</head>
+<body>
+<header>
+<div class="main">
+	<div class="logo"><img src="http://cdn.jirengu.com/public/logo-tiny.png" ></div>
+	<ul class="nav">
+		<li><a href="javascript:">技能</a></li>
+		<li><a href="javascript:">经历</a></li>
+		<li><a href="javascript:">作品</a></li>
+		<li><a href="javascript:">关于</a></li>
+	</ul>
+</div>
+</header>	
+
+<main class="main">
+	<div class="left"></div>
+
+	<div class="right">
+		<h1>我的作品</h1>
+		<p>生活很美好</p>
+		<p>心情不错</p>
+		<p>代码写的很漂亮</p>
+	</div>
+
+</main>		
+
+<footer>
+	<div class="main">
+		<span><a href="http://jirengu.com">饥人谷</a></span>
+		<span><a href="http://jscode.me">JSCODE</a></span>
+		<span><a href="http://js.jirengu.com">JSBIN</a></span>
+	</div>
+</footer>
+
+</body>
+</html>

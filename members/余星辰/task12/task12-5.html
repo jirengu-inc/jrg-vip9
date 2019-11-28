@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body,div{
+      margin:0;
+      padding: 0;
+    }
+    body{
+      font:14px "microsoft yahei",sans-serif;
+    }
+    #header{
+      height: 30px;
+      background: #ccc;
+    }
+    #content::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    #footer{
+      height: 30px;
+      background: #ccc;
+    }
+    .main,.aside,.extra{
+      float: left;
+    }
+    .main{
+      width: 100%;
+    }
+    .warp{
+      margin-left:100px;
+      background-color: green;
+      min-height: 200px;
+    }
+    .aside{
+      width: 100px;
+      min-height:200px;
+      margin-left: -100%;
+      background-color: red;
+      position: relative;
+    }
+    </style>
+    <title>task12-4</title>
+</head>
+
+<body>
+    <div id="header">头部</div>
+    <div id="content">
+        <div class="main">
+            <div class="warp">内容</div>
+        </div>
+        <div class="aside">aside</div>
+    </div>
+    <div id="footer">尾部</div>
+</body>
+
+</html>

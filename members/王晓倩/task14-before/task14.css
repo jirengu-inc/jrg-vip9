@@ -1,0 +1,151 @@
+html,body,div,h1,h2,p {
+	margin:0;
+	padding: 0;
+}
+ul,li {
+	list-style: none;
+}
+html,body {
+	height: 100%;
+}
+body,div,h1,h2,p,a {
+	font-family:"微软雅黑" Arial;
+	line-height: 2em;
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+#header p {
+	font-size:14px;
+	color:#fff;
+	padding-bottom: 16px;
+}
+#header h1 {
+    color:#fff;
+}
+#header .button ,#items .view-more-items {
+	width: 120px;
+	height: 40px;
+	background-color: #1890FF;
+	margin:0 auto;
+}
+#header a ,#items .view-more-items a {
+	text-decoration: none;
+	color: #fff;
+	padding:10px 10px;
+	font-size: 12px;
+}
+#header {
+	display: table;
+	height: 100%;
+	width: 100%;
+	background-image: url(bg.jpg);
+	background-size: cover;
+	background-position:center center;
+}
+.layout {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+#title {
+    text-align: center;
+}
+#title .wrap {
+    padding: 60px 0;
+}
+#skills,.clickme {
+	background-color: rgb(51,122,183);
+	color: #fff;
+	text-align: center;
+}
+#skills h2 {
+	margin:0 auto;
+	padding-top: 20px;
+	border-bottom: 1px solid #fff;
+	width: 160px;
+}
+#skills ul {
+	display: inline-block;
+	margin:10px auto;
+	padding-top: 130px;
+}
+#skills li {
+	float: left;
+	margin: 0 60px;
+}
+#skills li .name {
+	padding-top: 40px;
+}
+#words {
+	display: table;
+	width: 100%;
+	background-image: url(callout.jpg);
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+}
+#words h2 {
+	padding-top: 200px;
+	padding-bottom: 200px;
+	color: #fff;
+}
+#items {
+	padding-top: 20px;
+}
+#items h2 {
+    text-align: center;
+}
+#items ul {
+    text-align: center;
+}
+#items ul li {
+	display: inline-block;
+    margin:4px 6px;
+}
+.clickme {
+    margin-top: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.clickme .clickme-button {
+	display: inline-block;
+	background-color: #fff;
+	padding: 2px 4px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.clickme .clickme-button a {
+	text-decoration: none;
+	color: #000;
+}
+.clickme .clickme-button:hover {
+	background-color:rgb(28,72,106);
+}
+.clickme .clickme-button a:hover {
+	color: #fff;
+}
+#footer {
+	text-align: center;
+	padding-top: 40px;
+}
+#footer h3 {
+	margin-bottom: 0;
+}
+#footer p {
+	font-size: 12px;
+}
+#footer .contact-way {
+	padding-bottom: 20px;
+	text-align: center;
+}
+#footer .contact-way li {
+	display: inline-block;
+	padding: 0 16px;
+}
+#footer ul li a {
+	text-decoration: none;
+	color:rgb(51,122,183);
+}

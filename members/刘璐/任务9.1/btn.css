@@ -1,0 +1,19 @@
+a{text-decoration:none;}
+button{
+    padding:0;
+    border:none;
+    outline: none;
+}
+.btn{
+    display:inline-block;
+    width:58px;
+    height:34px;
+    background:#f36e41;
+    border-radius:5px;
+    color:#fff;
+    text-align:center;
+    line-height:34px;
+    font-size:20px;
+}
+.btn:hover{background:#c14d21}
+.btn:active{background:#e25f31}

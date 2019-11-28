@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5笑脸样式的音乐播放器DEMO演示</title>
+<meta name="referrer" content="never">
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+<div id="container">
+	<canvas id="canvas" width="320" height="320">对不起，你的浏览器不支持Canvas标签！</canvas>
+	<canvas id="progress" width="320" height="320"></canvas><!-- progress bar -->
+	<div id="player">
+		<audio id="audio" controls>
+			<source src=" " type="audio/mpeg" codecs="mp3"></source>		
+		</audio>
+		<div class="cover">
+			<div class="controls">
+				<div class="play_pause" id="play" title="Play" onClick="togglePlay()"><i>&#xe600;</i></div>
+				<div class="play_next" id="Next" title="Play" onClick="toggleNext()"><i>&#xe6d3;</i></div>
+				<div class="play_pause" id="replay"  onclick="replayAudio()"><i>&#xe607;</i></div>
+				<div class="voice"><input id="volume" name="volume" min="0" max="1" step="0.1" type="range" onChange="setVolume()" /></div>
+				<div id="times">00:00/00:00</div>
+			</div><!-- #controls -->
+		</div><!-- #cover -->
+		<div class="info">
+			<div class="model">
+				<ul class="lyric">
+					<li class="active">音乐来自百度FM, by 饥人谷</li>
+				</ul>
+			</div>
+		</div>
+	</div><!-- #player -->
+
+</div><!-- #container -->
+
+<script src="js/index.js"></script>
+<script type="text/javascript">	
+var sid = 0;	
+
+
+        $(document).ready(function(){
+        	
+        	$.ajax({
+			  	url: 'http://api.jirengu.com/fm/getSong.php',
+			  	type: 'get',
+			  	dataType: 'json',
+			  	data: {
+			  		channel: 'public_aaa_bbb',
+			  		// sid:-1
+			  	},
+			  	timeout: 2500,
+			  }).done(function(res){
+			    $('#audio').attr('src', res.song[0].url);
+			    sid = res.song[0].sid;
+			    getLyric();
+			    togglePlay();
+			  		 // console.log(res.song[0].url)
+			  		 // console.log(res.song[0].lrc)
+			 	 });
+			
+        });
+
+        function autoNext(){
+        	if(audio.currentTime == 0){
+        		toggleNext();
+        	}
+        }
+        setInterval("autoNext()",5000)
+
+</script>
+<script type="text/javascript">
+window.onload=function(){
+
+   var canvas=document.getElementById('canvas');
+   if(canvas.getContext){
+		var ctx=canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.strokeStyle='darkgreen';
+		ctx.lineCap='round';
+		ctx.lineWidth=6;
+		ctx.arc(160,160,150,0,Math.PI,false);
+		ctx.stroke();
+   }
+					   
+}
+</script>
+
+</body>
+</html>
+

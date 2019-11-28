@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas-1</title>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="768" style="border: 1px solid #ccc; margin: 20px auto;">
+		当前浏览器不支持Canvas
+	</canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		// canvas.width = 1024;
+		// canvas.height = 768;
+		var context = canvas.getContext('2d');
+
+		// 画一条直线，先写状态 
+		/*
+			context.beginPath();//只针对路劲
+			context.moveTo(100, 100);
+			context.lineTo(700, 700);
+			context.lineTo(100, 700);
+			context.lineTo(100, 100);
+			context.closePath();
+
+			context.lineWidth = 5;
+			context.strokeStyle = 'red';
+			context.stroke();
+
+			context.fillStyle = "blue";
+			context.fill();
+
+			context.beginPath();
+			context.moveTo(200, 100);
+			context.lineTo(700, 600);
+			context.closePath();
+
+			
+			context.strokeStyle = 'yellow';
+			context.stroke();
+		*/
+		
+
+	</script>
+</body>
+</html>	

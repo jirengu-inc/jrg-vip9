@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test24-loadMore</title>
+    <style>
+        *{
+            font-family: '微软雅黑';
+        }
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        .list > li{
+            list-style: none;
+            border:1px solid silver;
+            padding: 5px 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .list > li:hover{
+            background: green;
+            color: aliceblue;
+        }
+        a{
+            text-decoration: none;
+            color: crimson;
+        }
+        .load-more{
+            display: block;
+            border: 1px solid crimson;
+            width: 70px;
+            margin: auto;
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .load-more:hover{
+            opacity: 0.7;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li>内容1</li>
+            <li>内容2</li>
+        </ul>
+        <a href="#" class="load-more">加载更多</a>
+    </div>
+    <script>
+        function ajax(opts) {
+            var xmlhttp = new XMLHttpRequest()
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState === 4) {
+                    if ((xmlhttp.status >= 200 && xmlhttp.status < 300) || xmlhttp.status === 304 ) {
+                        var json = JSON.parse(xmlhttp.responseText)
+                        opts.success(json)
+                    } else {
+                        opts.error(xmlhttp.statusText)
+                    }
+                }
+            }
+            var dataStr = ''
+            for (var key in opts.data) {
+                dataStr += key + '=' + opts.data[key] + '&'
+            }
+            dataStr =  dataStr.substr(0,dataStr.length-1)
+            if (opts.type.toLowerCase() === 'post') {
+                xmlhttp.open(opts.type , opts.url , true)
+                xmlhttp.setRequestHeader('Content-type' ,'application/x-www-form-urlencoded' )
+                xmlhttp.send(dataStr)
+            } else {
+                xmlhttp.open(opts.type , opts.url + '?' + dataStr , true)
+                xmlhttp.send()
+            }
+        }
+        var loadMore = document.getElementsByClassName('load-more')[0]
+        var list = document.getElementsByClassName('list')[0]
+        var opts = {
+                url: 'task2402.php',
+                type: 'get',
+                data: {
+                    index:3,
+                    len:5
+                },
+                success: function(json) {
+                    var i = 0
+                    while(i < this.data.len) {
+                        var newLi = document.createElement('li')
+                        newLi.innerHTML = json[i]
+                        list.appendChild(newLi)
+                        i++
+                        this.data.index++
+                    }
+                    flag = 0
+                },
+                error: function(val) {
+                    flag = 0
+                    console.log(val)
+                    alert('系统异常')
+                }
+            }
+        var flag = 0 
+        loadMore.addEventListener('click',function() {
+            if (flag === 1) return 
+            flag = 1
+            ajax(opts)
+        } )
+    </script>
+</body>
+</html>

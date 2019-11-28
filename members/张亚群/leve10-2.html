@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+.content{
+  width:400px;
+  height:100px;
+  border:1px solid #ccc;
+}
+.content-top{
+  width:0;
+  height:0;
+  border:20px solid red;
+  border-color:transparent transparent #ccc transparent;
+  margin-left:10px;
+}
+.contenter2{
+  margin-top:70px;
+}
+.content-right{
+  width:0;
+  height:0;
+  border:20px solid red;
+  border-color:#ccc #ccc transparent transparent;
+  margin:0 361px -40px; 
+}
+.content-footer{
+  position: relative;;
+  width:400px;
+  height:100px;
+  border:1px solid #ccc;
+}
+.content-footer:before{
+     content: "";
+    position: absolute;
+    top: -40px;
+    left: 20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid black;
+    border-top: 20px solid transparent;
+}
+.content-footer:after{
+     content: "";
+    position: absolute;
+    top: -40px;
+    left: 20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid white;
+    border-top: 20px solid transparent;
+}
+  </style>
+</head>
+<body>
+  <div class="contenter">
+<div class="content-top"></div>
+  <div class="content"></div>
+    </div>
+   
+  <div class="contenter2">
+<div class="content-right"></div>
+  <div class="content"></div>
+    </div>
+  
+   <div class="contenter2">
+  <div class="content-footer">
+  </div>
+    </div>
+</body>
+</html>

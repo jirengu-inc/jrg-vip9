@@ -1,0 +1,1370 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff');
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .octicon {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .anchor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body .highlight {
+  background: #fff;
+}
+
+.markdown-body .highlight .h {
+  color: #333;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.markdown-body .highlight .mf,
+.markdown-body .highlight .mh,
+.markdown-body .highlight .mi,
+.markdown-body .highlight .mo,
+.markdown-body .highlight .il,
+.markdown-body .highlight .m {
+  color: #945277;
+}
+
+.markdown-body .highlight .s,
+.markdown-body .highlight .sb,
+.markdown-body .highlight .sc,
+.markdown-body .highlight .sd,
+.markdown-body .highlight .s2,
+.markdown-body .highlight .se,
+.markdown-body .highlight .sh,
+.markdown-body .highlight .si,
+.markdown-body .highlight .sx,
+.markdown-body .highlight .s1 {
+  color: #df5000;
+}
+
+.markdown-body .highlight .kc,
+.markdown-body .highlight .kd,
+.markdown-body .highlight .kn,
+.markdown-body .highlight .kp,
+.markdown-body .highlight .kr,
+.markdown-body .highlight .kt,
+.markdown-body .highlight .k,
+.markdown-body .highlight .o {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .kt {
+  color: #458;
+}
+
+.markdown-body .highlight .c,
+.markdown-body .highlight .cm,
+.markdown-body .highlight .c1 {
+  color: #998;
+  font-style: italic;
+}
+
+.markdown-body .highlight .cp,
+.markdown-body .highlight .cs,
+.markdown-body .highlight .cp .h {
+  color: #999;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .cs {
+  font-style: italic;
+}
+
+.markdown-body .highlight .n {
+  color: #333;
+}
+
+.markdown-body .highlight .na,
+.markdown-body .highlight .nv,
+.markdown-body .highlight .vc,
+.markdown-body .highlight .vg,
+.markdown-body .highlight .vi {
+  color: #008080;
+}
+
+.markdown-body .highlight .nb {
+  color: #0086B3;
+}
+
+.markdown-body .highlight .nc {
+  color: #458;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .no {
+  color: #094e99;
+}
+
+.markdown-body .highlight .ni {
+  color: #800080;
+}
+
+.markdown-body .highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .nf {
+  color: #945277;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .nn {
+  color: #555;
+}
+
+.markdown-body .highlight .nt {
+  color: #000080;
+}
+
+.markdown-body .highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+.markdown-body .highlight .gd {
+  color: #000;
+  background-color: #fdd;
+}
+
+.markdown-body .highlight .gd .x {
+  color: #000;
+  background-color: #faa;
+}
+
+.markdown-body .highlight .ge {
+  font-style: italic;
+}
+
+.markdown-body .highlight .gr {
+  color: #aa0000;
+}
+
+.markdown-body .highlight .gh {
+  color: #999;
+}
+
+.markdown-body .highlight .gi {
+  color: #000;
+  background-color: #dfd;
+}
+
+.markdown-body .highlight .gi .x {
+  color: #000;
+  background-color: #afa;
+}
+
+.markdown-body .highlight .go {
+  color: #888;
+}
+
+.markdown-body .highlight .gp {
+  color: #555;
+}
+
+.markdown-body .highlight .gs {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .gt {
+  color: #aa0000;
+}
+
+.markdown-body .highlight .ow {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .w {
+  color: #bbb;
+}
+
+.markdown-body .highlight .sr {
+  color: #017936;
+}
+
+.markdown-body .highlight .ss {
+  color: #8b467f;
+}
+
+.markdown-body .highlight .bp {
+  color: #999;
+}
+
+.markdown-body .highlight .gc {
+  color: #999;
+  background-color: #EAF2F5;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .highlight .pl-coc,
+.markdown-body .highlight .pl-entm,
+.markdown-body .highlight .pl-eoa,
+.markdown-body .highlight .pl-mai .pl-sf,
+.markdown-body .highlight .pl-pdv,
+.markdown-body .highlight .pl-sc,
+.markdown-body .highlight .pl-sr,
+.markdown-body .highlight .pl-v,
+.markdown-body .highlight .pl-vpf {
+  color: #0086b3;
+}
+
+.markdown-body .highlight .pl-eoac,
+.markdown-body .highlight .pl-mdht,
+.markdown-body .highlight .pl-mi1,
+.markdown-body .highlight .pl-mri,
+.markdown-body .highlight .pl-va,
+.markdown-body .highlight .pl-vpu {
+  color: #008080;
+}
+
+.markdown-body .highlight .pl-c,
+.markdown-body .highlight .pl-pdc {
+  color: #b4b7b4;
+  font-style: italic;
+}
+
+.markdown-body .highlight .pl-k,
+.markdown-body .highlight .pl-ko,
+.markdown-body .highlight .pl-kolp,
+.markdown-body .highlight .pl-mc,
+.markdown-body .highlight .pl-mr,
+.markdown-body .highlight .pl-ms,
+.markdown-body .highlight .pl-s,
+.markdown-body .highlight .pl-sok,
+.markdown-body .highlight .pl-st {
+  color: #6e5494;
+}
+
+.markdown-body .highlight .pl-ef,
+.markdown-body .highlight .pl-enf,
+.markdown-body .highlight .pl-enm,
+.markdown-body .highlight .pl-entc,
+.markdown-body .highlight .pl-eoi,
+.markdown-body .highlight .pl-sf,
+.markdown-body .highlight .pl-smc {
+  color: #d12089;
+}
+
+.markdown-body .highlight .pl-ens,
+.markdown-body .highlight .pl-eoai,
+.markdown-body .highlight .pl-kos,
+.markdown-body .highlight .pl-mh .pl-pdh,
+.markdown-body .highlight .pl-mp,
+.markdown-body .highlight .pl-pde,
+.markdown-body .highlight .pl-stp {
+  color: #458;
+}
+
+.markdown-body .highlight .pl-enti {
+  color: #d12089;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-cce,
+.markdown-body .highlight .pl-enc,
+.markdown-body .highlight .pl-kou,
+.markdown-body .highlight .pl-mq {
+  color: #f93;
+}
+
+.markdown-body .highlight .pl-mp1 .pl-sf {
+  color: #458;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-cos,
+.markdown-body .highlight .pl-ent,
+.markdown-body .highlight .pl-md,
+.markdown-body .highlight .pl-mdhf,
+.markdown-body .highlight .pl-ml,
+.markdown-body .highlight .pl-pdc1,
+.markdown-body .highlight .pl-pds,
+.markdown-body .highlight .pl-s1,
+.markdown-body .highlight .pl-scp,
+.markdown-body .highlight .pl-sol {
+  color: #df5000;
+}
+
+.markdown-body .highlight .pl-c1,
+.markdown-body .highlight .pl-cn,
+.markdown-body .highlight .pl-pse,
+.markdown-body .highlight .pl-pse .pl-s2,
+.markdown-body .highlight .pl-vi {
+  color: #a31515;
+}
+
+.markdown-body .highlight .pl-mb,
+.markdown-body .highlight .pl-pdb {
+  color: #df5000;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-mi,
+.markdown-body .highlight .pl-pdi {
+  color: #6e5494;
+  font-style: italic;
+}
+
+.markdown-body .highlight .pl-ms1 {
+  background-color: #f5f5f5;
+}
+
+.markdown-body .highlight .pl-mdh,
+.markdown-body .highlight .pl-mdi {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-mdr {
+  color: #0086b3;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-s2 {
+  color: #333;
+}
+
+.markdown-body .highlight .pl-ii {
+  background-color: #df5000;
+  color: #fff;
+}
+
+.markdown-body .highlight .pl-ib {
+  background-color: #f93;
+}
+
+.markdown-body .highlight .pl-id {
+  background-color: #a31515;
+  color: #fff;
+}
+
+.markdown-body .highlight .pl-iu {
+  background-color: #b4b7b4;
+}
+
+.markdown-body .highlight .pl-mo {
+  color: #969896;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  float: left;
+  margin: 0.3em 0 0.25em -1.6em;
+  vertical-align: middle;
+}</style><title>note</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-微金所项目实战" class="anchor" href="#%E5%BE%AE%E9%87%91%E6%89%80%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>微金所项目实战</h1>
+
+<h2>
+<a id="user-content-1-搭建bootstrap页面骨架及项目目录结构" class="anchor" href="#1-%E6%90%AD%E5%BB%BAbootstrap%E9%A1%B5%E9%9D%A2%E9%AA%A8%E6%9E%B6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 搭建Bootstrap页面骨架及项目目录结构</h2>
+
+<pre><code>├─ /weijinsuo/ ··················· 项目所在目录
+└─┬─ /css/ ······················· 我们自己的CSS文件
+  ├─ /font/ ······················ 使用到的字体文件
+  ├─ /img/ ······················· 使用到的图片文件
+  ├─ /js/ ························ 自己写的JS脚步
+  ├─ /lib/ ······················· 从第三方下载回来的库【只用不改】
+  ├─ /favicon.ico ················ 站点图标
+  └─ /index.html ················· 入口文件
+</code></pre>
+
+<h3>
+<a id="user-content-11约定编码规范" class="anchor" href="#11%E7%BA%A6%E5%AE%9A%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1.约定编码规范</h3>
+
+<h4>
+<a id="user-content-111html约定" class="anchor" href="#111html%E7%BA%A6%E5%AE%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1.1.HTML约定</h4>
+
+<ul>
+<li>在head中引入必要的CSS文件，优先引用第三方的CSS，方便我们自己的样式覆盖</li>
+<li>在body末尾引入必要的JS文件，优先引用第三方的JS，注意JS文件之间的依赖关系，比如bootstrap.js依赖jQuery，那就应该先引用jquery.js 然后引用bootstrap.js</li>
+</ul>
+
+<h4>
+<a id="user-content-112css约定" class="anchor" href="#112css%E7%BA%A6%E5%AE%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1.2.CSS约定</h4>
+
+<ul>
+<li>除了公共级别样式，其余样式全部由 模块前缀</li>
+<li>尽量使用 直接子代选择器， 少用间接子代 避免错杀</li>
+</ul>
+
+<h3>
+<a id="user-content-12html5文档结构" class="anchor" href="#12html5%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2.HTML5文档结构</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;!DOCTYPE html&gt;
+&lt;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>zh-CN<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">head</span>&gt;
+  &lt;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">title</span>&gt;页面标题&lt;/<span class="pl-ent">title</span>&gt;
+&lt;/<span class="pl-ent">head</span>&gt;
+&lt;<span class="pl-ent">body</span>&gt;
+
+&lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-13viewport设置" class="anchor" href="#13viewport%E8%AE%BE%E7%BD%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3.Viewport设置</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>width=device-width, user-scalable=no, initial-scale=1.0<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<blockquote>
+<p>html中插入视口设置，可以通过emmet <strong>meta:vp</strong> 插入</p>
+</blockquote>
+
+<h3>
+<a id="user-content-14浏览器兼容模式" class="anchor" href="#14%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%A8%A1%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.4.浏览器兼容模式</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">http-equiv</span>=<span class="pl-s"><span class="pl-pds">"</span>X-UA-Compatible<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>IE=edge<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<blockquote>
+<p>html中插入兼容模式设置，可以通过emmet <strong>meta:compat</strong> 插入</p>
+</blockquote>
+
+<h3>
+<a id="user-content-15favicon站点图标" class="anchor" href="#15favicon%E7%AB%99%E7%82%B9%E5%9B%BE%E6%A0%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.5.favicon（站点图标）</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>shortcut icon<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>image/x-icon<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>favicon.ico<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<blockquote>
+<p>html中插入图标链接，可以通过emmet <strong>link:favicon</strong> 插入</p>
+</blockquote>
+
+<h3>
+<a id="user-content-16引入相应的第三方文件" class="anchor" href="#16%E5%BC%95%E5%85%A5%E7%9B%B8%E5%BA%94%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%96%87%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.6.引入相应的第三方文件</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>bootstrap.css<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>my.css<span class="pl-pds">"</span></span>&gt;
+...
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>jquery.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bootstrap.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>my.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-17在我们默认的样式表中将默认字体设置为" class="anchor" href="#17%E5%9C%A8%E6%88%91%E4%BB%AC%E9%BB%98%E8%AE%A4%E7%9A%84%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%B8%AD%E5%B0%86%E9%BB%98%E8%AE%A4%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE%E4%B8%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.7.在我们默认的样式表中将默认字体设置为：</h3>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-ent">body</span>{
+  <span class="pl-c1"><span class="pl-c1">font-family</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Helvetica Neue<span class="pl-pds">"</span></span>, 
+                <span class="pl-c1">Helvetica</span>, 
+                Microsoft Yahei, 
+                Hiragino Sans GB, 
+                WenQuanYi Micro Hei, 
+                <span class="pl-c1">sans-serif</span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-2完成页面空结构" class="anchor" href="#2%E5%AE%8C%E6%88%90%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.完成页面空结构</h2>
+
+<blockquote>
+<p>先划分好页面中的大容器，然后在具体看每一个容器中单独的情况</p>
+</blockquote>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">body</span>&gt;
+  <span class="pl-c">&lt;!-- 头部区域 --&gt;</span>
+  &lt;<span class="pl-ent">header</span>&gt;&lt;/<span class="pl-ent">header</span>&gt;
+  <span class="pl-c">&lt;!-- /头部区域 --&gt;</span>
+  <span class="pl-c">&lt;!-- 广告轮播 --&gt;</span>
+  &lt;<span class="pl-ent">section</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+  <span class="pl-c">&lt;!-- /广告轮播 --&gt;</span>
+  <span class="pl-c">&lt;!-- 特色介绍 --&gt;</span>
+  &lt;<span class="pl-ent">section</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+  <span class="pl-c">&lt;!-- /特色介绍 --&gt;</span>
+  <span class="pl-c">&lt;!-- 立即预约 --&gt;</span>
+  &lt;<span class="pl-ent">section</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+  <span class="pl-c">&lt;!-- /立即预约 --&gt;</span>
+  <span class="pl-c">&lt;!-- 产品推荐 --&gt;</span>
+  &lt;<span class="pl-ent">section</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+  <span class="pl-c">&lt;!-- /产品推荐 --&gt;</span>
+  <span class="pl-c">&lt;!-- 新闻列表 --&gt;</span>
+  &lt;<span class="pl-ent">section</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+  <span class="pl-c">&lt;!-- /新闻列表 --&gt;</span>
+  <span class="pl-c">&lt;!-- 合作伙伴 --&gt;</span>
+  &lt;<span class="pl-ent">section</span>&gt;&lt;/<span class="pl-ent">section</span>&gt;
+  <span class="pl-c">&lt;!-- /合作伙伴 --&gt;</span>
+  <span class="pl-c">&lt;!-- 脚注区域 --&gt;</span>
+  &lt;<span class="pl-ent">footer</span>&gt;&lt;/<span class="pl-ent">footer</span>&gt;
+  <span class="pl-c">&lt;!-- /脚注区域 --&gt;</span>
+&lt;/<span class="pl-ent">body</span>&gt;</pre></div>
+
+<h2>
+<a id="user-content-3构建顶部通栏" class="anchor" href="#3%E6%9E%84%E5%BB%BA%E9%A1%B6%E9%83%A8%E9%80%9A%E6%A0%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.构建顶部通栏</h2>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">header</span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>topbar<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">header</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-31container类" class="anchor" href="#31container%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1.container类</h3>
+
+<ul>
+<li>用于定义一个固定宽度且居中的版心</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>topbar<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-c">&lt;!--</span>
+<span class="pl-c">      此处的代码会显示在一个固定宽度且居中的容器中</span>
+<span class="pl-c">      该容器的宽度会跟随屏幕的变化而变化</span>
+<span class="pl-c">    --&gt;</span>
+  &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-32栅格系统" class="anchor" href="#32%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2.栅格系统</h3>
+
+<ul>
+<li>Bootstrap中定义了一套响应式的网格系统，</li>
+<li>其使用方式就是将一个容器划分成12列，</li>
+<li>然后通过col-xx-xx的类名控制每一列的占比</li>
+</ul>
+
+<h4>
+<a id="user-content-321row类" class="anchor" href="#321row%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2.1.row类</h4>
+
+<ul>
+<li>因为每一个列默认有一个15px的左右外边距</li>
+<li>row类的一个作用就是通过左右-15px屏蔽掉这个边距</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h4>
+<a id="user-content-322col--类" class="anchor" href="#322col--%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2.2.col-<em>\</em>-*类</h4>
+
+<ul>
+<li>col-xs-[列数]：在超小屏幕下展示几份</li>
+<li>col-sm-[列数]：在小屏幕下展示几份</li>
+<li>col-md-[列数]：在中等屏幕下展示几份</li>
+<li>col-lg-[列数]：在大屏幕下展示几份</li>
+<li>
+<strong>xs</strong> : 超小屏幕 手机 (&lt;768px)<br>
+</li>
+<li>
+<strong>sm</strong> : 小屏幕 平板 (≥768px) </li>
+<li>
+<strong>md</strong> : 中等屏幕 桌面显示器 (≥992px) </li>
+<li>
+<strong>lg</strong> : 大屏幕 大桌面显示器 (≥1200px)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>row<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-md-2 text-center<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-md-5 text-center<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-md-2 text-center<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-md-3 text-center<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<blockquote>
+<p>此处顶部通栏已经被划分成四列
+text-center的作用就是让内部内容居中显示</p>
+</blockquote>
+
+<h3>
+<a id="user-content-32字体图标" class="anchor" href="#32%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2.字体图标</h3>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-k">@font-face</span> {
+  <span class="pl-c1"><span class="pl-c1">font-family</span></span>: <span class="pl-s"><span class="pl-pds">'</span>itcast<span class="pl-pds">'</span></span>;
+  <span class="pl-c1"><span class="pl-c1">src</span></span>: <span class="pl-c1">url</span>(<span class="pl-s"><span class="pl-pds">'</span>../font/MiFie-Web-Font.eot<span class="pl-pds">'</span></span>) <span class="pl-c1">format</span>(<span class="pl-s"><span class="pl-pds">'</span>embedded-opentype<span class="pl-pds">'</span></span>), <span class="pl-c1">url</span>(<span class="pl-s"><span class="pl-pds">'</span>../font/MiFie-Web-Font.svg<span class="pl-pds">'</span></span>) <span class="pl-c1">format</span>(<span class="pl-s"><span class="pl-pds">'</span>svg<span class="pl-pds">'</span></span>), <span class="pl-c1">url</span>(<span class="pl-s"><span class="pl-pds">'</span>../font/MiFie-Web-Font.ttf<span class="pl-pds">'</span></span>) <span class="pl-c1">format</span>(<span class="pl-s"><span class="pl-pds">'</span>truetype<span class="pl-pds">'</span></span>), <span class="pl-c1">url</span>(<span class="pl-s"><span class="pl-pds">'</span>../font/MiFie-Web-Font.woff<span class="pl-pds">'</span></span>) <span class="pl-c1">format</span>(<span class="pl-s"><span class="pl-pds">'</span>woff<span class="pl-pds">'</span></span>);
+}
+
+[class^="icon-"],
+[class<span class="pl-ent">*</span>=" icon-"] {
+  <span class="pl-c">/*注意上面选择器中间的空格*/</span>
+  <span class="pl-c">/*我们使用的名为itcast的字体就是上面的@font-face的方式声明的*/</span>
+  <span class="pl-c1"><span class="pl-c1">font-family</span></span>: itcast;
+  <span class="pl-c1"><span class="pl-c1">font-style</span></span>: <span class="pl-c1">normal</span>;
+}
+
+<span class="pl-e">.icon-mobilephone</span><span class="pl-e">::before</span>{
+  <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\e</span>908<span class="pl-pds">'</span></span>;
+}</pre></div>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>col-md-2 text-center<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">a</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mobile-link<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">i</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>icon-mobile<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">i</span>&gt;
+    &lt;<span class="pl-ent">span</span>&gt;手机微金所&lt;/<span class="pl-ent">span</span>&gt;
+    <span class="pl-c">&lt;!-- 这里使用的是bootstrap中的字体图标 --&gt;</span>
+    &lt;<span class="pl-ent">i</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>glyphicon glyphicon-chevron-down<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">i</span>&gt;
+    &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span> <span class="pl-e">alt</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>&gt;
+  &lt;/<span class="pl-ent">a</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h4>
+<a id="user-content-字体文件格式" class="anchor" href="#%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>字体文件格式</h4>
+
+<ul>
+<li>eot : embedded-opentype</li>
+<li>svg : svg</li>
+<li>ttf : truetype</li>
+<li>woff : woff</li>
+</ul>
+
+<h3>
+<a id="user-content-34hover图片展示" class="anchor" href="#34hover%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.4.hover图片展示</h3>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mobile-link</span><span class="pl-e">:hover</span> &gt; <span class="pl-ent">img</span> {
+  <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+}</pre></div>
+
+<h3>
+<a id="user-content-35按钮样式生成" class="anchor" href="#35%E6%8C%89%E9%92%AE%E6%A0%B7%E5%BC%8F%E7%94%9F%E6%88%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5.按钮样式生成</h3>
+
+<ul>
+<li><a href="http://blog.koalite.com/bbg/">http://blog.koalite.com/bbg/</a></li>
+<li>可以通过界面生成一个新的按钮样式</li>
+</ul>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.btn-itcast</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#ffffff</span>;
+  <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">#E92322</span>;
+  <span class="pl-c1"><span class="pl-c1">border-color</span></span>: <span class="pl-c1">#DB3B43</span>;
+}
+
+<span class="pl-e">.btn-itcast</span><span class="pl-e">:hover</span>,
+<span class="pl-e">.btn-itcast</span><span class="pl-e">:focus</span>,
+<span class="pl-e">.btn-itcast</span><span class="pl-e">:active</span>,
+<span class="pl-e">.btn-itcast.active</span>,
+<span class="pl-e">.open</span> <span class="pl-e">.dropdown-toggle.btn-itcast</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#ffffff</span>;
+  <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">#E92322</span>;
+  <span class="pl-c1"><span class="pl-c1">border-color</span></span>: <span class="pl-c1">#DB3B43</span>;
+}
+
+<span class="pl-e">.btn-itcast</span><span class="pl-e">:active</span>,
+<span class="pl-e">.btn-itcast.active</span>,
+<span class="pl-e">.open</span> <span class="pl-e">.dropdown-toggle.btn-itcast</span> {
+  <span class="pl-c1"><span class="pl-c1">background-image</span></span>: <span class="pl-c1">none</span>;
+}
+
+<span class="pl-e">.btn-itcast.disabled</span>,
+<span class="pl-e">.btn-itcast</span>[disabled],
+<span class="pl-ent">fieldset</span>[disabled] <span class="pl-e">.btn-itcast</span>,
+<span class="pl-e">.btn-itcast.disabled</span><span class="pl-e">:hover</span>,
+<span class="pl-e">.btn-itcast</span>[disabled]<span class="pl-e">:hover</span>,
+<span class="pl-ent">fieldset</span>[disabled] <span class="pl-e">.btn-itcast</span><span class="pl-e">:hover</span>,
+<span class="pl-e">.btn-itcast.disabled</span><span class="pl-e">:focus</span>,
+<span class="pl-e">.btn-itcast</span>[disabled]<span class="pl-e">:focus</span>,
+<span class="pl-ent">fieldset</span>[disabled] <span class="pl-e">.btn-itcast</span><span class="pl-e">:focus</span>,
+<span class="pl-e">.btn-itcast.disabled</span><span class="pl-e">:active</span>,
+<span class="pl-e">.btn-itcast</span>[disabled]<span class="pl-e">:active</span>,
+<span class="pl-ent">fieldset</span>[disabled] <span class="pl-e">.btn-itcast</span><span class="pl-e">:active</span>,
+<span class="pl-e">.btn-itcast.disabled.active</span>,
+<span class="pl-e">.btn-itcast</span>[disabled]<span class="pl-e">.active</span>,
+<span class="pl-ent">fieldset</span>[disabled] <span class="pl-e">.btn-itcast.active</span> {
+  <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">#E92322</span>;
+  <span class="pl-c1"><span class="pl-c1">border-color</span></span>: <span class="pl-c1">#DB3B43</span>;
+}
+
+<span class="pl-e">.btn-itcast</span> <span class="pl-e">.badge</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#E92322</span>;
+  <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">#ffffff</span>;
+}</pre></div>
+
+<h3>
+<a id="user-content-35小屏幕隐藏" class="anchor" href="#35%E5%B0%8F%E5%B1%8F%E5%B9%95%E9%9A%90%E8%97%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5小屏幕隐藏</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>topbar hidden-xs hidden-sm<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>或者</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>topbar visible-md visible-lg<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<ul>
+<li>
+<strong>hidden-xx</strong> : 在某种屏幕下隐藏 </li>
+<li>
+<strong>visible-xx</strong> : 在某种屏幕尺寸下显示</li>
+</ul>
+
+<h2>
+<a id="user-content-4导航通栏" class="anchor" href="#4%E5%AF%BC%E8%88%AA%E9%80%9A%E6%A0%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.导航通栏</h2>
+
+<ul>
+<li>在使用了boostrap过后，大多数界面元素都是通过bootstrap提供好的界面组件修改得来</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">nav</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar navbar-itcast navbar-static-top<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar-header<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">button</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>btn<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar-toggle collapsed<span class="pl-pds">"</span></span> <span class="pl-e">data-toggle</span>=<span class="pl-s"><span class="pl-pds">"</span>collapse<span class="pl-pds">"</span></span> <span class="pl-e">data-target</span>=<span class="pl-s"><span class="pl-pds">"</span>#nav_list<span class="pl-pds">"</span></span> <span class="pl-e">aria-expanded</span>=<span class="pl-s"><span class="pl-pds">"</span>false<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>sr-only<span class="pl-pds">"</span></span>&gt;切换菜单&lt;/<span class="pl-ent">span</span>&gt;
+        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>icon-bar<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>icon-bar<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>icon-bar<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+      &lt;/<span class="pl-ent">button</span>&gt;
+      &lt;<span class="pl-ent">a</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navbar-brand<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">i</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>icon-icon<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">i</span>&gt;
+        &lt;<span class="pl-ent">i</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>icon-logo<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">i</span>&gt;
+      &lt;/<span class="pl-ent">a</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>nav_list<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>collapse navbar-collapse<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">ul</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>nav navbar-nav<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">li</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>active<span class="pl-pds">"</span></span>&gt;&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;我要投资&lt;/<span class="pl-ent">a</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
+        &lt;<span class="pl-ent">li</span>&gt;&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;我要借款&lt;/<span class="pl-ent">a</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
+        &lt;<span class="pl-ent">li</span>&gt;&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;平台介绍&lt;/<span class="pl-ent">a</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
+        &lt;<span class="pl-ent">li</span>&gt;&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;新手专区&lt;/<span class="pl-ent">a</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
+        &lt;<span class="pl-ent">li</span>&gt;&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;最新动态&lt;/<span class="pl-ent">a</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
+        &lt;<span class="pl-ent">li</span>&gt;&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;微论坛&lt;/<span class="pl-ent">a</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
+      &lt;/<span class="pl-ent">ul</span>&gt;
+      &lt;<span class="pl-ent">ul</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>nav navbar-nav navbar-right hidden-sm<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">li</span>&gt;&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;个人中心&lt;/<span class="pl-ent">a</span>&gt;&lt;/<span class="pl-ent">li</span>&gt;
+      &lt;/<span class="pl-ent">ul</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+  &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">nav</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-41bootstrap扩展" class="anchor" href="#41bootstrap%E6%89%A9%E5%B1%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1.Bootstrap扩展</h3>
+
+<ul>
+<li>通过bootstrap文档对导航条样式的设置发现，其实本身是有一个类似于主题的概念</li>
+<li>navbar-default：默认的外观</li>
+<li>navbar-inverse：暗色背景的样式</li>
+<li>所以我们希望可以通过自定义一套完整的风格：
+
+<ul>
+<li>navbar-itcast</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.navbar-itcast</span>{
+  ...
+}
+...具体代码参考navbar-default实现即可</pre></div>
+
+<h3>
+<a id="user-content-42品牌logo" class="anchor" href="#42%E5%93%81%E7%89%8Clogo" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2.品牌logo</h3>
+
+<ul>
+<li>任然使用字体图标</li>
+</ul>
+
+<h3>
+<a id="user-content-43菜单行高调整" class="anchor" href="#43%E8%8F%9C%E5%8D%95%E8%A1%8C%E9%AB%98%E8%B0%83%E6%95%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3.菜单行高调整</h3>
+
+<ul>
+<li>默认样式中菜单的行高为20px，我们可以调整为自己想要的高度</li>
+<li>一般都是通过自己的样式去覆盖</li>
+</ul>
+
+<h2>
+<a id="user-content-5轮播图" class="anchor" href="#5%E8%BD%AE%E6%92%AD%E5%9B%BE" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.轮播图</h2>
+
+<h3>
+<a id="user-content-51bootstrap-js插件使用" class="anchor" href="#51bootstrap-js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1.Bootstrap JS插件使用</h3>
+
+<h3>
+<a id="user-content-52background使用" class="anchor" href="#52background%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2.background使用</h3>
+
+<h4>
+<a id="user-content-521background-size" class="anchor" href="#521background-size" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2.1.background-size</h4>
+
+<ul>
+<li>length</li>
+<li>percentage</li>
+<li>cover</li>
+<li>contain</li>
+</ul>
+
+<h3>
+<a id="user-content-53图片响应式" class="anchor" href="#53%E5%9B%BE%E7%89%87%E5%93%8D%E5%BA%94%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3.图片响应式</h3>
+
+<ul>
+<li>目的</li>
+<li>实现方式</li>
+</ul>
+
+<h3>
+<a id="user-content-54window-resize事件" class="anchor" href="#54window-resize%E4%BA%8B%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.4.window resize事件</h3>
+
+<h2>
+<a id="user-content-6网站特性" class="anchor" href="#6%E7%BD%91%E7%AB%99%E7%89%B9%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.网站特性</h2>
+
+<h3>
+<a id="user-content-61网格系统" class="anchor" href="#61%E7%BD%91%E6%A0%BC%E7%B3%BB%E7%BB%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1.网格系统</h3>
+
+<h3>
+<a id="user-content-62媒体对象样式" class="anchor" href="#62%E5%AA%92%E4%BD%93%E5%AF%B9%E8%B1%A1%E6%A0%B7%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2.媒体对象样式</h3>
+
+<h3>
+<a id="user-content-63响应式辅助类型" class="anchor" href="#63%E5%93%8D%E5%BA%94%E5%BC%8F%E8%BE%85%E5%8A%A9%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.3.响应式辅助类型</h3>
+
+<pre><code>- hidden-xx
+</code></pre>
+
+<h2>
+<a id="user-content-7预约投标" class="anchor" href="#7%E9%A2%84%E7%BA%A6%E6%8A%95%E6%A0%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.预约投标</h2>
+
+<h3>
+<a id="user-content-71pull-left" class="anchor" href="#71pull-left" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.1.pull-left</h3>
+
+<h3>
+<a id="user-content-72pull-right" class="anchor" href="#72pull-right" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.2.pull-right</h3>
+
+<h2>
+<a id="user-content-8投资产品" class="anchor" href="#8%E6%8A%95%E8%B5%84%E4%BA%A7%E5%93%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.投资产品</h2>
+
+<h3>
+<a id="user-content-81tab选项卡" class="anchor" href="#81tab%E9%80%89%E9%A1%B9%E5%8D%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.1.Tab选项卡</h3>
+
+<h3>
+<a id="user-content-82网格系统" class="anchor" href="#82%E7%BD%91%E6%A0%BC%E7%B3%BB%E7%BB%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.2.网格系统</h3>
+
+<h3>
+<a id="user-content-83before" class="anchor" href="#83before" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.3.::before</h3>
+
+<h3>
+<a id="user-content-84after" class="anchor" href="#84after" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.4.::after</h3>
+
+<h3>
+<a id="user-content-85tooltip插件" class="anchor" href="#85tooltip%E6%8F%92%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.5.tooltip插件</h3>
+
+<h2>
+<a id="user-content-9新闻资讯" class="anchor" href="#9%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>9.新闻资讯</h2>
+
+<h3>
+<a id="user-content-91tab选项卡" class="anchor" href="#91tab%E9%80%89%E9%A1%B9%E5%8D%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>9.1.Tab选项卡</h3>
+
+<h3>
+<a id="user-content-92响应式偏移" class="anchor" href="#92%E5%93%8D%E5%BA%94%E5%BC%8F%E5%81%8F%E7%A7%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>9.2.响应式偏移</h3>
+
+<h2>
+<a id="user-content-10合作伙伴" class="anchor" href="#10%E5%90%88%E4%BD%9C%E4%BC%99%E4%BC%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>10.合作伙伴</h2>
+
+<h3>
+<a id="user-content-101相邻兄弟选择器" class="anchor" href="#101%E7%9B%B8%E9%82%BB%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>10.1.相邻兄弟选择器</h3>
+
+<h2>
+<a id="user-content-11登录对话框" class="anchor" href="#11%E7%99%BB%E5%BD%95%E5%AF%B9%E8%AF%9D%E6%A1%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>11.登录对话框</h2>
+
+<h3>
+<a id="user-content-111模态框" class="anchor" href="#111%E6%A8%A1%E6%80%81%E6%A1%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>11.1模态框</h3>
+
+<h3>
+<a id="user-content-112表单样式" class="anchor" href="#112%E8%A1%A8%E5%8D%95%E6%A0%B7%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>11.2表单样式</h3>
+
+<h2>
+<a id="user-content-12导航吸顶" class="anchor" href="#12%E5%AF%BC%E8%88%AA%E5%90%B8%E9%A1%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>12.导航吸顶</h2>
+
+<h3>
+<a id="user-content-121affix组件" class="anchor" href="#121affix%E7%BB%84%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>12.1affix组件</h3>
+
+<h2>
+<a id="user-content-13深度自定义" class="anchor" href="#13%E6%B7%B1%E5%BA%A6%E8%87%AA%E5%AE%9A%E4%B9%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>13.深度自定义</h2>
+
+<h3>
+<a id="user-content-131httpv3bootcsscomcustomize" class="anchor" href="#131httpv3bootcsscomcustomize" aria-hidden="true"><span class="octicon octicon-link"></span></a>13.1.<a href="http://v3.bootcss.com/customize">http://v3.bootcss.com/customize</a>
+</h3>
+
+<h3>
+<a id="user-content-132通过-less-文件修改" class="anchor" href="#132%E9%80%9A%E8%BF%87-less-%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>13.2通过 Less 文件修改</h3>
+</article></body></html>

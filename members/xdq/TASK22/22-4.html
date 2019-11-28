@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+.mod-tab {
+  border: 1px solid #ccc;
+}
+.mod-tab * {
+  box-sizing: border-box;
+}
+.mod-tab ul,
+.mod-tab li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mod-tab .tabs:after {
+  content: '';
+  height: 0;
+  display: table;
+  clear: both;
+}
+.mod-tab .tabs li {
+  float: left;
+  width: 33.3%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+.mod-tab .tabs li:last-child {
+  border-right: none;
+}
+.mod-tab .tabs .active {
+  background: #eee;
+}
+.mod-tab .panel {
+  display: none;
+  height: 180px;
+  padding: 20px;
+}
+.mod-tab .active {
+  display: block;
+}
+</style>
+</head>
+<body>
+ <div class="mod-tab">
+   <ul class="tabs">
+     <li class="active">tab1</li>
+     <li>tab2</li>
+     <li>tab3</li>
+   </ul>
+   <div class="panel active">内容1</div>
+   <div class="panel">内容2</div>
+   <div class="panel">内容3</div>
+ </div> 
+ <script type="text/javascript">
+var Utils = {
+
+    hasClass: function(ele, cls){
+        return !!ele.className.match(new RegExp('\\b'+cls+'\\b'));
+    },
+    
+    addClass:function(ele, cls){
+      if(ele.length && ele.length > 0){
+          for(var i=0; i<ele.length; i++){
+              Utils.singleAddClass(ele[i], cls); 
+          }
+      }else{
+          Utils.singleAddClass(ele, cls);
+      }  
+    },
+    
+    removeClass:function(ele, cls){
+       if(ele.length && ele.length > 0){
+          for(var i=0; i<ele.length; i++){
+              Utils.singleRemoveClass(ele[i], cls); 
+          }
+      }else{
+          Utils.singleRemoveClass(ele, cls);
+      }   
+    },
+    
+    singleAddClass: function(ele, cls){
+        if(Utils.hasClass(ele,cls)) return;
+        ele.className += ' ' + cls;
+    },
+    
+    singleRemoveClass: function(ele, cls){
+        ele.className = ele.className.replace(new RegExp('\\b'+cls+'\\b', 'g'), '');
+    },
+    
+    indexOf: function(ele){
+        var parent = ele.parentElement,
+            siblings = parent.children;
+        for(var i=0; i<siblings.length; i++){
+            if(ele === siblings[i]) return i;
+        }
+        return -1;
+    }
+};
+
+
+var tabCt = document.querySelector('.tabs');
+
+tabCt.addEventListener('click', function(e){
+   var target = e.target,  
+       tabs = tabCt.children,
+       index = Utils.indexOf(target),   //判断点击的元素在第几个
+       panels = document.querySelectorAll('.panel');  
+
+   if(index > -1){
+       Utils.removeClass(tabs, 'active');  //将active类名在li去除
+       Utils.addClass(target, 'active');   //给li目标元素添加active类名
+       Utils.removeClass(panels, 'active');  //将div内容元素的active类名去除
+       Utils.addClass(panels[index], 'active');	//和li相应下标的元素增加类名
+   } 
+});
+ </script>
+</body>
+</html>

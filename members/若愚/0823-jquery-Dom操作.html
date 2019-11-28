@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<div class="box">box</div>
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+	</div>
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		var $item = $('<div>hello</div>');
+		//$('.ct').append($item);
+		$item.appendTo($('.ct'))
+
+		$item = $('<div>hellosss</div>');
+		$('.ct').prepend($item)
+	</script>
+</body>
+</html>

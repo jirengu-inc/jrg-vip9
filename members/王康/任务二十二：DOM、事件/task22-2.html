@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task22-2</title>
+  </head>
+  <body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端6班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <script>
+      function $(str){
+        return document.querySelector(str);
+      }
+      function $$(str){
+        return document.querySelectorAll(str);
+      }
+      var ul = $('.ct');
+      var ipt = $('.ipt-add-content');
+      var btnAddStart = $('#btn-add-start');
+      var btnAddEnd = $('#btn-add-end');
+      // 当文本框内容发生改变时获取文本框value值并添加至新建的li标签内
+      ipt.addEventListener('change', function(){
+        newLi = document.createElement('li');
+        newLi.innerText = ipt.value
+      })
+      // 定义两个按钮的单击事件
+      btnAddStart.addEventListener('click', function() {
+        ul.insertBefore(newLi,ul.firstChild);
+        ipt.value = '';
+      })
+      btnAddEnd.addEventListener('click', function() {
+        ul.appendChild(newLi);
+        ipt.value = '';
+      })
+      ul.addEventListener('click', function(e){
+        if(e.target.tagName.toLowerCase() === 'li') {
+          console.log(e.target.innerText);
+        }
+      })
+    </script>
+  </body>
+</html>

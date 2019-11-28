@@ -1,0 +1,97 @@
+body,div,ul,ol,p,li,h1,h2,h3,h4,h5,h6,a {
+	margin:0;
+	padding:0;
+	font-size:14px;
+	color:#555;
+}
+a {
+	text-decoration:none;
+}
+li {
+	list-style:none;
+}
+/*********  header部分开始  *********/
+.header {
+	background:#323232;
+	height:50px;
+}
+.header:after {
+	content:'';
+	display:block;
+	clear:both;
+}
+.wrap {
+	width:900px;
+	margin:0 auto;
+}
+.logo {
+	float:left;
+}
+.logo img {
+	height:40px;
+}
+.header .nav {
+	float:right;
+}
+.header .nav li {
+	float:left;
+}
+.header .nav li a {
+	display:inline-block;
+	color:#fff;
+	line-height:50px;
+	margin:0 5px;
+	padding:0 10px;
+}
+.header .nav li a:hover {
+	background:#fff;
+	color:#333;
+}
+/************  主体部分开始  *************/
+.content {
+	margin-top:10px;
+}
+.content:after {
+	content:'';
+	display:block;
+	clear:both;
+}
+.aside {
+	float:left;
+	width:200px;
+	min-height:600px;
+	
+	background-color:#ddd;
+}
+.main {
+	margin-left:210px;
+	background-color:#ddd;
+	padding:10px;
+}
+h1 {
+	font-size:25px;
+	line-height:3em;
+}
+.main p {
+	line-height:1.5em;
+}
+/*************  footer开始  ***************/
+.footer {
+	height:45px;
+	background-color:#323232;
+}
+.footer:after {
+	content:'';
+	display:block;
+	clear:both;
+}
+.footer ul li {
+	float:left;
+}
+.footer ul li a {
+	text-decoration:none;
+	color:#fff;
+	display:inline-block;
+	margin-left:10px;
+	line-height:45px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>news</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+  .content{
+    list-style: none;
+    height: 50px;
+    border:1px solid #ccc;
+    text-align: center;
+  }
+  .content:hover{
+    background-color: pink;
+  }
+  button{
+    display: block;
+    margin:0 auto;
+  }
+</style>
+
+</head>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<body>
+  <div class="container">
+    <ul class="news">
+      <li class="content">内容1</li>
+      <li class="content">内容2</li> 
+    </ul>
+    <p class="load">加载更多</p>
+  </div>
+  
+<script>
+  var clock;  
+ 
+  function isShow($node){     //判断标志元素是否出现在可视范围
+    var windowHeight = $(window).height(),
+      scrollTop = $(window).scrollTop(),
+      offsetTop = $node.offset().top,
+      nodeHeight = $node.outerHeight(true);
+    if(windowHeight+scrollTop>offsetTop && scrollTop<offsetTop+nodeHeight){
+      return true
+    }else{return false}
+  }
+
+  function getmore(){   //执行ajax
+    var startnum = $('.news li').length;
+    $.ajax ({
+       url:'getnews5.php',
+       type:'get',
+       dataType:'json',
+       data:{
+   
+        start:startnum
+        
+    },
+       success: function(news){
+            for(var i =0;i<news.data.length;i++){
+            var anew = document.createElement('li');
+            $('.news').append(anew);
+            anew.innerText = news.data[i];
+            anew.className='content';
+          }
+        },
+
+      error:function(){
+      console.log('error');
+    }
+  })
+
+  }
+
+
+function check(){  //标志元素在可视范围内，才确定执行获取信息
+    if(isShow($('.load'))){
+    getmore();
+  }
+}
+
+check();
+
+
+
+$(window).on('scroll',function(){
+  if(clock) clearTimeout(clock);   //在执行check函数时，滚动无效
+  clock = setTimeout(function(){  
+    check();
+    console.log(1);
+  },100)
+  // check();
+  // console.log(1);
+})
+
+
+
+
+  
+
+
+
+
+
+</script>
+</body>
+
+
+</html>

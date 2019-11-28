@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tab切换</title>
+    <style media="screen">
+      ul,li{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      #ct{
+        width: 600px;
+        margin: 50px auto;;
+      }
+      .tab:after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .tab>li{
+        float: left;
+        width: 33.3%;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #ccc;
+        box-sizing:border-box;
+        cursor: pointer;
+        /*鼠标移到上面变点击的手势*/
+            }
+      .tab .active{
+        background-color: #eee;
+      }
+      .showbox>li{
+        display: none;
+        height: 300px;
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+      .showbox .active{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ct">
+      <ul class="tab">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+      </ul>
+      <ul class="showbox">
+        <li class="active">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+      </ul>
+    </div>
+    <script>
+      var tab = document.querySelector(".tab");
+      var showbox = document.querySelector(".showbox");
+      tab.addEventListener("click",function(e){
+        var target = e.target,
+            tabs = tab.children,
+            panels = showbox.children;
+        if (target.tagName.toLowerCase() === "li") {
+          for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
+            panels[i].classList.remove("active");
+          }
+          target.classList.add("active");
+          var a = [].indexOf.call(tabs,target);
+          panels[a].classList.add("active");
+        }
+      })
+    </script>
+  </body>
+</html>

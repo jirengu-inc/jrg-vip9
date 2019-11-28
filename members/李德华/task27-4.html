@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html, body, ul, li {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        height: 100%;
+      }
+      li {
+        list-style: none;
+        float: left;
+        position: relative;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .sense {
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      .page {
+        position: absolute;
+        height: 100%;
+      }
+      .page:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .page>li>h1 {
+        position: absolute;
+        color: white;
+      }
+      .page-control>li {
+        background: white;
+        width: 20px;
+        height: 6px;
+        border-radius: 3px;
+        display: inline-block;
+      }
+      .page-control {
+        position: absolute;
+      }
+      .active {
+        background: #666 !important;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="sense">
+      <ul class="page">
+        <li>
+          <h1>我的滑板鞋</h1>
+          <img src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" alt="">
+        </li>
+        <li>
+          <h1>时尚时尚最时尚</h1>
+          <img src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt="">
+        </li>
+        <li>
+          <h1>摩擦摩擦</h1>
+          <img src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt="">
+        </li>
+        <li>
+          <h1>在这光滑的地上摩擦</h1>
+          <img src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" alt="">
+        </li>
+      </ul>
+      <ul class="page-control">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script>
+      var screenWidth = $('body').width();
+      var screenHeight = $('body').height();
+      $('.page').css({'width': screenWidth*6 });
+      $('.page img').css({'width': screenWidth, 'height': screenHeight});
+      $('.page').prepend($('.page>li').last().clone());
+      $('.page').append($('.page>li').eq(1).clone());
+      $('.page').css({'left': -screenWidth});
+      $('.page>li>h1').each(function() {
+        $(this).css({'left': function() {
+          return screenWidth/2 - $(this).width()/2;
+        }, 'top': function() {
+          return screenHeight/2 - $(this).height()/2;
+        }});
+      });
+      $('.page-control').css({'left': function() {
+        return screenWidth/2 - $(this).width()/2;
+      }, 'bottom': '40px'});
+      function action(step) {
+        var offsetLeft = step * screenWidth;
+        console.log(111);
+        $('.page').animate({
+          left: $('.page').offset().left + offsetLeft
+        }, 300, function() {
+          console.log($('.page').offset().left);
+          if ($('.page').offset().left === -screenWidth * 5) {
+            $('.page').css({'left': -screenWidth});
+          }
+          if ($('.page').offset().left === 0) {
+            $('.page').css({'left': -screenWidth * 4});
+          }
+          setPageControl();
+        });
+      }
+      function setPageControl() {
+        $('.page-control>li').removeClass('active');
+        $('.page-control>li').eq($('.page').offset().left/-screenWidth - 1).addClass('active');
+      }
+      var timer = setInterval(function() {
+        action(-1);
+      }, 2000);
+      $('.page-control>li').on('mouseover', function() {
+        clearInterval(timer);
+        var index = $('.page-control>li').index($(this)) + 1;
+        console.log(index);
+        console.log($('.page').offset().left/-screenWidth);
+        action($('.page').offset().left/-screenWidth - index);
+      });
+      $('.page-control>li').on('mouseout', function() {
+        timer = setInterval(function() {
+          action(-1);
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

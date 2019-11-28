@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task22-4</title>
+    <style type="text/css">
+      #tab {
+        border-collapse: collapse;    /* 合并边框 */
+        width: 500px;
+        border: 1px solid #888;
+        border-spacing: 0;
+      }
+      #tab td {
+        border: 1px solid #888;
+        padding: 0;
+      }
+      .tabs td {
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+      }
+      .tabs .active {
+        background-color: #ccc;
+      }
+      #tab .main {
+        height: 100px;
+      }
+      #tab .main td li {
+        list-style: none;
+        padding: 10px;
+        display: none;
+      }
+      #tab .main .active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="tab">
+      <tr class="tabs">
+        <td>tab1</td>
+        <td>tab2</td>
+        <td>tab3</td>
+      </tr>
+      <tr class="main">
+        <td colspan="3">
+          <ul>
+            <li class="active">内容一</li>
+            <li>内容二</li>
+            <li>内容三</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+      var tabs = $('.tabs')
+      var tabArr = $$('.tabs>td');
+      var mainArr = $$('.main li');
+      tabs.addEventListener('click', function(e){             // 在tabs上加时间监听
+        var clickNode = e.target;
+        if (clickNode.tagName.toLowerCase() === 'td') {       // tabs的点击效果
+          for (var i=0; i<tabArr.length; i++){
+            tabArr[i].classList.remove('active');
+          }
+          clickNode.classList.add('active');
+        }
+        var index = [].indexOf.call(tabArr,clickNode);        // 利用index将tabs和mainList联系起来
+        for (var i=0; i<mainArr.length; i++){
+          mainArr[i].classList.remove('active');
+        }
+        mainArr[index].classList.add('active');
+      })
+
+      function $(str) {
+        return document.querySelector(str);
+      }
+      function $$(str) {
+        return document.querySelectorAll(str);
+      }
+    </script>
+  </body>
+</html>

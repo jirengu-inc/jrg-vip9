@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<style type="text/css">
+	body,ul,li{padding: 0;margin: 0;list-style: none;}
+	.tab-box{
+		border: 1px solid #dedede;
+		width: 602px;
+		height: 200px;
+		margin: 20px;
+	}
+	.nav{
+		border-bottom: 1px solid #dedede;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+	}
+	.nav li{
+		float: left;
+		width: 200px;
+	}
+	.nav li.hover{
+		background: #f0f0f0;
+	}
+	.nav li.li-bor{
+		border-left: 1px solid #dedede;
+		border-right: 1px solid #dedede;
+	}
+	.item{
+		padding: 10px;
+		display: none;
+	}
+	.item.current{
+		display: block;
+	}
+	</style>
+	<div class="tab-box">
+		<ul class="nav">
+			<li class="hover">tab1</li>
+			<li class="li-bor">tab2</li>
+			<li>tab3</li>
+		</ul>
+		<div class="item current">内容1</div>
+		<div class="item">内容2</div>
+		<div class="item">内容3</div>
+	</div>
+<script type="text/javascript">
+var nav = document.querySelector('.tab-box .nav')
+var navLi = document.querySelectorAll('.nav li')
+var item = document.querySelectorAll('.tab-box .item')
+nav.addEventListener('click',function(e){
+	// if(e.target.tagName.toLowerCase() === 'li'){}
+	for (var i = 0; i < navLi.length; i++) {
+		navLi[i].classList.remove('hover')
+	};
+	e.target.classList.add('hover')
+	// 获取下标的两种方法
+	var oIndex = [].indexOf.call(navLi,document.querySelector('.nav li.hover'))
+	console.log(oIndex)
+	for (var j = 0; j < item.length; j++) {
+		item[j].classList.remove('current')
+	};
+	item[oIndex].classList.add('current')
+	// 方法二
+	// for (var i = 0; i < navLi.length; i++) {
+	// 	if(navLi[i] === document.querySelector('.nav li.hover')){
+	// 		for (var j = 0; j < item.length; j++) {
+	// 			item[j].classList.remove('current')
+	// 		};
+	// 		item[i].classList.add('current')
+	// 	}
+	// };
+})
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en zh">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX代码2</title>
+    <style>
+        ul,li{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+        #ct{
+            text-align: center;
+        }
+        #ct > li{
+            border:1px #ccc solid;
+            border-radius: 4px;
+            margin: 5px 0;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        #ct > li:hover{
+            background: #CCC;
+        }
+        .btn {
+            width: 140px;
+            height: 40px;
+            background-color: rgb(243, 110, 65);
+            color: white;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            border: 1px solid rgb(243, 110, 65);
+            padding: 0;
+            font-size: 25px;
+            margin: 10px auto;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ct">
+        <li>内容1</li>
+        <li>内容2</li>
+    </ul>
+<div class="btn">加载更多</div>
+
+<script>
+    function ajax(opts){
+        var xmlhttp = new XMLHttpRequest();
+        var dataStr = "";
+        for(var key in opts.data){
+            dataStr += key + '=' + opts.data[key] + '&' ;
+        }
+        dataStr = dataStr.substring(0,dataStr.length-1);
+        xmlhttp.onreadystatechange = function(){
+            if (xmlhttp.readyState == 4) {
+                if ( (xmlhttp.status >= 200 && xmlhttp.status < 300) || (xmlhttp.status == 304) ) {
+                    opts.success(xmlhttp.responseText);
+                } else {
+                    opts.error(xmlhttp.status);
+                }
+            }
+        };
+        if (opts.type.toLowerCase() === 'post'){
+            xmlhttp.open('POST', opts.url, true);
+            xmlhttp.send( dataStr );
+        }
+        if(opts.type.toLowerCase() === 'get'){
+            xmlhttp.open('GET', opts.url+"?"+dataStr, true);
+            xmlhttp.send(null);
+        }
+    }
+
+    var index = 2;
+    var btn = document.querySelector('.btn');
+    var ul = document.querySelector('#ct');
+    document.querySelector('.btn').addEventListener('click', function(){
+        ajax({
+            url: 'Task2402.php',   //接口地址
+            type: 'get',     // 类型， post 或者 get,
+            data:{
+                pageStart: index,
+                len: 5
+            },
+            success: function(res){
+                res= JSON.parse(res.match(/\[.*?\]/)[0]);
+                for(var i=0; i<res.length; i++){
+                    var newLi = document.createElement('li');
+                    //这句话不可以写在for循环外面
+                    //appendChild()会重新将这个newLi刷新，而不是增加一个新newLi
+                    //这个方法可以用于刷新之前append的元素。
+                    newLi.innerHTML = res[i];
+                    ul.appendChild(newLi);
+                }
+                index += this.data.len;
+            },
+            error: function(e){
+                console.log(e);
+            }
+        })
+    });
+</script>
+</body>
+</html>

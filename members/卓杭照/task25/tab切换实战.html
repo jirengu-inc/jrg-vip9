@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>tab切换实战</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+	ul,li{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+		color: #696565;
+	}
+	.tab-title li{
+		float: left;
+		padding: 9px;
+	}
+	.tabs a{
+		border-right: 1px solid #ccc;
+    	padding-right: 10px;
+	}
+	.tabs-last a{
+		border-right: none;
+	}
+	.tabs{
+		font-size: 16px;
+    	border: 1px solid #ccc;
+    	border-bottom: none;
+   		width: 230px;
+    	border-radius: 3px;
+	}
+	.tabs .active{
+		background-color: #ccc;
+		font-size: 16px;
+	}
+	.clearfix:after{
+		content:'';
+		display: block;
+		clear: both;
+	}
+	.panel-ct{
+		border: 1px solid #ccc;
+		width: 626px;
+		margin-bottom: 20px;
+	}
+	.panel-ct .panel li{
+		float: left;
+		border: 1px solid #e8e4e4;
+	}
+	.panel-ct .panel{
+		display: none;
+	}
+	.panel-ct .panel.active{
+		display: block;
+	}
+	.prod{
+		text-align: center;
+    	font-size: 15px;
+    	margin-top: 10px;
+   		margin-left: 10px;
+   		position: relative;
+	}
+	.prot-ct{
+		margin-top: -10px;
+		margin-left: -10px;
+	}
+    .prod-price{
+        color: #e32121;
+    }
+    .prod a{
+        width: 200px;
+        display: block;
+    }
+/* 点击蒙层 */
+	.cover{
+		position: absolute;
+    	top: 0;
+   	    left: 0;
+    	right: 0;
+    	bottom: 0;
+    	background: #e4dbdb;
+    	opacity: 0;
+	}
+	.cover.hover{
+		position: absolute;
+    	top: 0;
+   	    left: 0;
+    	right: 0;
+    	bottom: 0;
+    	background: #8e8a8a;
+    	opacity: 0.5;
+	}
+	.cover .btn{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -35px;
+		margin-top: -15px;
+		padding: 7px;
+		color: #fd0606;
+		border: 1px solid #c1b6b6;
+		border-radius: 3px; 
+		cursor: pointer;
+		background: #fffbfb;
+	}
+
+</style>
+<body>
+    <div class="mod-tab">
+    	<div class="tab-title">
+    		<ul class="tabs clearfix">
+    			<li class="active"><a href="#">热门</a></li>
+    			<li><a href="#">珠宝首饰</a></li>
+    			<li class="tabs-last"><a  href="#">奢侈品</a></li>
+    		</ul>
+    	</div>
+    	<ul class="panel-ct">
+    		<li class="panel active">
+    			<ul class=" prot-ct clearfix">
+    				<li class="prod">
+    					<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    			</ul>
+    		</li>
+    		<li class="panel">
+    			<ul class=" prot-ct clearfix">
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                </ul>
+    		</li>
+    		<li class="panel">
+    			<ul class=" prot-ct clearfix">
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                </ul>
+    		</li>
+    	</ul>
+</div>
+
+<div class="mod-tab">
+    	    	<div class="tab-title">
+    		<ul class="tabs clearfix">
+    			<li class="active"><a href="#">热门</a></li>
+    			<li><a href="#">珠宝首饰</a></li>
+    			<li class="tabs-last"><a  href="#">奢侈品</a></li>
+    		</ul>
+    	</div>
+    	<ul class="panel-ct">
+    		<li class="panel active">
+    			<ul class=" prot-ct clearfix">
+    				<li class="prod">
+    					<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    			</ul>
+    		</li>
+    		<li class="panel">
+    			<ul class=" prot-ct clearfix">
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                </ul>
+    		</li>
+    		<li class="panel">
+    			<ul class=" prot-ct clearfix">
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                    <li class="prod">
+                        <div class="cover"><button class="btn">立即抢购</button></div>
+                        <a href="">
+                            <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                            <div class="prod-name">藏金镶玉金条</div>
+                            <div class="prod-price">￥1999.00</div>
+                        </a>
+                    </li>
+                </ul>
+    		</li>
+    	</ul>
+    </div>
+
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+   	 	$('.tabs>li').on('click',function(e){
+   	 		e.preventDefault();
+			var index = $(this).index();
+			var $this=$(this);
+			var panels = $this.parents('.mod-tab').find('.panel-ct>li');
+			$this.siblings().removeClass('active');
+			$this.addClass('active');
+			panels.removeClass('active');
+			panels.eq(index).addClass('active');
+
+		})
+		
+			$('.mod-tab .cover').on('mouseenter',function(){
+				$(this).addClass('hover')
+			})
+		
+		
+			$('.mod-tab .cover').on('mouseleave',function(){
+				$(this).removeClass('hover')
+			})
+		
+    </script>
+</body>
+</html>

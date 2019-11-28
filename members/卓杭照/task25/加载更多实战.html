@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	ul,li,h3{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+		color: #696565;
+	}
+	.mod-tab{
+		width: 626px;
+		margin: 0 auto;
+	}
+
+	.panel-ct{
+		border: 1px solid #ccc;
+		width: 626px;
+		margin-bottom: 20px;
+	}
+	.panel-ct .panel li{
+		float: left;
+		border: 1px solid #e8e4e4;
+	}
+	.clearfix:after{
+		content:'';
+		display: block;
+		clear: both;
+	}
+	.panel-ct .panel{
+		display: none;
+	}
+	.panel-ct .panel.active{
+		display: block;
+	}
+	.prod{
+		position: relative;
+		text-align: center;
+    	font-size: 15px;
+    	margin-top: 10px;
+   		margin-left: 10px;
+   		
+	}
+	.prod-ct{
+		margin-top: -10px;
+		margin-left: -10px;
+	}
+    .prod-price{
+        color: #e32121;
+    }
+    .prod a{
+        width: 200px;
+        display: block;
+    }
+    .cover{
+		position: absolute;
+    	top: 0;
+   	    left: 0;
+    	right: 0;
+    	bottom: 0;
+    	background: #e4dbdb;
+    	opacity: 0;
+	}
+	.cover.hover{
+		position: absolute;
+    	top: 0;
+   	    left: 0;
+    	right: 0;
+    	bottom: 0;
+    	background: #8e8a8a;
+    	opacity: 0.5;
+	}
+	.cover .btn{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -35px;
+		margin-top: -15px;
+		padding: 7px;
+		color: #fd0606;
+		border: 1px solid #c1b6b6;
+		border-radius: 3px; 
+		cursor: pointer;
+		background: #fffbfb;
+	}
+    .btn-add{
+        border: 1px solid #e8e4e4;
+        padding: 5px 10px;
+        background: #d6cd9a;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+<body>
+	<div class="mod-tab">
+		<h3>珠宝首饰</h3>
+    	<ul class="panel-ct">
+    		<li class="panel active">
+    			<ul class=" prod-ct clearfix">
+    				<li class="prod">
+    					<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover"><button class="btn">立即抢购</button></div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    				<li class="prod">
+						<div class="cover">
+						<button class="btn">立即抢购</button>
+						</div>
+    					<a href="">
+    						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+    						<div class="prod-name">藏金镶玉金条</div>
+    						<div class="prod-price">￥1999.00</div>
+    					</a>
+    				</li>
+    			</ul>
+    		</li>
+    	</ul>
+    	<button class="btn-add">添加</button>
+    	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+ 		<script>
+ 		var products = [
+   		{   img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+    	    name: '珂兰 黄金手 猴哥款',
+        	price: '￥405.00'
+    	},{
+      		img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        	name: '珂兰 黄金转运珠 猴哥款',
+       		price: '￥100.00'
+   		},{
+        	img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        	name: '珂兰 黄金手链 3D猴哥款',
+        	price: '￥45.00'
+    	}
+		]
+ 			function getProdHtml(prod){
+ 				var html = ''
+ 				html += '<li class = "prod">'
+ 				html += '<div class="cover"><button class="btn">立即抢购</button></div>'
+ 				html += '<a href = "#">'
+ 				html += '<img src="'+prod.img+'" alt="">'
+ 				html += '<div class="prod-name">' +prod.name+ '</div>'
+ 				html += '<div class="prod-price">'+prod.price+'</div>'
+ 				html += '</a></li>'
+ 				return html
+ 			}
+ 			$('.btn-add').on('click',function(e){
+ 				e.preventDefault()
+ 				$.each(products,function(index,prod){
+ 					var html = getProdHtml(prod)
+ 					$('.prod-ct').append(html)
+ 				})
+ 			})
+
+// 把 事件绑定在 父元素上，新增加的元素，也能监听到
+ 			$('.prod-ct ').on('mouseenter','.cover',function(){
+ 				$(this).addClass('hover')
+ 			})
+ 			$('.prod-ct ').on('mouseleave','.cover',function(){
+ 				$(this).removeClass('hover')
+ 			})
+
+ 		</script>	
+</body>
+</html>

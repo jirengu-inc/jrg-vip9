@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+body{
+		font: 14px/1.5 "Microsoft YaHei","微软雅黑",sans-serif;
+		color: #656565;
+	}
+
+/*清除浮动部分*/
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+/*TOP部分*/
+	.top{
+		height: 50px;
+		background-color: #333;
+	}
+	.tposition{
+		width: 900px;
+		margin: 0 auto;
+	}
+	.top img{
+		height: 40px;
+	}
+	.top .list1{
+		float: right;
+	}
+	.top .list1 li{
+		font-size: 16px;
+		float: left;
+		line-height: 50px;
+		color: white;
+		width: 32px;
+		height: 50px;
+		padding: 0px 10px;
+		margin-left: 10px;
+	}
+	.top li:hover{
+		background: white;
+		color: #333;
+		cursor: pointer;
+			}
+
+	/*main部分*/
+	.main{
+		width: 900px;
+		margin: 0 auto;
+		margin-top: 10px;
+	}
+	.aside{
+		width: 200px;
+		height: 500px;
+		background-color: #eee;
+		float: left;
+	}
+	.content{
+		width: 670px;
+		height: 145px;
+		padding: 20px 10px;
+		background: #eee;
+		float: right;
+	}
+	/*foot*/
+	.foot{
+		height: 30px;
+		background-color: #333;
+	}
+	.foot .list2 {
+		float: left;
+	}
+	.foot .list2 li{
+		float: left;
+		line-height: 30px;
+		margin-left: 10px;
+	}
+	.foot .list2 a{
+		color: white;
+	}
+
+</style>
+</head>
+<body>
+<div class="top clearfix">
+	<div class="tposition clearfix">
+	<a href="#"><img src="http://cdn.jirengu.com/public/logo-tiny.png"></a>
+	<ul class="list1 clearfix">
+		<li>技能</li>
+		<li>经历</li>
+		<li>作品</li>
+		<li>关于</li>
+	</ul>
+	</div>
+</div>
+<div class="main clearfix">
+	<div class="aside"></div>
+	<div class="content">今天天气很热<br>但是我感到很快乐</div>
+</div>
+<div class="foot clearfix">
+	<div class="tposition clearfix">
+	<ul class="list2 clearfix">
+		<li><a href="#">饥人谷</a></li>
+		<li><a href="#">JSCODE</a></li>
+		<li><a href="#">JSBIN</a></li>
+	</ul>
+	</div>
+</div>
+    
+</body>
+</html>

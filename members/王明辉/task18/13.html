@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13</title>
+</head>
+<body>
+<script>
+
+    // 写一个函数，获取从min到max之间的随机整数，包括min不包括max （***）
+    function rand1(min,max){
+        return Math.floor(Math.random()*(max-min))+min;
+    }
+
+    // 写一个函数，获取从min都max之间的随机整数，包括min包括max （***）
+    function rand2(min, max) {
+        return Math.floor(Math.random() * (max - min + 1))+min;
+    }
+    // 写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机整数 （***）
+    function arrRand(len,min,max){
+        var arr = [];
+        for(var i=0; i<len; i++){
+            arr.push(rand2(min,max));
+        }
+
+        return arr;
+    }
+
+    // 写一个函数，生成一个长度为 n 的随机字符串，字符串字符的取值范围包括0到9，a到 z，A到Z。
+    function getRandStr(len){
+        // 0-9 48-57
+        // A-Z 65-90
+        // a-z 97-122
+        var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var s = '';
+        for(var i=0; i<len; i++){
+            s += str[rand2(0, str.length-1)];
+        }
+        console.log(s);
+    }
+    var str = getRandStr(10); // 0a3iJiRZap
+</script>
+</body>
+</html>

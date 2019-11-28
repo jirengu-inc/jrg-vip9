@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task19-4</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var Runtime = (function() {
+            var startTime, endTime; //code here ...
+            var obj = {
+
+                start: function() {
+                    startTime = new Date().getTime(); //code here ...， 当前时间
+                },
+                end: function() {
+                    endTime = new Date().getTime(); //code here ...  结束时间
+                },
+                get: function() {
+                    var runTime = endTime - startTime;
+                    return runTime; //code here ...  获取执行时间
+                }
+            };
+            return obj;
+        }());
+        Runtime.start();
+        for (var i = 0; i < 2000; i++) {
+            console.log(1)
+        }
+        //todo somethint
+        Runtime.end();
+        console.log(Runtime.get());
+    </script>
+</body>
+
+</html>

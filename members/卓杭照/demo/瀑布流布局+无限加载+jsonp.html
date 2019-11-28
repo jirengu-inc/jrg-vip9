@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>waterfall</title>
+</head>
+<style>
+	html,body,ul,li,p,h4{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	li{list-style: none;}
+	.wrap{
+		width: 900px;
+		margin: 0 auto;
+	}
+	.clearfix:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.pic-ct{
+		position: relative;
+	}
+	.pic-ct .item{
+		position: absolute;
+		padding-bottom: 10px;
+		width: 280px;
+		margin: 10px;
+		border: 1px solid #ccc;
+		transition: all 1s;
+		opacity: ;
+	}
+	.pic-ct .item img{
+		margin: 10px;
+		width: 260px;
+	}
+	.pic-ct .item .header{
+		margin: 0 10px;
+		border-bottom: 1px solid #ccc;
+	}
+	.pic-ct .desp{
+		font-size: 14px;
+		line-height: 1.5;
+		margin: 10px 15px 0 15px;
+		color: #757373;
+	}
+	.load{
+		visibility: hidden;
+		height: 20px;
+	}
+	.hide{
+		display: none;
+	}
+
+</style>
+<body>
+	<div class="wrap">
+		<div class="ct-waterfall">
+			<ul class="pic-ct clearfix" >
+				<!--<li class="item">
+					<a href="#" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_img/2016_38/453_81370_827660.jpg" alt=""></a>
+					<h4 class="header">我是标题我是标题我是标题</h4>
+					<p class="desp">我是内容我是内容我是内容我是内容</p>
+				</li>-->
+				<li class="item hide"></li>
+			</ul>
+			<div class="load">看不见的</div>
+		</div>
+	</div>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+
+
+		var clock;
+		$(window).on('scroll',function(){
+			if(clock){
+				clearTimeout(clock)
+			}
+			clock = setTimeout(function(){
+				checkShow()
+			},100)
+		})
+
+// 懒加载
+		checkShow();
+
+		function checkShow(){
+			if(isShow($('.load'))){
+				loadAndPlace()
+			}
+		}
+
+		function isShow($node){
+			var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                offsetTop = $node.offset().top,
+                nodeHeight = $node.height();
+            if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+                return true;
+            }else{
+                return false;
+            }
+		}
+// 获取数据，并且摆放位置
+		var curPage = 1,
+			perPageCount = 9;
+		function loadAndPlace(){
+			$.ajax({
+				url: 'http://platform.sina.com.cn/slide/album_tech',
+				dataType:'jsonp',
+				jsonp:'jsoncallback',
+				data:{
+					app_key: '1271687855',
+					num: perPageCount,
+					page: curPage
+					}
+				}).done(function(ret){
+					if(ret && ret.status && ret.status.code === "0"){
+						place(ret.data);
+					}
+				}).fail(function(){
+						console.log('获取数据失败');
+				})
+			}		
+
+
+		function place(nodeList){
+			console.log(nodeList)
+			var $nodes = renderData(nodeList)
+
+			var defereds = []
+			$nodes.find('img').each(function(){
+				var defer = $.Deferred()	// 创建一个deferred对象
+				$(this).load(function(){
+					defer.resolve()
+				})
+				defereds.push(defer)
+			})
+			$.when.apply(null,defereds).done(function(){ // 当全部图片加载后，执行下面的内容
+				console.log('图片全部加载')
+				waterFallPlace($nodes)
+			})
+		}
+// 瀑布流
+			var nodeWidth = $('.item').outerWidth(true),
+				colNum = Math.floor($('.pic-ct').width()/nodeWidth),
+				colSumHeight = [];
+
+			for(var i=0;i<colNum;i++){
+				colSumHeight.push(0)		
+			}
+
+		function waterFallPlace($nodes){
+
+			$nodes.each(function(){	
+				var $cur = $(this)      //colSumHeight = [200,250,80,300]
+				var idx = 0,			
+					minSumHeight = colSumHeight[0];		// 先定义数组第一项为最小的高度，然后遍历和它作比较
+				for(var i=0;i<colSumHeight.length;i++){
+						if(colSumHeight[i]<minSumHeight){
+							idx = i
+							minSumHeight = colSumHeight[i]
+						}
+				}
+
+				$cur.css({
+					left:nodeWidth*idx,
+					top:minSumHeight,
+					opacity:1
+				})
+				colSumHeight[idx]= $cur.outerHeight(true)+colSumHeight[idx]
+				$('.pic-ct').height(Math.max.apply(null,colSumHeight))
+			})
+		}
+	
+
+		function renderData(items){
+			var tpl = '',
+				$nodes;
+			for(var i=0;i<items.length;i++){
+				tpl += '<li class="item">'
+				tpl += '<a href="'+ items[i].url+'" class="link"><img src="'+items[i].img_url+'" alt=""></a>'
+				tpl += '<h4 class="header">'+items[i].short_name+'</h4>'
+				tpl += '<p class="desp">'+items[i].short_intro+'</p>'
+				tpl += '</li>'
+			}
+			$nodes = $(tpl)
+			$('.pic-ct').append($nodes)
+			return $nodes
+		}		
+	</script>
+</body>
+</html>

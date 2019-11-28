@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        console.log(say)
+        say(10);
+        function say(n){
+            console.log(n);
+            if(n<3) return;
+            say(n-1);
+        };
+        console.log(say);
+    </script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="fontello.css" type="text/css">
+    <style>
+      html, body, ul, li, p, h1, h2, h3, h4 {
+        margin: 0px;
+        padding: 0px;
+        color: white;
+        font-family: PingFangSC-Regular, "微软雅黑", SimHei;
+        font-weight: normal;
+      }
+      a {
+        text-decoration: none;
+        color: rgb(119, 119, 119);
+      }
+      li {
+        list-style: none;
+      }
+      .layout {
+        width: 1170px;
+        margin: 0 auto;
+      }
+      #nav-bar, #header, #content, #footer {
+        padding-top: 1px;
+        padding-bottom: 1px;
+      }
+      .nav-items>li {
+        position: relative;
+        float: left;
+      }
+      .nav-items>li>a {
+        line-height: 50px;
+        padding-right: 30px;
+        color: rgb(119, 119, 119);
+      }
+      .nav-items>li:nth-of-type(2)>a {
+        padding-right: 0px;
+      }
+      .nav-items>li>a:hover {
+        color: #333;
+      }
+      .nav-items>li:first-of-type>a {
+        font-size: 24px;
+      }
+      .nav-works-list {
+        position: absolute;
+        top: 100%;
+        left: -15px;
+        background: white;
+        display: none;
+      }
+      .nav-works-list>li>a {
+        font-size: 13px;
+        padding-left: 20px;
+        padding-right: 50px;
+      }
+      .nav-items>li:nth-of-type(2):hover .nav-works-list{
+        display: block;
+      }
+      .nav-works-list>li:nth-of-type(1) {
+        font-size: 12px;
+      }
+      .nav-item-hover:hover {
+        background: rgb(245, 245, 245);
+      }
+      .clear {
+        clear: both;
+      }
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .red-bg {
+        background: rgb(182, 78, 72);
+      }
+      #header p:first-of-type {
+        font-size: 60px;
+        margin-top: 60px;
+      }
+      #header p:nth-of-type(2) {
+        color: #ddd;
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 60px;
+        line-height: 1.2em;
+      }
+      .segment-bar {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: rgb(245, 245, 245);
+        border-radius: 5px;
+      }
+      .segment-bar p{
+        float: left;
+        font-size: 14px;
+        color: rgb(119, 119, 119);
+      }
+      .segment-bar p:first-of-type {
+        margin-right: 5px;
+      }
+      .index-a-style {
+        color: rgb(141, 60, 56);
+      }
+      .index-a-style:hover {
+        text-decoration: underline;
+        color: rgb(95, 40, 37);
+      }
+      .content-list {
+        text-align: center;
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-bottom: 65px;
+      }
+      .content-list>li img {
+        width: 100%;
+      }
+      .content-list>li {
+        width: 358px;
+        padding: 5px 5px 25px 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        float: left;
+        overflow: hidden;
+        margin: 15px;
+      }
+      .content-list>li>h2 {
+        color: black;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .content-list>li>h4 {
+        color: black;
+        margin-bottom: 20px;
+      }
+      .content-list>li>a:nth-of-type(2) {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 5px 10px 5px 10px;
+        color: black;
+      }
+      .content-list>li img:hover {
+        opacity: 0.8;
+      }
+      .content-list>li>a:nth-of-type(2):hover {
+        background: rgb(230, 230, 230);;
+      }
+      #footer {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      #footer>h1 {
+        margin-top: 30px;
+        margin-bottom: 5px;
+      }
+      #footer>h3 {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav-bar">
+      <div class="layout clearfix">
+        <ul class="nav-items">
+          <li><a href="#">饥人谷</a></li>
+          <li>
+            <a class="icon-down-dir" href="#">我的作品</a>
+            <ul class="nav-works-list clearfix">
+              <li><a class="nav-item-hover icon-paper-plane-empty" href="#">作品1</a></li>
+              <li><a class="nav-item-hover icon-shield" href="#">作品2</a></li>
+              <li><a class="nav-item-hover icon-book" href="">作品3</a></li>
+              <li><hr></li>
+              <li><a href="#">作品4</a></li>
+              <!-- <div class="clear"></div> -->
+            </ul>
+          </li>
+          <li><a href="#">博客</a></li>
+          <li><a href="#">项目</a></li>
+          <li><a href="#">关于我</a></li>
+        </ul>
+        <!-- <div class="clear"></div> -->
+      </div>
+    </div>
+    <div id="header" class="red-bg">
+      <div class="layout">
+        <p>页面特征</p>
+        <p>不需要处理响应式，不使用Bootstrap,不需要js。</br>图标使用font-awesome,页面中心内容固定宽度1000px</p>
+      </div>
+    </div>
+    <div id="content">
+      <div class="layout">
+        <div class="segment-bar clearfix">
+          <p><a class="index-a-style" href="#">首页</a></p>
+          <p>/ 我的作品</p>
+          <!-- <div class="clear"></div> -->
+        </div>
+        <ul class="content-list clearfix">
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/creative.jpg" alt="" />
+            </a>
+            <h2>Creative</h2>
+            <h4>A one page creative theme.</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/agency.jpg" alt="" />
+            </a>
+            <h2>Agency</h2>
+            <h4>A one page agency theme.</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/freelancer.jpg" alt="" />
+            </a>
+            <h2>Freelancer</h2>
+            <h4>A one page freelancer theme.</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/grayscale.jpg" alt="" />
+            </a>
+            <h2>Grayscale</h2>
+            <h4>A multipurpose one page theme.</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/landing-page.jpg" alt="" />
+            </a>
+            <h2>Landing Page</h2>
+            <h4>A clean, functional landing page theme.</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/stylish-portfolio.jpg" alt="" />
+            </a>
+            <h2>Stylish Portfolio</h2>
+            <h4>A stylish Bootstrap portfolio theme.</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/full-width-pics.jpg" alt="" />
+            </a>
+            <h2>Full Width Pics</h2>
+            <h4>Full width picture backgrounds</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/one-page-wonder.jpg" alt="" />
+            </a>
+            <h2>One Page Wonder</h2>
+            <h4>A simple one page website template</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/half-slider.jpg" alt="" />
+            </a>
+            <h2>Half Slider</h2>
+            <h4>A half page image slider template</h4>
+            <a href="#">查看</a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/full-slider.jpg" alt="" />
+            </a>
+            <h2>Full Slider</h2>
+            <h4>A full image slider template</h4>
+            <a href="#">查看</a>
+          </li>
+          <!-- <div class="clear"></div> -->
+        </ul>
+      </div>
+      </div>
+    <div id="footer" class="red-bg">
+      <h1>想要详细的了解我？</h1>
+      <h3>下载简历，打我电话找我吧</h3>
+    </div>
+  </body>
+</html>

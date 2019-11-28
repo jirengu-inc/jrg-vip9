@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tab jQuary</title>
+    <style>
+    ul,
+    li,
+    div {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .tab {
+        width: 600px;
+        border: 1px solid #ccc;
+        margin: 20px auto;
+        padding: 20px 10px;
+        border-radius: 4px;
+    }
+    
+    .tab-header {
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .tab-header>li {
+        float: left;
+        cursor: pointer;
+        color: brown;
+        padding: 10px 20px;
+    }
+    
+    .tab-header .active {
+        border: 1px solid #ccc;
+        border-radius: 4px 4px 0 0;
+        color: #333;
+        border-bottom: #fff;
+        margin-bottom: -1px;
+    }
+    
+    .tab-ct {
+        padding: 20px 10px;
+        /*border: 1px solid #ccc;*/
+    }
+    
+    .tab-ct>li {
+        display: none;
+    }
+    
+    .tab-ct .active {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <ul class="tab-header  clearfix">
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <ul class="tab-ct">
+            <li class="active">内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+       <div class="tab">
+        <ul class="tab-header  clearfix">
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <ul class="tab-ct">
+            <li class="active">内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+    <!-- <script src="jquery-3.1.0.min.js"></script> -->
+    <script>
+    // $('.tab-header>li').on('click', function(){
+    //     var $this = $(this);//this 代表li
+    // 	var index = $this.index();
+    //     console.log($this)
+        
+    // 	//方法1
+    // 	// console.log(index);//如果有两个就找到其他的了，不是正对着的tab
+    // 	// $('.tab-header>li').removeClass('active');
+    // 	// $('.tab-header>li').eq(index).addClass('active');
+
+    // 	// $('.tab-ct>li').removeClass('active');
+    // 	// $('.tab-ct>li').eq(index).addClass('active')
+
+    // 	//方法2
+    // 	$this.siblings().removeClass('active');
+    // 	$this.addClass('active');
+    // 	$this.parents('.tab').find('.tab-ct>li').removeClass('active');
+    // 	$this.parents('.tab').find('.tab-ct>li').eq(index).addClass('active')
+    // })
+
+
+//封装
+      function Tab(ct){
+        this.ct = ct;
+        this.init();
+        this.bind();
+        
+      }  
+
+      Tab.prototype.init = function(){
+        this.tabLis = this.ct.querySelectorAll('.tab-header>li');
+        this.tabPanels = this.ct.querySelectorAll('.tab-ct>li');
+      }
+
+
+      Tab.prototype.bind = function(){
+         var _this = this;
+
+
+        this.tabLis.forEach(function(tabli){
+            tabli.onclick = function(e){
+                var target = e.target;
+                var index  = [].indexOf.call(_this.tabLis,target)
+                //没有_this.tabLis.indexOf(target)这个方法，所以我们要借用数组的方法
+                //_this.tabLis.indexOf(target);
+                _this.tabLis.forEach(function(li){
+                    li.classList.remove('active');
+
+                })
+                target.classList.add('active');
+                _this.tabPanels.forEach(function(panels){
+                    panels.classList.remove('active')
+                })
+                _this.tabPanels[index].classList.add('active');
+            }
+        })
+      }
+
+
+
+      new Tab(document.querySelectorAll('.tab')[0])
+      new Tab(document.querySelectorAll('.tab')[1])
+
+
+
+
+    </script>
+    
+</body>
+
+</html>

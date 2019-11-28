@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 写一个函数，返回参数的平方和？如 （难度**）
+
+    function sumOfSquares(){
+        var len = arguments.length,
+            num = 0,
+            i;
+        for(i=0; i<len; i++){
+            num += arguments[i]*arguments[i]
+        }
+        return num;
+
+    }
+    console.log(sumOfSquares(2,3,4));   // 29
+    console.log(sumOfSquares(1,3));   // 10
+
+
+</script>
+</body>
+</html>

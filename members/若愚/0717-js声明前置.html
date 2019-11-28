@@ -1,0 +1,145 @@
+<script>
+/*1
+    console.log(sayName);
+	sayName('hunger');
+	console.log(sayAge)
+	sayAge('hunger');
+
+	function sayName (name) {
+		console.log('hello ', name)
+	}
+	var sayAge = function(age){
+		console.log('my age is:', age);
+	}
+*/
+
+/*
+	
+ 	var sayAge;
+ 	function sayName (name) {
+		console.log('hello ', name)
+	}
+
+    console.log(sayName);
+	sayName('hunger');
+	console.log(sayAge)
+	sayAge('hunger');
+
+ */
+
+
+/*
+console.log(a);
+function a () {
+	console.log('hello')
+}
+
+var a = 2;
+*/
+
+
+// function fn(fn2){
+// 	//前置
+// 	var fn2;
+// 	function fn2(){
+
+// 	}
+	
+// 	//end
+	
+
+
+// 	console.log(fn2);
+// 	fn2 = 3;
+// 	console.log(fn2);
+// }
+// fn(10);
+
+
+// function fn(a){
+// 	console.log(a);
+// 	function a(){}
+// 	console.log(a);
+// }
+// fn(10);
+
+
+
+// if(true){
+// 	function f1(){
+// 		console.log(1)
+// 	}
+// }else{
+// 	function f2 () {
+// 		console.log(2)
+// 	}
+// 	var c = 3;
+// }
+// console.log(f1);
+// console.log(f2);
+// console.log(c);
+
+
+
+
+// function fn () {
+// 	a = 1;
+// }
+// fn()
+// console.log(a);
+
+var a = 1;
+
+function fn(){
+	console.log(a); 
+	var a = 5;
+	console.log(a);  
+	a++;
+	fn2();
+	console.log(a);
+	function fn2(){
+		console.log(a); 
+		a = 20;
+		b = 100;
+	}
+}
+fn();
+console.log(a); 
+a = 10;
+console.log(a); 
+console.log(b);
+
+
+//undefined, 5, 6, 20, 1, 10
+
+
+/*
+
+level1:
+
+	[winScope] = 
+		- [windActiveSope] = {a:1, b:4, d: 100}
+level2: 
+	[fnScope] 
+		- [fnActiveScope] = {a:20}
+		- [winSope] = {a:1, b:4, d:100}
+
+level3:
+	[fn2Scope]
+		- [fn2ActiveScope] = {}
+		[fnScope] 
+			- [fnActiveScope] = {a:20}
+			- [winSope] = {a:1, b:4, d:100}
+
+
+
+ */
+
+
+
+
+
+
+
+	
+</script>

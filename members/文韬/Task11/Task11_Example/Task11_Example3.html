@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task11_Example3</title>
+    <style>
+        .box1 {
+            border: 1px dotted red;
+        }
+        .box2{
+          display: inline-block;
+          background-color: yellow;
+          font-size: 30px;
+        }
+        .box4{
+          display: inline-block;
+          background-color: yellow;
+          font-size: 30px;
+        }
+        .box5{
+          display: inline-block;
+          background-color: yellow;
+          font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">123</div>
+        <div class="box2">123</div>
+        <div class="box2">123</div>
+    </div>
+    <div class="box1">
+        <div class="box4">消除空格</div><div class="box4">123</div><div class="box4">123</div>
+    </div>
+    <div class="box1" style="word-spacing:-5px;">
+        <div class="box5">设置word-spacing</div>
+        <div class="box5">123</div>
+        <div class="box5">123</div>
+    </div>
+    <div class="box1">
+        <div class="box5" style="margin:-2px;">margin为负</div>
+        <div class="box5" style="margin:-2px;">123</div>
+        <div class="box5" style="margin:-2px;">123</div>
+    </div>
+</body>
+
+</html>

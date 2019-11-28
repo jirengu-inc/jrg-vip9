@@ -1,0 +1,81 @@
+<div class="my-name"></div>
+
+
+<script>
+    // var a = 1;     var $$ = 2; //dddddd
+
+
+    // var _$ = 3;
+    // var A = 4;
+    // var b3 = 5;
+
+    // var goto = 3;
+    // var myName = 3;
+    // var name = '若愚';
+    // var 若愚 = 'hello';
+    // function 吃饭(){
+    //   console.log('我要吃饭')
+    // }
+
+    var age = 28.456;
+    var name = 'hunger';
+    var isPerson = true;
+    var sex = undefined;
+    var friend;
+    var hourse = null;
+    var address = {
+        name: 'hangzhou',
+        distance: 180
+    };
+
+    // if (hello === undefined) {
+    //     console.log(hello);
+    // }
+
+    if (typeof hello !== 'undefined') {
+        console.log(hello);
+    }
+
+
+    function isNumber(el) {
+        return typeof el === 'number';
+    }
+
+    function isString(el) {
+        return typeof el === 'string';
+    }
+
+    function isUndefined(el) {
+        return typeof el === 'undefined';
+    }
+
+    function isNull(el) {
+        return el === null;
+    }
+
+    function isFunction(el) {
+        return typeof el === 'function';
+    }
+
+    function isArray(el) {
+        return (typeof el === 'object') && (el instanceof Array);
+    }
+
+    function isObject(el) {
+        return (typeof el === 'object') && !(el instanceof Array) && el !== null;
+    }
+
+    function isPrimitive(el) {
+        return isNumber(el) || isString(el) || isUndefined(el) || isNull(el);
+    }
+
+
+    var a = 3;
+
+    function sayHello() {
+        var a = 1;
+        var b = 2;
+    }
+    sayHello();
+    console.log(a);
+</script>

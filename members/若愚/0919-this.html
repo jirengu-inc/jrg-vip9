@@ -1,0 +1,99 @@
+<body>
+	
+	<button id="btn">点我</button>
+</body>
+<script>
+
+
+var app = {
+	init: function(){
+		this.target = document.querySelector('#btn');
+		this.bind();
+	},
+
+	bind: function(){
+		var _this = this;
+
+		setTimeout(this.sayHaha, 2000);
+
+		this.target.addEventListener('click', function(){
+
+			var self = this;
+			this.innerText = '我被点了';
+			_this.sayHello();
+
+			setTimeout( function(){
+					self.innerText = '点我';
+					console.log(this);
+					_this.sayGoodBye.call(self);
+			}, 1000)
+		});
+
+		
+	},
+
+	sayHello: function(){
+		console.log('hello...')
+		console.log(this);
+	},
+
+	sayGoodBye: function(){
+		console.log('sayGoodBye...')
+		console.log(this)
+	},
+
+	sayHaha: function(){
+		console.log('say Haha...');
+		console.log(this)
+	}
+};
+
+app.init();
+
+
+
+
+
+	
+// console.log(this);
+// function sayHello(){
+// 	this.nick = 'hunger'
+// 	console.log(this);
+// }
+
+// sayHello();
+
+// var say = new sayHello()
+
+
+// function fn0(){
+// 		console.log(this)
+//     function fn(){
+//     	this.abc = 123;
+//       console.log(this);
+//     }
+//     fn();
+// }
+
+// new fn0();
+
+var nick = 'hunger';
+
+var obj1 = {
+    nick: 'Byron',
+    fn : function(){
+        console.log(this.nick);
+    }
+};
+
+var obj2 = {
+	nick: 'ruoyu'
+}
+
+obj1.fn();
+
+obj2.fn = obj1.fn;
+
+obj2.fn();
+
+</script>

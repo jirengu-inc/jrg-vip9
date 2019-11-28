@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>26-2</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        .div{
+            width: 500px;
+            height: 3000px;
+            border: 1px solid black;
+        }
+        .btn{
+            width: 80px;
+            line-height: 40px;
+            
+        }
+        .monitor{
+            position: fixed;
+            right:10px;
+            top: 0;
+            margin-left: -100px;
+            width:100px;
+            height:60px;
+            line-height:60px;
+            font-size: 1.2rem;
+            background: yellow;
+            padding-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <input class="input" type="text">
+    <br/>
+    <select name="test" id="test">
+        <option value="111">111</option>
+        <option value="222">222</option>
+        <option value="333">333</option>
+    </select>
+    <p class="test-p"></p>
+    <br/>
+    <button class="btn">点击我</button>
+    <div class="div"></div>
+    <div class="monitor">0px</div>
+
+<script>
+    $('.btn').on('click',function(){
+        $('.btn').css('backgroundColor','red');
+        setTimeout(function(){
+            $('.btn').css('backgroundColor','blue');
+        },800)
+    })
+    $(window).on('scroll',function(){
+        $('.monitor').text(scrollY+'px');
+    })
+    $('.div').on('mouseover',function(){
+        $('.div').css('backgroundColor','red');
+    })
+    $('.div').on('mouseout',function(){
+        $('.div').css('backgroundColor','white');
+    })
+    $('.input').on('focus',function(){
+        $('.input').css('borderColor','blue')
+    });
+    $('.input').on('blur',function(){
+        $('.input').css('borderColor','inherit');
+        console.log($('.input').val());
+    });
+    $('.input').on('keyup',function(){
+        $('.input').val($('.input').val().toLowerCase());
+    });
+    $('#test').on('change',function(){
+        console.log(1);
+        $('.test-p').text($(this).val());
+    })
+</script>
+</body>
+</html>

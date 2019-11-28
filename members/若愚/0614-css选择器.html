@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body,p,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,ol{
+		margin:0;
+		padding:0;
+	}
+	li{
+		list-style: none;
+	}
+/*	a{
+		text-decoration: none;
+	}*/
+
+	h1{
+
+	}
+
+	#content {
+		background-color: #eee;
+	}
+
+	#content h1{
+		color: red;
+	}
+
+	#content h1, 
+	#footer h1{
+
+	}
+
+	#content > h1{
+		font-size: 40px;
+	}
+
+	#content > p{
+
+	}
+/*
+	#content li{
+		width: 100px;
+		height: 100px;
+		background: red;
+	}*/
+
+	#content .panel, 
+	#content .box {
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+
+
+	.active{
+		background: pink;
+	}
+	#content .active+.panel{
+		color: yellow;
+	}
+	#content .active~.panel{
+		border: 1px solid red;
+	}
+
+
+	#footer{
+		background-color: #f00;
+	}
+
+	.wrap{
+		width: 900px;
+		margin: 30px auto;
+	}
+
+	input[type=text], 
+	input[type=password]{
+		height: 40px;
+	}
+
+	a:link{
+		color: yellow;
+	}
+	a:visited{
+		color: blue;
+	}
+
+	a:hover{
+		color: #333;
+	}
+	a:active{
+		color: pink;
+	}
+
+	input:focus{
+		border: 1px solid red;
+	}
+
+</style>
+</head>
+<body>
+
+	<div id="header" class="wrap">
+		<ul>
+	    	<li><a href="">主页</a></li>
+	    	<li><a href="">关于</a></li>
+	    </ul>
+	</div>
+	<div id="content" class="wrap">
+		<h1>我是标题</h1>
+		<p>我是段落</p>
+		<h1 class="panel">我是标题</h1>
+		<ul>
+			<li class="active panel">1</li>
+			<li class="panel">2</li>
+			<li class="panel">3</li>
+			<li class="panel">
+				<h1>hello</h1>
+			</li>
+		</ul>
+		<ul>
+			<li class="box">a</li>
+			<li class="box">b</li>
+			<li class="box">c</li>
+			<li class="box">d</li>
+		</ul>
+	</div>
+	<div id="footer" class="wrap">
+		<h1>我是footer的标题</h1>
+		<p>我是footer的段落</p>
+		<div class="panel">我是footer的panel</div>
+	</div>
+
+	<input type="text">
+	<input type="password">
+	<input type="checkbox">
+	<a href="http://jirengu.coms">饥人谷</a>
+
+    <h1>我是标题</h1>
+    <p>我是段落</p>
+    <ul>
+    	<li>列表1</li>
+    	<li>列表2</li>
+    </ul>
+    <div>
+    	<h1>我是标题2</h1>
+    	<div>
+    		<h1>我是标题3</h1>
+    	</div>
+    </div>
+
+
+
+
+<style>
+.item1:first-child{
+  color: red;
+}
+.item1:first-of-type{
+  background: blue;
+}
+.ct:first-of-type{
+	font-size: 50px;
+}
+</style>
+ <h5 class="ct">
+   <p class="item1" style="color: #ff3300">aa</p>
+   <h3 class="item1">bb</h3>
+   <h3 class="item1">ccc</h3>
+ </h5>
+ <p class="fake-elem">
+ 	hello，饥人谷， 若愚
+ 	求知若饥，虚心四顾
+ </p>
+
+
+</body>
+</html>

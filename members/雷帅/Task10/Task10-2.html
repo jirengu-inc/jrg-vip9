@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Task10-2</title>
+  <style>
+.part{
+  margin-bottom:20px;
+}
+
+.rectangle{
+  width:200px;
+  height:100px;
+  border:1px solid #444;  
+}
+
+.triangle1{
+  margin-left:5px;
+  padding:0;
+  width:0;
+  height:0;
+  border-bottom:10px solid #444;
+  border-top:10px solid rgba(0,0,0,0);
+  border-right:10px solid rgba(0,0,0,0);
+  border-left:10px solid rgba(0,0,0,0);
+}
+
+.triangle2{
+  margin-left:186px;
+  padding:0;
+  width:0;
+  height:0;
+  border-top:7px  solid #f00;
+  border-right:7px solid #f00;
+  border-left:7px solid rgba(0,0,0,0);
+  border-bottom:7px solid rgba(0,0,0,0);
+
+}
+.triangle3{
+  margin-left:5px;
+  padding:0;
+  width:0;
+  height:0;
+  border-bottom:10px solid #444;
+  border-top:10px solid rgba(0,0,0,0);
+  border-right:10px solid rgba(0,0,0,0);
+  border-left:10px solid rgba(0,0,0,0);
+}
+.triangle4{
+  width:0px;
+  height:0px;
+  border-bottom:10px solid #fff;
+  border-top:10px solid rgba(0,0,0,0);
+  border-right:10px solid rgba(0,0,0,0);
+  border-left:10px solid rgba(0,0,0,0);
+  float:left;
+  z-index:1;
+  margin-top:-19px;
+  margin-left:5px;
+
+}
+  </style>
+</head>
+<body>
+  <div class="part">
+    <div class="triangle1"></div>
+    <div class="rectangle"></div>
+  </div>
+  
+  <div class="part">
+    <div class="rectangle">
+      <div class="triangle2">
+      </div>
+    </div>
+  </div>
+  
+  <div class="part">
+    <div class="triangle3"></div>
+    <div class="triangle4"></div>
+    <div class="rectangle"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<script>
+console.log('加法-----------')
+var a = 1;
+var b = 2;
+console.log(a+b);
+
+var a1 = "he'l'lo";
+var b1 =  'hun\'ger';
+
+console.log(a1+' ' +b1)
+
+var a2 = 100, 
+	b2 = 'hello';
+console.log(a2 + b2);
+
+var a3 = 10;
+var b3 = new Date();
+var c3 = {
+	a: 1,
+	toString: function(){
+		return 20;
+		//return b3;
+		//return '20'
+		//return 'abc';
+	}
+};
+console.log(a3 + b3);
+console.log(a3 + c3);
+
+var a4 = "123";
+console.log( +a4);
+console.log( +c3 );
+console.log(2 + true);
+console.log(2 + false)
+
+
+console.log('减法---------')
+console.log(1 - 2);
+console.log(1 - 'hello');
+console.log(1 - '333hello'); //Number()
+console.log(1 - '123');
+console.log('10' - '20');
+console.log(1 - false);   //false -> 0
+console.log(1 - true);    // true -> 1
+console.log(1 - undefined);  //undefined -> NaN
+console.log(1 - null);    //null ->0
+console.log(1 - '');    // ''->0
+console.log(1 - c3);
+
+console.log('自增运算符----------');
+var a5 = 10;
+//a5 = a5 + 1;
+//a5++;
+var a55 = a5++;
+console.log(a55);
+
+var b5 = 20;
+var b55 = ++b5;
+console.log(b55);
+
+console.log('赋值运算符-------')
+var a6 = 20;
+a6 = a6 + 1;
+a6++;
+++a6;
+a6 += 1;
+console.log(a6)
+
+console.log('比较运算符-------------')
+
+console.log( 1 == 2 );
+console.log( 1 == true ); //到底是谁转谁 true
+console.log( 3 == true );  //false
+console.log( 0 == false ); // true
+console.log( 1 === 2);
+console.log( NaN === NaN)
+console.log( NaN !== NaN);
+
+console.log('比较运算符-------------')
+
+!''
+
+!'abc'
+
+!undefined
+
+!null
+
+!NaN
+
+!!NaN
+
+!!1
+
+Boolean(1)
+
+!null
+
+!!null
+
+!!''
+var btn = document.querySelector('.btn');
+btn && btn.addEventLisntener('')
+
+function init(name){
+	var name = name || 'hunger';
+	console.log(name)
+}
+
+console.log('三元运算符.....')
+var a = 10;
+var b = a > 50 ? a : (a>5? a:5)
+
+var a10 = 2; //  010  ~2  00000000010 -> 11111111101 0000000011
+var b10 = 4; //  100   
+             //  110   |  7
+             //  000   &  0
+             //  0 1 10 11 100 101 110 111
+             //  0110 -> 1100
+var c10 = 3*(4-2)
+init('hunger')
+var a11 = 1, b11 = 2;
+
+console.log( a12 = 10)
+
+var z=10;
+w = x = y =z;
+
+
+</script>

@@ -1,0 +1,31 @@
+* {
+	margin:0;
+	padding:0;
+}
+#header {
+	height:50px;
+	width:800px;
+	background-color:#f00;
+	margin:0 auto;
+}
+#content {
+	width:800px;
+	margin:0 auto;
+}
+.aside {
+	width:200px;
+	float:left;
+	background-color:#cccbff;
+}
+.main {
+	background-color:pink;
+	overflow:hidden;
+	/*overflow:auto;*/
+
+}
+#footer {
+	height:50px;
+	width:800px;
+	background-color:#f00;
+	margin:0 auto;
+}

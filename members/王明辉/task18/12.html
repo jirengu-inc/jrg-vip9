@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12</title>
+</head>
+<body>
+<script>
+    // 12.写一个函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上...，如 （****）
+    truncate("hello, this is hunger valley,", 10) // == "hello, thi...";
+    truncate("hello world", 20)    // == "hello world"
+
+    function truncate(str, maxlength){
+        if(str.length>maxlength){
+            str = str.substring(0,maxlength);
+            str += '...';
+        }
+        return str;
+    }
+</script>
+</body>
+</html>

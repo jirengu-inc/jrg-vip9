@@ -1,0 +1,648 @@
+body {
+    overflow-x: hidden;
+}
+
+.active {
+    border-bottom: 2px solid #777;
+}
+
+#logo {
+    background: url(../images/网页/首页/logo@2x.png) no-repeat;
+    background-size: contain;
+    width: 196px;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 4px;
+    }
+}
+
+#header .navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    height: 80px;
+    padding: 12px 50px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#header .collapse {
+    display: block;
+}
+
+#header .navbar-nav>li {
+    float: left;
+}
+
+#header .navbar-nav {
+    float: right;
+    margin: 0;
+}
+
+#header .clearfix:after,
+.dl-horizontal dd:after,
+.container:after,
+.container-fluid:after,
+.row:after,
+.form-horizontal .form-group:after,
+.btn-toolbar:after,
+.btn-group-vertical>.btn-group:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after,
+.navbar-collapse:after,
+.pager:after,
+.panel-body:after,
+.modal-header:after,
+.modal-footer:after {
+    clear: none;
+}
+
+#header .navbar-nav {
+    margin: 7.5px -15px;
+}
+
+#header .navbar-nav>li>a {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 36px;
+    color: #777;
+    font-size: 16px;
+}
+
+#header .nav>li>a:hover,
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    border-bottom: 2px solid #777;
+}
+
+#header .nav>li>a {
+    position: relative;
+    display: block;
+    margin: 0 35px;
+    padding: 0 0;
+}
+
+#header {
+    background: url(../images/网页/首页/大图@2x.png) no-repeat center center;
+    height: 537px;
+    background-size: cover;
+}
+
+@media (max-width:992px) {
+    #header {
+        height: 494px;
+    }
+}
+
+@media (max-width: 768px) {
+    #header .nav>li>a {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    #header .navbar {
+        padding: 0px 20px;
+        height: 60px;
+    }
+    #logo {
+        width: 100px;
+        background-size: contain;
+        background-position: center bottom;
+    }
+    #header .nav>li>a {
+        margin: 0 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width:320px) {
+    #header .nav>li>a {
+        margin: 0 10px;
+    }
+}
+
+
+/*/header*/
+
+#introduce {
+    padding-bottom: 50px;
+}
+
+#introduce p {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #aaa;
+    line-height: 1.8;
+}
+
+#introduce h3 {
+    padding: 20px 0;
+}
+
+#introduce h3::after {
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/大标题线-@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+#introduce p span {
+    color: #333;
+}
+
+#introduce .culture-list {
+    margin-top: 130px;
+    padding: 0;
+}
+
+#introduce .culture-list h4 {
+    padding-bottom: 20px;
+}
+
+#introduce .culture-list h4::after {
+    left: 20px;
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/小标题线@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 20px;
+}
+
+@media (max-width: 320px) {
+    #introduce .culture-list h4 {
+        width: 85px;
+    }
+}
+
+#introduce .culture-list p {
+    width: 154px;
+    padding-top: 10px;
+}
+
+#introduce .hope {
+    width: 100px;
+    display: none;
+}
+
+#introduce .round {
+    width: 165px;
+    height: 165px;
+    border: 2px solid #f8f8f8;
+    border-radius: 50%;
+}
+
+#introduce .culture-list>li:nth-child(1) .round {
+    background: url('../images/网页/首页/主动@2x.png') center center no-repeat;
+    background-size: contain;
+}
+
+#introduce .culture-list>li:nth-child(2) .round {
+    background: url('../images/网页/首页/执着@2x.png') center center no-repeat;
+    background-size: contain;
+}
+
+#introduce .culture-list>li:nth-child(3) .round {
+    background: url('../images/网页/首页/责任@2x.png') center center no-repeat;
+    background-size: contain;
+}
+
+@media (max-width: 768px) {
+    #introduce .culture-list p {
+        display: none;
+    }
+    #introduce .round {
+        width: 135px;
+        height: 135px;
+    }
+    #introduce .hope {
+        width: 100px;
+        display: block;
+    }
+    #introduce .culture-list {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    #introduce .round {
+        width: 85px;
+        height: 85px;
+    }
+    #introduce {
+        padding-bottom: 16px;
+    }
+}
+
+
+/*/introduce*/
+
+#expert {
+    background: #fcfcfc;
+}
+
+#expert .container {}
+
+#expert .line {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 50px;
+}
+
+#expert h3 {
+    padding-top: 30px;
+    width: 150px;
+}
+
+#expert h3::after {
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/大标题线-@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+#expert h4 {
+    padding: 20px 0;
+}
+
+#expert h4::after {
+    left: 20px;
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/小标题线@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+#expert .app .app-img {
+    width: 321px;
+    height: 612px;
+}
+
+#expert .app.government li:nth-of-type(1) .app-img {
+    background: url(../images/网页/首页/南京规划页面@2x.png) no-repeat;
+    margin-left: 33px;
+    margin-top: 12px;
+}
+
+#expert .app.government li:nth-of-type(2) .app-img {
+    background: url(../images/网页/首页/视频管家页面@2x.png) no-repeat;
+    margin-left: 33px;
+    margin-top: 12px;
+}
+
+#expert .app.government li:nth-of-type(3) .app-img {
+    background: url(../images/网页/首页/报送系统页面@2x.png) no-repeat;
+}
+
+#expert .app.public li:nth-of-type(1) .app-img {
+    background: url(../images/网页/首页/留心页面@2x.png) no-repeat;
+}
+
+#expert .app.public li:nth-of-type(2) .app-img {
+    background: url(../images/网页/首页/当下页面@2x.png) no-repeat;
+}
+
+#expert .app.public li:nth-of-type(3) .app-img {
+    background: url(../images/网页/首页/一站到底页面@2x.png) no-repeat;
+}
+
+#expert .app .app-icon {
+    width: 54px;
+    height: 54px;
+}
+
+#expert .app.government li:nth-of-type(1) .app-icon {
+    background: url(../images/网页/首页/南京规划@2x.png) no-repeat;
+}
+
+#expert .app.government li:nth-of-type(2) .app-icon {
+    background: url(../images/网页/首页/视频管家@2x.png) no-repeat;
+}
+
+#expert .app.government li:nth-of-type(3) .app-icon {
+    background: url(../images/网页/首页/报送系统@2x.png) no-repeat;
+}
+
+#expert .app.public li:nth-of-type(1) .app-icon {
+    background: url(../images/网页/首页/留心@2x.png) no-repeat;
+}
+
+#expert .app.public li:nth-of-type(2) .app-icon {
+    background: url(../images/网页/首页/当下@2x.png) no-repeat;
+}
+
+#expert .app.public li:nth-of-type(3) .app-icon {
+    background: url(../images/网页/首页/一站到底@2x.png) no-repeat;
+}
+
+#expert .app-icon-xs {
+    width: 54px;
+    height: 54px;
+}
+
+#expert li:nth-of-type(1) .app-icon-xs {
+    background: url(../images/网页/首页/南京规划@2x.png) no-repeat;
+}
+
+#expert li:nth-of-type(2) .app-icon-xs {
+    background: url(../images/网页/首页/视频管家@2x.png) no-repeat;
+}
+
+#expert li:nth-of-type(3) .app-icon-xs {
+    background: url(../images/网页/首页/留心@2x.png) no-repeat;
+}
+
+#expert li:nth-of-type(4) .app-icon-xs {
+    background: url(../images/网页/首页/当下@2x.png) no-repeat;
+}
+
+@media (min-width:992px) and (max-width: 1200px) {
+    #expert .app ul>li {
+        padding-left: 0px;
+    }
+    #expert .app.government li:nth-of-type(2) .app-img,
+    #expert .app.government li:nth-of-type(1) .app-img {
+        margin-left: 17px;
+    }
+}
+
+
+/*/#expert*/
+
+#environment {}
+
+#environment h3 {
+    padding-top: 30px;
+    width: 200px;
+}
+
+#environment h3::after {
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/大标题线-@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+@media (min-width:992px) {
+    .environment-bg {
+        margin-top: 40px;
+        height: 445px;
+        background: url(../images/网页/首页/虎牙大.png) center center no-repeat;
+    }
+}
+
+@media (max-width:992px) {
+    .environment-bg {
+        margin-top: 40px;
+        height: 140px;
+        background: url(../images/网页/首页/虎牙小.png) center center no-repeat;
+        background-size: contain;
+    }
+}
+
+
+/*
+* /#environment
+*/
+
+#evaluate {
+    border-bottom: 2px solid #f0f0f0;
+    background: #fcfcfc;
+}
+
+#evaluate h3 {
+    padding-top: 30px;
+    width: 200px;
+}
+
+#evaluate h3::after {
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/大标题线-@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+#evaluate ul {
+    padding-top: 15px;
+    padding-bottom: 65px;
+}
+
+#evaluate ul>li {
+    color: #9f9f9f;
+    line-height: 28px;
+    padding-bottom: 15px;
+}
+
+#evaluate ul>li span {
+    color: #222;
+    width: 86px;
+}
+
+@media (max-width:992px) {
+    #evaluate ul>li p {
+        overflow: hidden;
+    }
+}
+
+
+/*
+* /evaluate
+*/
+
+#map {
+    padding-bottom: 80px;
+    border-bottom: 2px solid #e9e9e9;
+}
+
+#map h3 {
+    padding-top: 30px;
+    width: 200px;
+}
+
+#map h3::after {
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/大标题线-@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+#map .address {
+    margin-top: 40px;
+    height: 762px;
+    background: url(../images/网页/首页/地图@2x.png) center center no-repeat;
+}
+
+@media (max-width:992px) {
+    #map .address {
+        height: 432px;
+    }
+}
+
+@media (max-width: 412px) {
+    #map .address {
+        background-size: cover;
+        height: 320px;
+    }
+}
+
+#map .traffic h4 {
+    padding: 20px 0;
+    position: relative
+}
+
+#map .traffic h4::after {
+    left: 20px;
+    content: '';
+    display: block;
+    background: url(../images/网页/首页/小标题线@2x.png) no-repeat;
+    width: 93px;
+    height: 3px;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+#map .traffic li:nth-of-type(1) h4::before {
+    position: absolute;
+    left: 36%;
+    display: block;
+    content: '';
+    width: 22px;
+    height: 28px;
+    background: url(../images/网页/首页/公共交通@2x.png) no-repeat center center;
+}
+
+#map .traffic li:nth-of-type(2) h4::before {
+    position: absolute;
+    left: 36%;
+    display: block;
+    content: '';
+    width: 22px;
+    height: 28px;
+    background: url(../images/网页/首页/班车@2x.png) no-repeat center center;
+}
+
+@media (max-width: 767px) {
+    #map .traffic li:nth-of-type(1) h4::before,
+    #map .traffic li:nth-of-type(2) h4::before {
+        left: 28%;
+    }
+}
+
+#map .traffic p {
+    color: #9f9f9f;
+}
+
+@media (min-width:768px) and (max-width:992px) {
+    #map .traffic li:nth-of-type(1) p {
+        text-align: center;
+    }
+    #map {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    #map {
+        padding-bottom: 0;
+    }
+}
+
+
+/*
+* /#map
+*/
+
+#footer {
+    padding-top: 75px
+}
+
+#footer .logo-bottom {
+    width: 245px;
+    height: 113px;
+    background: url(../images/网页/首页/底部logo@2x.png) no-repeat center center;
+}
+
+#footer .code {
+    padding: 18px 0px 18px 80px;
+}
+
+#footer .code p {
+    padding-top: 10px;
+}
+
+#footer .two-code {
+    width: 65px;
+    height: 65px;
+    background: url(../images/网页/首页/二维码@2x.png) no-repeat center center;
+}
+
+@media (min-width:768px) and (max-width:992px) {
+    #footer {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    #footer {
+        padding-top: 0;
+    }
+    #footer .two-code {
+        height: 55px;
+        width: 40px;
+        background-size: contain;
+    }
+    #footer .code {
+        padding: 18px 0px 18px 50px;
+    }
+    #footer .logo-bottom {
+        width: 124px;
+        background-size: contain;
+    }
+    #footer .code p {
+        padding-top: 0;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    #footer .code {
+        padding: 18px 0px 18px 20px;
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>换房管理</title>
+  <style>
+
+  table,
+  td,
+  th {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      vertical-align: middle;
+      text-align: center;
+  }
+
+  th {
+      background-color: #0fb8ad;
+      font-weight: bold;
+      width: 140px;
+      height:30px;
+      cursor: default;
+  }
+
+  td {
+      background-color: white;
+      width: 200px;//单元格宽度，有些需要修改
+      height:30px;//单元格高度，有些需要修改
+      cursor: default;
+  }
+
+  .content_rightbox_table table{
+      position: relative;
+  }
+  .del{
+    cursor: pointer;
+  }
+  .del:hover{
+    color: red;
+    text-decoration:underline;
+
+  }
+
+</style>
+</head>
+<body>
+  <div class="content_rightbox_table">
+    <form id="form1" runat="sever">
+    <table>
+      <tr>
+          <th>入住单号</th>
+          <th>原客房编号</th>
+          <th>更换后客房编号</th>
+          <th>客房类型</th>
+          <th>标准价格</th>
+          <th>折后价格</th>
+          <th>押金</th>
+          <th>备注</th>
+          <th>更多</th>
+          <th>操作</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+        <td>详细信息</td>
+        <td></td>
+
+          <td>
+            <span class="del">删除</span>
+          </td>
+      </tr>
+      <div class="clearinfor">
+          <!-- 遮罩层 -->
+          <div id="mask" class="mask">
+          </div>
+          <!-- 弹出基本资料详细DIV层 -->
+          <div class="sample_popup" id="popup" style="visibility: hidden; display: none;">
+              <div class="menu_form_header" id="popup_drag">
+                  <input type="button" id="popup_exit" value="退出" />
+                  <span class="window-desc">个人详细信息</span>
+                  <hr>
+              </div>
+              <div class="menu_form_body">
+                <form class="" action="index.html" method="post">
+
+                </form>
+                  <div id="popDetail">
+                    <dl><dd>预订人</dd>
+                    <dd>证件类别</dd>
+                    <dd>证件号码</dd>
+                    <dd>联系电话</dd>
+                    <dd>低店时间</dd>
+                    <dd>离店时间</dd>
+                    <dd>入住人数</dd>
+                    <dd>操作员</dd>
+                    <dd>会员编号</dd>
+                    <dd>会员价格</dd>
+                    <dd>提供早餐</dd>
+                    <dd>定时叫醒</dd>
+                        <dd><input type="submit" value="提交"></dd>
+                      </dl>
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+      </table>
+
+    </form>
+  </div>
+</body>
+</html>

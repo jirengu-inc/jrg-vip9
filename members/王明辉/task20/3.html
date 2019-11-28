@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+<script>
+    // 3.写一个函数使用setTimeout模拟setInterval的功能
+
+    var timer = null;
+    var n = 0;
+    var fn = function(){
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            if(n>=10){
+                clearTimeout(timer);
+                return ;
+            }
+            n++;
+            console.log(n)
+
+            return fn();
+        },1000);
+
+    };
+
+    fn();
+
+
+</script>
+</body>
+</html>

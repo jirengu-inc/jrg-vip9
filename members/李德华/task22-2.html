@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul class="ct">
+      <li data-img='Resources/portfolio-1.jpg'>鼠标放置查看图片1</li>
+      <li data-img='Resources/portfolio-2.jpg'>鼠标放置查看图片2</li>
+      <li data-img='Resources/portfolio-3.jpg'>鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script type="text/javascript">
+      var liList = document.getElementsByTagName('li');
+      var imgDiv = document.getElementsByClassName('img-preview')[0];
+      for (var i = 0; i < liList.length; i++) {
+        var lis = liList[i];
+        lis.addEventListener('mouseover', function(){
+          imgDiv.innerHTML = '<img src="' + this.getAttribute('data-img') + '" />';
+        }, false);
+        lis.addEventListener('mouseout', function(){
+          imgDiv.innerHTML = '';
+        }, false);
+      }
+    </script>
+  </body>
+</html>

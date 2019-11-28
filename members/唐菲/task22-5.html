@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task22-5</title>
+	<style type="text/css">
+		div,body,h3{margin: 0;padding: 0}
+		.clearfix::after{
+			content:"";
+			display: block;
+			clear: both;
+		}
+		.warp{width: 100%;
+			height: 100%;
+			background: gray;
+			position: absolute;
+			z-index: 99;
+			opacity: 0.5;
+			display: none;	
+		}
+		.popup{
+			width: 400px;
+			height: 180px;
+			border: 1px solid gray;
+			border-radius: 5px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top:-90px;
+			margin-left:-200px;
+			background: white;  
+		}
+		.popup-top{
+			height: 40px;
+			border-bottom:1px solid gray; 
+		}
+
+
+		.popup-top h3{
+			float: left;
+			line-height: 40px;
+			margin-left:20px; 
+		}
+		.popup-top a{
+			text-decoration:none;
+			color: gray;
+			float: right;
+			line-height: 40px;
+			margin-right:20px; 
+		}
+		.popup-bottom{
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+			height: 40px;
+			border-top: 1px solid gray;
+			margin-bottom:0px;  
+		}
+		.popup-bottom .checkbox{
+			float: right;
+		}
+		.popup-bottom a{
+			line-height: 40px;
+			text-decoration:none;
+			color: gray;
+			margin-right:10px; 
+
+		}
+
+	</style>	
+</head>
+<body>
+
+	<div class="warp">
+		<div class="popup">
+			<div class="popup-top clearfix">
+				<h3>我是标题1</h3>
+				<a href="javascript:">X</a>
+			</div>
+			<div class="popup-main">
+				<h4>我是内容1</h4>
+				<h4>我是内容2</h4>
+			</div>
+			<div class="popup-bottom clearfix"><div class="checkbox"><a href="javascript:">取消</a><a href="javascript:">确定</a></div></div>
+
+
+		</div>
+
+	</div>
+	<button>点我</button>	
+
+	<script type="text/javascript">
+		var oWrap=document.querySelector(".warp");
+		var  oBtu=document.querySelector("button");
+		var oPopup=document.querySelector(".popup");
+		var oX=document.querySelector(".popup-top a");
+		var oCancel=document.querySelector(".checkbox a:first-child")
+		oBtu.addEventListener("click",function (e) {
+			e.stopPropagation()
+			oWrap.style.display="block";
+		})
+		window.addEventListener("click",function(){
+			oWrap.style.display="none";
+		})
+		oPopup.addEventListener("click",function(e){
+			e.stopPropagation();
+		})
+		oX.addEventListener("click",function(e){
+			oWrap.style.display="none";
+		})
+		oCancel.addEventListener("click",function(){
+			oWrap.style.display="none";
+		})
+	</script>
+</body>
+</html>

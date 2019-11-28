@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 6.写一个json对象深拷贝的方法，json对象可以多层嵌套，值可以是字符串、数字、布尔、json对象中的任意项
+
+    var obj = {
+        "name" : '这是一个名字',
+        'age' : 19,
+        'isMan' : true,
+        'play' : function(){
+            console.log('玩啥嘞~~~');
+        },
+        'family' : {
+            'a' : 1,
+            'b' : 2,
+            'c' : [
+                'd',
+                'er',
+                'fdfd',
+                {
+                    'a2' : 1,
+                    'a3': 3
+                }
+            ],
+            'd' : function(){
+                alert('kdfjdkfj')
+            }
+        }
+    };
+
+
+    function copy(obj){
+        var newObj = {};
+        for(var key in obj){
+            if (typeof obj[key] == 'object') {
+                newObj[key] = copy(obj[key]);
+            } else{
+                newObj[key] = obj[key];
+            }
+        }
+        return newObj;
+    }
+
+    var n = copy(obj);
+
+</script>
+</body>
+</html>

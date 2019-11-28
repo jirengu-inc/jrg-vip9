@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<style type="text/css">
+	.content{
+		position: relative;
+	}
+	.item{
+		position: absolute;
+		width: 200px;
+		margin-top: 10px;
+		margin-right: 10px;
+		transition: all 1s;
+	}
+	.h1{
+		height: 200px;
+		background-color: #f4b300;
+	}
+	.h2{
+		height: 300px;
+		background-color: #691bb8;
+	}
+	.h3{
+		height: 400px;
+		background-color: #006ac1;
+	}
+</style>
+</head>
+
+<body>
+<div class="content">
+	<div class="item h1">
+		1
+	</div>
+	<div class="item h2">
+		2
+	</div>
+	<div class="item h1">
+		3
+	</div>
+	<div class="item h3">
+		4
+	</div>
+	<div class="item h2">
+		5
+	</div>
+	<div class="item h3">
+		6
+	</div>
+	<div class="item h1">
+		7
+	</div>
+	<div class="item h1">
+		8
+	</div>
+	<div class="item h2">
+		9
+	</div>
+	<div class="item h3">
+		10
+	</div>
+	<div class="item h3">
+		11
+	</div>
+	<div class="item h1">
+		12
+	</div>
+	<div class="item h2">
+		13
+	</div>
+	<div class="item h3">
+		14
+	</div>
+</div>
+<script type="text/javascript">
+
+
+function render(){
+	var nodeWidth = $('.item').outerWidth(true);
+	var colNum = parseInt($(window).width()/nodeWidth); //确定列数
+	var colSumHeight = [];	//数组存放高度
+	for(var i = 0;i<colNum;i++){
+		colSumHeight.push(0);
+	}
+	$('.item').each(function(){
+		var $cur = $(this);
+		var idx = 0,
+			minSumHeight = colSumHeight[0];
+		for(var i=0;i<colSumHeight.length;i++){
+			if(colSumHeight[i]<minSumHeight){
+				idx = i;
+				minSumHeight = colSumHeight[i];
+			}
+		}
+
+		$cur.css({
+			left:nodeWidth*idx,
+			top:minSumHeight
+		})
+		colSumHeight[idx] = $cur.outerHeight(true) + colSumHeight[idx];
+
+	})
+}
+
+	render();
+	$(window).on('resize',function(){
+		render();
+	})
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,16 @@
+@charset "utf-8";
+img{border:0;}
+*{padding:0;margin:0;list-style:none;}
+
+.slides{  margin: 0;width:100%;height:550px;position:relative;overflow:hidden;}
+.slideInner{height:550px;position:relative;left:0;}
+.slideInner a{display:block; width: 1200px ;height:500px;z-index:1; }
+.nav{width:1200px;position:relative;left:50%;margin-left:-600px;display:none;}
+.nav a{display:block;width:41px;height:119px;opacity:0.2;z-index:2;}
+.nav a.prev{position:absolute;left:0;top:-300px;margin-top:-58px;background:url(../images/ban_pre.png) no-repeat;}
+.nav a.next{position:absolute;right:0;top:-300px;margin-top:-58px;background:url(../images/ban_next.png) no-repeat;}
+.navListBox{position:absolute;left:50%;top:530px;z-index:99;}
+.navListBox li{width:12px;height:12px;float:left;margin-left:5px;border-radius:50%;overflow:hidden;}
+.navListBox li:first-child{margin-left:0;}
+.navListBox li a{display:block;width:100%;height:100%;border-radius:50%;background-color:#fff;box-shadow:0 0 5px #666 inset;}
+.navListBox li a.active{background-color:#55ddff;}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- <input type="button"  value="test" onclick="testFunction()"> -->
+<script type="text/javascript">
+// document.write(sayName);
+// var sayName =    function testFunction(){
+//       document.write("This is ChrisWen");
+//     }
+
+// function testFunction(a,b,c,d){
+//
+//   document.write(arguments[0]+"<br>");
+//   document.write(arguments[1]+"<br>");
+//   document.write(arguments[2]+"<br>");
+//   document.write(arguments[3]+"<br>");
+//
+//   document.write(arguments.length+"<br>");
+// }
+// testFunction(1,2,3,4,5);//1 2 3 4
+//
+// function testFunction2(){
+//
+// }
+// testFunction2(1,2,3,4,5)//5
+// function getInfo(name, age, sex){
+//         console.log('name:',name);
+//         console.log('age:', age);
+//         console.log('sex:', sex);
+//         console.log(arguments);
+//         arguments[0] = 'valley';
+//         console.log('name', name);
+//     }
+//
+//     getInfo('hunger', 28, '男');
+//     getInfo('hunger', 28);
+//     getInfo('男');
+// function sumOfSquares(){
+//   var x = 0;
+//   for(i=0;i<arguments.length;i++){
+//     x = x + Math.pow(arguments[i],2);
+//   }
+//   return x;
+//    }
+//    document.write(sumOfSquares(2,3,4)+"<br>");   // 29
+//    document.write(sumOfSquares(1,3)+"<br>");   // 10
+var i;
+var fn;
+function fn(){
+    var i ;
+    function fn2(){
+        i = 100;
+    }
+    console.log(i); // undefined i未赋值
+    i = 99;
+    fn2();
+    console.log(i); // 100 因fn2()正常调用
+}
+fn();
+i = 10;
+fn = 20;
+console.log(i);
+
+  </script>
+</body>
+</html>

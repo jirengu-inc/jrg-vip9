@@ -1,0 +1,139 @@
+/*设计了一个统一风格的button 以及任务9的相关内容*/
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('https://at.alicdn.com/t/font_1466042627_5927293.eot'); /* IE9*/
+  src: url('https://at.alicdn.com/t/font_1466042627_5927293.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('https://at.alicdn.com/t/font_1466042627_5927293.woff') format('woff'), /* chrome、firefox */
+  url('https://at.alicdn.com/t/font_1466042627_5927293.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('https://at.alicdn.com/t/font_1466042627_5927293.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+html {
+    font-family: "微软雅黑";
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.btn {
+    width: 70px;
+    height: 40px;
+    background-color: rgb(243, 110, 65);
+    color: white;
+    display: inline-block;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    border: 1px solid rgb(243, 110, 65);
+    padding: 0;
+    box-sizing: content-box;
+    font-size: 25px;
+    margin: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+.btn:hover {
+    background-color: #c14d21;
+}
+.btn:active {
+    background-color: #e25f31;
+}
+.player-btn {
+    display: inline-block;
+    background: url(../img/task9.png) no-repeat;
+    height: 35px;
+    padding-left: 35px;
+    width: auto;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 15px
+}
+.player-btn:hover {
+    color: rgb(166, 99, 190)
+}
+.go {
+    background-position: 0 0;
+}
+.go:hover {
+    background-position: 0 -45px;
+}
+.play {
+    background-position: 3 -180px;
+}
+.play:hover {
+    background-position: 0 -225px;
+}
+.stop {
+    background-position: 0 -96px;
+}
+.stop:hover {
+    background-position: 3px -137px;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 3em;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+}
+.iconfont:hover {
+    font-size: 4em;
+}
+.layout {
+    max-width: 900px;
+    margin: 25px auto;
+    text-align: center;
+}
+.graph1 {
+    border-top: 50px solid rgb(0, 0, 255);
+    border-right: 50px solid rgb(255, 255, 0);
+    border-bottom: 50px solid rgb(0, 128, 0);
+    border-left: 50px solid rgb(255, 0, 0);
+    width: 0;
+}
+.graph2 {
+    border-top: 50px solid rgb(0, 0, 255);
+    border-right: 50px solid rgba(255, 255, 0, 0);
+    border-left: 50px solid rgba(255, 0, 0, 0);
+    width: 0;
+    height: 0;
+}
+.graph3 {
+    border-top: 50px solid rgba(0, 0, 0, 0);
+    border-left: 50px solid red;
+    border-bottom: 50px solid rgba(0, 0, 0, 0);
+    width: 0;
+}
+.graph4 {
+    border-right: 50px solid yellow;
+    border-top: 50px solid rgba(0, 0, 0, 0);
+    border-bottom: 50px solid rgba(0, 0, 0, 0);
+    width: 0;
+}
+.graph5 {
+    border-bottom: 50px solid rgb(0, 128, 0);
+    border-left: 50px solid rgba(0, 0, 0, 0);
+    border-right: 50px solid rgba(0, 0, 0, 0);
+    width: 0;
+}
+.graph6 {
+    border-top: 50px solid rgba(0, 0, 0, 0);
+    ;
+    border-right: 50px solid rgba(0, 0, 0, 0);
+    ;
+    border-bottom: 50px solid rgb(255, 0, 0);
+    /*border-left: 50px solid rgb(255, 0, 0);*/
+    width: 0;
+}
+.graph7 {
+    border-top: 50px solid rgba(0, 0, 0, 0);
+    ;
+    /*border-right: 50px solid rgba(0,0,0,0);*/
+    border-bottom: 50px solid rgb(0, 128, 0);
+    border-left: 50px solid rgba(0, 0, 0, 0);
+    width: 0;
+}

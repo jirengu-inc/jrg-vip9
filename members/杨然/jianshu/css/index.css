@@ -1,0 +1,407 @@
+/*
+	rest
+ */
+html, body, h1, h2, h3, h4, ul, li, img, a, p {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+body {
+	font-family: "Helvetica Neue", Arial, "PingFang SC", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	font-size: 14px;
+    line-height: 1.4;
+	height: 100%;
+	width: 100%;
+}
+html {
+	width: 100%;
+	height: 100%;
+}
+/*
+	compant
+ */
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}	
+.btn {
+}
+.active {
+	background-color: #e78170;
+}
+.active a {
+	color: #fff !important;
+}
+
+/*
+	左边框,固定定位，每个页面复用
+ */
+.aside {
+	width: 45px;
+	background: #2a2a2a;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+#logo {
+	font-size: 18px;
+	color: #fff;
+	text-decoration: none;
+	background: #e78170;
+}
+.aside a {
+	display: inline-block;
+	width: 45px;
+	text-align: center;
+	padding: 12px 0;
+	color: #ccc;
+}
+.aside-top a:hover {
+	background: #e78170;
+}
+.aside-bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.aside-bottom a:hover{
+	color: #fff;
+}
+
+/*
+	content布局
+
+ */
+.content {
+	margin-left: 45px;
+	height: 100%;
+	width: 100%;
+	min-width: 700px;
+}
+/*
+	内容左边背景图片和简介
+	自适应，媒体查询宽度小于768时不显示
+ */
+.bg-left {
+	/*position: relative;*/
+	width: 25%;
+	height: 100%;
+	/*float: left;*/
+    position: fixed;
+    top: 0;
+    left: 45px;
+}
+.cover-img {
+	width: 100%;
+	height: 100%;
+	background: url(../img/index-bg.jpg);
+	background-position: center;
+	background-size: cover;
+}
+.introduce {
+	position: absolute;
+	bottom: 30px;
+	left: 45px;
+	color: #fff;
+}
+.introduce a {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	background-color: #49be38;
+	border: 1px solid #49be38;
+	border-radius: 4px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 12px;
+}
+
+/*
+	content的内容主要内容warp
+	包括顶部：发现、精选两个tab，搜索框
+	文章分类、文章列表
+	底部footer
+	此内容占据87%宽度
+ */
+.warp {
+	width: 60%;
+	/*width: 100%*/
+    margin-left: 25%;
+}
+.warp .nav-common {
+	border-bottom: 2px solid #ccc;
+	height: 52px;
+	position: fixed;
+    width: 60%;
+    top: 0;
+    background: #fff;
+    min-width: 416px;
+}
+.nav-common-list {
+	float: left;
+	margin-left: 20px;
+}
+.nav-common-list li {
+	height: 52px;
+	float: left;
+    padding: 0 16px;
+}
+.nav-common-list li:hover {
+	background-color: #eee;
+	border-bottom: 1px solid #555;
+}
+.nav-common-list li a {
+	font-size: 12px;
+	line-height: 52px;
+	color: #555;
+}
+/*
+	搜索框
+ */
+.search {
+	display: inline-block;
+	position: absolute;
+    right: 130px;
+    top: 10px;
+    width: 120px;
+}
+.search-border {
+	border-radius: 20px;
+    padding: 8px;
+    border-color: #eee;
+    outline: none;
+	border-style: solid;
+	color: #ccc;
+}
+.search i {
+	position: absolute;
+    top: 12px;
+    right: -14px;
+    color: #ccc;
+}
+
+/*
+	文章分类列表article-category
+ */
+.article-category {
+	margin-left: 20px;
+	margin-top: 64px;
+    padding-right: 100px;
+    height: 66px;
+}
+.article-category li {
+	font-size: 12px;
+    border-radius: 20px;
+    float: left;
+    height: 20px;
+    padding: 0px 10px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    margin-bottom: 8px;
+}
+.article-category li a {
+	display: inline-block;
+	line-height: 20px;
+	color: #555;
+}
+
+
+/*
+	文章列表
+	article-list
+ */
+.article-list {
+	margin-left: 34px;
+	margin-top: 20px;
+}
+.article-list li {
+	border-bottom: 1px dashed #ccc;
+    height: 135px;
+    margin-bottom: 10px;
+    /*padding-bottom: 20px;*/
+    width: 90%;
+}
+.art-head a {
+	color: #4094c7;
+	font-size: 12px;
+}
+.art-head span {
+	font-size: 12px;
+	color: #999;
+}
+.article-list li h2 {
+    padding: 18px 0;
+    font-size: 18px;
+}
+.article-list li a {
+	color: #666;
+}
+.article-list li h2 a:hover {
+	color: #333;
+}
+.art-foot a,
+.art-foot span {
+	font-size: 12px;
+	color: #999;
+}
+.article-list li img {
+	width: 100px;
+	height: 100px;
+	vertical-align: middle;
+	float: right;
+}
+.article-main {
+	/*float: left;*/
+	width: 70%;
+}
+
+/*
+	加载更多按钮
+
+ */
+.load {
+	text-align: center;
+}
+.load-btn {
+	color: #fff;
+	font-size: 18px;
+	line-height: 45px;
+	height: 45px;
+	background-color: #e78170;
+	width: 120px;
+	display: inline-block;
+}
+.footer {
+	margin-top: 20px;
+	padding: 15px 0;
+	border-top: 1px solid #ccc;
+	color: #aaa;
+	text-align: center;
+}
+
+
+/*
+	响应式左上角logo
+ */
+/*
+	响应式nav
+ */
+.nav-media {
+	height: 49px;
+	border-bottom: 2px solid #ccc;
+	position: fixed;
+	top: 0;
+	width: 768px;
+	background: #fff;
+	width: 100%;
+	z-index: 1;
+	display: none;
+}
+.nav-media .logo-media {
+	float: left;
+	text-align: center;
+}
+.nav-media .logo-media a {
+	font-size: 18px;
+	color: #fff;
+	background: #e78170;
+	display: inline-block;
+	height: 49px;
+	line-height: 49px;
+	width: 45px;
+}
+.nav-media .user {
+	float: right;
+}
+.nav-media .user li {
+	float: left;
+	margin-left: 8px;
+}
+.nav-media .user li a {
+	display: inline-block;
+	height: 49px;
+	line-height: 49px;
+	color: #333;
+}
+.nav-media .user .down {
+	padding: 2px 0;
+}
+.nav-media .user .down a {
+	background: #e78170;
+	color: #fff;
+	font-size: 14px;
+	padding: 0 10px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 4px;
+}
+.nav-media .user li a:hover {
+	color: #111;
+}
+.user-show {
+	display: block ;
+	position: fixed;
+	right: 10px;
+	top: 14px;
+	z-index: 2;
+}
+.user-show li {
+	float: left;
+	margin-left: 8px;
+}
+.user-show li a {
+	color: #333;
+}
+.user-show li a:hover {
+	color: #111;
+}
+/*
+	响应式布局
+ */
+@media (max-width: 768px) {
+	.bg-left {
+		display: none;
+	}
+	.aside {
+		display: none;
+	}
+	.warp {
+		/*margin-left: -2%;*/
+		width: 90%;
+    /*margin-left: 25%;*/
+    margin-left: 0;
+	}
+	.content {
+		margin-left: 0;
+		min-width: 416px;
+	}
+	.warp .nav-common {
+		position: relative;
+	}
+	.article-category {
+		margin-top: 10px;
+	}
+	.nav-media {
+		display: block;
+	}
+	.nav-common {
+		margin-top: 50px;
+	}
+	.user-show {
+		display: none;
+	}
+	.article-list li {
+		padding: 20px;
+	}
+	.article-list {
+		margin-left: 0;
+	}
+}
+

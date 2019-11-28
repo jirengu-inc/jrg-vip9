@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>login</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+		<style>
+			.rows {
+				display: table-row;
+			}
+			div.rows p {
+				display: table-cell;
+				vertical-align: top;
+				padding: 3px;
+			}
+			form textarea {
+				width: 300px;
+				height: 150px;
+			}
+			div.rows p:first-child, h3 {
+				text-align: right;
+			}
+			form {
+				display: table;
+				line-height: 20px;
+			}
+			.cue {
+				font-size: 12px;
+				color: #aaa;
+			}
+			.error {
+				border-color: red;
+			}
+		</style>
+</head>
+<body>
+    <form class='form' action="">
+    <div class="rows">
+				
+					<h3>注册:</h3>
+				
+				<p>
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					用户名:
+				</p>
+				<p>
+					<input id="username" type="text" name="name" value="" placeholder="用户名sfyr111已存在">
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+				</p>
+				<p>
+					<span class="cue uncue">只能是字母、数字、下划线，长度6-12</span>
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					密码:
+				</p>
+				<p>
+					<input id="password1" type="password" name="pass" value="">
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+				</p>
+				<p>
+					<span class="cue pwd1cue">至少两种字母、数字、下划线，长度6-12</span>
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+					在输一次:
+				</p>
+				<p>
+					<input id="password2" type="password" name="pass" value="" placeholder="在输入一次">
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+				</p>
+				<p>
+					<span class="cue pwd2cue"></span>
+				</p>
+			</div>
+			<div class="rows">
+				<p>
+				</p>
+				<p>
+					<input id="btn" type="submit" value="注册">
+				</p>
+			</div>
+	</form>
+	<script>
+		function hasClass(ele, cls) {
+			return !!ele.className.match(new RegExp('\\b' + cls + '\\b'));
+		}
+		function addClass(ele, cls) {
+			if (!hasClass(ele, cls)) {
+				ele.className += ' ' + cls;
+			}
+		}
+		function removeClass(ele, cls) {
+			if (hasClass(ele, cls)) {
+				ele.className = ele.className.replace(new RegExp('\\b' + cls + '\\b', 'g'), '');
+			}
+		}
+		function ajax(opts){
+			opts.success = opts.success || function(){};
+			opts.error = opts.error || function(){};
+			opts.type = opts.type || 'get';
+			opts.dataType = opts.dataType || 'json';
+			opts.data = opts.data || {};
+
+			var dataStr = '';
+			for(var key in opts.data) {
+				dataStr += key + '=' + opts.data[key] + '&';
+			}
+			dataStr = dataStr.substr(0, dataStr.length - 1);
+
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function(){
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					console.log('返回值为' + xmlhttp.responseText);
+					var json = JSON.parse(xmlhttp.responseText);
+					console.log('解析后为' + json);
+					opts.success(json);
+				}
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 404) {
+					error();
+				}
+			}
+			if (opts.type.toLowerCase() == 'post') {
+				xmlhttp.open(opts.type, opts.url, true);
+				xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xmlhttp.send(dataStr);
+			}
+			if (opts.type.toLowerCase() == 'get') {
+				xmlhttp.open(opts.type, opts.url + '?' + dataStr, true);
+				xmlhttp.send();
+			}
+		}
+		function isFormatUsename(str) {
+			return /^[a-zA-Z0-9]{6,12}$/.test(str);
+		}
+		function isFormatPassword(str){
+			if (str.length < 6 || str.length > 12) {
+				return false;
+			}
+			if (/[^a-zA-Z0-9_]/.test(str)) {
+				return false;
+			}
+			if (/(^[a-z]+$)|(^[A-Z]+$)|(^_+$)|(^\d+$)/g.test(str)) {
+				return false;
+			}
+			return true;
+		}
+		var registerBtn = document.getElementById('btn'),
+			usernameIpt = document.getElementById('username'),
+			password1Ipt = document.getElementById('password1'),
+			password2Ipt = document.getElementById('password2');
+
+		var	unMsg = document.getElementsByClassName('uncue')[0],
+			pwd1Msg = document.getElementsByClassName('pwd1cue')[0],
+			pwd2Msg = document.getElementsByClassName('pwd2cue')[0];
+
+		usernameIpt.addEventListener('change', function(){
+			testUn() && testUnUseage();
+		});
+		password1Ipt.addEventListener('change', function(){
+			testPwd1();
+		});
+		password2Ipt.addEventListener('change', function(){
+			testPwd2();
+		});
+		registerBtn.addEventListener('click', function(e){
+			e.preventDefault();
+			if (testUn() && testPwd1() && testPwd2()) {
+				testUnUseage();
+			}
+		});
+		function testUnUseage(){
+			ajax({
+				url: '3.php',
+				type: 'get',
+				data: {
+					username: usernameIpt.value
+				},
+				success: function(ret){
+					if (ret == 1) {
+						unMsg.innerText = '用户已存在';
+						addClass(usernameIpt, 'error');
+					} else if (ret == 0){
+						unMsg.innerText = '用户名可用';
+						removeClass(usernameIpt, 'error');
+					}
+				}
+			})
+		}
+		function testUn() {
+			var username = usernameIpt.value;
+			if (!isFormatUsename(username)) {
+				unMsg.innerText = '格式错误';
+				addClass(usernameIpt, 'error');
+				return false;
+			} else {
+				unMsg.innerText = '用户名可用';
+				removeClass(usernameIpt, 'error');
+				return true;
+			}
+		}
+		function testPwd1() {
+			var pwd1 = password1Ipt.value;
+			if (!isFormatPassword(pwd1)) {
+				pwd1Msg.innerText = '格式错误';
+				addClass(password1Ipt, 'error');
+				return false;
+			} else {
+				pwd1Msg.innerText = '密码可用';
+				removeClass(password1Ipt, 'error');
+				return true;
+			}
+		}
+		function testPwd2() {
+			var pwd2 = password2Ipt.value;
+			if (!isFormatPassword(pwd2)) {
+				pwd2Msg.innerText = '格式错误';
+				addClass(password2Ipt, 'error');
+				return false;
+			} else if (pwd2 != password1Ipt.value) {
+				pwd2Msg.innerText = '两次密码不一样';
+				addClass(password2Ipt, 'error');
+			} else {
+				pwd2Msg.innerText = '';
+				removeClass(password2Ipt, 'error');
+				return true;
+			}
+		}
+	</script>
+</body>
+</html>

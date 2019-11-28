@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task22-1</title>
+  <style type="text/css">
+
+  </style>
+</head>
+<body>
+  <ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端9班</li>
+  </ul>
+  <script>
+    function $(str) {
+      return document.querySelector(str);
+    }
+    function $$(str) {
+      return document.querySelectorAll(str);
+    }
+    var ul = $('.ct');
+    ul.addEventListener('click', function(e){
+      console.log(e.target.innerText);
+    })
+  </script>
+</body>
+</html>

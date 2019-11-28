@@ -1,0 +1,298 @@
+body,ul,li,h3{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style:none;
+}
+img{
+  width: 100%;
+}
+
+.flex{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+//------------------------
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 20px;
+}
+
+body, .music-box::before {
+  background: url("http://obbxa1h0p.bkt.clouddn.com/bg.jpg") fixed;
+  background-size: cover;
+}
+
+.box{
+  position: absolute;
+  left: 10%;
+  top:50%;
+  -webkit-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+
+  width: 14em;
+  height: 22em;
+}
+
+/* 播放器容器 */
+.music-box {
+  position: relative;
+  padding: 1em;
+  width: 12em;
+  height: 20em;
+  background: rgba(255,255,255,0.25);
+  overflow: hidden;
+  border-radius: 0.5em;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3) inset,
+              0 .5em 1em rgba(0, 0, 0,0.6);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: -30px;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+  }
+  // 图片
+  .music-img{
+    width: 12em;
+    height: 12em;
+  }
+  // 名字
+  .music-name{
+    width: 100%;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    font-size: 1.2em;
+    line-height: 2em;
+    color: rgba(0,0,0,0.8);
+    text-shadow: 0 1px 1px rgba(255,255,255,1);
+  }
+  // 艺术家
+  .artist{
+    width: 100%;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    font-size: 0.8em;
+    color: rgba(0,0,0,0.6);
+  }
+  // 进度条
+  .progress-bar{
+    position: absolute;
+    left: 0;
+    top:88%;
+    width: 100%;
+    height: 0.1em;
+    background: rgba(0,0,0,1);
+    span{
+      position: absolute;
+      left: 0;
+      top:0%;
+      width: 0;
+      height: 100%;
+      background: #fff;
+    }
+  }
+
+  // 按钮
+  .btn-box{
+    margin-top: 1.2em;
+    width: 100%;
+    height: 1.8em;
+    ul{
+      .flex;
+    }
+    li{
+      -webkit-flex-box:1;
+      -webkit-flex:1;
+      flex:1;
+      height: 1.8em;
+      text-align:center;
+
+      .icon-btn {
+        display: inline-block;
+        width: 24px;
+        height: 36px;
+        background-image: url("../img/icon.png");
+        background-repeat: no-repeat;
+        &.play{
+          background-position: -492px 0px;
+        }
+        &.stop{
+          background-position: -349px 0px;
+        }
+        &.next{
+          background-position: -180px 0px;
+        }
+        &.love{
+          background-position: -300px 0px;
+        }
+        &.list-btn{
+          background-position: -768px 0px;
+        }
+
+        &.love.active{
+          background-position: -540px 0px;
+        }
+      }
+
+    }
+  }
+
+  .bottom{
+    margin-top: 1em;
+    .flex;
+  }
+  // 时间
+  .time{
+    .cur-time{
+      font-size: 1.2em;
+    }
+    .total-time{
+      font-size: 0.8em;
+    }
+  }
+  // 声音
+  .sound-box{
+    position: relative;
+    flex: 1;
+    height: 1em;
+    margin-left: 1em;
+    .trumpet{
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: url("../img/icon.png") no-repeat -684px 0;
+
+      &.mute{
+        background: url("../img/icon.png") no-repeat -720px 0;
+      }
+    }
+    .sound-bar{
+      position: absolute;
+      left: 20%;
+      top:50%;
+      width: 80%;
+      height: 2px;
+      background: #fff;
+      -webkit-transform:translate(0,-50%);
+      transform:translate(0,-50%);
+      cursor: pointer;
+      span{
+        position: absolute;
+        left: 0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+      }
+      em{
+        position: absolute;
+        left: calc( 100% - 10px );
+        top:50%;
+        width: 10px;
+        height: 6px;
+        background: rgba(255,255,255,.8);
+        transform:translate(0,-50%);
+      }
+    }
+  }
+  // 专辑列表
+  .special{
+    box-sizing: border-box;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 80%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    border-radius:0 0.5em 0.5em 0;
+    color: #fff;
+    padding: 1em;
+
+    transform:translate(-100%,0);
+    transition:0.5s all;
+    overflow-y: scroll;
+    &.show{
+      transform:translate(0%,0);
+    }
+    .list{
+      margin-top: 0.5em;
+      li{
+        line-height: 2em;
+        font-size: 0.6em;
+        background: linear-gradient(to left,#fff,transparent);
+        transition: 0.5s all;
+        text-shadow: 0px 1px 1px #000;
+        &:hover{
+          color: #000;
+          text-shadow: 0px 1px 1px #fff;
+          background: rgba(255,255,255,0.5);
+        }
+      }
+    }
+  }
+}
+
+// 歌词
+.lyric{
+  position: absolute;
+  left: 105%;
+  top:0;
+  width: 13em;
+  height: 20em;
+  padding: 1em;
+  background: rgba(0,0,0,0.5);
+  overflow: hidden;
+  ul{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    width: 100%;
+    transform: translate(-50%,0);
+    transition: 0.5s all ease-in;
+    li{
+      color: rgba(255,255,255,0.6);
+      font-size: 0.6em;
+      text-align: center;
+      line-height: 2em;
+      transition : 1s;
+
+      &.active{
+        color: rgba(255,255,255,1);
+      }
+    }
+  }
+}
+
+#specialName{
+  position: absolute;
+  left: 5%;
+  top:-6%;
+  color: #fff;
+}
+#loading{
+  display: none;
+  position: absolute;
+  left:0;
+  top:0;
+  right: 0;
+  bottom:0;
+  background: rgba(0,0,0,0.8);
+  img{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    width: 10%;
+    transform: translate(-50%,-50%);
+  }
+}

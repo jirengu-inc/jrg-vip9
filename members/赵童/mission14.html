@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="zh">
+        <title>我的实战1</title>
+        <style media="screen">
+            @font-face {font-family: "iconfont";
+                src: url('img/iconfont.eot?t=1467796107'); /* IE9*/
+                src: url('img/iconfont.eot?t=1467796107#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('img/iconfont.woff?t=1467796107') format('woff'), /* chrome, firefox */
+                url('img/iconfont.ttf?t=1467796107') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+                url('img/iconfont.svg?t=1467796107#iconfont') format('svg'); /* iOS 4.1- */
+            }
+            .iconfont-eat:before {
+                content: "\e676";
+                font-family:"iconfont";
+                font-style:normal;
+                font-size: 5.5rem;
+             }
+            .iconfont-play:before {
+                content: "\e660";
+                font-family:"iconfont";
+                font-style:normal;
+                font-size: 5rem;
+            }
+            .iconfont-technology:before {
+                content: "\e66d";
+                font-family:"iconfont";
+                font-style:normal;
+                font-size: 5.5rem;
+            }
+            .iconfont-attractions:before {
+                content: "\e6f7";
+                font-family:"iconfont";
+                font-style:normal;
+                font-size: 5rem;
+            }
+                                           /*以上是iconfont*/
+            div,body{
+                padding: 0;
+                margin: 0;
+            }
+            a:link{
+                text-decoration: none;
+                color: white;
+            }
+            a:visited{
+                color: black;
+            }
+            .clearfix:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            .layout{
+                width: 960px;
+                margin: 0 auto;
+            }
+            ul{
+                list-style: none;
+                padding: 0;
+            }
+                                            /*以上是去除默认样式*/
+            #header{
+                position: relative;
+                min-width: 960px;
+                background-image: url(http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2plK3NVL3kwcHNpQ3lsL1E3cDluQnpIUXRxYW5jK3c3VVB1d20zVXIvMTd3PT0.jpg?imageView&thumbnail=1920y1080&type=jpg&quality=96&stripmeta=0&type=jpg);
+                background-size: cover;
+                height: 850px;
+                background-repeat: no-repeat;
+            }
+            .caption{
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                width: 250px;
+                margin-left: -125px;
+                color: white;
+                text-align: center;
+            }
+            #header>img{
+                width: 100%;
+            }
+            .caption h1{
+                font-size: 5rem;
+                line-height: 1rem;
+            }
+            .caption>p:nth-child(3) {
+                color: #0d4fa1;
+                background-color: rgba(255,255,255,0.5);
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                width: 200px;
+                margin: 0 auto;
+            }
+                                            /*以上是header*/
+            #welcome>h1{
+                margin-top: 60px;
+                text-align: center;
+                font-size: 2rem;
+            }
+            #welcome>p{
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            #class{
+                background-color: #337ab7;
+                color: white;
+                text-align: center;
+                overflow: auto;
+            }
+            #class ul{
+                padding: 0;
+                list-style: none;
+                margin: 0 auto;
+                width: 720px;
+            }
+            #class li{
+                float: left;
+                width: 180px;
+                height: 250px;
+            }
+            #class hr{
+                width: 80px;
+                margin-bottom: 30px;
+            }
+            #class h2{
+                margin-top: 50px;
+            }
+            #class a{
+                font-size: 0.6rem;
+                display: inline-block;
+                padding: 0.5rem 2rem;
+                background: white;
+                color: #337ab7;
+            }
+            #class p{
+                font-size: 0.6rem;
+            }
+            .play{
+                margin-top: 10px;
+            }
+            .technology{
+                margin-top: 3px;
+            }
+            .attractions{
+                margin-top: 11px;
+            }
+                                            /*以上是class*/
+            #hot-attractions{
+                background-color: black;
+                position: relative;
+            }
+            #hot-attractions img{
+                opacity: 0.6;
+            }
+            #hot-attractions a{
+                color: white;
+                font-size: 3rem;
+                width: 300px;
+                line-height: 100px;
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -150px;
+                margin-top: -50px;
+            }
+                                            /*以上是hotattractions*/
+            #area{
+                margin-top: 30px;
+                text-align: center;
+            }
+            #area>div{
+                width: 820px;
+                margin: 0 auto;
+            }
+            #area hr{
+                width: 80px;
+                margin-bottom: 30px;
+            }
+            #area ul{
+                margin-left: -20px;
+            }
+            #area li{
+                position: relative;
+                float: left;
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+            #area>a{
+                display: inline-block;;
+                background: #9a9597;
+                color: white;
+                font-size: 0.6rem;
+                padding: 0.5rem 2rem;
+            }
+            #area>div>ul>li>p{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: block;
+                color: white;
+                font-size: 2rem;
+                margin-left: -2rem;
+                margin-top: -0.5rem;
+                display: none;
+            }
+            #area li:hover{
+                background-color: black;
+            }
+            #area li:hover img{
+                opacity: 0.6;
+            }
+            #area li:hover p{
+                display: inline-block;
+            }
+                                            /*以上是area*/
+            #submit{
+                margin-top: 30px;
+                background: #337ab7;
+                text-align: center;
+            }
+            #submit h2{
+                display: inline-block;
+                margin: 0 auto;
+                margin-top: 50px;
+                color: white;
+            }
+            #submit ul{
+                margin-left: -30px;
+            }
+            #submit li{
+                /*float: left;*/
+            }
+            #submit div{
+                width: 230px;
+                margin: 0 auto;
+            }
+            .writings{
+                display: block;
+                font-size: 0.6rem;
+                /*padding: 0.5rem 1rem;*/
+                background: white;
+                line-height: 30px;
+                /*height: 30px;
+                width: 100px;*/
+                float: left;
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-bottom: 50px;
+            }
+            .information{
+                display: block;
+                font-size: 0.6rem;
+                background: #1c486a;
+                float: left;
+                line-height: 30px;
+                height: 30px;
+                width: 100px;
+                margin-bottom: 50px;
+                /*margin-left: 30px;*/
+            }
+            .writings a{
+                display: block;
+                height: 30px;
+                width: 100px;
+                color: #1c486a;
+            }
+            .information a{
+                display: block;
+                height: 30px;
+                width: 100px;
+                color: white;
+            }
+                                            /*以上是submit*/
+            #footer{
+                font-size: 0.6rem;
+                margin-top: 80px;
+                text-align: center;
+            }
+            #footer>p{
+                font-style: oblique;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header" class="clearfix">
+            <div class="caption">
+                <h1>深 圳</h1>
+                <h3>心之所向，身之所往</h3>
+                <p>The city of my Love</p>
+            </div>
+        </div>
+        <div id="welcome" class="layout">
+            <h1>跟着我，去了解这个年轻的城市。</h1>
+            <p>Follow me, to get to know this young city.</p>
+        </div>
+        <div id="class" class="layout">
+            <h2>从这里开始</h2>
+            <hr/>
+            <ul class="clearfix">
+                <li class="">
+                    <i class="iconfont-eat"></i>
+                    <h3>吃喝</h3>
+                    <p>了解深圳地道小吃</p>
+                    <a href="#">点击进入</a>
+                </li>
+                <li class="play">
+                    <i class="iconfont-play"></i>
+                    <h3>玩乐</h3>
+                    <p>了解大都市有哪些好玩的</p>
+                    <a href="#">点击进入</a>
+                </li>
+                <li class="technology">
+                    <i class="iconfont-technology"></i>
+                    <h3>科技</h3>
+                    <p>了解深圳高新产业</p>
+                    <a href="#">点击进入</a>
+                </li>
+                <li class="attractions">
+                    <i class="iconfont-attractions"></i>
+                    <h3>景点</h3>
+                    <p>了解深圳全部景点</p>
+                    <a href="#">点击进入</a>
+                </li>
+            </ul>
+        </div>
+        <div id="hot-attractions" class="layout">
+            <img src="http://imglf.nosdn.127.net/img/SFQrTE81cjlQL2plK3NVL3kwcHNpRTFZRDROVy9Veis3M2RGbCt0T1RtWVBwRU9WUklKVlp3PT0.jpg?imageView&thumbnail=1680x0&quality=96&stripmeta=0&type=jpg" alt="" />
+            <a href="#">热门景点推荐</a>
+        </div>
+        <div id="area" class="layout clearfix">
+            <h2>深圳区域特色</h2>
+            <hr/>
+            <div class="clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <a href="#"><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2plK3NVL3kwcHNpT1dXVjNGUm5ueFQ1bVR4WXhMUjV6VG1namlJcFozQWZBPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt="福田" /></a>
+                        <p>
+                            <a href="#">福田</a>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://imglf2.nosdn.127.net/img/SFQrTE81cjlQL2plK3NVL3kwcHNpSm13bzlpM29TR2hjVXd1dGFLYWVvekZublZxUUx1bllnPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt="南山" /></a>
+                        <p>
+                            <a href="#">南山</a>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://imglf1.nosdn.127.net/img/SFQrTE81cjlQL2plK3NVL3kwcHNpS3F5d1RpRVFTTmZ0SDZ2L1hGNm1hWm0xdE9mejI0VUFRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt="盐田" /></a>
+                        <p>
+                            <a href="#">盐田</a>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="http://imglf0.nosdn.127.net/img/SFQrTE81cjlQL2plK3NVL3kwcHNpS1lLU0VEUGVRYk1kcnBtVGdWeGlwMTZJdkNnc2Z4Sk5nPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" alt="罗湖" /></a>
+                        <p>
+                            <a href="#">罗湖</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <a class="clearfix" href="#">浏览更多</a>
+        </div>
+        <div id="submit" class="layout clearfix">
+            <h2>欢迎分享你的深圳印象！</h2>
+            <div class="clearfix">
+                <ul class="clearfix">
+                    <li class="writings"><a href="#">上传你的文章</a></li>
+                    <li class="information"><a href="#">留下联系方式</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer" class="layout">
+            <p>2016 holmewoo</br>ShanDong,WeiHai</p>
+        </div>
+    </body>
+</html>

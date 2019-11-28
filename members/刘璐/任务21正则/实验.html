@@ -1,0 +1,142 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script>-->
+<!--////=========================判断用户输入的是不是邮箱============================-->
+<!--//function isEmail(str) {-->
+<!--//    var reg = /^[A-Za-z0-9][\w\.\-]+@[A-Za-z0-9][\w\-]+\.[A-Za-z]{2,}$/;-->
+<!--//    console.log(reg.test(str));-->
+<!--//    return reg.test(str);-->
+<!--//}-->
+<!--//var str = "11148136@qq.com";-->
+<!--//isEmail(str);-->
+<!--//isEmail("18353136698@sina.com");-->
+<!--////===============================================-->
+<!--//function isphoneNum(str){-->
+<!--//    var reg = /^1[3578]\d{9}$/;-->
+<!--//    console.log(reg.test(str));-->
+<!--//    return reg.test(str);-->
+<!--//}-->
+<!--//isphoneNum("18353136698");-->
+<!--//isphoneNum("173531398");-->
+<!--////======================================================-->
+<!--//console.log("============================================");-->
+<!--//function isValidUsername(str){-->
+<!--//    var reg = /^[\w|_]{6,20}$/;-->
+<!--//    console.log(reg.test(str));-->
+<!--//    return  reg.test(str);-->
+<!--//}-->
+<!--//isValidUsername("12345_");-->
+<!--//isValidUsername("12345");-->
+<!--//isValidUsername("abcdefghijklmnopqrstu");-->
+<!--//isValidUsername("abcdefghijklmnopqrst");-->
+<!--//    //===============================================-->
+<!--//    console.log("=========================")-->
+<!--//function isValidPassword(str){-->
+<!--//    var reg = /^[\w|_]{6,20}$/;-->
+<!--//    var i = 0;-->
+<!--//    if(reg.test(str)){-->
+<!--//        if(/\d/.test(str))i++;-->
+<!--//        if(/[A-Z]/.test(str))i++;-->
+<!--//        if(/[a-z]/.test(str))i++;-->
+<!--//        if(/_/.test(str))i++;-->
+<!--//        if(i>1){-->
+<!--//            return true;-->
+<!--//        }else{return false;}-->
+<!--//    }else{return false;}-->
+<!--//}-->
+<!--//console.log(isValidPassword("12345_"));-->
+<!--//console.log(isValidPassword("12345"));-->
+<!--//console.log(isValidPassword("1234445"));-->
+<!--//console.log(isValidPassword("1bcdefghijklmnopqrst"));-->
+<!--//console.log(isValidPassword("Abcdefghijk12opqrst"));-->
+<!--//console.log(isValidPassword("1Abcdefghijklmnopqrst"));-->
+<!--//    //==========================================-->
+<!--//var re = /#[0-9a-fA-F]{6}/g;-->
+<!--//-->
+<!--//var subj = "color: #121212; background-color: #AA00ef; width: 12px; bad-colors: f#fddee #fd2 "-->
+<!--//-->
+<!--//alert( subj.match(re) );  // #121212,#AA00ef-->
+    <!--//================================================-->
+<!--//str = '.. &lt;!&ndash; My -- comment \n test &ndash;&gt; ..  &lt;!&ndash;&ndash;&gt; .. ';-->
+<!--//var re = /<[\s\S]+?>/g;-->
+<!--//console.log(str.match(re)); // '&lt;!&ndash; My -- comment \n test &ndash;&gt;', '&lt;!&ndash;&ndash;&gt;'-->
+<!--//var reg =/<[\w\s!-]+>/g;-->
+<!--//console.log(str.match(reg));-->
+    <!--//==============================================-->
+
+<!--//var reg =/<[\w\s!]+>/g;-->
+<!--//### 使用实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)，使用正则-->
+<!--////提示: el为dom元素，cls为操作的class， el.className获取el元素的class-->
+<!--function addClass(el,cls){-->
+    <!--var reg = new RegExp('(\s|^)'+cls+'(\s|$)');-->
+    <!--if(!reg.test(el.className)){-->
+        <!--el.className+=" cls";-->
+        <!--return el.className;-->
+    <!--}-->
+<!--}-->
+<!--function hasClass(el,cls){-->
+    <!--var reg = new RegExp('(\s|^) + cls + (\s|$)');-->
+    <!--return reg.test(el.className)-->
+<!--}-->
+<!--function removeClass(el, cls) {-->
+    <!--var reg = new RegExp('(\s|^)'+cls+'(\s|$)');-->
+    <!--tmp = node.className.replace(reg, '').replace(/\s{2,}/g, ' ');-->
+    <!--//把两个以上的空格替换为一个空格-->
+    <!--el.className = trim(tmp);-->
+<!--}-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <style>
+        .ct{
+            background: pink;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input id="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+    var ct = document.querySelector('.ct'),
+            addStartBtn = document.querySelector('#btn-add-start'),
+            addEndBtn = document.querySelector('#btn-add-end'),
+            ipt = document.querySelector('#ipt-add-content');
+
+//    ct.addEventListener('click', function(e){
+//        if(e.target.tagName.toLowerCase() === 'li'){
+//            console.log(e.target.innerText);
+//        }
+//    });
+
+    addEndBtn.addEventListener('click', function(){
+        var li = document.createElement('li');
+        li.innerText = ipt.value;
+        ct.appendChild(li);
+    });
+
+    addStartBtn.addEventListener('click', function(){
+        var li = document.createElement('li');
+        li.innerText = ipt.value;
+        ct.insertBefore(li,ct.firstChild);
+    });
+</script>
+
+</body>
+</html>

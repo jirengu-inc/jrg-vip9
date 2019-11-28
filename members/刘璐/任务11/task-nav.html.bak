@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>nav</title>
+    <link href="nav.css" rel="stylesheet"/>
+</head>
+<body>
+<ul class="nav clear">
+    <li>
+        <a href="#">前端</a>
+        <ul class="child">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JAVASCRIPT</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">服务端</a>
+        <ul class="child">
+            <li><a href="#">NODE</a></li>
+            <li><a href="#">PHP</a></li>
+            <li><a href="#">JAVA</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">前端工具</a>
+        <ul class="child">
+            <li><a href="#">sublime</a></li>
+            <li><a href="#">WebStrom</a></li>
+            <li><a href="#">Git</a></li>
+        </ul>
+    </li>
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">NODE</a></li>
+</ul>
+</body>
+</html>

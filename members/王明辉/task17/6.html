@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 如下代码的输出？为什么 （难度***）
+    function fn(fn2){
+        // 参数 fn2 = 10;
+        var fn2;
+        function fn2(){
+            console.log('fnnn2');
+        }
+
+
+        console.log(fn2); // function fn2(){console.log('fnnn2');}
+        fn2 = 3;
+        console.log(fn2); // 3
+        console.log(fn);  // 函数fn
+
+    }
+
+    fn(10);
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+<script>
+    // 3. 写一个函数isEmail(str)，判断用户输入的是不是邮箱
+
+    function isEmail(str){
+        var re = /^[\w-]+@((\w+)\.)+[a-z]{2,4}$/i;
+
+        return re.test(str);
+    }
+
+    console.log(isEmail('4068@qq.com'));
+
+    // 4. 写一个函数isPhoneNum(str)，判断用户输入的是不是手机号
+    function isPhoneNum(str){
+        var re = /^1[34578]\d{9}$/;
+        return re.test(str);
+    }
+
+    // 5. 写一个函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）
+    function isValidUsername(str){
+        var re = /^\w{6,20}$/;
+        return re.test(str);
+    }
+
+    // 6. 写一个函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）
+    function isValidPassword(str){
+        var count = 0;
+
+        if(/[^\w]/g.test(str) || str.length < 6 || str.length > 20) return '规则不符';
+
+        if(str.length >= 6 && str.length <= 20) count++;
+        if(/[A-Z]/g.test(str)) count++;
+        if(/[a-z]/g.test(str)) count++;
+        if(/[0-9]/g.test(str)) count++;
+        if(/_/g.test(str)) count++;
+
+        if(count>=2){
+            return true;
+        }else{
+            return '至少2种';
+        }
+    }
+</script>
+</body>
+</html>

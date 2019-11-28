@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task30-waterfall</title>
+    <style>
+        ul,li{
+            margin:0;
+            padding: 0;
+        }
+        .waterfall-ct{
+            position:relative;
+            outline:1px solid red
+        }
+        .waterfall-ct .item{
+            width: 200px;
+            list-style: none;
+            position: absolute;
+            margin-right:10px;
+            margin-bottom:10px;
+        }
+        .h1{
+            height: 200px;
+            background: rgb(244,179,0);
+        }
+        .h2{
+            height:400px;
+            background: #09a;
+        }
+        .h3{
+            height: 300px;
+            background: #0a4;
+        }
+    </style>
+</head>
+<body>
+    <ul class="waterfall-ct">
+        <li class="item h1">1</li>
+        <li class="item h2">2</li>
+        <li class="item h1">3</li>
+        <li class="item h3">4</li>
+        <li class="item h1">5</li>
+        <li class="item h2">6</li>
+        <li class="item h2">7</li>
+        <li class="item h1">8</li>
+        <li class="item h3">9</li>
+        <li class="item h2">10</li>
+        <li class="item h3">11</li>
+        <li class="item h1">12</li>
+        <li class="item h3">13</li>
+        <li class="item h2">14</li>
+    </ul>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        var waterfall = (function () {
+            function render(ct) {
+                var $ct = $(ct),
+                $items = $('.item'),
+                $widthItem = $items.outerWidth(true),
+                $widthCt = $ct.width(),
+                $col = parseInt($widthCt / $widthItem),
+                $arrItem = []
+                ;(function () {
+                    for (var i = 0;i < $col;i++) {
+                        $arrItem.push(0)
+                    }
+                })()
+                function getMin(arr) {
+                    var min = arr[0],idx = 0
+                    for (var i = 0;i < $col;i++) {
+                        if(arr[i] < min) {
+                            min = arr[i]
+                            idx = i
+                        }
+                    }
+                    return {'min':min,'idx':idx}
+                }
+                function placeItems() {
+                    for (var i = 0;i < $items.length;i++) {
+                        var objMin = getMin($arrItem)
+                        var placeX = objMin.idx * $widthItem,
+                            placeY = objMin.min
+                        $items.eq(i).css({top:placeY,left:placeX})
+                        $arrItem[getMin($arrItem).idx] += $items.eq(i).outerHeight(true)
+                    }
+                }
+                placeItems()
+            }
+            
+        $(window).on('resize',function() {
+            render('.waterfall-ct')
+        })
+        
+        return {init:render}
+        })()
+        
+        waterfall.init('.waterfall-ct')
+    </script>
+</body>
+</html>

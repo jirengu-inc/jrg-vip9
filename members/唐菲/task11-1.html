@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>下拉菜单</title>
+ <style type="text/css">
+*{margin: 0;padding: 0;list-style: none;font-family: "Microsoft Yahei"}
+p{margin:100px;}
+nav{font-size:0;margin: 50px;}
+a{text-decoration: none;color: black;}
+.nav1>ul{display: inline-block;vertical-align:top;background:#ccc;font-size:16px; width: 80px;text-align: center;height: 25px;line-height: 25px;white-space:nowrap;}
+.nav1>ul:hover {background: #aaaaaa;}
+.nav1>ul:hover>li{border: 1px solid #ccc;text-indent:3px;}
+.nav1>ul:hover ul{display:block;background: white;}
+.nav1>ul>li>ul{display: none;}
+.nav1>ul>li>ul>li:hover{background: #ccc;}
+.menu1 {width: 90px;text-align: left;}
+.menu2 {width: 56px;}
+.menu3 {width: 92px;text-align: left;}
+
+.nav2{margin-top:100px; }
+.nav2>ul{font-size: 16px;background:#ccc;display: inline-block;vertical-align: top;text-align: center;height: 25px;line-height: 25px;width: 70px;white-space:nowrap;}
+.nav2>ul:hover{background: #aaaaaa ;}
+.nav2>ul>li{display: none;text-align: left;border: 1px solid #ccc;text-indent:2px;}
+.nav2>ul>li>span{display:block;height: 25px;line-height: 25px; }
+.nav2>ul>li>span:hover{background: #ccc;}
+.nav2>ul:hover li{display:table;}
+.fix:hover{display: block;background: red;}
+.nav2>ul>li>span{display:block;height: 25px;line-height: 25px; }
+
+
+
+
+
+ </style> 
+</head>
+<body>
+<nav class="nav1">
+  <ul><a href="javascript:">前端</a>
+    <li class="menu1">
+     <ul ><li><a href="javascript:">JavaScript超出了没用</a></li></ul>   
+     <ul><li><a href="javascript:">CSS</a></li></ul>
+     <ul><li><a href="javascript:">HTML</a></li></ul>
+    </li>
+  </ul>
+ <ul><a href="javascript:">服务端</a>
+    <li class="menu2">
+     <ul><li><a href="javascript:">NODE</a></li></ul>   
+     <ul><li><a href="javascript:">PHP</a></li></ul>
+     <ul><li><a href="javascript:">JAVA</a></li></ul>
+    </li>
+  </ul>
+   <ul><a href="javascript:">前端工具</a>
+    <li class="menu3">
+     <ul><li><a href="javascript:">Sublime</a></li></ul>   
+     <ul><li><a href="javascript:">WebStrom</a></li></ul>
+     <ul><li><a href="javascript:">Git</a></li></ul>
+    </li>
+  </ul>
+
+ <ul><a href="javascript:">HTML</a></ul>
+
+ <ul><a href="javascript:">NODE</a></ul>
+</nav>
+
+<p>二级菜单宽度写死或者和一级菜单等宽</p>
+
+
+
+<nav class="nav2">
+	<ul><a href="javascript:">前端</a>
+		<li>
+			<span><a href="javascript:">JavaScript超出了自适应</a></span>
+			<span><a href="javascript:">CSS</a></span>
+			<span><a href="javascript:">HTML</a></span>
+		</li>
+		</li>
+	</ul>	
+
+	<ul><a href="javascript:">服务端</a>
+		<li>
+			<span><a href="javascript:">NODE</a></span>
+			<span class="fix"><a href="javascript:">PHP</a></span>
+			<span><a href="javascript:">HTML</a></span>
+		</li>
+		</li>
+	</ul>
+
+	<ul><a href="javascript:">前端工具</a>
+		<li>
+			<span><a href="javascript:">Sublime</a></span>
+			<span><a href="javascript:">WebStrom</a></span>
+			<span><a href="javascript:">Git</a></span>
+		</li>
+		</li>
+	</ul>
+
+	 <ul><a href="javascript:">HTML</a></ul>
+
+ <ul><a href="javascript:">NODE</a></ul>   
+</nav>
+<p>二级菜单宽度自适应</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

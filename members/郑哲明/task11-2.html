@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task11-2</title>
+	<style>
+		#header{
+			height: 40px;
+			background: red;
+		}
+		.aside{
+			width: 25%;
+			height: 20px;
+			float: left;
+			background: silver;
+		}
+		.main{
+			overflow: auto;			/*触发BFC*/
+			max-height: 100px;
+			background: pink;
+		}
+		#footer{
+			height: 40px;
+			background: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="header">header</div>
+    <div id="content">
+        <div class="aside">aside</div>
+        <div class="main">
+            我是main 
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main... 
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>

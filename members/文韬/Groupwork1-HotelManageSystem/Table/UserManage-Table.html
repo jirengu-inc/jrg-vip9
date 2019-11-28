@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用户管理</title>
+  <style>
+
+  table,
+  td,
+  th {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      vertical-align: middle;
+      text-align: center;
+  }
+
+  th {
+      background-color: #0fb8ad;
+      font-weight: bold;
+      width: 140px;
+      height:30px;
+      cursor: default;
+  }
+
+  td {
+      background-color: white;
+      width: 200px;//单元格宽度，有些需要修改
+      height:30px;//单元格高度，有些需要修改
+      cursor: default;
+  }
+
+  .content_rightbox_table table{
+      position: relative;
+  }
+  .del{
+    cursor: pointer;
+  }
+  .del:hover{
+    color: red;
+    text-decoration:underline;
+
+  }
+
+</style>
+</head>
+<body>
+  <div class="content_rightbox_table">
+    <form id="form1" runat="sever">
+    <table>
+      <tr>
+          <th>编号</th>
+          <th>用户名</th>
+          <th>密码</th>
+          <th>权限</th>
+
+          <th>备注</th>
+          <th>操作</th>
+      </tr>
+      <tr>
+          <td>PD-1</td>
+          <td>文韬</td>
+          <td>wentao123</td>
+          <td>最高</td>
+          <td>无</td>
+          <td>
+            <span class="del">删除</span>
+          </td>
+      </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
